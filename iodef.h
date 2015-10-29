@@ -1,7 +1,7 @@
 
 
 
-#include  "..\..\system_com\memory_map.h"
+#include  "apl_memory_map.h"
 #include  "iomap.h"
 #include  "COM.h"
 

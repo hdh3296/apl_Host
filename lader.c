@@ -1,6 +1,6 @@
 
 #include <p30fxxxx.h>
-#include  "..\..\system_com\memory_map.h"
+#include  "apl_memory_map.h"
 
 #include  "30f6010_io.h"            
 #include  "host_io.h"            

@@ -7,7 +7,7 @@
 #include    "iodef.h"
 #include    "door.h"
 #include    "default_setup.h"
-#include    "..\..\system_com\memory_map.h"
+#include  	"apl_memory_map.h"
 
 
 
