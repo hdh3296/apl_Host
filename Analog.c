@@ -418,7 +418,7 @@ void _ISR_X _ADCInterrupt(void)
 	pt = (unsigned int *)(&ADCBUF0);
 
 
-	if( (LuLdTime >= 10) && (!bBlinck)){
+	if( (LuLdTime >= 50) && (!bBlinck)){
 		if(AvrCnt < AVR_COUNTER){
 			for(i=0;i<14;i++){
 				Analog_Data[AvrCnt][i]= *(pt +i);		
