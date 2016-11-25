@@ -604,6 +604,8 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 
 	if(bBlinck)	return(0);
 
+	if(WarmingUpTime < 50) return(0); 
+
 /////////////////////////////////////////////////////////////////
 
 
