@@ -1413,7 +1413,6 @@ extern	UserDataType    CommonExtraRam[10];
 /////////////
 
 
-
 extern  unsigned	int    	    NextFloorTime;
 extern  unsigned	int     	MinuteTime;
 extern  unsigned	int   	    LuLdTime;

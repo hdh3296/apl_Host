@@ -321,7 +321,6 @@ void    __attribute__((section(".usercode"))) Can2Init(void)
 
     youCAN2SetFilter(0,C2TmpSid,C2TmdEidH,C2TmdEidL);
     youCAN2SetFilter(1,C2TmpSid,C2TmdEidH,0x2000);
-//    youCAN2SetFilter(1,0x0,0x0,0x0);
     youCAN2SetFilter(2,0x0,0x0,0x0);
     youCAN2SetFilter(3,0x0,0x0,0x0);
     youCAN2SetFilter(4,0x0,0x0,0x0);
@@ -333,6 +332,7 @@ void    __attribute__((section(".usercode"))) Can2Init(void)
     youCAN2SetMask(2,0xffff,0xffff,0xffff);
     youCAN2SetMask(1,0x07ff,0x0003,0xc000);
     youCAN2SetMask(0,0x07ff,0x0003,0xc000);
+
  
     IPC9bits.C2IP=4;
 
@@ -592,23 +592,6 @@ LocalType __attribute__((section(".usercode"))) Can2Check(void)
 				break;
 			}
 		}
-
-
-/*
-////////////sync time////////////////////
-		if(Can2TxThisPt==8){
-			if((MyLocalAddr==0) && (MyGroupAddr==0)){ 
-				if(LuLdTime < 250){
-					CAN_Buf[5]= (unsigned char)(LuLdTime);
-				}
-				else{
-					CAN_Buf[5]= 0xff;
-				}
-			}
-		}
-////////////sync time////////////////////
-*/
-
 	
 		tmpeidl=C2TmdEidL;
 
@@ -950,14 +933,9 @@ void _ISR_X _C2Interrupt(void)
 
     if(C2INTFbits.RX0IF){        
 		Can2GetRxSidEidDlc();
-/*
-		if(Can2RxEid & I_AM_MASTER){
-			OtherWork();
-		}
-		else
-*/ 
 		if( (Can2RxLocalAddr == MyLocalAddr) && (Can2RxGroupAddr == MyGroupAddr)){ 
 			Can2ReceiveDataSave();
+//			OtherWork();
 		}
       	else{
 			OtherWork();

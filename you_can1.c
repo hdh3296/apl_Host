@@ -706,20 +706,12 @@ void    __attribute__((section(".usercode")))  PcCommandMe(void)
 	}
 }
 
-
+*/
 
 
 void    __attribute__((section(".usercode")))  Can1ReceiveSIDEIDArrary(void)
 {
     unsigned int  tmpid1,tmpid2;
-
-
-#ifndef	MAX_EIGHT_CAR
-    C1ReceiveMaterAdr       =(C1RX0EID >> 8) & 0x0003;
-#else
-    C1ReceiveMaterAdr       =(C1RX0EID >> 8) & 0x0007;
-#endif
-
 
     if(C1RX0EID & 0x80){
         C1ReceiveAdrStatus=MASTER_TX_SLAVE;
@@ -732,13 +724,77 @@ void    __attribute__((section(".usercode")))  Can1ReceiveSIDEIDArrary(void)
     }
 }
 
-*/
+
+unsigned int    __attribute__((section(".usercode")))  TimeHexToBcd(unsigned int value)
+{
+	unsigned int tmpvalue1,tmpvalue2;
+	tmpvalue1= ((value/10) << 4);
+	tmpvalue2= ((value%10));
+	return( (tmpvalue1 | tmpvalue2));
+}
+
+
+unsigned int    __attribute__((section(".usercode")))  GpsTimeRead(void)
+{
+	unsigned int GpsData[8],ResetTime;
+
+	ResetTime=0;
+
+    GpsData[0] =(UserDataType)(C1RX0B1 & 0x00ff);			 //cmd
+    GpsData[1] =(UserDataType)((C1RX0B1 >> 8) & 0x00ff);     //year
+    GpsData[2] =(UserDataType)(C1RX0B2 & 0x00ff);            //month
+    GpsData[3] =(UserDataType)((C1RX0B2 >> 8) & 0x00ff);     //day
+    GpsData[4] =(UserDataType)(C1RX0B3 & 0x00ff);            //week
+    GpsData[5] =(UserDataType)((C1RX0B3 >> 8) & 0x00ff);     //hour
+    GpsData[6] =(UserDataType)(C1RX0B4 & 0x00ff);            //min
+    GpsData[7] =(UserDataType)((C1RX0B4 >> 8) & 0x00ff);     //sec
+
+	if(GpsData[0] != 0)	return(0);
+	
+
+	GpsData[1]=TimeHexToBcd(GpsData[1]);
+	if(GpsData[1] != sRamDArry[mYear])		ResetTime=1;
+
+	GpsData[2]=TimeHexToBcd(GpsData[2]);
+	if(GpsData[2] != sRamDArry[mMonth])		ResetTime=1;
+
+	GpsData[3]=TimeHexToBcd(GpsData[3]);
+	if(GpsData[3] != sRamDArry[mDay])		ResetTime=1;
+
+	GpsData[5]=TimeHexToBcd(GpsData[5]);
+	if(GpsData[5] != sRamDArry[mHour])		ResetTime=1;
+
+	GpsData[6]=TimeHexToBcd(GpsData[6]);
+	if( !(GpsData[6]%10))					ResetTime=1;
+
+	GpsData[7]=TimeHexToBcd(GpsData[7]);
+//	if(GpsData[7] != sRamDArry[msec])	ResetTime=1;
+	LuLdTime=GpsData[7];
+
+
+	sRamDArry[mYear]	=GpsData[1];
+	sRamDArry[mMonth]	=GpsData[2];
+	sRamDArry[mDay]		=GpsData[3];
+	sRamDArry[mHour]	=GpsData[5];
+	sRamDArry[mMinuate]	=GpsData[6];
+	sRamDArry[msec]		=GpsData[7];
+
+	if(ResetTime){
+		Initialize_DS1302();
+	}					
+	return(0);
+}
 
 
 void  _ISR_X _C1Interrupt(void)
 {
 
     if(C1INTFbits.RX0IF){
+        Can1ReceiveSIDEIDArrary();
+		if( (C1ReceiveSlaveAdr==0) && (C1ReceiveAdrStatus==SLAVE_TX_MASTER)){
+			GpsTimeRead();
+		}
+
 
 /*
         Can1ReceiveSIDEIDArrary();
@@ -1006,6 +1062,7 @@ void  __attribute__((section(".usercode")))  Can1Init(void)
     youCAN1SetMask(5,0xffff,0xffff,0xffff);
     youCAN1SetMask(4,0xffff,0xffff,0xffff);
     youCAN1SetMask(3,0xffff,0xffff,0xffff);
+    youCAN1SetMask(2,0xffff,0xffff,0xffff);
     youCAN1SetMask(1,0xffff,0xffff,0xffff);
     youCAN1SetMask(0,sid,0x0,0x0);
 //    youCAN1SetMask(0,0,0x0,0x0);

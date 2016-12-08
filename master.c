@@ -167,7 +167,6 @@ UserDataType    NotRecoveryData;
 
 UserDataType    ReLevelAnounceTime;     
 
-
 unsigned	int    	    NextFloorTime=0;
 unsigned	int     	MinuteTime=0;
 unsigned	int   	    LuLdTime=0;
@@ -209,14 +208,11 @@ UserDataType    StateBit4=0;
 UserDataType    StateBit5=0;   
 UserDataType    StateBit6=0;   
 UserDataType    Vip_Floor=0;   
-
-
 UserDataType    S0_STATE_bit=0;
 UserDataType    S1_STATE_bit=0;
 UserDataType    S2_STATE_bit=0;
 UserDataType    S3_STATE_bit=0;
 UserDataType    S4_STATE_bit=0;
-
 UserDataType    I_SU1_bit=0;
 UserDataType    I_EMG_bit=0;
 UserDataType    I_GR_bit=0;
@@ -241,18 +237,14 @@ UserDataType    CarBdButtonFlr=0;
 //UserDataType    MyNc_Addr;
 //UserDataType    MyLowDip;
 
-
-
 UserDataType    SegData0;
 UserDataType    SegData1;
 UserDataType    SegData2;
 UserDataType    SegSel;
 UserDataType    LadderTime;
-
 UserDataType    SegError;
 UserDataType    ClrCnt=0;
 UserDataType    SaveVerify=0;
-
 UserDataType	lu_ld_state;
 UserDataType	bef_lu_ld_state;
 UserDataType	DoorJumperNm;
@@ -268,7 +260,6 @@ UserDataType    GrByte;
 UserDataType    FireByte;
 UserDataType    Fs_Byte;
 UserDataType    X0Byte;
-
 UserDataType    BefEmgByte;
 UserDataType    BefSu1Byte;
 UserDataType    BefGrByte;
@@ -286,7 +277,6 @@ UserDataType    DbTime;
 UserDataType    OlsTime;
 UserDataType    GsTime;
 UserDataType    DsTime;
-
 UserDataType    Su1Time;
 UserDataType    Sd1Time;
 UserDataType    SftTime;
@@ -3221,69 +3211,6 @@ void __attribute__((section(".usercode")))  BatCheck(void)
 
 
 
-unsigned int  __attribute__((section(".usercode")))   ReLevelCheck(void)
-{
-
-    if(RelevelTime > RELEVEL_TIME){
-		bRelevelErr=1;
-	}
-
-    if( (IN_LU && IN_LD)  && bLevelFind){
-		bRelevelErr=1;
-        bCarErr=1;   
-        bCarStopNoRun=1;
-	}
-
-    if(bManualAuto)								bLevelFind=0;
-    if(IN_LU && IN_LD)  						bLevelFind=0;
-
-
-	if(bRelevelErr==0){
-		if(RelevelUseChk == 0){
-			bLevelFind=0;	
-			return(0);
-		}
-	
-		if(S1_OVERLOAD1){
-			bLevelFind=0;
-			return(0);
-		}
-	}
-
-
-    if(bAuto && !bManualStop && RelevelUseChk && !bOnLuLd && bOneLuOrLd ){
-        if((sRamDArry[mDoorSeq] < READY_ELEVATOR)){ 
-            if( bOneLuOrLd  && (RelevelTime < RELEVEL_TIME) ){
-                if(bManualAuto){
-			        LuLdTime=0;
-					bFirstOnLuLd=0;
-                    CarOnceStopTime = 31;
-                    bManualAuto=0;
-                    bLevelFind=1;
-                    bDoorCloseOk=1;             
-
-                  	if(!IN_LU && IN_LD)         bHomeUpDn = 1;
-                  	else if(IN_LU && !IN_LD)    bHomeUpDn = 0;
-                }
-            }
-            else{
-                bRelevelErr=1;
-            }
-        }
-    }
-
-
-
-    if(bRelevelErr){
-        bLevelFind=0;
-    	bMoveOk=0;
-    	bMoveUpOk=0;
-    	bMoveDnOk=0;
-		bCarStopNoRun=1;  				         
-		bNewRelevel=0;		         		
-		ReLevelAnounceTime=0;
-    }        
-}
 
 
 void __attribute__((section(".usercode")))  InputCheck(void)
@@ -4227,46 +4154,6 @@ void __attribute__((section(".usercode")))  PositionOkChk(void)
 
 //////
 
-unsigned int  __attribute__((section(".usercode")))  StopPulseCheck(void)
-{
-
-#ifdef	TEST_SIMULATION
-	return(0);
-
-#else
-	unsigned int ZeroHzSet;
-
-	LuLdTime=0;
-	ZeroHzSet=0;
-
-	if(bOnLuLd){
-		ReadEncoder();
-
-		TestPulse1= (unsigned long)iF_StopPulse;
-
-
-		if(bCarUpMove){
-			if(CurPulse >= ((LuLdEncoder + TestPulse1) - LevelEncoderPulse2))	ZeroHzSet=1;			
-		}
-		else if(bCarDnMove){
-			if(CurPulse <= ((LuLdEncoder - TestPulse1) + LevelEncoderPulse2))	ZeroHzSet=1;			
-		}
-
-
-
-		if(ZeroHzSet==1){			
-            ZeroSpeedCmd_IO();
-			LuLdTime = iF_RunOffTime;
-		  	sRamDArry[mCarMoveState]=0;
-			LevelEncoderPulse1=CurPulse;
-			return(0);
-		}
-	}	
-	return(1);
-
-#endif
-}
-
 
 void __attribute__((section(".usercode")))  DoorOpenCloseSeq(void)
 {			  
@@ -4522,343 +4409,6 @@ void __attribute__((section(".usercode")))  DoorOpenCloseSeq(void)
 
 
 
-void __attribute__((section(".usercode")))  DoorOpClSystem(void)
-{
-	unsigned long tmp_p;
-	unsigned long tmp_p2;
-//	unsigned int  HomeWard;
-
-    if(bUnd && bDac){
-        if((VoiceTime > cF_DIRTIME) &&  (sRamDArry[mDoorSeq] >= WAIT_NEXT_LULD)){
-            if(cF_DIRTIME>0){
-                CallMeUpDnDirectionSet();                                                                           
-            }
-        }
-    }                
-                                                                           
-    HighLowCallClear();
-    UpDnDirectionSet();
-    
-    if(sRamDArry[mDoorSeq] <= READY_ELEVATOR){
-        UpDnCallClear();           
-		AutoDoorSystem();   
-    }
-    
-                     
-	switch(sRamDArry[mDoorSeq]){
-
-		case  READY_ELEVATOR:		
-
-
-            UpDnStopCmd();
-
-			sRamDArry[mDoor] =( sRamDArry[mDoor] & ~UPDN_CAR_READY);
-
-            sRamDArry[mReqStopFloor]  = sRamDArry[mcurfloor];
-        
-            S2_FLOW1=0;
-
-        	if(OilLopeTypeChk)	bsLuLdNoOff=0;
-
-            bCarUpDnChButClr=0;
-
-            CloseOutOffTime=200;
-
-			PositionOkChk();
-			
-////////////////////////////////////////////// SelectDoorClose_you();   //5                         	            		
-
-			if(!bDoorCloseOk){
-                if(IN_FR1 || IN_FR2){
-    				sRamDArry[mDoorSeq]=DOOR_CLOSE_START;         
-    				DoorCloseTime=0;               
-                }
-			}
-			else{
-                CurDoorSelect=0;
-				if((sRamDArry[mNewAckStopFloor] & UPDN_CAR_READY) && ((sRamDArry[mNewAckStopFloor] & ONLY_FLR) != sRamDArry[mcurfloor])){					
-					sRamDArry[mAckStopFloor] = sRamDArry[mNewAckStopFloor];
-                    if(!SpeedSet()){
-    					sRamDArry[DEST_FLR] = sRamDArry[mNewAckStopFloor];
-        				OriginalHighFlr     = sRamDArry[mHighFloor];
-        				OriginalLowFlr      = sRamDArry[mLowFloor];
-	    				sRamDArry[mNewAckStopFloor]=0; 
-		    			sRamDArry[mCarMoveState]=0;
-			    		NextFloorTime=0;                
-				    	bSlipCheckStart=0;
-						bPowerChkStart=1;
-    					bSetSpeedOn=0;
-                        S3_UPDN_VO1=1; 	
-                        sRamDArry[mReqStopFloor]  = sRamDArry[mcurfloor];
-	    				sRamDArry[mDoorSeq]=MOVE_ELEVATOR;
-                    }
-                    else{
-    					sRamDArry[mAckStopFloor] = sRamDArry[mNewAckStopFloor] = 0;
-                        sRamDArry[mHighFloor]    = sRamDArry[mLowFloor]        = 0;   
-                    }
-				}               
-				else{
-					FixFloorStartCheck();
-					LoadCmdStartCheck();
-				}
-
-				if(sRamDArry[mSysStatus] >= sREADY)   sRamDArry[mSysStatus]=sREADY;                              
-			}            
-
-			if(!bOnLuLd){
-		        LuLdTime=0;
-				bFirstOnLuLd=0;
-
-                if( (!IN_LU || !IN_LD) && bDoorCloseOk){
-                    if(bManualAuto){
-                        bManualAuto=0;
-                        CarOnceStopTime=31;      
-
-                      	if(!IN_LU && IN_LD)         bHomeUpDn = 1;
-                      	else if(IN_LU && !IN_LD)    bHomeUpDn = 0;
-                    }
-                }
-                else{
-    				bCarErr=1;
-                }
-            }
-            break;                
-
-		case  MOVE_ELEVATOR:  
-
-			AutoUpDownStart();         
-            CounterTime=0;
- 			bReLoadEncoder=0;
-
-#ifdef  TEST_SIMULATION  
-            if(MotorMoveTime>10){
-                sRamDArry[mDoorSeq]=WAIT_NEXT_LULD;         
-                NextFloorTime=0;
-                LuLdTime=0;
-                bUpDnSet=0;
-            }			   
-            else  if(NextFloorTime>cF_LULDOFFTIME){
-                if(bOnLuLd)	    bCarErr=1;
-                else			bCarStopNoRun=1;         
-                bsLuLdNoOff=1;
-            }
-#else
-	    	if(IN_LU && IN_LD){
-				sRamDArry[mDoorSeq]=WAIT_NEXT_LULD;   
-			   	NextFloorTime=0;    
-                bUpDnSet=0;
-				LuLdTime=0;
-			}			   
-			else  if(NextFloorTime>cF_LULDOFFTIME){
-				if(bOnLuLd)	    bCarErr=1;
-				else			bCarStopNoRun=1;         
-
-        		if(!OilLopeTypeChk)         bCarStopNoRun=1;
-
-				bsLuLdNoOff=1;
-			}               
-#endif
-            break;                         
-         case  WAIT_NEXT_LULD:
-                if(bCarUpMove) if(sRamDArry[mSysStatus] > sUP)   sRamDArry[mSysStatus]=sUP;      
-                if(bCarDnMove) if(sRamDArry[mSysStatus] > sDN)   sRamDArry[mSysStatus]=sDN;      
-
-
-    			if(((sRamDArry[mReqStopFloor] & ONLY_FLR) == (sRamDArry[mAckStopFloor] & ONLY_FLR))  && (sRamDArry[mReqStopFloor] & CAR_READY)){
-
-    				if(INVERTER_CHECK == LG){
-					    OUT_DAC(1);
-					}
-                    bDac=1; 
-
-
-
-#ifdef  TEST_SIMULATION  
-	if(bDac && !bUnd){
-		LuLdTime=0;
-        CarLowSpeedCmd_IO();
-	}
-#endif    
-
-
-
-#ifdef  TEST_SIMULATION                  
-            		if(bUnd && (LuLdTime > iF_RunOffTime)){
-    	       	        sRamDArry[mDoorSeq]=STOP_ELEVATOR;
-         	  	      	sRamDArry[mCarMoveState]=0;
-						LuLdTime=0;
-    				}
-#else
-
-
-					RunningOpenAction();
-
-    				if(INVERTER_CHECK == IO){
-	 					if( ((sRamDArry[mcurfloor] & ONLY_FLR) == (sRamDArry[mAckStopFloor] & ONLY_FLR)) && bUnd){
-							if(bOnLuLd){
-								if( !StopPulseCheck()){
-			    					sRamDArry[mDoorSeq]=STOP_ELEVATOR;
-								}
-							}
-
-						}
-					}
-					else{
-	 					if((sRamDArry[mcurfloor] & ONLY_FLR) != (sRamDArry[mAckStopFloor] & ONLY_FLR))	LuLdTime =0;  //xx				
-	                                    
-	            		if(bUnd && (LuLdTime > iF_RunOffTime)){
-	    	       	        sRamDArry[mDoorSeq]=STOP_ELEVATOR;
-	         	  	      	sRamDArry[mCarMoveState]=0;
-	    				}
-					}
-
-
-                    if(!bUnd){
-        				NewFloorLoad();
-    			        if((sRamDArry[mReqStopFloor] & ONLY_FLR) != (sRamDArry[mAckStopFloor] & ONLY_FLR)){
-
-		    				if(INVERTER_CHECK == LG){
-							    OUT_DAC(0);
-							}
-                            bDac=0;
-                        }
-                    }
-
-#endif    
-
-    			}
-    			else if(bUnd){
-					bsLuOrLdErr=0;
-					LuLdErrNm=0;
-
-                    if(!(sRamDArry[mAckStopFloor] & UPDN_CAR_READY)){
-    				    sRamDArry[mAckStopFloor] = ((sRamDArry[mReqStopFloor] & ONLY_FLR) | CAR_READY);				
-    				}
-
-
-    				if(INVERTER_CHECK == LG){
-					    OUT_DAC(1);
-					}
-
-                    bDac=1;		
-
-    			}			
-                else{			       
-					bsLuOrLdErr=0;
-					LuLdErrNm=0;
-
-
-    				if(INVERTER_CHECK == LG){
-					    OUT_DAC(0);
-					}
-
-                    bDac=0;
-		
-
-
-	    			if(IN_LU && IN_LD)	bReLoadEncoder=0;
-					else if(bOnLuLd && !bReLoadEncoder){
-			        	if(INVERTER_CHECK == IO){
-							EncoderReloadTime=0;
-							tmp_p=(unsigned long)iF_StopPulse;
-
-							tmp_p2=(unsigned long)FLOOR_COUNT(sRamDArry[mcurfloor]);
-
-							if(bCarUpMove)	CurPulse=(tmp_p2 - tmp_p);
-							if(bCarDnMove)	CurPulse=(tmp_p2 + tmp_p);
-
-						}
-						bReLoadEncoder=1;
-					}
-
-    				NewFloorLoad();                  
-    			}	
-
-        		if(bUnd && (LuLdTime==0)){				
-                    UpDnCallClear();  
-                }
-
-               break;                         
-         	case  STOP_ELEVATOR:
-
-				RunningOpenAction();            			
-
-				ReadEncoder();
-			    CarStopCmd();
-
-				if(!bOnLuLd){
-					bCarErr=1;	
-				}	
-
-                if(!bMoveCar){
-            		sRamDArry[mCarMoveState]=0;
-
-					if(CurPulse > LevelEncoderPulse1)	LevelEncoderPulse2=(unsigned int)(CurPulse - LevelEncoderPulse1);
-					else							    LevelEncoderPulse2=(unsigned int)(LevelEncoderPulse1 - CurPulse);
-
-
-                    bVoiceReady=0;   
-                    OpenKeyCheck();
-
-
-                    bDac=0;
-
-				    DoorOpenTime = 0;
-
-	    				if(bUpWard && !(sRamDArry[mHighFloor] & UPDN_CAR_READY)){
-	    				    bCarUpDnChButClr=1;	
-	    			    }   		 
-	    			    else if(bDnWard && !(sRamDArry[mLowFloor] & UPDN_CAR_READY)){
-	      					bCarUpDnChButClr=1;	
-	    			    }
-
-
-
-                    if(S2_FIRE1){
-                        KeyClr();
-                        ClrUpDnWard();       
-                        NextFloorTime=0;   
-                        DoorCloseTime=0;
-    				    bCarUpDnChButClr=0;
-	
-					}
-
-
-					if(!bRunningOpenOn && S2_FIRE1 && (sRamDArry[mcurfloor] != FireBaseFloor) && (sRamDArry[mFireSeq] == FIRE_START) ){	
-                        sRamDArry[mDoor]=0;
-                        sRamDArry[mDoorSeq] = READY_ELEVATOR;
-                   	}
-                   	else	if(!bRunningOpenOn && S2_FIRE1 && (sRamDArry[mFireSeq] == FIRE_TWO) ){
-                        sRamDArry[mDoor]=0;
-                        sRamDArry[mDoorSeq] = READY_ELEVATOR;
-                        sRamDArry[mFireSeq] = FIRE_THREE;
-                   	}
-                    else{
-						KidsKeyCheck();
-						sRamDArry[mDoorSeq] = DOOR_OPEN_START;
-
-						if(sRamDArry[mVFlrCnt] > 0){
-							if((sRamDArry[mVFlr1] == sRamDArry[S0_FLOOR]) || (sRamDArry[mVFlr2] == sRamDArry[S0_FLOOR])){
-
-								#ifndef  KTL  
-								sRamDArry[mVFlrCnt]--;
-								#endif
-
-								VirtualMoveCntReDsp();
-							}				
-						}
-					}
-
-                }
-                break;         
-             default:
-               if(sRamDArry[mDoorSeq] > STOP_ELEVATOR){      
-					bCarErr=1;
-                  sRamDArry[mDoorSeq] = DOOR_CLOSE_START;                    
-               }            
-               break;                
-   }
-}
 
 
 
@@ -4898,127 +4448,6 @@ unsigned int  __attribute__((section(".usercode"))) TestUpDn(void)
 
 
 
-void  __attribute__((section(".usercode"))) FindLuLdManual(void)
-{
-
-	LocalType NewStopChk;
-
-
-
-	NewStopChk=1;
-
-    if(IN_LU && IN_LD){
-		bOnceOpen=0;
-		bNotStopRelevel=0;
-	}
-	else	bNotStopRelevel=1;
-
-
-
-#ifndef  TEST_SIMULATION      
-	if(((sRamDArry[mcurfloor] == 0) && (IN_SD1)) || ((sRamDArry[mcurfloor] == cF_TOPFLR) && (IN_SU1))){
-		LuLdTime=0;
-		bFirstOnLuLd=0;
-		bNotStopRelevel=0;
-		NewStopChk=0;
-	}
-#endif
-
-
-
-    if( bFirstOnLuLd && bNotStopRelevel && ((LuLdTime >= iF_RunOffTime) || ( (bCarUpMove && IN_LU) || (bCarDnMove && IN_LD)))){
-
-#ifdef  TEST_SIMULATION      
-		if(bSearchHome){
-			sRamDArry[mCarMoveState]=0;
-			bSearchHome=0;
-		}
-		CarStopCmd();
-		bManualUpKey=0;
-		bManualDnKey=0;                  
-		
-		if(LuLdTime>(F_UDOffTime + F_RunOffTime)){
-			sRamDArry[mDoorSeq] = DOOR_OPEN_START;      
-			bManualAuto=1;
-		}
-#else 
-
-		if(bSearchHome){
-			sRamDArry[mCarMoveState]=0;
-			bSearchHome=0;
-		}
-		
-		ReadEncoder();
-		CarStopCmd();
-		
-		bManualUpKey=0;
-		bManualDnKey=0;
-
-
-		if(OilLopeTypeChk){
-			bsNextFloor=0;      
-		}
-		
-		if(!bMoveCar){		
-			if( !bOnceOpen){
-				sRamDArry[mDoorSeq] = DOOR_OPEN_START;
-				bOnceOpen=1;
-
-				if((iF_SolOnTime > 3) && (iF_DoorWaitTime > 3)){
-					SolTimer=0;
-				}
-			}
-
-		
-			if(!bLevelFind){
-				ClrUpDnWard();
-			}
-
-			bManualAuto=1;
-			bLevelFind=0;
-            DoorOpenTime=0;                 
-	    }
-
-
-#endif
-    }
-    else{
-
-        bAuto=0;        
-        bSearchHome=1;
-        
-        if(sRamDArry[mSysStatus] > sHOME)   sRamDArry[mSysStatus]=sHOME;      
-        
-        if(!bHomeUpDn){
-            bManualUpKey=0;
-            bManualDnKey=1;
-            ManualUpDown();
-        }  
-        else{
-            bManualDnKey=0;
-            bManualUpKey=1;
-            ManualUpDown();               
-        }
-                  
-
-
-        bAuto=1;
-
-        if(OilLopeTypeChk){ 
-            NextFloorTime=0;    //no clear8  ????
-        }
-
-
-	#ifndef  TEST_SIMULATION      
-	   	if(INVERTER_CHECK == IO){
-			if(NewStopChk==1){
-				StopPulseCheck();
-			}
-		}
-	#endif
-
-    }
-}      
 
 
 void  __attribute__((section(".usercode"))) SlipCheck(void)
@@ -6346,236 +5775,6 @@ unsigned int	__attribute__((section(".usercode")))	PcCmdchk(void)
 
 
 
-
-
-/*
-
-void  __attribute__((section(".usercode")))   IO_Check(void)
-{
-
-
-
-   	sRamDArry[mSysStatus]=sREADY;
-
-	bDoorOpenCmd=0;
-	bDoorCloseCmd=0;
-
-
-   	InPutRead();        
-   	InputCheck();
-   	AutoManualCheck();
-    InitialInPortChk();
-#ifdef	TEST_SIMULATION
-    CarCurFloorReadSimulation();	
-#else
-   	CarCurFloorRead();   
-#endif
-	ServiceCheck();
-    FireKeyCheck();
-    WaterCheck();
-	SlipCheck();         
-    OilTypeStopChk();         
-   	ButtonClrCheck();   
-    WaitAndNotMoveChk();
-	CarKeyMostServiceCheck();
-    OnlyOneCallChk();
-    SaftyStopChk();
-	PcCmdchk();
-    BreakMgtOpenCheck();
-    BreakOpenCheck();
-   	InvErrChk();
-
-    OUT_ERR(0);        
-
-	
-        if(bAuto){
-            if(!bManualStop){
-                if(!bManualAuto){
-                    if(CarOnceStopTime>30){     
-	                    FindLuLdManual();
-						CarOnceStopTime=31;      
-                        bTestKey=0;
-						bLevelOpen=0;
-					}
-
-
-					if(SafetyChk() || (!OpenKeyCheck())){
-			            if( (!IN_LU || !IN_LD) && !bMoveCar && !bLevelFind){
-							bLevelOpen=1;
-							DoorOpenTime=0;
-							sRamDArry[mDoor]    = (sRamDArry[mDoor] & CLEAR_ALL_DOOR_KEY);   							
-						}
-					}	
-
-					if(bLevelOpen){
-						ThisFloorDoorCheck();
-						CarOnceStopTime=0;      
-		   				SelectDoorOpen_you();
-
-            			if( (bOpenDoorOk) || (DoorOpenTime > cF_OPTTTM)){
-							bLevelOpen=0;
-						}
-					}									
-                }
-                else{
-                    if(!((sRamDArry[mFireSeq] == FIRE_ONE) || (sRamDArry[mFireSeq] == FIRE_THREE) )){                                    
-                        DoorOpenCloseSeq();
-                        DoorOpClSystem();
-                    }
-
-                    TestUpDn();
-                    OneStopKey();
-                }        
-				CounterCheck();
-                NextFloorCheck();
-            }
-        }                     
-        else{    
-            if(!bFhmRunReset && !bManualStop){                
-                bEncoderErr=0;
-                bEncoderABErr=0;
-            }
-
-			bLevelOpen=0;
-            bOnceOpen=0;
-            bSearchHome=0;
-            NextFloorTime=0;    
-            NoCloseCnt=0;
-            bTempCall=0;
-            bInspect=0;
-            bFR2Start1=0;
-			bDoorJumper=0;
-			DoorJumperNm=0;
-            MinuteTime=0;        
-            bEqualFloorError=0;
-            bsCleNoOn=0;
-			bLevelFind=0;
-			bRunningOpenOn=0;
-			NoStart=0;
-
-	      	if(OilLopeTypeChk){
-		    	bsNextFloor=0;      
-			}
-
-            bTestKey=0;                        
-            bCarUpDnChButClr=0;
-            
-            if(!S3_PARKING1){
-                if(sRamDArry[mSysStatus] >= sMANUAL)   sRamDArry[mSysStatus] = sMANUAL;                                
-
-                if(CarOnceStopTime < 10){
- 					sRamDArry[mDoor]=0;
-				}
-
-
-                OUT_FAN(1);
-                FanTime=0;  
-                sRamDArry[mReqStopFloor]=0;
-                sRamDArry[mAckStopFloor]=0;
-                sRamDArry[mNewAckStopFloor]=0;
-                bManualAuto=0; 
-     
-
-				OUT_DAC(0);
-                bDac=0;
-                
-                ManualUpDnKeyCheck();
-                ManualUpDown();            
-
-                if(!bFhmRun &&  !IN_SU1 && ManualSusChk ){
-            		UpBttonTime=0;    
-            		bManualUpKey=0;
-                }
-            
-                if(!bManualUpKey && !bManualDnKey){
-                    if(!OpenKeyCheck() || (LoopTime < 5) ){
-                        SelectDoorOpen_you();
-                    }
-                    else{
-                        AllDoorOpenClrCmd_abcdefg();
-                    }
-
-		            sRamDArry[mDoor] = (sRamDArry[mDoor] & 0xf5);										   	
-                    AllDoorCloseClrCmd_abcdefg();
-                }
-            }	                   
-        }
-
-
-
-
-    DoorOpenEndCheck();            
-    InverterErrorCheck();
-
-
-	bSaveErrCnt=0;
-    if(bCarErr || bCarStopNoRun || bCarStop || bManualStop){
-
-		if(!bOnLuLd){
-	        LuLdTime=0;
-			bFirstOnLuLd=0;
-		}
-
-        bOnceOpen=0;
-        CarAllStopCmdTest();      	
-        if(!bManualStop){      	        
-            if(bCarStopNoRun){
-                AllDoorOpenClrCmd_abcdefg();      	
-                bTestKey=0;    
-            }   
-            else if(bCarErr){
-                bTestKey=0;                                 		
-            }           
-    
-            bManualAuto=0;    
-            bCarStop=0;       
-            bCarErr=0;        
-        }     	
-		bLevelFind=0;	
-		bSaveErrCnt=1;
-    }
-
-
-
-    DoorOpenClose_you();
-
-    MotorStop();
-    AllReadyCheck();
-    EtcStopSet();
-   	UserLampSet();
-	LightOnOff();
-    FanOnOff();
-    BuzOnOff();
-    VoiceStart();
-    EmergencyCheck();
-    PcCmdSaveChk();
-
-
-
-
-
-
-    OutData();
-
-	SystemErrSave();
-
-
-	WhyStop();
-
-    sRamDArry[S1_STATE]=S1_STATE_bit;
-    sRamDArry[S2_STATE]=S2_STATE_bit;
-    sRamDArry[S3_STATE]=S3_STATE_bit;
-    sRamDArry[S4_STATE]=S4_STATE_bit;
-    sRamDArry[SelDoorStatus]=DoorStatus_bit;
-}      
-
-*/
-
-
-
-
-
-
 void  Timer1Init(void)
 {
      
@@ -7243,11 +6442,6 @@ void _ISR_X _T1Interrupt(void)
 
 
 
-//        if((!IN_LU || !IN_LD) && (LuLdTime < 50000)){
-//			if(bFirstOnLuLd)	LuLdTime++;
-//        }
-
-
 
 		if(cF_On_Time > 0)		FrequenceMainTime=(unsigned int)((unsigned int)60000/(unsigned int)cF_On_Time);
 		else					FrequenceMainTime=60000;
@@ -7274,11 +6468,9 @@ void _ISR_X _T1Interrupt(void)
 
 
 
+
         if(LadderTime  < 20002)  LadderTime++;
-
-
 		if(EncoderReloadTime < 1000)	EncoderReloadTime++;	
-
 
         msec10++;
         if(msec10 > 100){

@@ -426,7 +426,6 @@ void _ISR_X _ADCInterrupt(void)
 			AvrCnt++;
 		}
 	}
-
 }
 
 
