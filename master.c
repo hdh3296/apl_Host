@@ -5863,58 +5863,6 @@ void  Uart2Init(void)
 
 
 
-/*
-void  __attribute__((section(".usercode")))  FindCurFloor(void)
-{
-	unsigned long backup_pulse,save_pulse;
-
-    LocalType i;
-
-
-    i=sRamDArry[mcurfloor];
-
-
-	backup_pulse=CurPulse;
-
-
-    if(sRamDArry[mcurfloor] == 0){
-		save_pulse=GET_LONG(FLR_02_PULSE);
-        if(backup_pulse >= save_pulse){
-            sRamDArry[mcurfloor] = 0;
-			CurPulse=0;
-        } 
-    }           
-    else if(sRamDArry[mcurfloor] > cF_TOPFLR){
-        sRamDArry[mcurfloor] = 0;
-		CurPulse=0;
-    } 
-          
-    else if(sRamDArry[mcurfloor] == cF_TOPFLR){
-		save_pulse=GET_LONG(FLR_01_PULSE + cF_TOPFLR - 1 );
-        if(backup_pulse <= save_pulse){
-            sRamDArry[mcurfloor] = 0;
-			CurPulse=0;
-        }
-    }    
-	else{
-		save_pulse=GET_LONG(FLR_01_PULSE + (i+1));
-        if(backup_pulse >= save_pulse){
-	        sRamDArry[mcurfloor]=0;
-			CurPulse=0;
-		}
-
-		save_pulse=GET_LONG(FLR_01_PULSE + (i-1));
-        if(backup_pulse < save_pulse){
-	        sRamDArry[mcurfloor]=0;
-			CurPulse=0;
-		}
-
-	}	
-
-    DspFloorSet();
-}
-*/
-
 
 
 int   __attribute__((section(".usercode"))) main(void)
@@ -5962,10 +5910,6 @@ int   __attribute__((section(".usercode"))) main(void)
    	O_Y_0_bit=0x0;
 	O_OP_bit=0x0;
 
-//    sRamDArry[O_Y_0] = O_Y_0_bit;
-//    sRamDArry[O_OP]  = O_OP_bit;
-
-
 
 	OutAllClear();
 
@@ -5977,21 +5921,6 @@ int   __attribute__((section(".usercode"))) main(void)
     AddressRead();
    
 
-
-/*
-	for(LogAddressLoop=0;LogAddressLoop <= sec;LogAddressLoop++){
-		sRamDArry[sRamDArry[mDoorSeq]]=0x0;
-	}
-*/
-
-
-/*
-    sRamDArry[S1_STATE]=S1_STATE_bit=0;
-    sRamDArry[S2_STATE]=S2_STATE_bit=0;
-    sRamDArry[S3_STATE]=S3_STATE_bit=0;
-    sRamDArry[S4_STATE]=S4_STATE_bit=0;
-
-*/
 
 	Init485_Bd();
 
@@ -6014,13 +5943,6 @@ int   __attribute__((section(".usercode"))) main(void)
     INTCON1bits.NSTDIS=1;
 
 
-/*
-	WarmingUpTime=0;
-    while(WarmingUpTime < 5){
-        asm("CLRWDT");
-    }        
-*/
-
 
     if(!SWR){
         asm("RESET");
@@ -6041,284 +5963,21 @@ int   __attribute__((section(".usercode"))) main(void)
     C1Loop=0;
     C2Loop=0;
 
-/*
-   	bSlavePrk=0;
-    bPC_PRK=0;
-    bPC_FIRE=0;
-	bPC_FAMILY=0;
-*/
+
 
     disp_clk_regs();
     UseBaseTime = sRamDArry[mHour];
 
-/*
-    sRamDArry[FHM_RUN]=0;
-    sRamDArry[FHM_SEQ]=0;
-
-
-
-	sRamDArry[ExtCmdFlrONOFF0]=cF_NONSERVICE0;
-	sRamDArry[ExtCmdFlrONOFF1]=cF_NONSERVICE1;
-	sRamDArry[ExtCmdFlrONOFF2]=cF_NONSERVICE2;
-	sRamDArry[ExtCmdFlrONOFF3]=cF_NONSERVICE3;
-
-
-	if(FamilyService)	bPC_FAMILY=1;
-	else				bPC_FAMILY=0;
-	
-*/
 
   	I_X0_bit=0xff;
 
    	O_Y_0_bit=0x0;
 	O_OP_bit=0x0;
-//    sRamDArry[O_Y_0] = O_Y_0_bit;
-//    sRamDArry[O_OP]  = O_OP_bit;
+
 
 	OutAllClear();
 
 
-
-
-
-////////////////////
-/*
-
-    PORTA=0xffff;
-    PORTB=0xffff;
-    PORTC=0xffff;
-    PORTD=0xffff;
-    PORTE=0xffff;
-    PORTF=0xffff;
-    PORTG=0xffff;
-
-
-    TRISA=0xffff;
-    TRISB=0xffff;
-    TRISC=0x0000;
-    TRISD=0xffff;
-    TRISE=0x0000;
-
-    TRISF=0x0055;  //    01010101;
-  
-    TRISG=0x0001;  //          01 
-
-    SPLIM=SPLIM;
-
-    ADPCFG=0xffff;  //portb digital i/o
-
-   	TXEN=1;
-    C2IE       = 0x0;
-
-
-    bSaveFlash=0;
-
-    OUT_ACT1=1;
-    OUT_ACT2=1;
-
-    IN_0=1;
-    IN_1=1;
-    IN_2=1;
-    IN_3=1;
-    IN_4=1;
-
-    OUT_0=0;
-    OUT_1=0;
-    OUT_2=0;
-
-
-    RD_WR=0;
-
-   	OUT_ON=0;
-   	OUT_ON=0;
-
-
-    I_SU1_bit=0xff;
-    I_EMG_bit=0xff;
-  	I_GR_bit=0xff;
-  	I_FIRE_bit=0xff;
- 	I_FS0_bit=0xff;
-  	I_X0_bit=0xff;
-
-   	O_OP_bit=0x0;
-  	O_U_W_bit=0x80;
-   	O_Y_0_bit=0x0;
-
-
-    sRamDArry[I_EMG]  = I_EMG_bit;
-    sRamDArry[I_SU1]  = I_SU1_bit;
-    sRamDArry[I_GR]   = I_GR_bit;
-    sRamDArry[I_FIRE] = I_FIRE_bit;
-    sRamDArry[I_X_0]  = I_X0_bit;
-    sRamDArry[I_FS0]  = I_FS0_bit;
-
-    sRamDArry[O_OP]  = O_OP_bit;
-    sRamDArry[O_U_W] = O_U_W_bit;
-    sRamDArry[O_Y_0] = O_Y_0_bit;
-
-
-	CarAllStopCmd();
-
-
-	for(LogAddressLoop=0;LogAddressLoop < MAX_LONG_BUF;LogAddressLoop++){
-        parameter_mirror[LogAddressLoop]=0x0;
-	}
-
-	bRelevelErr=0;
-	bBefbRelevelErr=0;
-
-	bCarErr=0;
-   	bCarStopNoRun=0;
-    bManualAuto=0;
-	bsLope=0;
-   	bsSlip=0;                  
-    bSlipCheckStart=0;
-	bsNextFloor=0;
-	bsLuLdNoOff=0;         	         		        
-	bExportData=0;
-	bImportData=0;
-	bPowerChkStart=0;
-
-    bBefbsBreakMgtOpen=0;
-    bBefbsBreakOpen=0;
-	bsBreakMgtOpen=0;    
-	bsBreakOpen=0;
-	bRunningOpenOn=0;
-   
-    AddressRead();
-   
-	for(LogAddressLoop=0;LogAddressLoop <= sec;LogAddressLoop++){
-		sRamDArry[sRamDArry[mDoorSeq]]=0x0;
-	}
-
-
-	sRamDArry[mDoorSeq]=DOOR_CLOSE_START;
-	DoorCloseTime=0;
-
-
-    sRamDArry[S1_STATE]=S1_STATE_bit=0;
-    sRamDArry[S2_STATE]=S2_STATE_bit=0;
-    sRamDArry[S3_STATE]=S3_STATE_bit=0;
-    sRamDArry[S4_STATE]=S4_STATE_bit=0;
-    sRamDArry[SelDoorStatus]=DoorStatus_bit=0;
-
-	Init485_Bd();
-
-	
-	bManualAuto=0;
-	bHomeUpDn=0;
-
-
-    INTCON1bits.NSTDIS=1;
-
-
-
-    LvdInit();
-    Timer1Init();
-    Uart1Init();
-    Uart2Init();
-    Can1Init();
-    Can2Init();
-
-
-    INTCON1bits.NSTDIS=1;
-
-
-
-    asm("CLRWDT");
-    ReadInitSetupData();
-    asm("CLRWDT");
-
-
-    if(!SWR){
-        asm("RESET");
-    }
-    SWR=0;
-
-    Ladder485Init();
-
-#ifndef		RS485_FOR_CRT	
-	Init485_Ladder();
-   	RxStatus=STX_CHK;
-   	MyDataTx();
-#endif
-
-      
-   	sRamDArry[LD_INSP] = 0x0;
-
-   
-   	NoCloseCnt=0;
-   	WarmingUpTime=0;
-   	CurFTime=0;
-   	NextFTime=0;
-	SaveVerify=0;
-   	    
-
-	sRamDArry[mMostLongDst]= 0x00;
-	sRamDArry[mStartFloor] = 0;   //delete value
-
-
-
-
-    while(WarmingUpTime < 50){
-        InPutRead();
-        asm("CLRWDT");
-    }        
-
-
-
-    if(INVERTER_CHECK == IO){
-        FindCurFloor();
-    }
-
-    C1Loop=0;
-    C2Loop=0;
-
-   	bSlavePrk=0;
-    bPC_PRK=0;
-    bPC_FIRE=0;
-	bPC_FAMILY=0;
-
-    disp_clk_regs();
-    UseBaseTime = sRamDArry[Hour];
-    sRamDArry[FHM_RUN]=0;
-    sRamDArry[FHM_SEQ]=0;
-
-
-    bCarService=0;
-
-
-
-
-
-#ifdef  TEST_SIMULATION  	
-	NotRecoveryData=0;
-	bsSlip=0;
-#endif
-
-
-
-
-	LevelEncoderPulse2=0;
-
-	sRamDArry[ExtCmdFlrONOFF0]=cF_NONSERVICE0;
-	sRamDArry[ExtCmdFlrONOFF1]=cF_NONSERVICE1;
-	sRamDArry[ExtCmdFlrONOFF2]=cF_NONSERVICE2;
-	sRamDArry[ExtCmdFlrONOFF3]=cF_NONSERVICE3;
-
-	if(FamilyService)	bPC_FAMILY=1;
-	else				bPC_FAMILY=0;
-	
-	CmdFixFlrTime=cF_FIXFLOORTIME;
-////////////////////////////////////
-	bBK1=0;
-	BreakTime=0;
-
-
-	ThisFloorDoorCheck();
-
-
-*/
 
 	MasterHostLiveTime=100;
 
@@ -6336,7 +5995,7 @@ int   __attribute__((section(".usercode"))) main(void)
 
         disp_clk_regs();
 
-        asm("CLRWDT");
+        asm("CLRWDT");		
    	}while(1);                                  
 }
 

@@ -312,7 +312,7 @@ unsigned int  __attribute__((section(".usercode")))  DayNightChk(unsigned int da
 		if(!TimerRunCheck(day_night))	return(0);
 	}
 	else{									// cds mode
-		if(!b_S1_CDS_ONOFF){				// day
+		if(b_S1_CDS_ONOFF == 0){			// day
 			if(day_night==1)			return(0);	
 		}
 		else{							// night
@@ -340,7 +340,6 @@ unsigned int  __attribute__((section(".usercode"))) OneModeChk(unsigned int valu
 			else										return(0);  // on
 		} 
 		else{
-//			return(1);  // off
 			return(2);  // off
 		}
 	}
@@ -350,38 +349,20 @@ unsigned int  __attribute__((section(".usercode"))) OneModeChk(unsigned int valu
 	}
 
 	else if(tmp_mode & DAY_ONLY){
-		if(!DayNightChk(1)){
+		if(DayNightChk(1) == 0){
 			if( (tmp_mode & BLINCK_BIT) && bBlinck)		return(1);
 			else										return(0);
 		}
 		else	return(2);
-
-/*
-		if( (tmp_mode & BLINCK_BIT) && bBlinck)		return(1);
-		else{
-			if(!DayNightChk(1))						return(0);
-			else									return(1);
-		}
-*/
-
 	}	
 	else if(tmp_mode & NIGHT_ONLY){
-		if(!DayNightChk(2)){
+		if(DayNightChk(2) == 0){
 			if( (tmp_mode & BLINCK_BIT) && bBlinck)		return(1);
 			else										return(0);
 		}
 		else	return(2);
-
-/*
-		if( (tmp_mode & BLINCK_BIT) && bBlinck)		return(1);
-		else{
-			if(!DayNightChk(2))						return(0);
-			else									return(1);
-		}
-*/
 	}
 	else{
-//		return(1);
 		return(2);
 	}
 }
@@ -975,15 +956,28 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 }
 
 
-
+typedef enum{NONE = 0, DAY = 1, TWL = 2, NIG = 3} tag_CurDay;
 void  __attribute__((section(".usercode"))) SystemRun(void)
 {
-	if(IN_X6 || bMasterHostCDS)		b_S1_CDS_ONOFF=1;
-	else							b_S1_CDS_ONOFF=0;
+	char bDay_Twl_Nig = 0;
+
+	if (PORTEbits.RE0 == 0){
+		if ( (IN_X6 == 0) && (IN_X7 == 0) ) 	bDay_Twl_Nig = TWL;
+		else if (IN_X6 == 0)					bDay_Twl_Nig = DAY;
+		else if (IN_X7 == 0)					bDay_Twl_Nig = NIG;
+		else									bDay_Twl_Nig = NONE;
+		
+		if( (bDay_Twl_Nig == NIG) || bMasterHostCDS)		b_S1_CDS_ONOFF=1;
+		else												b_S1_CDS_ONOFF=0;	// input on, cds off, day 
+	}
+	else{		
+		if(IN_X6 || bMasterHostCDS) 	b_S1_CDS_ONOFF=1;
+		else							b_S1_CDS_ONOFF=0;	// input on, cds off, day 
+	}
 
 
-	if(cF_SystemMode & 0x01)	b_S1_CDS_TIMER=1;    //timer mode
-	else						b_S1_CDS_TIMER=0;    // cds mode
+	if(cF_SystemMode & 0x01)	b_S1_CDS_TIMER=1;    	//timer mode
+	else						b_S1_CDS_TIMER=0;    	// cds mode
 
 
 	if(b_S1_Remote){
