@@ -2292,16 +2292,16 @@ const unsigned char LampName[][4]={
 
 
 const unsigned char LampRunMode[][13]={
-                                      " Not Use     ",
-                                      "Day/Blink/Off",
-                                      "Night/Blk/Off",
-                                      "Every/Blk/Off",
-                                      "Cmd/Blink/Off",
-                                      "Day/Blink/On ",                                      
-                                      "Night/Blnk/On",                                      
-                                      "Every/Blnk/On",                                      
-                                      "Cmd/Blink/On ",                                                                            
-                                      " Not Use     ",
+                                      " Not Use     ",	// 0
+                                      "Day/Blink/Off",	// 1
+                                      "Night/Blk/Off",	// 2
+                                      "Every/Blk/Off",	// 3
+                                      "Cmd/Blink/Off",	// 4
+                                      "Day/Blink/On ",	// 5      	                                
+                                      "Night/Blnk/On",	// 6                                      
+                                      "Every/Blnk/On",	// 7                                      
+                                      "Cmd/Blink/On ",	// 8                                                                            
+                                      " Not Use     ",	// 9
                                     };                                       
 
 
@@ -3351,37 +3351,8 @@ void  __attribute__((section(".usercode"))) DigitStringMessage(void)
     LocalType i;
 
     switch(LadderGroup){
-/*
-        case    FLR_GROUP:
-            if((LadderGroupSub == 2) || (LadderGroupSub == 4) || (LadderGroupSub == 5) || (LadderGroupSub == 6)){
-                if(DigitData > 32){
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+0]='N';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+1]='o';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+2]='t';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=' ';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+4]='U';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+5]='s';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+6]='e';          
-                }
-                else{
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+2]=' ';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=' ';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+4]=' ';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+5]=' ';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+6]=' ';          
-                }
-            }
-            else{
-                New485Ladder[SECONDLINE_BASE+EditBlanck+2]=' ';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+3]=' ';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+4]=' ';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+5]=' ';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+6]=' ';          
-            }
-            break;
-*/
+
         case    TIMER_GROUP:
-//            if((LadderGroupSub == 2) || (LadderGroupSub == 6)){
             if(LadderGroupSub == 6){
                 New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='M';          
                 New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='i';          
@@ -3393,23 +3364,6 @@ void  __attribute__((section(".usercode"))) DigitStringMessage(void)
                 New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='e';          
                 New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+3]='c';          
             }
-
-/*
-            else if((LadderGroupSub >= 13) && (LadderGroupSub <= 17)){
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='H';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='s';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='e';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+3]='c';          
-            }
-            else if((LadderGroupSub > 12) && (LadderGroupSub <= 21)){
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='m';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='s';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='e';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+3]='c';          
-            }
-*/
-
-//            else if((LadderGroupSub == 7) || (LadderGroupSub == 9) || (LadderGroupSub == 10) || (LadderGroupSub == 12)){
             else if((LadderGroupSub == 9) || (LadderGroupSub == 10)){
                 New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='H';          
                 New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='s';          
@@ -3534,50 +3488,6 @@ void  __attribute__((section(".usercode"))) DigitStringMessage(void)
 	                    New485Ladder[SECONDLINE_BASE+EditBlanck+i]=InitMessage[DigitData][i];
 	                }
 					break;
-
-
-/*
-				case	BOARD_ID:
-	                for(i=0;i<11;i++){
-	                    New485Ladder[SECONDLINE_BASE+EditBlanck+i]=ElevBdIdMessage[DigitData][i];
-	                }
-					break;
-				case	USER_LAMP1:
-				case	USER_LAMP2:
-				case	USER_LAMP3:
-				case	USER_LAMP4:
-	                for(i=0;i<11;i++){
-	                    New485Ladder[SECONDLINE_BASE+EditBlanck+i]=UserLampMessage[DigitData][i];
-	                }
-					break;
-				case	DRIVE_METHOD:
-	                for(i=0;i<11;i++){
-	                    New485Ladder[SECONDLINE_BASE+EditBlanck+i]=DriveMethodMessage[DigitData][i];
-	                }
-					break;
-				case	FHM_RUN_CHK:
-	                for(i=0;i<11;i++){
-	                    New485Ladder[SECONDLINE_BASE+EditBlanck+i]=FhmMessage[DigitData][i];
-	                }
-					break;
-				case	NORMAL_DSP:
-	                for(i=0;i<11;i++){
-	                    New485Ladder[SECONDLINE_BASE+EditBlanck+i]=NormalDspMessage[DigitData][i];
-	                }
-	                i=1;
-	                i=0;
-					break;
-				case	INIT_DATA:
-	                for(i=0;i<11;i++){
-	                    New485Ladder[SECONDLINE_BASE+EditBlanck+i]=InitMessage[DigitData][i];
-	                }
-					break;
-				case	LG_INV_IN_BD:
-	                for(i=0;i<11;i++){
-	                    New485Ladder[SECONDLINE_BASE+EditBlanck+i]=PcbTypeMessage[DigitData][i];
-	                }
-					break;
-*/
 			}
             break;
 
@@ -3947,7 +3857,7 @@ void  __attribute__((section(".usercode"))) LampGroup(void)
             New485Ladder[SECONDLINE_BASE+EditBlanck+2] ='.';          
             New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(DigitData%10)           + '0';          
             break;
-		case	2:
+		case	2:	// Run Mode ex...(Day/Blink/xx)
             Cursor=0;
             ShiftCnt=0;
             EditBlanck=3;
@@ -6427,53 +6337,6 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
 		else{
 			for(i=0;i<5;i++)	New485Ladder[2+10+i]=CurrenSysStatus[0][i];
 		}
-
-
-
-/*
-		if(sRamDArry[DSP1] == 0)	sRamDArry[DSP1] = '?';	
-		if(sRamDArry[DSP2] == 0)	sRamDArry[DSP2] = '?';	
-        New485Ladder[2+3]=sRamDArry[DSP1];
-        New485Ladder[2+4]=sRamDArry[DSP2];
-
-
-        if(bCarUpMove || bCarDnMove){ 
-        
-            chun=(unsigned int)CurMeterPerMin;
-
-            if(chun)    il=(chun%10);
-            
-            if(chun)    sip=(chun/10);
-            if(sip)     sip=(sip%10);
-
-            if(chun)    bek=(chun/100);
-            if(bek)     bek=(bek%10);;
-
-            if(chun)    chun=chun/1000;
-            if(chun)    chun=(chun%10);
-        
-    
-    
-            New485Ladder[2+8] =chun + '0';
-            New485Ladder[2+9] =bek  + '0';
-            New485Ladder[2+10]=sip  + '0';
-            New485Ladder[2+11]='.';
-            New485Ladder[2+12]=il   + '0';
-            New485Ladder[2+13]='m';
-            New485Ladder[2+14]='p';
-            New485Ladder[2+15]='m';
-        }    
-        else{
-            New485Ladder[2+8]='E';
-            New485Ladder[2+9]='/';
-            New485Ladder[2+10]='L';
-            New485Ladder[2+11]='.';
-            New485Ladder[2+12]='S';
-            New485Ladder[2+13]='t';
-            New485Ladder[2+14]='o';
-            New485Ladder[2+15]='p';
-        }
-*/
     }
 
 
@@ -6515,14 +6378,6 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
 	        for(i=0;i<16;i++){
 	            New485Ladder[i+2]=GroupLineMessage[j][i];
 	        }
-
-/*	
-	        if(j==0){
-	            New485Ladder[2+3]=sRamDArry[DSP1];
-	            New485Ladder[2+4]=sRamDArry[DSP2];
-			}
-
-*/
 
         New485Ladder[0]=LadderKey;    
         New485Ladder[1]=' ';
@@ -6579,9 +6434,6 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
                 GroupBaseAddr=F_9Count;
                 LampGroup();
                 break;
-
-
-
             case    FLR_DSP_GROUP:
                 GroupBaseAddr=F_FlrDspCh;
                 FlrDspGroup();
@@ -6660,28 +6512,7 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
     }
 
     LadderTime=0;
-
-/*
-    if(sRamDArry[FHM_RUN] == FHM_RUN_CMD)                   FhmLoaderTime=0;
-    else                                                    FhmLoaderTime=10;
-                                    
-    if((sRamDArry[FHM_RUN] == FHM_RUN_CMD) && (LadderKey != 0xff)){
-        FhmLoaderTime=10;
-        sRamDArry[FHM_RUN] =0;
-    }
-
-
-	if((LadderGroup != USER_GROUP) || (LadderGroupSub != HALL_IND_SET) || !IN_AUTO || (sRamDArry[DSP1] != '9') || (sRamDArry[DSP2] != '1')){
-		HibSet[0]=0;
-		HibSet[1]=0;
-		HibSet[2]=0;
-		HibSet[3]=0;
-		HibSet[4]=0;
-		HibSet[5]=0;
-		bHibSet=0;	
-	}
-*/
-        
+	
     return(0);
 }
 

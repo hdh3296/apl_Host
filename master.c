@@ -5985,7 +5985,6 @@ int   __attribute__((section(".usercode"))) main(void)
         AddressRead();
 		Ad_Check();
         new_IO_Check();                                
-        SerialCheck();
         Serial2Check();
 
         asm("CLRWDT");
