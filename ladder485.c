@@ -2300,8 +2300,10 @@ const unsigned char LampRunMode[][13]={
                                       "Day/Blink/On ",	// 5      	                                
                                       "Night/Blnk/On",	// 6                                      
                                       "Every/Blnk/On",	// 7                                      
-                                      "Cmd/Blink/On ",	// 8                                                                            
-                                      " Not Use     ",	// 9
+                                      "Cmd/Blink/On ",	// 8                                  
+									  "Twl/Blink/Off",	// 9		
+									  "Twl/Blink/On ",	// 10									  
+                                      " Not Use     ",	// 11
                                     };                                       
 
 
@@ -3862,20 +3864,22 @@ void  __attribute__((section(".usercode"))) LampGroup(void)
             ShiftCnt=0;
             EditBlanck=3;
             EditStatus=DIGIT_STRING_EDIT;
-            DigitMaxValue=9;
+            DigitMaxValue=11;
             DigitMinValue=0;
             i=(LadderGroupSub + GroupBaseAddr);
             DigitData=cF_FLRDSPCH((unsigned long)i);
 
-			if(DigitData ==	0x0)			DigitData=0;	
-			else if(DigitData ==	0x1)	DigitData=1;	
-			else if(DigitData ==	0x2)	DigitData=2;	
-			else if(DigitData ==	0x4)	DigitData=3;	
-			else if(DigitData ==	0x8)	DigitData=4;	
+			if(DigitData ==	0x00)			DigitData=0;	
+			else if(DigitData ==	0x01)	DigitData=1;	
+			else if(DigitData ==	0x02)	DigitData=2;	
+			else if(DigitData ==	0x04)	DigitData=3;	
+			else if(DigitData ==	0x08)	DigitData=4;	
 			else if(DigitData ==	0x81)	DigitData=5;	
 			else if(DigitData ==	0x82)	DigitData=6;	
 			else if(DigitData ==	0x84)	DigitData=7;	
-			else if(DigitData ==	0x88)	DigitData=8;	
+			else if(DigitData ==	0x88)	DigitData=8;
+			else if(DigitData ==	0x41)	DigitData=9;	
+			else if(DigitData ==	0x42)	DigitData=10;
 			else							DigitData=0;	
             Integer_Digit();
 			break;
@@ -3895,16 +3899,18 @@ void  __attribute__((section(".usercode"))) LampGroupSave(void)
 			DigitData=DigitBufConversionToDigit();
         	break;
 		case	2:
-			if(DigitData ==	0x0)			DigitData=0;	
-			else if(DigitData ==	0x1)	DigitData=1;	
-			else if(DigitData ==	0x2)	DigitData=2;	
-			else if(DigitData ==	0x3)	DigitData=4;	
-			else if(DigitData ==	0x4)	DigitData=8;	
-			else if(DigitData ==	0x5)	DigitData=0x81;	
-			else if(DigitData ==	0x6)	DigitData=0x82;	
-			else if(DigitData ==	0x7)	DigitData=0x84;	
-			else if(DigitData ==	0x8)	DigitData=0x88;	
-			else							DigitData=0;	
+			if(DigitData ==	0)			DigitData=0x00;	
+			else if(DigitData ==	1)	DigitData=0x01;	
+			else if(DigitData ==	2)	DigitData=0x02;	
+			else if(DigitData ==	3)	DigitData=0x04;	
+			else if(DigitData ==	4)	DigitData=0x08;	
+			else if(DigitData ==	5)	DigitData=0x81;	
+			else if(DigitData ==	6)	DigitData=0x82;	
+			else if(DigitData ==	7)	DigitData=0x84;	
+			else if(DigitData ==	8)	DigitData=0x88;
+			else if(DigitData ==	9)	DigitData=0x41;
+			else if(DigitData ==	10)	DigitData=0x42;
+			else						DigitData=0;	
 			break;
         default:
             break;
