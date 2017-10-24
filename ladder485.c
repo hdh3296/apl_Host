@@ -3878,8 +3878,8 @@ void  __attribute__((section(".usercode"))) LampGroup(void)
 			else if(DigitData ==	0x82)	DigitData=6;	
 			else if(DigitData ==	0x84)	DigitData=7;	
 			else if(DigitData ==	0x88)	DigitData=8;
-			else if(DigitData ==	0x41)	DigitData=9;	
-			else if(DigitData ==	0x42)	DigitData=10;
+			else if(DigitData ==	0x10)	DigitData=9;	
+			else if(DigitData ==	0x90)	DigitData=10;
 			else							DigitData=0;	
             Integer_Digit();
 			break;
@@ -3908,8 +3908,8 @@ void  __attribute__((section(".usercode"))) LampGroupSave(void)
 			else if(DigitData ==	6)	DigitData=0x82;	
 			else if(DigitData ==	7)	DigitData=0x84;	
 			else if(DigitData ==	8)	DigitData=0x88;
-			else if(DigitData ==	9)	DigitData=0x41;
-			else if(DigitData ==	10)	DigitData=0x42;
+			else if(DigitData ==	9)	DigitData=0x10;
+			else if(DigitData ==	10)	DigitData=0x90;
 			else						DigitData=0;	
 			break;
         default:

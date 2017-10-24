@@ -312,23 +312,29 @@ unsigned int  __attribute__((section(".usercode")))  DayNightChk(unsigned int da
 		if(!TimerRunCheck(day_night))	return(0);
 	}
 	else{									// cds mode
-		if(b_S1_CDS_ONOFF == 0){			// day
-			if(day_night==1)			return(0);	
+		if(b_S1_TWL_ONOFF == 1){
+			if(day_night==3)			return(0);
 		}
-		else{							// night
-			if(day_night==2)			return(0);	
+		else{
+			if(b_S1_CDS_ONOFF == 0){			// day
+				if(day_night==1)			return(0);	
+			}
+			else{							// night
+				if(day_night==2)			return(0);	
+			}
 		}
 	}
 	return(1);
 }
 
 
-unsigned int  __attribute__((section(".usercode"))) OneModeChk(unsigned int value,unsigned int bitvalue)
+unsigned int  __attribute__((section(".usercode"))) 
+	OneModeChk(unsigned int value, unsigned int bitvalue)
 {
 	unsigned int i,j,k;
 	unsigned int tmp_mode,virtual_bufH,virtual_bufL;
 
-	tmp_mode=value;
+	tmp_mode = value;
 
 	if(tmp_mode & ROMOTE_CMD){
 		virtual_bufH=sRamDArry[VIRTUAL_RAM+mOut2Status];
@@ -347,8 +353,11 @@ unsigned int  __attribute__((section(".usercode"))) OneModeChk(unsigned int valu
 		if( (tmp_mode & BLINCK_BIT) && bBlinck)		return(1);
 		else										return(0);
 	}
-
+	// 낮/밤/박명 일때
+	// 아무것도 아닐때는 그냥 빠져 나온다. 
 	else if(tmp_mode & DAY_ONLY){
+		if (b_S1_NONE_ONOFF)	return(2);			
+	
 		if(DayNightChk(1) == 0){
 			if( (tmp_mode & BLINCK_BIT) && bBlinck)		return(1);
 			else										return(0);
@@ -356,12 +365,23 @@ unsigned int  __attribute__((section(".usercode"))) OneModeChk(unsigned int valu
 		else	return(2);
 	}	
 	else if(tmp_mode & NIGHT_ONLY){
+		if (b_S1_NONE_ONOFF)	return(2);
+	
 		if(DayNightChk(2) == 0){
 			if( (tmp_mode & BLINCK_BIT) && bBlinck)		return(1);
 			else										return(0);
 		}
 		else	return(2);
 	}
+	else if(tmp_mode & TWL_ONLY){
+		if (b_S1_NONE_ONOFF)	return(2);
+	
+		if(DayNightChk(3) == 0){
+			if( (tmp_mode & BLINCK_BIT) && bBlinck)		return(1);
+			else										return(0);
+		}
+		else	return(2);
+	}	
 	else{
 		return(2);
 	}
@@ -961,16 +981,28 @@ void  __attribute__((section(".usercode"))) SystemRun(void)
 {
 	char bDay_Twl_Nig = 0;
 
-	if (PORTEbits.RE0 == 0){
-		if ( (IN_X6 == 0) && (IN_X7 == 0) ) 	bDay_Twl_Nig = TWL;
-		else if (IN_X6 == 0)					bDay_Twl_Nig = DAY;
-		else if (IN_X7 == 0)					bDay_Twl_Nig = NIG;
-		else									bDay_Twl_Nig = NONE;
-		
-		if( (bDay_Twl_Nig == NIG) || bMasterHostCDS)		b_S1_CDS_ONOFF=1;
-		else												b_S1_CDS_ONOFF=0;	// input on, cds off, day 
+	if (PORTEbits.RE0 == 0){	// 딥스위치 1번 ON 
+		if ( (IN_X6 == 0) && (IN_X7 == 0) ) 		bDay_Twl_Nig = TWL;
+		else if ( (IN_X6 == 0) && (IN_X7 == 1) )	bDay_Twl_Nig = DAY;
+		else if ( (IN_X6 == 1)	&& (IN_X7 == 0) )	bDay_Twl_Nig = NIG;
+		else										bDay_Twl_Nig = NONE;
+
+		// 박명 일 때 
+		if (bDay_Twl_Nig == TWL)							b_S1_TWL_ONOFF = 1;
+		// 낮/밤 일 때 
+		else{
+			b_S1_TWL_ONOFF = 0;
+			if( (bDay_Twl_Nig == NIG) || bMasterHostCDS)		b_S1_CDS_ONOFF=1;
+			else												b_S1_CDS_ONOFF=0;	// input on, cds off, day 
+		}
+		// 아무것도 아닐때 
+		if (bDay_Twl_Nig == NONE)							b_S1_NONE_ONOFF = 1;
+		else												b_S1_NONE_ONOFF = 0;
+				
 	}
-	else{		
+	else{
+		b_S1_TWL_ONOFF = 0;
+		b_S1_NONE_ONOFF = 0;
 		if(IN_X6 || bMasterHostCDS) 	b_S1_CDS_ONOFF=1;
 		else							b_S1_CDS_ONOFF=0;	// input on, cds off, day 
 	}

@@ -2526,7 +2526,7 @@ extern	unsigned int 	Voltage[16];
 #define	NIGHT_ONLY	0x02
 #define	EVERY		0x04
 #define	ROMOTE_CMD	0x08
-#define	NC1			0x10
+#define	TWL_ONLY	0x10
 #define	NC2			0x20
 #define	NC3			0x40
 #define	BLINCK_BIT	0x80
@@ -2547,6 +2547,7 @@ extern	unsigned int 	Voltage[16];
 
 
 
+
 #define  b_S1_Auto           	GET_BITFIELD(&sRamDArry[mCurrentState1]).bit0
 #define  b_S1_Manual            GET_BITFIELD(&sRamDArry[mCurrentState1]).bit1
 #define  b_S1_Remote           	GET_BITFIELD(&sRamDArry[mCurrentState1]).bit2
@@ -2555,6 +2556,9 @@ extern	unsigned int 	Voltage[16];
 #define  XXzzS1_AUTO1           GET_BITFIELD(&sRamDArry[mCurrentState1]).bit5
 #define  bSystemWarning         GET_BITFIELD(&sRamDArry[mCurrentState1]).bit6
 #define  bSystemErr           	GET_BITFIELD(&sRamDArry[mCurrentState1]).bit7
+
+#define  b_S1_TWL_ONOFF         GET_BITFIELD(&sRamDArry[mCurrentState2]).bit0
+#define  b_S1_NONE_ONOFF        GET_BITFIELD(&sRamDArry[mCurrentState2]).bit1
 
 
 
