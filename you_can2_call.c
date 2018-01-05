@@ -859,11 +859,11 @@ void  __attribute__((section(".usercode")))     Can2GetRxSidEidDlc(void)
 	if(Can2RxEid & 0x10000)	Can2RxLocalAddr=(Can2RxLocalAddr | 0x04);	
 
 	Can2RxGroupAddr=0;
-	if(Can2RxEid & 0x20000)	Can2RxGroupAddr=(Can2RxGroupAddr | 0x01);	
-	if(Can2RxSid & 0x80)	Can2RxGroupAddr=(Can2RxGroupAddr | 0x02);	
-	if(Can2RxSid & 0x100)	Can2RxGroupAddr=(Can2RxGroupAddr | 0x04);	
-	if(Can2RxSid & 0x200)	Can2RxGroupAddr=(Can2RxGroupAddr | 0x08);	
-	if(Can2RxSid & 0x400)	Can2RxGroupAddr=(Can2RxGroupAddr | 0x10);	
+	if(Can2RxSid & 0x80)	Can2RxGroupAddr=(Can2RxGroupAddr | 0x01);	
+	if(Can2RxSid & 0x100)	Can2RxGroupAddr=(Can2RxGroupAddr | 0x02);	
+	if(Can2RxSid & 0x200)	Can2RxGroupAddr=(Can2RxGroupAddr | 0x03);	
+	if(Can2RxSid & 0x400)	Can2RxGroupAddr=(Can2RxGroupAddr | 0x08);	
+	if(Can2RxEid & 0x20000)	Can2RxGroupAddr=(Can2RxGroupAddr | 0x10);	
 
 }
 
