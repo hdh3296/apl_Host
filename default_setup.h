@@ -5,7 +5,7 @@
 
 #define  	VERSION_0         		    '1'
 #define  	VERSION_1         		    '0'
-#define  	VERSION_2         		    '2'
+#define  	VERSION_2         		    '3'
 
 
 #define     LG                          0
@@ -41,9 +41,9 @@
 #define     DISABLE_TIME                0
 
 
-	#define     SYSTEM_TOP_FLR              32	
+	#define     SYSTEM_TOP_FLR              32
 
-	#define     DISABLE_FLR                 32	
+	#define     DISABLE_FLR                 32
 	#define     Init_FixFloor               32
 	#define     Init_X7SafeFlr              32
 	#define     Init_OneStopFlr             32
@@ -53,12 +53,12 @@
 
 #define		Init_TopFlr		            1
 #define		Init_PrkFlr                 0
-#define     Init_OpWtTm                 4    
+#define     Init_OpWtTm                 4
 #define     Init_OpTtTm                 7
 #define     Init_DirTime                20
 #define     Init_VoiceTime              20
 #define     Init_FireSafeFlr            0
-#define     Init_WaterSafeFlr           1        
+#define     Init_WaterSafeFlr           1
 
 
 
@@ -91,24 +91,24 @@
 #define     Init_StTm5                  10
 
 
-#define     Init_RunOff_Time            8  
-#define     Init_Bk1Off_Time            15  
-#define     Init_Bk2Off_Time            16  
-#define     Init_UDOff_Time             20  
-#define     Init_P4Off_Time             22  
+#define     Init_RunOff_Time            8
+#define     Init_Bk1Off_Time            15
+#define     Init_Bk2Off_Time            16
+#define     Init_UDOff_Time             20
+#define     Init_P4Off_Time             22
 
 
-#define     Init_SolOn_Time             0  
-#define     Init_DoorWait_Time          0  
+#define     Init_SolOn_Time             0
+#define     Init_DoorWait_Time          0
 
-//#define     Init_BrkStTm10              800  
+//#define     Init_BrkStTm10              800
 //#define     Init_BrkStTm20              1500
 //#define     Init_BrkStTm30              1600
 //#define     Init_BrkStTm40              2000
 //#define     Init_BrkStTm50              2200
 //#define     Init_BrkStTm60              500
 
-                                    
+
 #define     Init_ParkingStartTime       0
 #define     Init_ParkingEndTime         0
 
@@ -161,17 +161,17 @@
 	#define     SPEED_60                    2
 	#define     SPEED_90                    3
 	#define     SPEED_105                   4
-	#define     SPEED_120                   5 
-	#define     SPEED_150                   6 
-	#define     SPEED_180                   7 
-	#define     SPEED_210                   8 
+	#define     SPEED_120                   5
+	#define     SPEED_150                   6
+	#define     SPEED_180                   7
+	#define     SPEED_210                   8
 	////////////////////////////////////////////
 	////////////////////////////////////////////
-	
+
 	#define     SPEED_30_DEC_LENGTH         500                 //mm
 	#define     SPEED_45_DEC_LENGTH         1100                //mm
 	#define     SPEED_60_DEC_LENGTH         1300                //970                 //1200        //mm
-	#define     SPEED_90_DEC_LENGTH         1800                //mm    
+	#define     SPEED_90_DEC_LENGTH         1800                //mm
 	#define     SPEED_105_DEC_LENGTH        2150                //2100        //mm
 	#define     SPEED_120_DEC_LENGTH        3200                //mm
 	#define     SPEED_150_DEC_LENGTH        3000                //mm

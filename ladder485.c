@@ -1,9 +1,9 @@
 
 #include  "iodef.h"
-#include  "30f6010_io.h"            
-#include  "default_setup.h" 
+#include  "30f6010_io.h"
+#include  "default_setup.h"
 
-#include  "Analog.h" 
+#include  "Analog.h"
 
 
 void  __attribute__((section(".usercode"))) Pc_Command(void);
@@ -13,24 +13,24 @@ void  __attribute__((section(".usercode"))) Pc_Command(void);
 //////////////////////////////////////
 //////////////////////////////////////
 
-#define     ONEKEY                  '1'      
-#define     TWOKEY                  '2'      
-#define     THREEKEY                '3'      
+#define     ONEKEY                  '1'
+#define     TWOKEY                  '2'
+#define     THREEKEY                '3'
 #define     FOURKEY                 '4'
-#define     FIVEKEY                 '5'      
+#define     FIVEKEY                 '5'
 #define     SIXKEY                  '6'
-#define     SEVENKEY                '7'      
-#define     EIGHTKEY                '8'      
-#define     NINEKEY                 '9'      
+#define     SEVENKEY                '7'
+#define     EIGHTKEY                '8'
+#define     NINEKEY                 '9'
 #define     ZEROKEY                 '0'
-#define     ENTKEY                  'e'      
-#define     MENUKEY                 'm'      
-#define     ESCKEY                  'c'      
-#define     UPKEY                   'u'      
+#define     ENTKEY                  'e'
+#define     MENUKEY                 'm'
+#define     ESCKEY                  'c'
+#define     UPKEY                   'u'
 #define     DOWNKEY                 'd'
-#define     LEFTKEY                 'l'      
+#define     LEFTKEY                 'l'
 #define     RIGHTKEY                'r'
-#define     ENTKEY                  'e'      
+#define     ENTKEY                  'e'
 
 
 #define     DIGIT_EDIT              0
@@ -123,7 +123,7 @@ void  __attribute__((section(".usercode"))) Pc_Command(void);
 
 
 #define     NORMAL_DSP_MESSAGE_CNT  2
-#define     INIT_MESSAGE            3 
+#define     INIT_MESSAGE            3
 #define     USER_LAMP_MESSAGE_CNT   10
 
 
@@ -144,13 +144,13 @@ void  __attribute__((section(".usercode"))) Pc_Command(void);
 #define     MAX_LADDER_BUF          40
 
 
-#define     TOP_FLR                 0 
-#define     PRK_FLR                 1 
-#define     NO_USE_GO_FLR           2 
-#define     FIRE_SAFE_FLR           3 
+#define     TOP_FLR                 0
+#define     PRK_FLR                 1
+#define     NO_USE_GO_FLR           2
+#define     FIRE_SAFE_FLR           3
 #define     X7_SAFE_FLR             4
-#define     WATER_SAFE_FLR          5 
-#define     START_FLR               6 
+#define     WATER_SAFE_FLR          5
+#define     START_FLR               6
 #define     ONE_STOP_FLR            7
 #define     KIDS_KEY_CNT            8
 #define     X6_SAFE_FLR             9
@@ -179,37 +179,37 @@ void  __attribute__((section(".usercode"))) Pc_Command(void);
 
 
 
-#define     VERSION                 0  
-#define     NORMAL_DSP              1  
-#define     INIT_DATA               2 
-#define     GROUP_NUMBER            3 
-#define     LOCAL_NUMBER            4 
-#define     HH_MM_SS                5 
-#define     YY_MM_DD                6 
+#define     VERSION                 0
+#define     NORMAL_DSP              1
+#define     INIT_DATA               2
+#define     GROUP_NUMBER            3
+#define     LOCAL_NUMBER            4
+#define     HH_MM_SS                5
+#define     YY_MM_DD                6
 
 
 
 /*
-#define     VERSION                 0  
-#define     BOARD_ID                1 
+#define     VERSION                 0
+#define     BOARD_ID                1
 #define     PASSWARD                2
 #define     USER_LAMP1              3
 #define     USER_LAMP2              4
-#define     SERIAL_NM               5   
-#define     NORMAL_DSP              6  
-#define     DRIVE_METHOD            7  
-#define     FHM_RUN_CHK             8  
-#define     ALL_MENU_CHK            9 
+#define     SERIAL_NM               5
+#define     NORMAL_DSP              6
+#define     DRIVE_METHOD            7
+#define     FHM_RUN_CHK             8
+#define     ALL_MENU_CHK            9
 #define     ENGINEER_NM             10
-#define     TOTAL_USE_TIME          11 
-#define     INIT_DATA               12 
-#define     GROUP_NUMBER            13 
-#define     LOCAL_NUMBER            14 
-#define     LG_INV_IN_BD            15 
-#define     VIRTUAL_CALL            16 
-#define     HH_MM_SS                17 
-#define     YY_MM_DD                18 
-#define     ERR_ST_CNT              19  
+#define     TOTAL_USE_TIME          11
+#define     INIT_DATA               12
+#define     GROUP_NUMBER            13
+#define     LOCAL_NUMBER            14
+#define     LG_INV_IN_BD            15
+#define     VIRTUAL_CALL            16
+#define     HH_MM_SS                17
+#define     YY_MM_DD                18
+#define     ERR_ST_CNT              19
 #define     COMPANY_NAME            20
 #define     OUT_DATE         		21
 #define     USER_LAMP3              22
@@ -224,7 +224,7 @@ void  __attribute__((section(".usercode"))) Pc_Command(void);
 #define     ENCODER_RATE            31
 */
 
-  
+
 //#define     COMPANY_NAME_SET        21
 
 
@@ -234,19 +234,19 @@ void  __attribute__((section(".usercode"))) Pc_Command(void);
 #define     ONOFF2_29               3
 #define     ONOFF2_28               4
 #define     ONOFF2_27               5
-#define     ONOFF2_26               6    
+#define     ONOFF2_26               6
 #define     ONOFF2_25               7
 #define     ONOFF2_24               8
 #define     ONOFF2_23               9
 #define     ONOFF2_22               10
 #define     ONOFF2_21               11
-#define     ONOFF2_20               12    
+#define     ONOFF2_20               12
 #define     ONOFF2_19               13
 #define     ONOFF2_18               14
 #define     ONOFF2_17               15
-#define     ONOFF2_16               16    
+#define     ONOFF2_16               16
 #define     ONOFF2_15               17
-#define     ONOFF2_14               18    
+#define     ONOFF2_14               18
 #define     ONOFF2_13               19
 #define     ONOFF2_12               20
 #define     ONOFF2_11               21
@@ -263,30 +263,30 @@ void  __attribute__((section(".usercode"))) Pc_Command(void);
 
 
 
-#define     P_ENCODER_PULSE         0  
-#define     P_TM_MPM                1  
-#define     P_MOTOR_RPM             2  
-#define     P_DEC30                 3  
-#define     P_DEC45                 4  
-#define     P_DEC60                 5  
-#define     P_DEC90                 6  
-#define     P_DEC105                7  
-#define     P_DEC120                8  
-#define     P_DEC150                9  
-#define     P_DEC180                10 
+#define     P_ENCODER_PULSE         0
+#define     P_TM_MPM                1
+#define     P_MOTOR_RPM             2
+#define     P_DEC30                 3
+#define     P_DEC45                 4
+#define     P_DEC60                 5
+#define     P_DEC90                 6
+#define     P_DEC105                7
+#define     P_DEC120                8
+#define     P_DEC150                9
+#define     P_DEC180                10
 #define     P_DEC210                11
-#define     P_MINDEC30              12  
-#define     P_MINDEC45              13 
-#define     P_MINDEC60              14 
-#define     P_MINDEC90              15 
-#define     P_MINDEC105             16 
-#define     P_MINDEC120             17 
-#define     P_MINDEC150             18 
-#define     P_MINDEC180             19 
-#define     P_MINDEC210             20 
+#define     P_MINDEC30              12
+#define     P_MINDEC45              13
+#define     P_MINDEC60              14
+#define     P_MINDEC90              15
+#define     P_MINDEC105             16
+#define     P_MINDEC120             17
+#define     P_MINDEC150             18
+#define     P_MINDEC180             19
+#define     P_MINDEC210             20
 #define     P_PAR1                  21
 #define     P_PAR2                  22
-#define     P_PAR3                  23 
+#define     P_PAR3                  23
 #define     P_PAR4            		24
 #define     P_PAR5                  25
 #define     P_PAR6                  26
@@ -300,7 +300,7 @@ void  __attribute__((section(".usercode"))) Pc_Command(void);
 //#define     P_STOP_PULSE            12
 
 
-UserDataType    New485Ladder[MAX_LADDER_BUF]={0};      
+UserDataType    New485Ladder[MAX_LADDER_BUF]={0};
 
 
 UserDataType    GroupBaseAddr;
@@ -338,40 +338,40 @@ const unsigned char BdName485[][4]={"000"," 01"," 02"," 03"," 04"," 05"," 06"," 
 /*
 const unsigned char GroupLineMessage[][17]={
                                     "FL:00           ",//0
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "USER:Version    ",//1  
-                                    "USER:BoardId    ",//2 
-                                    "USER:Passward   ",//3  
-                                    "USER:UserLamp1  ",//4  
-                                    "USER:UserLamp2  ",//5  
-                                    "USER:SerialNm   ",//6  
-                                    "USER:Normal Dsp ",//7  
-                                    "USER:DriveMethod",//8 
-                                    "USER:Fhm Run    ",//9 
-                                    "USER:SubMenu On ",//10 
-                                    "USER:Engineer Nm",//11 
-                                    "USER:Tt Use Time",//12 
-                                    "USER:Init Data  ",//13 
-                                    "USER:Group Nm   ",//14 
-                                    "USER:Local Nm   ",//15 
+///////////////////////////////////////////////////////////
+                                    "USER:Version    ",//1
+                                    "USER:BoardId    ",//2
+                                    "USER:Passward   ",//3
+                                    "USER:UserLamp1  ",//4
+                                    "USER:UserLamp2  ",//5
+                                    "USER:SerialNm   ",//6
+                                    "USER:Normal Dsp ",//7
+                                    "USER:DriveMethod",//8
+                                    "USER:Fhm Run    ",//9
+                                    "USER:SubMenu On ",//10
+                                    "USER:Engineer Nm",//11
+                                    "USER:Tt Use Time",//12
+                                    "USER:Init Data  ",//13
+                                    "USER:Group Nm   ",//14
+                                    "USER:Local Nm   ",//15
                                     "USER:Inv InBd Tp",//16
                                     "USER:Call(c-f-f)",//17
-                                    "USER:hh-mm-ss   ",//18 
+                                    "USER:hh-mm-ss   ",//18
                                     "USER:yy-mm-dd   ",//19
-                                    "USER:ErrStCnt   ",//20  
-                                    "USER:Company    ",//21									  
-                                    "USER:OutDate    ",//22  
-                                    "USER:UserLamp3  ",//23  
-                                    "USER:UserLamp4  ",//24  
+                                    "USER:ErrStCnt   ",//20
+                                    "USER:Company    ",//21
+                                    "USER:OutDate    ",//22
+                                    "USER:UserLamp3  ",//23
+                                    "USER:UserLamp4  ",//24
                                     "USER:C-K-H-O-B-R",//25  //cancle,openkey,halllantern,offset,button type,reserve
-                                    "USER:User4      ",//26 
-                                    "USER:User5      ",//27 
-                                    "USER:User6      ",//28 
-                                    "USER:User7      ",//29 
-                                    "USER:User8      ",//30 
-                                    "USER:Aircon Addr",//31  
-                                    "USER: Stop Pulse",//32 
-///////////////////////////////////////////////////////////                                    
+                                    "USER:User4      ",//26
+                                    "USER:User5      ",//27
+                                    "USER:User6      ",//28
+                                    "USER:User7      ",//29
+                                    "USER:User8      ",//30
+                                    "USER:Aircon Addr",//31
+                                    "USER: Stop Pulse",//32
+///////////////////////////////////////////////////////////
                                     "DSP:Floor01     ",//1
                                     "DSP:Floor02     ",//2
                                     "DSP:Floor03     ",//3
@@ -405,14 +405,14 @@ const unsigned char GroupLineMessage[][17]={
                                     "DSP:Floor31     ",//31
                                     "DSP:Floor32     ",//32
 
-///////////////////////////////////////////////////////////                                    
+///////////////////////////////////////////////////////////
 
-                                    "FLR:TopFlr      ",//1 
-                                    "FLR:PrkFlr      ",//2 
-                                    "FLR:NoUse Go Flr",//3 
-                                    "FLR:FireSafe Flr",//4 
-                                    "FLR:X7 Safe  Flr",//5 
-                                    "FLR:WaterSafeFlr",//6 
+                                    "FLR:TopFlr      ",//1
+                                    "FLR:PrkFlr      ",//2
+                                    "FLR:NoUse Go Flr",//3
+                                    "FLR:FireSafe Flr",//4
+                                    "FLR:X7 Safe  Flr",//5
+                                    "FLR:WaterSafeFlr",//6
                                     "FLR:Start Flr   ",//7
                                     "FLR:OneStop Flr ",//8
                                     "FLR:Kids Key Cnt",//9
@@ -439,7 +439,7 @@ const unsigned char GroupLineMessage[][17]={
                                     "FLR:Nc03Flr     ",//30
                                     "FLR:Nc02Flr     ",//31
                                     "FLR:Nc01Flr     ",//32
-///////////////////////////////////////////////////////////                                                                       
+///////////////////////////////////////////////////////////
                                     "TMR:Op Wait Time",// 1
                                     "TMR:Op Total Tm ",// 2
                                     "TMR:No Use Time ",// 3
@@ -472,18 +472,18 @@ const unsigned char GroupLineMessage[][17]={
                                     "TMR:Stop13  Time",//30
                                     "TMR:Stop14  Time",//31
                                     "TMR:Stop15  Time",//32
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "ONOFF1:Floor01  ",//1 
-                                    "ONOFF1:Floor02  ",//2 
-                                    "ONOFF1:Floor03  ",//3 
-                                    "ONOFF1:Floor04  ",//4  
-                                    "ONOFF1:Floor05  ",//5  
-                                    "ONOFF1:Floor06  ",//6  
-                                    "ONOFF1:Floor07  ",//7  
-                                    "ONOFF1:Floor08  ",//8  
-                                    "ONOFF1:Floor09  ",//9  
-                                    "ONOFF1:Floor10  ",//10 
-                                    "ONOFF1:Floor11  ",//11 
+///////////////////////////////////////////////////////////
+                                    "ONOFF1:Floor01  ",//1
+                                    "ONOFF1:Floor02  ",//2
+                                    "ONOFF1:Floor03  ",//3
+                                    "ONOFF1:Floor04  ",//4
+                                    "ONOFF1:Floor05  ",//5
+                                    "ONOFF1:Floor06  ",//6
+                                    "ONOFF1:Floor07  ",//7
+                                    "ONOFF1:Floor08  ",//8
+                                    "ONOFF1:Floor09  ",//9
+                                    "ONOFF1:Floor10  ",//10
+                                    "ONOFF1:Floor11  ",//11
                                     "ONOFF1:Floor12  ",//12
                                     "ONOFF1:Floor13  ",//13
                                     "ONOFF1:Floor14  ",//14
@@ -505,21 +505,21 @@ const unsigned char GroupLineMessage[][17]={
                                     "ONOFF1:Floor30  ",//30
                                     "ONOFF1:Floor31  ",//31
                                     "ONOFF1:Floor32  ",//32
-///////////////////////////////////////////////////////////                
-                                                                                           
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "ONOFF2:FHM Chk  ",//1 
-                                    "ONOFF2:DrJmpChk ",//2 
-                                    "ONOFF2:EncoderPh",//3 
-                                    "ONOFF2:WardPrior",//4  
-                                    "ONOFF2:NonStop  ",//5  
-                                    "ONOFF2:OpenTotal",//6  
-                                    "ONOFF2:WaitTotal",//7  
-                                    "ONOFF2:ClosTotal",//8  
-                                    "ONOFF2:C_Dr1 Chk",//9  
-                                    "ONOFF2:C_Dr2 Chk",//10  
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+                                    "ONOFF2:FHM Chk  ",//1
+                                    "ONOFF2:DrJmpChk ",//2
+                                    "ONOFF2:EncoderPh",//3
+                                    "ONOFF2:WardPrior",//4
+                                    "ONOFF2:NonStop  ",//5
+                                    "ONOFF2:OpenTotal",//6
+                                    "ONOFF2:WaitTotal",//7
+                                    "ONOFF2:ClosTotal",//8
+                                    "ONOFF2:C_Dr1 Chk",//9
+                                    "ONOFF2:C_Dr2 Chk",//10
                                     "ONOFF2:H_Dr1 Chk",//11
-                                    "ONOFF2:H_Dr2 Chk",//12 
+                                    "ONOFF2:H_Dr2 Chk",//12
                                     "ONOFF2:S_Sft Chk",//13
                                     "ONOFF2:MgtMonChk",//14
                                     "ONOFF2:Encod Chk",//15
@@ -540,18 +540,18 @@ const unsigned char GroupLineMessage[][17]={
                                     "ONOFF2:Not Use  ",//30
                                     "ONOFF2:Not Use  ",//31
                                     "ONOFF2:Work Mode",//32
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "DOOR-S:Floor01  ",//1 
-                                    "DOOR-S:Floor02  ",//2 
-                                    "DOOR-S:Floor03  ",//3 
-                                    "DOOR-S:Floor04  ",//4  
-                                    "DOOR-S:Floor05  ",//5  
-                                    "DOOR-S:Floor06  ",//6  
-                                    "DOOR-S:Floor07  ",//7  
-                                    "DOOR-S:Floor08  ",//8  
-                                    "DOOR-S:Floor09  ",//9  
-                                    "DOOR-S:Floor10  ",//10 
-                                    "DOOR-S:Floor11  ",//11 
+///////////////////////////////////////////////////////////
+                                    "DOOR-S:Floor01  ",//1
+                                    "DOOR-S:Floor02  ",//2
+                                    "DOOR-S:Floor03  ",//3
+                                    "DOOR-S:Floor04  ",//4
+                                    "DOOR-S:Floor05  ",//5
+                                    "DOOR-S:Floor06  ",//6
+                                    "DOOR-S:Floor07  ",//7
+                                    "DOOR-S:Floor08  ",//8
+                                    "DOOR-S:Floor09  ",//9
+                                    "DOOR-S:Floor10  ",//10
+                                    "DOOR-S:Floor11  ",//11
                                     "DOOR-S:Floor12  ",//12
                                     "DOOR-S:Floor13  ",//13
                                     "DOOR-S:Floor14  ",//14
@@ -573,421 +573,421 @@ const unsigned char GroupLineMessage[][17]={
                                     "DOOR-S:Floor30  ",//30
                                     "DOOR-S:Floor31  ",//31
                                     "DOOR-S:Floor32  ",//32
-///////////////////////////////////////////////////////////                
-
-///////////////////////////////////////////////////////////              
-                                    "I_O:ManSpd  Port",//1  
-                                    "I_O:BatSpd  Port",//2  
-                                    "I_O:DecSpd  Port",//3  
-                                    "I_O:FHMSpd  Port",//4  
-                                    "I_O:Spd30   Port",//5  
-                                    "I_O:Spd45   Port",//6  
-                                    "I_O:Spd60   Port",//7  
-                                    "I_O:Spd90   Port",//8 
-                                    "I_O:Spd105  Port",//9 
-                                    "I_O:Spd120  Port",//10 
-                                    "I_O:Spd150  Port",//11 
-                                    "I_O:Spd180  Port",//12 
-                                    "I_O:Spd210  Port",//13 
-                                    "I_O:Etc1Spd Port",//14  
-                                    "I_O:Etc2Spd Port",//15  
-                                    "I_O:Elev Max Spd",//16 
-                                    "I_O:Limt Max Spd",//17
-                                    "I_O:MaxSuSd1 Spd",//18 
-                                    "I_O:MaxSuSd2 Spd",//19 
-                                    "I_O:MaxX0X1  Spd",//20                                   
-                                    "I_O:Spd1        ",//21 
-                                    "I_O:Spd2        ",//22 
-                                    "I_O:Spd3        ",//23 
-                                    "I_O:Spd4        ",//24 
-                                    "I_O:Spd5        ",//25  
-                                    "I_O:Spd6        ",//26 
-                                    "I_O:Spd7        ",//27 
-                                    "I_O:Spd8        ",//28 
-                                    "I_O:Spd9        ",//29 
-                                    "I_O:Spd10       ",//30 
-                                    "I_O:Spd11       ",//31 
-                                    "I_O:Spd12       ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-///////////////////////////////////////////////////////////             
-                                    "PAR:EncoderPulse",//1  
-                                    "PAR: TM Mpm     ",//2  
-                                    "PAR:Motor Rpm   ",//3  
-                                    "PAR:Dec30 Length",//4  
-                                    "PAR:Dec45 Length",//5  
-                                    "PAR:Dec60 Length",//6  
-                                    "PAR:Dec90 Length",//7  
-                                    "PAR:Dec105Length",//8  
-                                    "PAR:Dec120Length",//9  
-                                    "PAR:Dec150Length",//10 
-                                    "PAR:Dec180Length",//11 
-                                    "PAR:Dec210Length",//12 
-                                    "PAR:Dec30 Pulse ",//13  
-                                    "PAR:Dec45 Pulse ",//14 
-                                    "PAR:Dec60 Pulse ",//15 
-                                    "PAR:Dec90 Pulse ",//16 
-                                    "PAR:Dec105 Pulse",//17 
-                                    "PAR:Dec120 Pulse",//18 
-                                    "PAR:Dec150 Pulse",//19 
-                                    "PAR:Dec180 Pulse",//20 
-                                    "PAR:Dec210 Pulse",//21 
-                                    "PAR:Min30  Pulse",//22 
-                                    "PAR:Min45  Pulse",//23 
-                                    "PAR:Min60  Pulse",//24 
-                                    "PAR:Min90  Pulse",//25 
-                                    "PAR:Min105 Pulse",//26 
-                                    "PAR:Min120 Pulse",//27 
-                                    "PAR:Min150 Pulse",//28 
-                                    "PAR:Min180 Pulse",//29 
-                                    "PAR:Min210 Pulse",//30 
-                                    "PAR:Mpm Variable",//31 
-                                    "PAR:MmPerPulse  ",//32 
 ///////////////////////////////////////////////////////////
-                                    "W_FLR:(1)hm_hm_F",//1  
-                                    "W_FLR:(2)hm_hm_F",//2  
-                                    "W_FLR:(3)hm_hm_F",//3  
-                                    "W_FLR:(4)hm_hm_F",//4  
-                                    "W_FLR:Time0910  ",//5  
-                                    "W_FLR:Time1011  ",//6  
-                                    "W_FLR:Time1112  ",//7  
-                                    "W_FLR:Time1213  ",//8  
-                                    "W_FLR:Time1314  ",//9  
-                                    "W_FLR:Time1415  ",//10 
-                                    "W_FLR:Time1516  ",//11 
-                                    "W_FLR:Time1617  ",//12 
-                                    "W_FLR:Time1718  ",//13 
-                                    "W_FLR:Time1819  ",//14 
-                                    "W_FLR:Time1920  ",//15 
-                                    "W_FLR:Time2021  ",//16 
-                                    "W_FLR:Time2105  ",//17 
-                                    "W_FLR:Time0002  ",//18 
-                                    "W_FLR:Time0003  ",//19 
-                                    "W_FLR:Time0004  ",//20 
-                                    "W_FLR:Time0005  ",//21 
-                                    "W_FLR:Time0006  ",//22 
-                                    "W_FLR:Time0007  ",//23 
-                                    "W_FLR:Time0008  ",//24 
-                                    "W_FLR:Time0009  ",//25 
-                                    "W_FLR:Time0010  ",//26 
-                                    "W_FLR:Time0011  ",//27 
-                                    "W_FLR:Time0012  ",//28 
-                                    "W_FLR:Time0013  ",//29 
-                                    "W_FLR:Time0014  ",//30 
-                                    "W_FLR:Prk S_Time",//31 
-                                    "W_FLR:Prk E_Time",//32 
-///////////////////////////////////////////////////////////                          
-                                    "NcNo1:Emergency ",//1  
-                                    "NcNo1:Parking   ",//2  
-                                    "NcNo1:AutoButton",//3  
-                                    "NcNo1:Up Button ",//4  
-                                    "NcNo1:Dn Button ",//5  
-                                    "NcNo1:Open limit",//6  
-                                    "NcNo1:Car Door  ",//7  
-                                    "NcNo1:Hall Door ",//8  
-                                    "NcNo1:Su1       ",//9  
-                                    "NcNo1:Sd1       ",//10 
-                                    "NcNo1:Safety sw ",//11 
-                                    "NcNo1:Overload  ",//12 
-                                    "NcNo1:Uls       ",//13 
-                                    "NcNo1:Dls       ",//14 
-                                    "NcNo1:Lu        ",//15 
-                                    "NcNo1:Ld        ",//16 
-                                    "NcNo1:Rg        ",//17 
-                                    "NcNo1:Bat       ",//18 
-                                    "NcNo1:Pass      ",//19 
-                                    "NcNo1:Fire      ",//20 
-                                    "NcNo1:Water     ",//21 
-                                    "NcNo1:Full      ",//22 
-                                    "NcNo1:Mm        ",//23 
+
+///////////////////////////////////////////////////////////
+                                    "I_O:ManSpd  Port",//1
+                                    "I_O:BatSpd  Port",//2
+                                    "I_O:DecSpd  Port",//3
+                                    "I_O:FHMSpd  Port",//4
+                                    "I_O:Spd30   Port",//5
+                                    "I_O:Spd45   Port",//6
+                                    "I_O:Spd60   Port",//7
+                                    "I_O:Spd90   Port",//8
+                                    "I_O:Spd105  Port",//9
+                                    "I_O:Spd120  Port",//10
+                                    "I_O:Spd150  Port",//11
+                                    "I_O:Spd180  Port",//12
+                                    "I_O:Spd210  Port",//13
+                                    "I_O:Etc1Spd Port",//14
+                                    "I_O:Etc2Spd Port",//15
+                                    "I_O:Elev Max Spd",//16
+                                    "I_O:Limt Max Spd",//17
+                                    "I_O:MaxSuSd1 Spd",//18
+                                    "I_O:MaxSuSd2 Spd",//19
+                                    "I_O:MaxX0X1  Spd",//20
+                                    "I_O:Spd1        ",//21
+                                    "I_O:Spd2        ",//22
+                                    "I_O:Spd3        ",//23
+                                    "I_O:Spd4        ",//24
+                                    "I_O:Spd5        ",//25
+                                    "I_O:Spd6        ",//26
+                                    "I_O:Spd7        ",//27
+                                    "I_O:Spd8        ",//28
+                                    "I_O:Spd9        ",//29
+                                    "I_O:Spd10       ",//30
+                                    "I_O:Spd11       ",//31
+                                    "I_O:Spd12       ",//32
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+                                    "PAR:EncoderPulse",//1
+                                    "PAR: TM Mpm     ",//2
+                                    "PAR:Motor Rpm   ",//3
+                                    "PAR:Dec30 Length",//4
+                                    "PAR:Dec45 Length",//5
+                                    "PAR:Dec60 Length",//6
+                                    "PAR:Dec90 Length",//7
+                                    "PAR:Dec105Length",//8
+                                    "PAR:Dec120Length",//9
+                                    "PAR:Dec150Length",//10
+                                    "PAR:Dec180Length",//11
+                                    "PAR:Dec210Length",//12
+                                    "PAR:Dec30 Pulse ",//13
+                                    "PAR:Dec45 Pulse ",//14
+                                    "PAR:Dec60 Pulse ",//15
+                                    "PAR:Dec90 Pulse ",//16
+                                    "PAR:Dec105 Pulse",//17
+                                    "PAR:Dec120 Pulse",//18
+                                    "PAR:Dec150 Pulse",//19
+                                    "PAR:Dec180 Pulse",//20
+                                    "PAR:Dec210 Pulse",//21
+                                    "PAR:Min30  Pulse",//22
+                                    "PAR:Min45  Pulse",//23
+                                    "PAR:Min60  Pulse",//24
+                                    "PAR:Min90  Pulse",//25
+                                    "PAR:Min105 Pulse",//26
+                                    "PAR:Min120 Pulse",//27
+                                    "PAR:Min150 Pulse",//28
+                                    "PAR:Min180 Pulse",//29
+                                    "PAR:Min210 Pulse",//30
+                                    "PAR:Mpm Variable",//31
+                                    "PAR:MmPerPulse  ",//32
+///////////////////////////////////////////////////////////
+                                    "W_FLR:(1)hm_hm_F",//1
+                                    "W_FLR:(2)hm_hm_F",//2
+                                    "W_FLR:(3)hm_hm_F",//3
+                                    "W_FLR:(4)hm_hm_F",//4
+                                    "W_FLR:Time0910  ",//5
+                                    "W_FLR:Time1011  ",//6
+                                    "W_FLR:Time1112  ",//7
+                                    "W_FLR:Time1213  ",//8
+                                    "W_FLR:Time1314  ",//9
+                                    "W_FLR:Time1415  ",//10
+                                    "W_FLR:Time1516  ",//11
+                                    "W_FLR:Time1617  ",//12
+                                    "W_FLR:Time1718  ",//13
+                                    "W_FLR:Time1819  ",//14
+                                    "W_FLR:Time1920  ",//15
+                                    "W_FLR:Time2021  ",//16
+                                    "W_FLR:Time2105  ",//17
+                                    "W_FLR:Time0002  ",//18
+                                    "W_FLR:Time0003  ",//19
+                                    "W_FLR:Time0004  ",//20
+                                    "W_FLR:Time0005  ",//21
+                                    "W_FLR:Time0006  ",//22
+                                    "W_FLR:Time0007  ",//23
+                                    "W_FLR:Time0008  ",//24
+                                    "W_FLR:Time0009  ",//25
+                                    "W_FLR:Time0010  ",//26
+                                    "W_FLR:Time0011  ",//27
+                                    "W_FLR:Time0012  ",//28
+                                    "W_FLR:Time0013  ",//29
+                                    "W_FLR:Time0014  ",//30
+                                    "W_FLR:Prk S_Time",//31
+                                    "W_FLR:Prk E_Time",//32
+///////////////////////////////////////////////////////////
+                                    "NcNo1:Emergency ",//1
+                                    "NcNo1:Parking   ",//2
+                                    "NcNo1:AutoButton",//3
+                                    "NcNo1:Up Button ",//4
+                                    "NcNo1:Dn Button ",//5
+                                    "NcNo1:Open limit",//6
+                                    "NcNo1:Car Door  ",//7
+                                    "NcNo1:Hall Door ",//8
+                                    "NcNo1:Su1       ",//9
+                                    "NcNo1:Sd1       ",//10
+                                    "NcNo1:Safety sw ",//11
+                                    "NcNo1:Overload  ",//12
+                                    "NcNo1:Uls       ",//13
+                                    "NcNo1:Dls       ",//14
+                                    "NcNo1:Lu        ",//15
+                                    "NcNo1:Ld        ",//16
+                                    "NcNo1:Rg        ",//17
+                                    "NcNo1:Bat       ",//18
+                                    "NcNo1:Pass      ",//19
+                                    "NcNo1:Fire      ",//20
+                                    "NcNo1:Water     ",//21
+                                    "NcNo1:Full      ",//22
+                                    "NcNo1:Mm        ",//23
                                     "NcNo1:Fhm       ",//24
-                                    "NcNo1:Fr1       ",//25 
+                                    "NcNo1:Fr1       ",//25
                                     "NcNo1:Fr2       ",//26
-                                    "NcNo1:Gs2       ",//27 
+                                    "NcNo1:Gs2       ",//27
                                     "NcNo1:Ds2       ",//28
-                                    "NcNo1:Su2       ",//29 
+                                    "NcNo1:Su2       ",//29
                                     "NcNo1:Sd2       ",//30
-                                    "NcNo1:Bm        ",//31 
-                                    "NcNo1:Inv       ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "NcNo2:x0        ",//1  
-                                    "NcNo2:x1        ",//2  
-                                    "NcNo2:x2        ",//3  
-                                    "NcNo2:x3        ",//4  
-                                    "NcNo2:x4        ",//5  
-                                    "NcNo2:x5        ",//6  
-                                    "NcNo2:x6        ",//7  
-                                    "NcNo2:x7        ",//8  
-                                    "NcNo2:Fs0       ",//9  
-                                    "NcNo2:Fs1       ",//10 
-                                    "NcNo2:Fs2       ",//11 
-                                    "NcNo2:Fs3       ",//12 
-                                    "NcNo2:Fs4       ",//13 
-                                    "NcNo2:Der       ",//14 
-                                    "NcNo2:Fid       ",//15 
-                                    "NcNo2:Und       ",//16 
-                                    "NcNo2:nc        ",//17 
-                                    "NcNo2:nc        ",//18 
-                                    "NcNo2:nc        ",//19 
-                                    "NcNo2:nc        ",//20 
-                                    "NcNo2:nc        ",//21 
-                                    "NcNo2:nc        ",//22 
-                                    "NcNo2:nc        ",//23 
+                                    "NcNo1:Bm        ",//31
+                                    "NcNo1:Inv       ",//32
+///////////////////////////////////////////////////////////
+                                    "NcNo2:x0        ",//1
+                                    "NcNo2:x1        ",//2
+                                    "NcNo2:x2        ",//3
+                                    "NcNo2:x3        ",//4
+                                    "NcNo2:x4        ",//5
+                                    "NcNo2:x5        ",//6
+                                    "NcNo2:x6        ",//7
+                                    "NcNo2:x7        ",//8
+                                    "NcNo2:Fs0       ",//9
+                                    "NcNo2:Fs1       ",//10
+                                    "NcNo2:Fs2       ",//11
+                                    "NcNo2:Fs3       ",//12
+                                    "NcNo2:Fs4       ",//13
+                                    "NcNo2:Der       ",//14
+                                    "NcNo2:Fid       ",//15
+                                    "NcNo2:Und       ",//16
+                                    "NcNo2:nc        ",//17
+                                    "NcNo2:nc        ",//18
+                                    "NcNo2:nc        ",//19
+                                    "NcNo2:nc        ",//20
+                                    "NcNo2:nc        ",//21
+                                    "NcNo2:nc        ",//22
+                                    "NcNo2:nc        ",//23
                                     "NcNo2:nc        ",//24
-                                    "NcNo2:nc        ",//25 
+                                    "NcNo2:nc        ",//25
                                     "NcNo2:nc        ",//26
-                                    "NcNo2:nc        ",//27 
+                                    "NcNo2:nc        ",//27
                                     "NcNo2:nc        ",//28
-                                    "NcNo2:nc        ",//29 
+                                    "NcNo2:nc        ",//29
                                     "NcNo2:nc        ",//30
-                                    "NcNo2:nc        ",//31 
-                                    "NcNo2:nc        ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-/////////////////////////////////////////////////////////// 
+                                    "NcNo2:nc        ",//31
+                                    "NcNo2:nc        ",//32
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
                                     "NcNo3:Fan       ",//9
-                                    "NcNo3:Lit       ",//10 
+                                    "NcNo3:Lit       ",//10
                                     "NcNo3:Buz       ",//11
                                     "NcNo3:Bell      ",//12
                                     "NcNo3:Move      ",//13
                                     "NcNo3:Err       ",//14
                                     "NcNo3:HOp       ",//15
                                     "NcNo3:HCl       ",//16
-                                    "NcNo3:Op        ",//1  
-                                    "NcNo3:Cl        ",//2  
-                                    "NcNo3:S_Op      ",//3  
-                                    "NcNo3:S_Cl      ",//4  
-                                    "NcNo3:Bk2       ",//5  
-                                    "NcNo3:D_S       ",//6  
-                                    "NcNo3:Gbr       ",//7  
-                                    "NcNo3:Bk1       ",//8  
-                                    "NcNo3:Up        ",//17 
-                                    "NcNo3:Dn        ",//18 
-                                    "NcNo3:P1        ",//19 
-                                    "NcNo3:P2        ",//20 
-                                    "NcNo3:P3        ",//21 
-                                    "NcNo3:P4        ",//22 
-                                    "NcNo3:Dac       ",//23 
+                                    "NcNo3:Op        ",//1
+                                    "NcNo3:Cl        ",//2
+                                    "NcNo3:S_Op      ",//3
+                                    "NcNo3:S_Cl      ",//4
+                                    "NcNo3:Bk2       ",//5
+                                    "NcNo3:D_S       ",//6
+                                    "NcNo3:Gbr       ",//7
+                                    "NcNo3:Bk1       ",//8
+                                    "NcNo3:Up        ",//17
+                                    "NcNo3:Dn        ",//18
+                                    "NcNo3:P1        ",//19
+                                    "NcNo3:P2        ",//20
+                                    "NcNo3:P3        ",//21
+                                    "NcNo3:P4        ",//22
+                                    "NcNo3:Dac       ",//23
                                     "NcNo3:nc        ",//24
-                                    "NcNo3:nc        ",//25 
+                                    "NcNo3:nc        ",//25
                                     "NcNo3:nc        ",//26
-                                    "NcNo3:nc        ",//27 
+                                    "NcNo3:nc        ",//27
                                     "NcNo3:nc        ",//28
-                                    "NcNo3:nc        ",//29 
+                                    "NcNo3:nc        ",//29
                                     "NcNo3:nc        ",//30
-                                    "NcNo3:nc        ",//31 
-                                    "NcNo3:nc        ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "INP1:Emergency  ",//1  
-                                    "INP1:Parking    ",//2  
-                                    "INP1:Auto Button",//3  
-                                    "INP1:Up Button  ",//4  
-                                    "INP1:Dn Button  ",//5  
-                                    "INP1:Open limit ",//6  
-                                    "INP1:Car Door   ",//7  
-                                    "INP1:Hall Door  ",//8  
-                                    "INP1:Su1        ",//9  
-                                    "INP1:Sd1        ",//10 
-                                    "INP1:Safety sw  ",//11 
-                                    "INP1:Overload   ",//12 
-                                    "INP1:Uls        ",//13 
-                                    "INP1:Dls        ",//14 
-                                    "INP1:Lu         ",//15 
-                                    "INP1:Ld         ",//16 
-                                    "INP1:Rg         ",//17 
-                                    "INP1:Bat        ",//18 
-                                    "INP1:Pass       ",//19 
-                                    "INP1:Fire       ",//20 
-                                    "INP1:Water      ",//21 
-                                    "INP1:Full       ",//22 
-                                    "INP1:Mm         ",//23 
+                                    "NcNo3:nc        ",//31
+                                    "NcNo3:nc        ",//32
+///////////////////////////////////////////////////////////
+                                    "INP1:Emergency  ",//1
+                                    "INP1:Parking    ",//2
+                                    "INP1:Auto Button",//3
+                                    "INP1:Up Button  ",//4
+                                    "INP1:Dn Button  ",//5
+                                    "INP1:Open limit ",//6
+                                    "INP1:Car Door   ",//7
+                                    "INP1:Hall Door  ",//8
+                                    "INP1:Su1        ",//9
+                                    "INP1:Sd1        ",//10
+                                    "INP1:Safety sw  ",//11
+                                    "INP1:Overload   ",//12
+                                    "INP1:Uls        ",//13
+                                    "INP1:Dls        ",//14
+                                    "INP1:Lu         ",//15
+                                    "INP1:Ld         ",//16
+                                    "INP1:Rg         ",//17
+                                    "INP1:Bat        ",//18
+                                    "INP1:Pass       ",//19
+                                    "INP1:Fire       ",//20
+                                    "INP1:Water      ",//21
+                                    "INP1:Full       ",//22
+                                    "INP1:Mm         ",//23
                                     "INP1:Fhm        ",//24
-                                    "INP1:Fr1        ",//25 
+                                    "INP1:Fr1        ",//25
                                     "INP1:Fr2        ",//26
-                                    "INP1:Gs2        ",//27 
+                                    "INP1:Gs2        ",//27
                                     "INP1:Ds2        ",//28
-                                    "INP1:Su2        ",//29 
+                                    "INP1:Su2        ",//29
                                     "INP1:Sd2        ",//30
-                                    "INP1:Bm         ",//31 
-                                    "INP1:Inv        ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "INP2:x0         ",//1  
-                                    "INP2:x1         ",//2  
-                                    "INP2:x2         ",//3  
-                                    "INP2:x3         ",//4  
-                                    "INP2:x4         ",//5  
-                                    "INP2:x5         ",//6  
-                                    "INP2:x6         ",//7  
-                                    "INP2:x7         ",//8  
-                                    "INP2:Fs0        ",//9  
-                                    "INP2:Fs1        ",//10 
-                                    "INP2:Fs2        ",//11 
-                                    "INP2:Fs3        ",//12 
-                                    "INP2:Fs4        ",//13 
-                                    "INP2:Der        ",//14 
-                                    "INP2:Fid        ",//15 
-                                    "INP2:Und        ",//16 
-                                    "INP2:nc         ",//17 
-                                    "INP2:nc         ",//18 
-                                    "INP2:nc         ",//19 
-                                    "INP2:nc         ",//20 
-                                    "INP2:nc         ",//21 
-                                    "INP2:nc         ",//22 
-                                    "INP2:nc         ",//23 
+                                    "INP1:Bm         ",//31
+                                    "INP1:Inv        ",//32
+///////////////////////////////////////////////////////////
+                                    "INP2:x0         ",//1
+                                    "INP2:x1         ",//2
+                                    "INP2:x2         ",//3
+                                    "INP2:x3         ",//4
+                                    "INP2:x4         ",//5
+                                    "INP2:x5         ",//6
+                                    "INP2:x6         ",//7
+                                    "INP2:x7         ",//8
+                                    "INP2:Fs0        ",//9
+                                    "INP2:Fs1        ",//10
+                                    "INP2:Fs2        ",//11
+                                    "INP2:Fs3        ",//12
+                                    "INP2:Fs4        ",//13
+                                    "INP2:Der        ",//14
+                                    "INP2:Fid        ",//15
+                                    "INP2:Und        ",//16
+                                    "INP2:nc         ",//17
+                                    "INP2:nc         ",//18
+                                    "INP2:nc         ",//19
+                                    "INP2:nc         ",//20
+                                    "INP2:nc         ",//21
+                                    "INP2:nc         ",//22
+                                    "INP2:nc         ",//23
                                     "INP2:nc         ",//24
-                                    "INP2:nc         ",//25 
+                                    "INP2:nc         ",//25
                                     "INP2:nc         ",//26
-                                    "INP2:nc         ",//27 
+                                    "INP2:nc         ",//27
                                     "INP2:nc         ",//28
-                                    "INP2:nc         ",//29 
+                                    "INP2:nc         ",//29
                                     "INP2:nc         ",//30
-                                    "INP2:nc         ",//31 
-                                    "INP2:nc         ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-///////////////////////////////////////////////////////////                                                                                                           
+                                    "INP2:nc         ",//31
+                                    "INP2:nc         ",//32
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
                                     "OUTP:Fan        ",//9
-                                    "OUTP:Lit        ",//10 
+                                    "OUTP:Lit        ",//10
                                     "OUTP:Buz        ",//11
                                     "OUTP:Bell       ",//12
                                     "OUTP:Move       ",//13
                                     "OUTP:Err        ",//14
                                     "OUTP:HOp        ",//15
                                     "OUTP:HCl        ",//16
-                                    "OUTP:Op         ",//1  
-                                    "OUTP:Cl         ",//2  
-                                    "OUTP:S_Op       ",//3  
-                                    "OUTP:S_Cl       ",//4  
-                                    "OUTP:Bk2        ",//5  
-                                    "OUTP:D_S        ",//6  
-                                    "OUTP:Gbr        ",//7  
-                                    "OUTP:Bk1        ",//8  
+                                    "OUTP:Op         ",//1
+                                    "OUTP:Cl         ",//2
+                                    "OUTP:S_Op       ",//3
+                                    "OUTP:S_Cl       ",//4
+                                    "OUTP:Bk2        ",//5
+                                    "OUTP:D_S        ",//6
+                                    "OUTP:Gbr        ",//7
+                                    "OUTP:Bk1        ",//8
 
-                                    "OUTP:Up         ",//17 
-                                    "OUTP:Dn         ",//18 
-                                    "OUTP:P1         ",//19 
-                                    "OUTP:P2         ",//20 
-                                    "OUTP:P3         ",//21 
-                                    "OUTP:P4         ",//22 
-                                    "OUTP:Dac        ",//23 
+                                    "OUTP:Up         ",//17
+                                    "OUTP:Dn         ",//18
+                                    "OUTP:P1         ",//19
+                                    "OUTP:P2         ",//20
+                                    "OUTP:P3         ",//21
+                                    "OUTP:P4         ",//22
+                                    "OUTP:Dac        ",//23
                                     "OUTP:nc         ",//24
-                                    "OUTP:nc         ",//25 
+                                    "OUTP:nc         ",//25
                                     "OUTP:nc         ",//26
-                                    "OUTP:nc         ",//27 
+                                    "OUTP:nc         ",//27
                                     "OUTP:nc         ",//28
-                                    "OUTP:nc         ",//29 
+                                    "OUTP:nc         ",//29
                                     "OUTP:nc         ",//30
-                                    "OUTP:nc         ",//31 
-                                    "OUTP:nc         ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "ER:NO ERRORE(01)",//1  
-                                    "ER:NO ERRORE(02)",//2  
-                                    "ER:NO ERRORE(03)",//3  
-                                    "ER:NO ERRORE(04)",//5  
-                                    "ER:NO ERRORE(05)",//6  
-                                    "ER:NO ERRORE(06)",//7  
-                                    "ER:NO ERRORE(07)",//8  
-                                    "ER:NO ERRORE(08)",//9  
-                                    "ER:NO ERRORE(09)",//10 
-                                    "ER:NO ERRORE(10)",//11 
-                                    "ER:NO ERRORE(11)",//12 
-                                    "ER:NO ERRORE(12)",//13 
-                                    "ER:NO ERRORE(13)",//14 
-                                    "ER:NO ERRORE(14)",//15 
-                                    "ER:NO ERRORE(15)",//16 
-                                    "ER:NO ERRORE(16)",//17 
-                                    "ER:NO ERRORE(17)",//18 
-                                    "ER:NO ERRORE(18)",//19 
-                                    "ER:NO ERRORE(19)",//20 
-                                    "ER:NO ERRORE(20)",//21 
-                                    "ER:NO ERRORE(21)",//22 
-                                    "ER:NO ERRORE(22)",//23 
-                                    "ER:NO ERRORE(23)",//24 
-                                    "ER:NO ERRORE(24)",//25 
-                                    "ER:NO ERRORE(25)",//26 
-                                    "ER:NO ERRORE(26)",//27 
-                                    "ER:NO ERRORE(27)",//28 
-                                    "ER:NO ERRORE(28)",//29 
-                                    "ER:NO ERRORE(29)",//30 
-                                    "ER:NO ERRORE(30)",//31 
-                                    "ER:NO ERRORE(31)",//32 
-                                    "ER:NO ERRORE(32)",//32 
+                                    "OUTP:nc         ",//31
+                                    "OUTP:nc         ",//32
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+                                    "ER:NO ERRORE(01)",//1
+                                    "ER:NO ERRORE(02)",//2
+                                    "ER:NO ERRORE(03)",//3
+                                    "ER:NO ERRORE(04)",//5
+                                    "ER:NO ERRORE(05)",//6
+                                    "ER:NO ERRORE(06)",//7
+                                    "ER:NO ERRORE(07)",//8
+                                    "ER:NO ERRORE(08)",//9
+                                    "ER:NO ERRORE(09)",//10
+                                    "ER:NO ERRORE(10)",//11
+                                    "ER:NO ERRORE(11)",//12
+                                    "ER:NO ERRORE(12)",//13
+                                    "ER:NO ERRORE(13)",//14
+                                    "ER:NO ERRORE(14)",//15
+                                    "ER:NO ERRORE(15)",//16
+                                    "ER:NO ERRORE(16)",//17
+                                    "ER:NO ERRORE(17)",//18
+                                    "ER:NO ERRORE(18)",//19
+                                    "ER:NO ERRORE(19)",//20
+                                    "ER:NO ERRORE(20)",//21
+                                    "ER:NO ERRORE(21)",//22
+                                    "ER:NO ERRORE(22)",//23
+                                    "ER:NO ERRORE(23)",//24
+                                    "ER:NO ERRORE(24)",//25
+                                    "ER:NO ERRORE(25)",//26
+                                    "ER:NO ERRORE(26)",//27
+                                    "ER:NO ERRORE(27)",//28
+                                    "ER:NO ERRORE(28)",//29
+                                    "ER:NO ERRORE(29)",//30
+                                    "ER:NO ERRORE(30)",//31
+                                    "ER:NO ERRORE(31)",//32
+                                    "ER:NO ERRORE(32)",//32
                                 };
 
 */
-						
-			   
-const unsigned char FhmSuccessMsg[17]="  FHM Success   "; 
 
-//digitData == 1 
-const unsigned char ElevOnOffSetMessage[ELEV_ONOFF_MESSAGE_CNT][11]={   
+
+const unsigned char FhmSuccessMsg[17]="  FHM Success   ";
+
+//digitData == 1
+const unsigned char ElevOnOffSetMessage[ELEV_ONOFF_MESSAGE_CNT][11]={
                                     "FHM No Good",
                                     "Chk DoorJmp",
-                                    "B Phase    ", 
-                                    "Call But On",   
-                                    "NonStop On ",   
-                                    "Op TtTm On ",   
-                                    "WaitTtTm On",                                      
-                                    "Cl TtTm On ",   
-                                    "CarDr1  Use",   
-                                    "CarDr2  Use",   
-                                    "HolDr1  Use",   
-                                    "HolDr2  Use",   
-                                    "S_Sfty  Use",   
-                                    "Mgt Mon On ",   
-                                    "Encoder Use",   
-                                    "Relevel On ",   
-                                    "Lope  Type ",   
-                                    "OneCall  On",   
-                                    "M/Sus  Stop",   
-                                    "Brk Mon On ",   
-                                    "KidsClr On ",   
-                                    "F_CarKey On",   
-                                    "Single Car ",   
-                                    "Op Out On  ",   
-                                    "Sft Comm On",   
+                                    "B Phase    ",
+                                    "Call But On",
+                                    "NonStop On ",
+                                    "Op TtTm On ",
+                                    "WaitTtTm On",
+                                    "Cl TtTm On ",
+                                    "CarDr1  Use",
+                                    "CarDr2  Use",
+                                    "HolDr1  Use",
+                                    "HolDr2  Use",
+                                    "S_Sfty  Use",
+                                    "Mgt Mon On ",
+                                    "Encoder Use",
+                                    "Relevel On ",
+                                    "Lope  Type ",
+                                    "OneCall  On",
+                                    "M/Sus  Stop",
+                                    "Brk Mon On ",
+                                    "KidsClr On ",
+                                    "F_CarKey On",
+                                    "Single Car ",
+                                    "Op Out On  ",
+                                    "Sft Comm On",
                                     " BCD Floor ",
-                                    "Run_Op  On ",   
-                                    "Reserve5   ",   
-                                    "Reserve4   ",   
-                                    "Reserve3   ",   
-                                    "Reserve2   ",   
-                                    "Manual Job ",   
+                                    "Run_Op  On ",
+                                    "Reserve5   ",
+                                    "Reserve4   ",
+                                    "Reserve3   ",
+                                    "Reserve2   ",
+                                    "Manual Job ",
                                 };
 
 
-//digitData == 0 
+//digitData == 0
 const unsigned char ElevOnOffResetMessage[ELEV_ONOFF_MESSAGE_CNT][11]={
                                     "FHM Good   ",
                                     "NoChk DrJmp",
-                                    "A Phase    ", 
-                                    "Cur Ward On",    
-                                    "NonStop Off",   
-                                    "Op TtTm Off",   
-                                    "WaitTtTmOff",                                      
-                                    "Cl TtTm Off",   
-                                    "C_Dr1 N_Use",   
-                                    "C_Dr2 N_Use",   
-                                    "H_Dr1 N_Use",   
-                                    "H_Dr2 N_Use",   
-                                    "S_Sft N_Use",   
-                                    "Mgt Mon Off",   
-                                    "Encod N_Use",   
-                                    "Relevel Off",   
-                                    "Oil  P_Type",   
-                                    "OneCall Off",   
-                                    "M/SusNoStop",   
-                                    "Brk Mon Off",   
-                                    "KidsClr Off",   
-                                    "F_CarKeyOff",   
-                                    "Multi Car  ",   
-                                    "Op Out Off ",   
-                                    "Sft CommOff",   
-                                    "DirectFloor",   
-                                    "Run_Op Off ",   
-                                    "Reserve5   ",   
-                                    "Reserve4   ",   
-                                    "Reserve3   ",   
-                                    "Reserve2   ",   
-                                    "Auto Ready ",   
+                                    "A Phase    ",
+                                    "Cur Ward On",
+                                    "NonStop Off",
+                                    "Op TtTm Off",
+                                    "WaitTtTmOff",
+                                    "Cl TtTm Off",
+                                    "C_Dr1 N_Use",
+                                    "C_Dr2 N_Use",
+                                    "H_Dr1 N_Use",
+                                    "H_Dr2 N_Use",
+                                    "S_Sft N_Use",
+                                    "Mgt Mon Off",
+                                    "Encod N_Use",
+                                    "Relevel Off",
+                                    "Oil  P_Type",
+                                    "OneCall Off",
+                                    "M/SusNoStop",
+                                    "Brk Mon Off",
+                                    "KidsClr Off",
+                                    "F_CarKeyOff",
+                                    "Multi Car  ",
+                                    "Op Out Off ",
+                                    "Sft CommOff",
+                                    "DirectFloor",
+                                    "Run_Op Off ",
+                                    "Reserve5   ",
+                                    "Reserve4   ",
+                                    "Reserve3   ",
+                                    "Reserve2   ",
+                                    "Auto Ready ",
                                 };
 
 
@@ -1010,12 +1010,12 @@ const unsigned char IOPortMessage[IO_PORT_MESSAGE_CNT][8]={
 const unsigned char ElevSpeedMessage[ELEV_SPEED_MESSAGE_CNT][8]={
                                     "SPEED30 ",
                                     "SPEED45 ",
-                                    "SPEED60 ", 
-                                    "SPEED90 ",   
-                                    "SPEED105",    
-                                    "SPEED120",       
-                                    "SPEED150",       
-                                    "SPEED180",       
+                                    "SPEED60 ",
+                                    "SPEED90 ",
+                                    "SPEED105",
+                                    "SPEED120",
+                                    "SPEED150",
+                                    "SPEED180",
                                     "SPEED210",
                                 };
 
@@ -1038,92 +1038,92 @@ const unsigned char ElevBdIdMessage[ELEV_BD_ID_MESSAGE_CNT][11]={
 
 
 const unsigned char UserLampMessage[USER_LAMP_MESSAGE_CNT][11]={
-                                      "AUTO       ",                                      
-                                      "INSPECTION ",                                      
-                                      "OVERLOAD   ",                                      
-                                      "FIRE       ",                                                                            
+                                      "AUTO       ",
+                                      "INSPECTION ",
+                                      "OVERLOAD   ",
+                                      "FIRE       ",
                                       "EMERGENCY  ",
                                       "PARKING    ",
                                       "VIP        ",
                                       "USE LAMP   ",
                                       "FULL LAMP  ",
-                                      "NOT USE    "                                      
-                                    };                                       
+                                      "NOT USE    "
+                                    };
 
 
 const unsigned char DriveMethodMessage[3][11]={
-                                      "All Drive..",                                      
-                                      "1,3,5,7... ",    //�汝�                                   
-                                      "2,4,6,8... ",    //礎熱                                   
-                                    };                                       
+                                      "All Drive..",
+                                      "1,3,5,7... ",    //�汝�
+                                      "2,4,6,8... ",    //礎熱
+                                    };
 
 const unsigned char DoorOnOffMessage[DOOR_SEL_MESSAGE_CNT][11]={
-                                      "Not Door   ",    //no door                                 
-                                      "MainDoor   ",    //main door                                   
-                                      "Sub Door   ",    //sub door                                   
-                                      "MainSubDoor",    //main sub door                                   
-                                    };                                       
+                                      "Not Door   ",    //no door
+                                      "MainDoor   ",    //main door
+                                      "Sub Door   ",    //sub door
+                                      "MainSubDoor",    //main sub door
+                                    };
 
 
 const unsigned char FhmMessage[2][11]={
-                                      "Fhm Stop   ",                                      
-                                      "Fhm Start  ",                                       
-                                    };                                       
+                                      "Fhm Stop   ",
+                                      "Fhm Start  ",
+                                    };
 
 
 const unsigned char PcbTypeMessage[2][11]={
-                                      "Ext Bd Type",   // extbd/inbd                                    
-                                      "In_Bd Type ",                                      
-                                    };                                       
+                                      "Ext Bd Type",   // extbd/inbd
+                                      "In_Bd Type ",
+                                    };
 
 /*
 const unsigned char ReadDataFromHost[2][11]={
-                                      "Read Data ?",   // extbd/inbd                                    
-                                      "Dont Read  ",                                      
+                                      "Read Data ?",   // extbd/inbd
+                                      "Dont Read  ",
                                     };
-                                       
+
 const unsigned char WriteDataToHost[2][11]={
-                                      "Write Data ?",   // extbd/inbd                                    
-                                      "Dont Write  ",                                      
-                                    };                                       
+                                      "Write Data ?",   // extbd/inbd
+                                      "Dont Write  ",
+                                    };
 
 */
 
 const unsigned char InitMessage[INIT_MESSAGE][11]={
-                                      "Not Sel Clr",                                      
-                                      "Read Data  ",                                      
-		                              "Write Data ",                                                                            
+                                      "Not Sel Clr",
+                                      "Read Data  ",
+		                              "Write Data ",
 									};
 /*
-                                      "MoveCnt Clr",                                      
-                                      "ErrMsg  Clr",                                      
-                                      "Read Data  ",                                      
-                                      "Write Data ",                                                                            
+                                      "MoveCnt Clr",
+                                      "ErrMsg  Clr",
+                                      "Read Data  ",
+                                      "Write Data ",
                                       "Reserve3   ",
                                       "Reserve2   ",
                                       "Reserve1   ",
-                                    };                                       
+                                    };
 */
 
 const unsigned char NormalDspMessage[NORMAL_DSP_MESSAGE_CNT][11]={
-                                      "Cur Status ",     
+                                      "Cur Status ",
 									  "Volt/Amp   ",
 									};
 
-/*									  		                                 
-                                      "Mpm        ",                                      
-                                      "Rpm        ",                                      
-                                      "Time       ",                                                                            
-                                      "Date       ",                                                                            
+/*
+                                      "Mpm        ",
+                                      "Rpm        ",
+                                      "Time       ",
+                                      "Date       ",
                                       "Date_Time  ",
-                                      "Encod Pulse",                                      
-                                      "EMG  Input ",  
-                                      "SU1  Input ",  
-                                      "GR   Input ",  
-                                      "FR1  Input ",  
-                                      "X0   Input ",  
+                                      "Encod Pulse",
+                                      "EMG  Input ",
+                                      "SU1  Input ",
+                                      "GR   Input ",
+                                      "FR1  Input ",
+                                      "X0   Input ",
                                       "FS0  Input ",
-                                      "Mem  Dsp   ",     
+                                      "Mem  Dsp   ",
                                       "Move Counte",
                                       "Err Counter",
                                       "Can Com Chk",
@@ -1142,26 +1142,26 @@ const unsigned char NormalDspMessage[NORMAL_DSP_MESSAGE_CNT][11]={
                                       "Reserve3   ",
                                       "Reserve2   ",
                                       "Reserve1   ",
-                                    };                                       
+                                    };
 
 */
 
 
 
 const unsigned char InputPort1SelMessage[][11]={
-                                      "SILK_EMG   ",                                      
-                                      "SILK_PRK   ",                                      
-                                      "SILK_AUTO  ",                                      
-                                      "SILK_U_B   ",                                                                            
-                                      "SILK_D_B   ",                                                                            
+                                      "SILK_EMG   ",
+                                      "SILK_PRK   ",
+                                      "SILK_AUTO  ",
+                                      "SILK_U_B   ",
+                                      "SILK_D_B   ",
                                       "SILK_OLS   ",
-                                      "SILK_GS    ",                                      
-                                      "SILK_DS    ",  
-                                      "SILK_SU1   ",  
-                                      "SILK_SD1   ",  
-                                      "SILK_SFT   ",  
-                                      "SILK_OLR   ",  
-                                      "SILK_ULS   ",   
+                                      "SILK_GS    ",
+                                      "SILK_DS    ",
+                                      "SILK_SU1   ",
+                                      "SILK_SD1   ",
+                                      "SILK_SFT   ",
+                                      "SILK_OLR   ",
+                                      "SILK_ULS   ",
                                       "SILK_DLS   ",
                                       "SILK_LU    ",
                                       "SILK_LD    ",
@@ -1181,19 +1181,19 @@ const unsigned char InputPort1SelMessage[][11]={
                                       "SILK_SD2   ",
                                       "SILK_BM    ",
                                       "SILK_INV   ",
-                                      "SILK_X0    ",                                      
-                                      "SILK_X1    ",                                      
-                                      "SILK_X2    ",                                      
-                                      "SILK_X3    ",                                                                            
-                                      "SILK_X4    ",                                                                            
+                                      "SILK_X0    ",
+                                      "SILK_X1    ",
+                                      "SILK_X2    ",
+                                      "SILK_X3    ",
+                                      "SILK_X4    ",
                                       "SILK_X5    ",
-                                      "SILK_X6    ",                                      
-                                      "SILK_X7    ",  
-                                      "SILK_FS0   ",  
-                                      "SILK_FS1   ",  
-                                      "SILK_FS2   ",  
-                                      "SILK_FS3   ",  
-                                      "SILK_FS4   ",   
+                                      "SILK_X6    ",
+                                      "SILK_X7    ",
+                                      "SILK_FS0   ",
+                                      "SILK_FS1   ",
+                                      "SILK_FS2   ",
+                                      "SILK_FS3   ",
+                                      "SILK_FS4   ",
                                       "SILK_DER   ",
                                       "SILK_FID   ",
                                       "SILK_UND   ",
@@ -1232,23 +1232,23 @@ const unsigned char InputPort1SelMessage[][11]={
                                       "SILK_NC    ",
                                       "SILK_NC    ",
 */
-                                    };                                       
+                                    };
 
 
 const unsigned char OutputPortSelMessage[OUTPORT_SEL_MESSAGE_CNT][11]={
-                                      "SILK_FAN   ",                                      
-                                      "SILK_LIGHT ",                                      
-                                      "SILK_BUZ   ",                                      
-                                      "SILK_BELL  ",                                                                            
-                                      "SILK_RST   ",                                                                            
+                                      "SILK_FAN   ",
+                                      "SILK_LIGHT ",
+                                      "SILK_BUZ   ",
+                                      "SILK_BELL  ",
+                                      "SILK_RST   ",
                                       "SILK_ERR   ",
-                                      "SILK_HOp   ",                                      
-                                      "SILK_HCl   ",  
-                                      "SILK_OP    ",  
-                                      "SILK_CL    ",  
-                                      "SILK_S_OP  ",  
-                                      "SILK_S_CL  ",  
-                                      "SILK_BK2   ",   
+                                      "SILK_HOp   ",
+                                      "SILK_HCl   ",
+                                      "SILK_OP    ",
+                                      "SILK_CL    ",
+                                      "SILK_S_OP  ",
+                                      "SILK_S_CL  ",
+                                      "SILK_BK2   ",
                                       "SILK_D_S   ",
                                       "SILK_GBR   ",
                                       "SILK_BK1   ",
@@ -1268,85 +1268,85 @@ const unsigned char OutputPortSelMessage[OUTPORT_SEL_MESSAGE_CNT][11]={
                                       "SILK_NC    ",
                                       "SILK_NC    ",
                                       "SILK_NC    ",
-                                    };                                       
+                                    };
 
 
 
 const unsigned char BdName[][8]={
-                                    "M_Hib  :",                                      
-                                    "S_Hib  :",                                      
-                                    "Voice  :",                                      
-                                    "Car    :",                                                                            
-                                    "Not Sel:",                                                                            
+                                    "M_Hib  :",
+                                    "S_Hib  :",
+                                    "Voice  :",
+                                    "Car    :",
+                                    "Not Sel:",
                                  };
 
 
-   
+
 const unsigned char SlipMessage[][11]={
-                                      "Slip Clear ",                                     
+                                      "Slip Clear ",
                                  };
 
 
 
 
 const unsigned char InputName[6][3]={
-                                      "EMG",                                      
-                                      "SU1",    
-                                      "RG ",   
-                                      "FR1",                                      
-                                      "X0 ",    
-                                      "FS0",   
-                                    };                                       
+                                      "EMG",
+                                      "SU1",
+                                      "RG ",
+                                      "FR1",
+                                      "X0 ",
+                                      "FS0",
+                                    };
 
 
 
-const unsigned char blinkx[]        ="                ";  
+const unsigned char blinkx[]        ="                ";
 
 
 
 const unsigned char GroupLineMessage[][17]={
                                     "FL:00           ",//0
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "USER:Version    ",//1  
-                                    "USER:Normal Dsp ",//7  
-                                    "USER:Init Data  ",//13 
-                                    "USER:Group Nm   ",//14 
-                                    "USER:Local Nm   ",//15 
-                                    "USER:hh-mm-ss   ",//18 
+///////////////////////////////////////////////////////////
+                                    "USER:Version    ",//1
+                                    "USER:Normal Dsp ",//7
+                                    "USER:Init Data  ",//13
+                                    "USER:Group Nm   ",//14
+                                    "USER:Local Nm   ",//15
+                                    "USER:hh-mm-ss   ",//18
                                     "USER:yy-mm-dd   ",//19
 
-                                    "USER:BoardId    ",//2 
-                                    "USER:Passward   ",//3  
-                                    "USER:UserLamp1  ",//4  
-                                    "USER:UserLamp2  ",//5  
-                                    "USER:SerialNm   ",//6  
-//                                    "USER:Normal Dsp ",//7  
-                                    "USER:DriveMethod",//8 
-                                    "USER:Fhm Run    ",//9 
-                                    "USER:SubMenu On ",//10 
-                                    "USER:Engineer Nm",//11 
-                                    "USER:Tt Use Time",//12 
-//                                    "USER:Init Data  ",//13 
-//                                    "USER:Group Nm   ",//14 
-//                                    "USER:Local Nm   ",//15 
+                                    "USER:BoardId    ",//2
+                                    "USER:Passward   ",//3
+                                    "USER:UserLamp1  ",//4
+                                    "USER:UserLamp2  ",//5
+                                    "USER:SerialNm   ",//6
+//                                    "USER:Normal Dsp ",//7
+                                    "USER:DriveMethod",//8
+                                    "USER:Fhm Run    ",//9
+                                    "USER:SubMenu On ",//10
+                                    "USER:Engineer Nm",//11
+                                    "USER:Tt Use Time",//12
+//                                    "USER:Init Data  ",//13
+//                                    "USER:Group Nm   ",//14
+//                                    "USER:Local Nm   ",//15
                                     "USER:Inv InBd Tp",//16
                                     "USER:Call(c-f-f)",//17
-//                                    "USER:hh-mm-ss   ",//18 
+//                                    "USER:hh-mm-ss   ",//18
 //                                    "USER:yy-mm-dd   ",//19
-                                    "USER:ErrStCnt   ",//20  
-                                    "USER:Company    ",//21									  
-                                    "USER:OutDate    ",//22  
-                                    "USER:UserLamp3  ",//23  
-                                    "USER:UserLamp4  ",//24  
+                                    "USER:ErrStCnt   ",//20
+                                    "USER:Company    ",//21
+                                    "USER:OutDate    ",//22
+                                    "USER:UserLamp3  ",//23
+                                    "USER:UserLamp4  ",//24
                                     "USER:C-K-H-O-B-R",//25  //cancle,openkey,halllantern,offset,button type,reserve
-                                    "USER:User4      ",//26 
-                                    "USER:User5      ",//27 
-                                    "USER:User6      ",//28 
-                                    "USER:User7      ",//29 
-                                    "USER:User8      ",//30 
-                                    "USER:Aircon Addr",//31  
-                                    "USER: Stop Pulse",//32 
-///////////////////////////////////////////////////////////                                    
+                                    "USER:User4      ",//26
+                                    "USER:User5      ",//27
+                                    "USER:User6      ",//28
+                                    "USER:User7      ",//29
+                                    "USER:User8      ",//30
+                                    "USER:Aircon Addr",//31
+                                    "USER: Stop Pulse",//32
+///////////////////////////////////////////////////////////
                                     "SYS:Main Volt   ",//1
                                     "SYS:Main Amp    ",//2
                                     "SYS:Tr  Volt    ",//3
@@ -1710,48 +1710,48 @@ const unsigned char GroupLineMessage[][17]={
                                     "eRROR MODIFT    ",//30
                                     "eRROR MODIFT    ",//31
                                     "eRROR MODIFT    ",//32
-///////////////////////////////////////////////////////////                                    
-                                    "NcNo2:x0        ",//1  
-                                    "NcNo2:x1        ",//2  
-                                    "NcNo2:x2        ",//3  
-                                    "NcNo2:x3        ",//4  
-                                    "NcNo2:x4        ",//5  
-                                    "NcNo2:x5        ",//6  
-                                    "NcNo2:x6        ",//7  
-                                    "NcNo2:x7        ",//8  
-                                    "NcNo2:Fs0       ",//9  
-                                    "NcNo2:Fs1       ",//10 
-                                    "NcNo2:Fs2       ",//11 
-                                    "NcNo2:Fs3       ",//12 
-                                    "NcNo2:Fs4       ",//13 
-                                    "NcNo2:Der       ",//14 
-                                    "NcNo2:Fid       ",//15 
-                                    "NcNo2:Und       ",//16 
-                                    "NcNo2:nc        ",//17 
-                                    "NcNo2:nc        ",//18 
-                                    "NcNo2:nc        ",//19 
-                                    "NcNo2:nc        ",//20 
-                                    "NcNo2:nc        ",//21 
-                                    "NcNo2:nc        ",//22 
-                                    "NcNo2:nc        ",//23 
+///////////////////////////////////////////////////////////
+                                    "NcNo2:x0        ",//1
+                                    "NcNo2:x1        ",//2
+                                    "NcNo2:x2        ",//3
+                                    "NcNo2:x3        ",//4
+                                    "NcNo2:x4        ",//5
+                                    "NcNo2:x5        ",//6
+                                    "NcNo2:x6        ",//7
+                                    "NcNo2:x7        ",//8
+                                    "NcNo2:Fs0       ",//9
+                                    "NcNo2:Fs1       ",//10
+                                    "NcNo2:Fs2       ",//11
+                                    "NcNo2:Fs3       ",//12
+                                    "NcNo2:Fs4       ",//13
+                                    "NcNo2:Der       ",//14
+                                    "NcNo2:Fid       ",//15
+                                    "NcNo2:Und       ",//16
+                                    "NcNo2:nc        ",//17
+                                    "NcNo2:nc        ",//18
+                                    "NcNo2:nc        ",//19
+                                    "NcNo2:nc        ",//20
+                                    "NcNo2:nc        ",//21
+                                    "NcNo2:nc        ",//22
+                                    "NcNo2:nc        ",//23
                                     "NcNo2:nc        ",//24
-                                    "NcNo2:nc        ",//25 
+                                    "NcNo2:nc        ",//25
                                     "NcNo2:nc        ",//26
-                                    "NcNo2:nc        ",//27 
+                                    "NcNo2:nc        ",//27
                                     "NcNo2:nc        ",//28
-                                    "NcNo2:nc        ",//29 
+                                    "NcNo2:nc        ",//29
                                     "NcNo2:nc        ",//30
-                                    "NcNo2:nc        ",//31 
-                                    "NcNo2:nc        ",//32 
+                                    "NcNo2:nc        ",//31
+                                    "NcNo2:nc        ",//32
 
-///////////////////////////////////////////////////////////                                    
+///////////////////////////////////////////////////////////
 /*
-                                    "FLR:TopFlr      ",//1 
-                                    "FLR:PrkFlr      ",//2 
-                                    "FLR:NoUse Go Flr",//3 
-                                    "FLR:FireSafe Flr",//4 
-                                    "FLR:X7 Safe  Flr",//5 
-                                    "FLR:WaterSafeFlr",//6 
+                                    "FLR:TopFlr      ",//1
+                                    "FLR:PrkFlr      ",//2
+                                    "FLR:NoUse Go Flr",//3
+                                    "FLR:FireSafe Flr",//4
+                                    "FLR:X7 Safe  Flr",//5
+                                    "FLR:WaterSafeFlr",//6
                                     "FLR:Start Flr   ",//7
                                     "FLR:OneStop Flr ",//8
                                     "FLR:Kids Key Cnt",//9
@@ -1778,7 +1778,7 @@ const unsigned char GroupLineMessage[][17]={
                                     "FLR:Nc03Flr     ",//30
                                     "FLR:Nc02Flr     ",//31
                                     "FLR:Nc01Flr     ",//32
-///////////////////////////////////////////////////////////                                                                       
+///////////////////////////////////////////////////////////
                                     "TMR:Op Wait Time",// 1
                                     "TMR:Op Total Tm ",// 2
                                     "TMR:No Use Time ",// 3
@@ -1811,18 +1811,18 @@ const unsigned char GroupLineMessage[][17]={
                                     "TMR:Stop13  Time",//30
                                     "TMR:Stop14  Time",//31
                                     "TMR:Stop15  Time",//32
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "ONOFF1:Floor01  ",//1 
-                                    "ONOFF1:Floor02  ",//2 
-                                    "ONOFF1:Floor03  ",//3 
-                                    "ONOFF1:Floor04  ",//4  
-                                    "ONOFF1:Floor05  ",//5  
-                                    "ONOFF1:Floor06  ",//6  
-                                    "ONOFF1:Floor07  ",//7  
-                                    "ONOFF1:Floor08  ",//8  
-                                    "ONOFF1:Floor09  ",//9  
-                                    "ONOFF1:Floor10  ",//10 
-                                    "ONOFF1:Floor11  ",//11 
+///////////////////////////////////////////////////////////
+                                    "ONOFF1:Floor01  ",//1
+                                    "ONOFF1:Floor02  ",//2
+                                    "ONOFF1:Floor03  ",//3
+                                    "ONOFF1:Floor04  ",//4
+                                    "ONOFF1:Floor05  ",//5
+                                    "ONOFF1:Floor06  ",//6
+                                    "ONOFF1:Floor07  ",//7
+                                    "ONOFF1:Floor08  ",//8
+                                    "ONOFF1:Floor09  ",//9
+                                    "ONOFF1:Floor10  ",//10
+                                    "ONOFF1:Floor11  ",//11
                                     "ONOFF1:Floor12  ",//12
                                     "ONOFF1:Floor13  ",//13
                                     "ONOFF1:Floor14  ",//14
@@ -1844,21 +1844,21 @@ const unsigned char GroupLineMessage[][17]={
                                     "ONOFF1:Floor30  ",//30
                                     "ONOFF1:Floor31  ",//31
                                     "ONOFF1:Floor32  ",//32
-///////////////////////////////////////////////////////////                
-                                                                                           
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "ONOFF2:FHM Chk  ",//1 
-                                    "ONOFF2:DrJmpChk ",//2 
-                                    "ONOFF2:EncoderPh",//3 
-                                    "ONOFF2:WardPrior",//4  
-                                    "ONOFF2:NonStop  ",//5  
-                                    "ONOFF2:OpenTotal",//6  
-                                    "ONOFF2:WaitTotal",//7  
-                                    "ONOFF2:ClosTotal",//8  
-                                    "ONOFF2:C_Dr1 Chk",//9  
-                                    "ONOFF2:C_Dr2 Chk",//10  
+///////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////
+                                    "ONOFF2:FHM Chk  ",//1
+                                    "ONOFF2:DrJmpChk ",//2
+                                    "ONOFF2:EncoderPh",//3
+                                    "ONOFF2:WardPrior",//4
+                                    "ONOFF2:NonStop  ",//5
+                                    "ONOFF2:OpenTotal",//6
+                                    "ONOFF2:WaitTotal",//7
+                                    "ONOFF2:ClosTotal",//8
+                                    "ONOFF2:C_Dr1 Chk",//9
+                                    "ONOFF2:C_Dr2 Chk",//10
                                     "ONOFF2:H_Dr1 Chk",//11
-                                    "ONOFF2:H_Dr2 Chk",//12 
+                                    "ONOFF2:H_Dr2 Chk",//12
                                     "ONOFF2:S_Sft Chk",//13
                                     "ONOFF2:MgtMonChk",//14
                                     "ONOFF2:Encod Chk",//15
@@ -1879,18 +1879,18 @@ const unsigned char GroupLineMessage[][17]={
                                     "ONOFF2:Not Use  ",//30
                                     "ONOFF2:Not Use  ",//31
                                     "ONOFF2:Work Mode",//32
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "DOOR-S:Floor01  ",//1 
-                                    "DOOR-S:Floor02  ",//2 
-                                    "DOOR-S:Floor03  ",//3 
-                                    "DOOR-S:Floor04  ",//4  
-                                    "DOOR-S:Floor05  ",//5  
-                                    "DOOR-S:Floor06  ",//6  
-                                    "DOOR-S:Floor07  ",//7  
-                                    "DOOR-S:Floor08  ",//8  
-                                    "DOOR-S:Floor09  ",//9  
-                                    "DOOR-S:Floor10  ",//10 
-                                    "DOOR-S:Floor11  ",//11 
+///////////////////////////////////////////////////////////
+                                    "DOOR-S:Floor01  ",//1
+                                    "DOOR-S:Floor02  ",//2
+                                    "DOOR-S:Floor03  ",//3
+                                    "DOOR-S:Floor04  ",//4
+                                    "DOOR-S:Floor05  ",//5
+                                    "DOOR-S:Floor06  ",//6
+                                    "DOOR-S:Floor07  ",//7
+                                    "DOOR-S:Floor08  ",//8
+                                    "DOOR-S:Floor09  ",//9
+                                    "DOOR-S:Floor10  ",//10
+                                    "DOOR-S:Floor11  ",//11
                                     "DOOR-S:Floor12  ",//12
                                     "DOOR-S:Floor13  ",//13
                                     "DOOR-S:Floor14  ",//14
@@ -1912,383 +1912,383 @@ const unsigned char GroupLineMessage[][17]={
                                     "DOOR-S:Floor30  ",//30
                                     "DOOR-S:Floor31  ",//31
                                     "DOOR-S:Floor32  ",//32
-///////////////////////////////////////////////////////////                
-
-///////////////////////////////////////////////////////////              
-                                    "I_O:ManSpd  Port",//1  
-                                    "I_O:BatSpd  Port",//2  
-                                    "I_O:DecSpd  Port",//3  
-                                    "I_O:FHMSpd  Port",//4  
-                                    "I_O:Spd30   Port",//5  
-                                    "I_O:Spd45   Port",//6  
-                                    "I_O:Spd60   Port",//7  
-                                    "I_O:Spd90   Port",//8 
-                                    "I_O:Spd105  Port",//9 
-                                    "I_O:Spd120  Port",//10 
-                                    "I_O:Spd150  Port",//11 
-                                    "I_O:Spd180  Port",//12 
-                                    "I_O:Spd210  Port",//13 
-                                    "I_O:Etc1Spd Port",//14  
-                                    "I_O:Etc2Spd Port",//15  
-                                    "I_O:Elev Max Spd",//16 
-                                    "I_O:Limt Max Spd",//17
-                                    "I_O:MaxSuSd1 Spd",//18 
-                                    "I_O:MaxSuSd2 Spd",//19 
-                                    "I_O:MaxX0X1  Spd",//20                                   
-                                    "I_O:Spd1        ",//21 
-                                    "I_O:Spd2        ",//22 
-                                    "I_O:Spd3        ",//23 
-                                    "I_O:Spd4        ",//24 
-                                    "I_O:Spd5        ",//25  
-                                    "I_O:Spd6        ",//26 
-                                    "I_O:Spd7        ",//27 
-                                    "I_O:Spd8        ",//28 
-                                    "I_O:Spd9        ",//29 
-                                    "I_O:Spd10       ",//30 
-                                    "I_O:Spd11       ",//31 
-                                    "I_O:Spd12       ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-///////////////////////////////////////////////////////////             
-                                    "PAR:EncoderPulse",//1  
-                                    "PAR: TM Mpm     ",//2  
-                                    "PAR:Motor Rpm   ",//3  
-                                    "PAR:Dec30 Length",//4  
-                                    "PAR:Dec45 Length",//5  
-                                    "PAR:Dec60 Length",//6  
-                                    "PAR:Dec90 Length",//7  
-                                    "PAR:Dec105Length",//8  
-                                    "PAR:Dec120Length",//9  
-                                    "PAR:Dec150Length",//10 
-                                    "PAR:Dec180Length",//11 
-                                    "PAR:Dec210Length",//12 
-                                    "PAR:Dec30 Pulse ",//13  
-                                    "PAR:Dec45 Pulse ",//14 
-                                    "PAR:Dec60 Pulse ",//15 
-                                    "PAR:Dec90 Pulse ",//16 
-                                    "PAR:Dec105 Pulse",//17 
-                                    "PAR:Dec120 Pulse",//18 
-                                    "PAR:Dec150 Pulse",//19 
-                                    "PAR:Dec180 Pulse",//20 
-                                    "PAR:Dec210 Pulse",//21 
-                                    "PAR:Min30  Pulse",//22 
-                                    "PAR:Min45  Pulse",//23 
-                                    "PAR:Min60  Pulse",//24 
-                                    "PAR:Min90  Pulse",//25 
-                                    "PAR:Min105 Pulse",//26 
-                                    "PAR:Min120 Pulse",//27 
-                                    "PAR:Min150 Pulse",//28 
-                                    "PAR:Min180 Pulse",//29 
-                                    "PAR:Min210 Pulse",//30 
-                                    "PAR:Mpm Variable",//31 
-                                    "PAR:MmPerPulse  ",//32 
 ///////////////////////////////////////////////////////////
-                                    "W_FLR:(1)hm_hm_F",//1  
-                                    "W_FLR:(2)hm_hm_F",//2  
-                                    "W_FLR:(3)hm_hm_F",//3  
-                                    "W_FLR:(4)hm_hm_F",//4  
-                                    "W_FLR:Time0910  ",//5  
-                                    "W_FLR:Time1011  ",//6  
-                                    "W_FLR:Time1112  ",//7  
-                                    "W_FLR:Time1213  ",//8  
-                                    "W_FLR:Time1314  ",//9  
-                                    "W_FLR:Time1415  ",//10 
-                                    "W_FLR:Time1516  ",//11 
-                                    "W_FLR:Time1617  ",//12 
-                                    "W_FLR:Time1718  ",//13 
-                                    "W_FLR:Time1819  ",//14 
-                                    "W_FLR:Time1920  ",//15 
-                                    "W_FLR:Time2021  ",//16 
-                                    "W_FLR:Time2105  ",//17 
-                                    "W_FLR:Time0002  ",//18 
-                                    "W_FLR:Time0003  ",//19 
-                                    "W_FLR:Time0004  ",//20 
-                                    "W_FLR:Time0005  ",//21 
-                                    "W_FLR:Time0006  ",//22 
-                                    "W_FLR:Time0007  ",//23 
-                                    "W_FLR:Time0008  ",//24 
-                                    "W_FLR:Time0009  ",//25 
-                                    "W_FLR:Time0010  ",//26 
-                                    "W_FLR:Time0011  ",//27 
-                                    "W_FLR:Time0012  ",//28 
-                                    "W_FLR:Time0013  ",//29 
-                                    "W_FLR:Time0014  ",//30 
-                                    "W_FLR:Prk S_Time",//31 
-                                    "W_FLR:Prk E_Time",//32 
-///////////////////////////////////////////////////////////                          
-                                    "NcNo1:Emergency ",//1  
-                                    "NcNo1:Parking   ",//2  
-                                    "NcNo1:AutoButton",//3  
-                                    "NcNo1:Up Button ",//4  
-                                    "NcNo1:Dn Button ",//5  
-                                    "NcNo1:Open limit",//6  
-                                    "NcNo1:Car Door  ",//7  
-                                    "NcNo1:Hall Door ",//8  
-                                    "NcNo1:Su1       ",//9  
-                                    "NcNo1:Sd1       ",//10 
-                                    "NcNo1:Safety sw ",//11 
-                                    "NcNo1:Overload  ",//12 
-                                    "NcNo1:Uls       ",//13 
-                                    "NcNo1:Dls       ",//14 
-                                    "NcNo1:Lu        ",//15 
-                                    "NcNo1:Ld        ",//16 
-                                    "NcNo1:Rg        ",//17 
-                                    "NcNo1:Bat       ",//18 
-                                    "NcNo1:Pass      ",//19 
-                                    "NcNo1:Fire      ",//20 
-                                    "NcNo1:Water     ",//21 
-                                    "NcNo1:Full      ",//22 
-                                    "NcNo1:Mm        ",//23 
+
+///////////////////////////////////////////////////////////
+                                    "I_O:ManSpd  Port",//1
+                                    "I_O:BatSpd  Port",//2
+                                    "I_O:DecSpd  Port",//3
+                                    "I_O:FHMSpd  Port",//4
+                                    "I_O:Spd30   Port",//5
+                                    "I_O:Spd45   Port",//6
+                                    "I_O:Spd60   Port",//7
+                                    "I_O:Spd90   Port",//8
+                                    "I_O:Spd105  Port",//9
+                                    "I_O:Spd120  Port",//10
+                                    "I_O:Spd150  Port",//11
+                                    "I_O:Spd180  Port",//12
+                                    "I_O:Spd210  Port",//13
+                                    "I_O:Etc1Spd Port",//14
+                                    "I_O:Etc2Spd Port",//15
+                                    "I_O:Elev Max Spd",//16
+                                    "I_O:Limt Max Spd",//17
+                                    "I_O:MaxSuSd1 Spd",//18
+                                    "I_O:MaxSuSd2 Spd",//19
+                                    "I_O:MaxX0X1  Spd",//20
+                                    "I_O:Spd1        ",//21
+                                    "I_O:Spd2        ",//22
+                                    "I_O:Spd3        ",//23
+                                    "I_O:Spd4        ",//24
+                                    "I_O:Spd5        ",//25
+                                    "I_O:Spd6        ",//26
+                                    "I_O:Spd7        ",//27
+                                    "I_O:Spd8        ",//28
+                                    "I_O:Spd9        ",//29
+                                    "I_O:Spd10       ",//30
+                                    "I_O:Spd11       ",//31
+                                    "I_O:Spd12       ",//32
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+                                    "PAR:EncoderPulse",//1
+                                    "PAR: TM Mpm     ",//2
+                                    "PAR:Motor Rpm   ",//3
+                                    "PAR:Dec30 Length",//4
+                                    "PAR:Dec45 Length",//5
+                                    "PAR:Dec60 Length",//6
+                                    "PAR:Dec90 Length",//7
+                                    "PAR:Dec105Length",//8
+                                    "PAR:Dec120Length",//9
+                                    "PAR:Dec150Length",//10
+                                    "PAR:Dec180Length",//11
+                                    "PAR:Dec210Length",//12
+                                    "PAR:Dec30 Pulse ",//13
+                                    "PAR:Dec45 Pulse ",//14
+                                    "PAR:Dec60 Pulse ",//15
+                                    "PAR:Dec90 Pulse ",//16
+                                    "PAR:Dec105 Pulse",//17
+                                    "PAR:Dec120 Pulse",//18
+                                    "PAR:Dec150 Pulse",//19
+                                    "PAR:Dec180 Pulse",//20
+                                    "PAR:Dec210 Pulse",//21
+                                    "PAR:Min30  Pulse",//22
+                                    "PAR:Min45  Pulse",//23
+                                    "PAR:Min60  Pulse",//24
+                                    "PAR:Min90  Pulse",//25
+                                    "PAR:Min105 Pulse",//26
+                                    "PAR:Min120 Pulse",//27
+                                    "PAR:Min150 Pulse",//28
+                                    "PAR:Min180 Pulse",//29
+                                    "PAR:Min210 Pulse",//30
+                                    "PAR:Mpm Variable",//31
+                                    "PAR:MmPerPulse  ",//32
+///////////////////////////////////////////////////////////
+                                    "W_FLR:(1)hm_hm_F",//1
+                                    "W_FLR:(2)hm_hm_F",//2
+                                    "W_FLR:(3)hm_hm_F",//3
+                                    "W_FLR:(4)hm_hm_F",//4
+                                    "W_FLR:Time0910  ",//5
+                                    "W_FLR:Time1011  ",//6
+                                    "W_FLR:Time1112  ",//7
+                                    "W_FLR:Time1213  ",//8
+                                    "W_FLR:Time1314  ",//9
+                                    "W_FLR:Time1415  ",//10
+                                    "W_FLR:Time1516  ",//11
+                                    "W_FLR:Time1617  ",//12
+                                    "W_FLR:Time1718  ",//13
+                                    "W_FLR:Time1819  ",//14
+                                    "W_FLR:Time1920  ",//15
+                                    "W_FLR:Time2021  ",//16
+                                    "W_FLR:Time2105  ",//17
+                                    "W_FLR:Time0002  ",//18
+                                    "W_FLR:Time0003  ",//19
+                                    "W_FLR:Time0004  ",//20
+                                    "W_FLR:Time0005  ",//21
+                                    "W_FLR:Time0006  ",//22
+                                    "W_FLR:Time0007  ",//23
+                                    "W_FLR:Time0008  ",//24
+                                    "W_FLR:Time0009  ",//25
+                                    "W_FLR:Time0010  ",//26
+                                    "W_FLR:Time0011  ",//27
+                                    "W_FLR:Time0012  ",//28
+                                    "W_FLR:Time0013  ",//29
+                                    "W_FLR:Time0014  ",//30
+                                    "W_FLR:Prk S_Time",//31
+                                    "W_FLR:Prk E_Time",//32
+///////////////////////////////////////////////////////////
+                                    "NcNo1:Emergency ",//1
+                                    "NcNo1:Parking   ",//2
+                                    "NcNo1:AutoButton",//3
+                                    "NcNo1:Up Button ",//4
+                                    "NcNo1:Dn Button ",//5
+                                    "NcNo1:Open limit",//6
+                                    "NcNo1:Car Door  ",//7
+                                    "NcNo1:Hall Door ",//8
+                                    "NcNo1:Su1       ",//9
+                                    "NcNo1:Sd1       ",//10
+                                    "NcNo1:Safety sw ",//11
+                                    "NcNo1:Overload  ",//12
+                                    "NcNo1:Uls       ",//13
+                                    "NcNo1:Dls       ",//14
+                                    "NcNo1:Lu        ",//15
+                                    "NcNo1:Ld        ",//16
+                                    "NcNo1:Rg        ",//17
+                                    "NcNo1:Bat       ",//18
+                                    "NcNo1:Pass      ",//19
+                                    "NcNo1:Fire      ",//20
+                                    "NcNo1:Water     ",//21
+                                    "NcNo1:Full      ",//22
+                                    "NcNo1:Mm        ",//23
                                     "NcNo1:Fhm       ",//24
-                                    "NcNo1:Fr1       ",//25 
+                                    "NcNo1:Fr1       ",//25
                                     "NcNo1:Fr2       ",//26
-                                    "NcNo1:Gs2       ",//27 
+                                    "NcNo1:Gs2       ",//27
                                     "NcNo1:Ds2       ",//28
-                                    "NcNo1:Su2       ",//29 
+                                    "NcNo1:Su2       ",//29
                                     "NcNo1:Sd2       ",//30
-                                    "NcNo1:Bm        ",//31 
-                                    "NcNo1:Inv       ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "NcNo2:x0        ",//1  
-                                    "NcNo2:x1        ",//2  
-                                    "NcNo2:x2        ",//3  
-                                    "NcNo2:x3        ",//4  
-                                    "NcNo2:x4        ",//5  
-                                    "NcNo2:x5        ",//6  
-                                    "NcNo2:x6        ",//7  
-                                    "NcNo2:x7        ",//8  
-                                    "NcNo2:Fs0       ",//9  
-                                    "NcNo2:Fs1       ",//10 
-                                    "NcNo2:Fs2       ",//11 
-                                    "NcNo2:Fs3       ",//12 
-                                    "NcNo2:Fs4       ",//13 
-                                    "NcNo2:Der       ",//14 
-                                    "NcNo2:Fid       ",//15 
-                                    "NcNo2:Und       ",//16 
-                                    "NcNo2:nc        ",//17 
-                                    "NcNo2:nc        ",//18 
-                                    "NcNo2:nc        ",//19 
-                                    "NcNo2:nc        ",//20 
-                                    "NcNo2:nc        ",//21 
-                                    "NcNo2:nc        ",//22 
-                                    "NcNo2:nc        ",//23 
+                                    "NcNo1:Bm        ",//31
+                                    "NcNo1:Inv       ",//32
+///////////////////////////////////////////////////////////
+                                    "NcNo2:x0        ",//1
+                                    "NcNo2:x1        ",//2
+                                    "NcNo2:x2        ",//3
+                                    "NcNo2:x3        ",//4
+                                    "NcNo2:x4        ",//5
+                                    "NcNo2:x5        ",//6
+                                    "NcNo2:x6        ",//7
+                                    "NcNo2:x7        ",//8
+                                    "NcNo2:Fs0       ",//9
+                                    "NcNo2:Fs1       ",//10
+                                    "NcNo2:Fs2       ",//11
+                                    "NcNo2:Fs3       ",//12
+                                    "NcNo2:Fs4       ",//13
+                                    "NcNo2:Der       ",//14
+                                    "NcNo2:Fid       ",//15
+                                    "NcNo2:Und       ",//16
+                                    "NcNo2:nc        ",//17
+                                    "NcNo2:nc        ",//18
+                                    "NcNo2:nc        ",//19
+                                    "NcNo2:nc        ",//20
+                                    "NcNo2:nc        ",//21
+                                    "NcNo2:nc        ",//22
+                                    "NcNo2:nc        ",//23
                                     "NcNo2:nc        ",//24
-                                    "NcNo2:nc        ",//25 
+                                    "NcNo2:nc        ",//25
                                     "NcNo2:nc        ",//26
-                                    "NcNo2:nc        ",//27 
+                                    "NcNo2:nc        ",//27
                                     "NcNo2:nc        ",//28
-                                    "NcNo2:nc        ",//29 
+                                    "NcNo2:nc        ",//29
                                     "NcNo2:nc        ",//30
-                                    "NcNo2:nc        ",//31 
-                                    "NcNo2:nc        ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-/////////////////////////////////////////////////////////// 
+                                    "NcNo2:nc        ",//31
+                                    "NcNo2:nc        ",//32
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
                                     "NcNo3:Fan       ",//9
-                                    "NcNo3:Lit       ",//10 
+                                    "NcNo3:Lit       ",//10
                                     "NcNo3:Buz       ",//11
                                     "NcNo3:Bell      ",//12
                                     "NcNo3:Move      ",//13
                                     "NcNo3:Err       ",//14
                                     "NcNo3:HOp       ",//15
                                     "NcNo3:HCl       ",//16
-                                    "NcNo3:Op        ",//1  
-                                    "NcNo3:Cl        ",//2  
-                                    "NcNo3:S_Op      ",//3  
-                                    "NcNo3:S_Cl      ",//4  
-                                    "NcNo3:Bk2       ",//5  
-                                    "NcNo3:D_S       ",//6  
-                                    "NcNo3:Gbr       ",//7  
-                                    "NcNo3:Bk1       ",//8  
-                                    "NcNo3:Up        ",//17 
-                                    "NcNo3:Dn        ",//18 
-                                    "NcNo3:P1        ",//19 
-                                    "NcNo3:P2        ",//20 
-                                    "NcNo3:P3        ",//21 
-                                    "NcNo3:P4        ",//22 
-                                    "NcNo3:Dac       ",//23 
+                                    "NcNo3:Op        ",//1
+                                    "NcNo3:Cl        ",//2
+                                    "NcNo3:S_Op      ",//3
+                                    "NcNo3:S_Cl      ",//4
+                                    "NcNo3:Bk2       ",//5
+                                    "NcNo3:D_S       ",//6
+                                    "NcNo3:Gbr       ",//7
+                                    "NcNo3:Bk1       ",//8
+                                    "NcNo3:Up        ",//17
+                                    "NcNo3:Dn        ",//18
+                                    "NcNo3:P1        ",//19
+                                    "NcNo3:P2        ",//20
+                                    "NcNo3:P3        ",//21
+                                    "NcNo3:P4        ",//22
+                                    "NcNo3:Dac       ",//23
                                     "NcNo3:nc        ",//24
-                                    "NcNo3:nc        ",//25 
+                                    "NcNo3:nc        ",//25
                                     "NcNo3:nc        ",//26
-                                    "NcNo3:nc        ",//27 
+                                    "NcNo3:nc        ",//27
                                     "NcNo3:nc        ",//28
-                                    "NcNo3:nc        ",//29 
+                                    "NcNo3:nc        ",//29
                                     "NcNo3:nc        ",//30
-                                    "NcNo3:nc        ",//31 
-                                    "NcNo3:nc        ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "INP1:Emergency  ",//1  
-                                    "INP1:Parking    ",//2  
-                                    "INP1:Auto Button",//3  
-                                    "INP1:Up Button  ",//4  
-                                    "INP1:Dn Button  ",//5  
-                                    "INP1:Open limit ",//6  
-                                    "INP1:Car Door   ",//7  
-                                    "INP1:Hall Door  ",//8  
-                                    "INP1:Su1        ",//9  
-                                    "INP1:Sd1        ",//10 
-                                    "INP1:Safety sw  ",//11 
-                                    "INP1:Overload   ",//12 
-                                    "INP1:Uls        ",//13 
-                                    "INP1:Dls        ",//14 
-                                    "INP1:Lu         ",//15 
-                                    "INP1:Ld         ",//16 
-                                    "INP1:Rg         ",//17 
-                                    "INP1:Bat        ",//18 
-                                    "INP1:Pass       ",//19 
-                                    "INP1:Fire       ",//20 
-                                    "INP1:Water      ",//21 
-                                    "INP1:Full       ",//22 
-                                    "INP1:Mm         ",//23 
+                                    "NcNo3:nc        ",//31
+                                    "NcNo3:nc        ",//32
+///////////////////////////////////////////////////////////
+                                    "INP1:Emergency  ",//1
+                                    "INP1:Parking    ",//2
+                                    "INP1:Auto Button",//3
+                                    "INP1:Up Button  ",//4
+                                    "INP1:Dn Button  ",//5
+                                    "INP1:Open limit ",//6
+                                    "INP1:Car Door   ",//7
+                                    "INP1:Hall Door  ",//8
+                                    "INP1:Su1        ",//9
+                                    "INP1:Sd1        ",//10
+                                    "INP1:Safety sw  ",//11
+                                    "INP1:Overload   ",//12
+                                    "INP1:Uls        ",//13
+                                    "INP1:Dls        ",//14
+                                    "INP1:Lu         ",//15
+                                    "INP1:Ld         ",//16
+                                    "INP1:Rg         ",//17
+                                    "INP1:Bat        ",//18
+                                    "INP1:Pass       ",//19
+                                    "INP1:Fire       ",//20
+                                    "INP1:Water      ",//21
+                                    "INP1:Full       ",//22
+                                    "INP1:Mm         ",//23
                                     "INP1:Fhm        ",//24
-                                    "INP1:Fr1        ",//25 
+                                    "INP1:Fr1        ",//25
                                     "INP1:Fr2        ",//26
-                                    "INP1:Gs2        ",//27 
+                                    "INP1:Gs2        ",//27
                                     "INP1:Ds2        ",//28
-                                    "INP1:Su2        ",//29 
+                                    "INP1:Su2        ",//29
                                     "INP1:Sd2        ",//30
-                                    "INP1:Bm         ",//31 
-                                    "INP1:Inv        ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "INP2:x0         ",//1  
-                                    "INP2:x1         ",//2  
-                                    "INP2:x2         ",//3  
-                                    "INP2:x3         ",//4  
-                                    "INP2:x4         ",//5  
-                                    "INP2:x5         ",//6  
-                                    "INP2:x6         ",//7  
-                                    "INP2:x7         ",//8  
-                                    "INP2:Fs0        ",//9  
-                                    "INP2:Fs1        ",//10 
-                                    "INP2:Fs2        ",//11 
-                                    "INP2:Fs3        ",//12 
-                                    "INP2:Fs4        ",//13 
-                                    "INP2:Der        ",//14 
-                                    "INP2:Fid        ",//15 
-                                    "INP2:Und        ",//16 
-                                    "INP2:nc         ",//17 
-                                    "INP2:nc         ",//18 
-                                    "INP2:nc         ",//19 
-                                    "INP2:nc         ",//20 
-                                    "INP2:nc         ",//21 
-                                    "INP2:nc         ",//22 
-                                    "INP2:nc         ",//23 
+                                    "INP1:Bm         ",//31
+                                    "INP1:Inv        ",//32
+///////////////////////////////////////////////////////////
+                                    "INP2:x0         ",//1
+                                    "INP2:x1         ",//2
+                                    "INP2:x2         ",//3
+                                    "INP2:x3         ",//4
+                                    "INP2:x4         ",//5
+                                    "INP2:x5         ",//6
+                                    "INP2:x6         ",//7
+                                    "INP2:x7         ",//8
+                                    "INP2:Fs0        ",//9
+                                    "INP2:Fs1        ",//10
+                                    "INP2:Fs2        ",//11
+                                    "INP2:Fs3        ",//12
+                                    "INP2:Fs4        ",//13
+                                    "INP2:Der        ",//14
+                                    "INP2:Fid        ",//15
+                                    "INP2:Und        ",//16
+                                    "INP2:nc         ",//17
+                                    "INP2:nc         ",//18
+                                    "INP2:nc         ",//19
+                                    "INP2:nc         ",//20
+                                    "INP2:nc         ",//21
+                                    "INP2:nc         ",//22
+                                    "INP2:nc         ",//23
                                     "INP2:nc         ",//24
-                                    "INP2:nc         ",//25 
+                                    "INP2:nc         ",//25
                                     "INP2:nc         ",//26
-                                    "INP2:nc         ",//27 
+                                    "INP2:nc         ",//27
                                     "INP2:nc         ",//28
-                                    "INP2:nc         ",//29 
+                                    "INP2:nc         ",//29
                                     "INP2:nc         ",//30
-                                    "INP2:nc         ",//31 
-                                    "INP2:nc         ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-///////////////////////////////////////////////////////////                                                                                                           
+                                    "INP2:nc         ",//31
+                                    "INP2:nc         ",//32
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
                                     "OUTP:Fan        ",//9
-                                    "OUTP:Lit        ",//10 
+                                    "OUTP:Lit        ",//10
                                     "OUTP:Buz        ",//11
                                     "OUTP:Bell       ",//12
                                     "OUTP:Move       ",//13
                                     "OUTP:Err        ",//14
                                     "OUTP:HOp        ",//15
                                     "OUTP:HCl        ",//16
-                                    "OUTP:Op         ",//1  
-                                    "OUTP:Cl         ",//2  
-                                    "OUTP:S_Op       ",//3  
-                                    "OUTP:S_Cl       ",//4  
-                                    "OUTP:Bk2        ",//5  
-                                    "OUTP:D_S        ",//6  
-                                    "OUTP:Gbr        ",//7  
-                                    "OUTP:Bk1        ",//8  
+                                    "OUTP:Op         ",//1
+                                    "OUTP:Cl         ",//2
+                                    "OUTP:S_Op       ",//3
+                                    "OUTP:S_Cl       ",//4
+                                    "OUTP:Bk2        ",//5
+                                    "OUTP:D_S        ",//6
+                                    "OUTP:Gbr        ",//7
+                                    "OUTP:Bk1        ",//8
 
-                                    "OUTP:Up         ",//17 
-                                    "OUTP:Dn         ",//18 
-                                    "OUTP:P1         ",//19 
-                                    "OUTP:P2         ",//20 
-                                    "OUTP:P3         ",//21 
-                                    "OUTP:P4         ",//22 
-                                    "OUTP:Dac        ",//23 
+                                    "OUTP:Up         ",//17
+                                    "OUTP:Dn         ",//18
+                                    "OUTP:P1         ",//19
+                                    "OUTP:P2         ",//20
+                                    "OUTP:P3         ",//21
+                                    "OUTP:P4         ",//22
+                                    "OUTP:Dac        ",//23
                                     "OUTP:nc         ",//24
-                                    "OUTP:nc         ",//25 
+                                    "OUTP:nc         ",//25
                                     "OUTP:nc         ",//26
-                                    "OUTP:nc         ",//27 
+                                    "OUTP:nc         ",//27
                                     "OUTP:nc         ",//28
-                                    "OUTP:nc         ",//29 
+                                    "OUTP:nc         ",//29
                                     "OUTP:nc         ",//30
-                                    "OUTP:nc         ",//31 
-                                    "OUTP:nc         ",//32 
-///////////////////////////////////////////////////////////                                                                                                           
-///////////////////////////////////////////////////////////                                                                                                           
-                                    "ER:NO ERRORE(01)",//1  
-                                    "ER:NO ERRORE(02)",//2  
-                                    "ER:NO ERRORE(03)",//3  
-                                    "ER:NO ERRORE(04)",//5  
-                                    "ER:NO ERRORE(05)",//6  
-                                    "ER:NO ERRORE(06)",//7  
-                                    "ER:NO ERRORE(07)",//8  
-                                    "ER:NO ERRORE(08)",//9  
-                                    "ER:NO ERRORE(09)",//10 
-                                    "ER:NO ERRORE(10)",//11 
-                                    "ER:NO ERRORE(11)",//12 
-                                    "ER:NO ERRORE(12)",//13 
-                                    "ER:NO ERRORE(13)",//14 
-                                    "ER:NO ERRORE(14)",//15 
-                                    "ER:NO ERRORE(15)",//16 
-                                    "ER:NO ERRORE(16)",//17 
-                                    "ER:NO ERRORE(17)",//18 
-                                    "ER:NO ERRORE(18)",//19 
-                                    "ER:NO ERRORE(19)",//20 
-                                    "ER:NO ERRORE(20)",//21 
-                                    "ER:NO ERRORE(21)",//22 
-                                    "ER:NO ERRORE(22)",//23 
-                                    "ER:NO ERRORE(23)",//24 
-                                    "ER:NO ERRORE(24)",//25 
-                                    "ER:NO ERRORE(25)",//26 
-                                    "ER:NO ERRORE(26)",//27 
-                                    "ER:NO ERRORE(27)",//28 
-                                    "ER:NO ERRORE(28)",//29 
-                                    "ER:NO ERRORE(29)",//30 
-                                    "ER:NO ERRORE(30)",//31 
-                                    "ER:NO ERRORE(31)",//32 
-                                    "ER:NO ERRORE(32)",//32 
+                                    "OUTP:nc         ",//31
+                                    "OUTP:nc         ",//32
+///////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////
+                                    "ER:NO ERRORE(01)",//1
+                                    "ER:NO ERRORE(02)",//2
+                                    "ER:NO ERRORE(03)",//3
+                                    "ER:NO ERRORE(04)",//5
+                                    "ER:NO ERRORE(05)",//6
+                                    "ER:NO ERRORE(06)",//7
+                                    "ER:NO ERRORE(07)",//8
+                                    "ER:NO ERRORE(08)",//9
+                                    "ER:NO ERRORE(09)",//10
+                                    "ER:NO ERRORE(10)",//11
+                                    "ER:NO ERRORE(11)",//12
+                                    "ER:NO ERRORE(12)",//13
+                                    "ER:NO ERRORE(13)",//14
+                                    "ER:NO ERRORE(14)",//15
+                                    "ER:NO ERRORE(15)",//16
+                                    "ER:NO ERRORE(16)",//17
+                                    "ER:NO ERRORE(17)",//18
+                                    "ER:NO ERRORE(18)",//19
+                                    "ER:NO ERRORE(19)",//20
+                                    "ER:NO ERRORE(20)",//21
+                                    "ER:NO ERRORE(21)",//22
+                                    "ER:NO ERRORE(22)",//23
+                                    "ER:NO ERRORE(23)",//24
+                                    "ER:NO ERRORE(24)",//25
+                                    "ER:NO ERRORE(25)",//26
+                                    "ER:NO ERRORE(26)",//27
+                                    "ER:NO ERRORE(27)",//28
+                                    "ER:NO ERRORE(28)",//29
+                                    "ER:NO ERRORE(29)",//30
+                                    "ER:NO ERRORE(30)",//31
+                                    "ER:NO ERRORE(31)",//32
+                                    "ER:NO ERRORE(32)",//32
 */
                                 };
 
 
 
 const unsigned char VoltCurrentName[][8]={
-                                    "Main-V :",                                      
-                                    "Main-A :",                                      
-                                    " Tr-V  :",                                      
-                                    " Tr-A  :",                                      
-                                    "Ch1-A  :",                                      
-                                    "Ch2-A  :",                                                                            
-                                    "Ch3-A  :",                                      
-                                    "Ch4-A  :",                                                                            
-                                    "Ch5-A  :",                                      
-                                    "Ch6-A  :",                                                                            
-                                    "Ch7-A  :",                                      
-                                    "Ch8-A  :",                                                                            
-                                    "Ch9-A  :",                                      
-                                    "Ch10-A :",                                                                            
-                                    "Not Sel:",                                                                            
+                                    "Main-V :",
+                                    "Main-A :",
+                                    " Tr-V  :",
+                                    " Tr-A  :",
+                                    "Ch1-A  :",
+                                    "Ch2-A  :",
+                                    "Ch3-A  :",
+                                    "Ch4-A  :",
+                                    "Ch5-A  :",
+                                    "Ch6-A  :",
+                                    "Ch7-A  :",
+                                    "Ch8-A  :",
+                                    "Ch9-A  :",
+                                    "Ch10-A :",
+                                    "Not Sel:",
                                  };
 
 
 const unsigned char CurrentMode[][16]={
-                                    "Remote          ",                                      
-                                    "Auto            ",                                      
-                                    "Manual          ",                                      
+                                    "Remote          ",
+                                    "Auto            ",
+                                    "Manual          ",
 								};
 
 const unsigned char CurrenSysStatus[][5]={
-                                    "  OK!",                                      
-                                    "Check",                                      
-                                    "Error",                                      
+                                    "  OK!",
+                                    "Check",
+                                    "Error",
 								};
 
 
 const unsigned char LampName[][4]={
-                             	"LAMP",                                      
-                           	};                                       
+                             	"LAMP",
+                           	};
 
 
 const unsigned char LampRunMode[][13]={
@@ -2297,17 +2297,18 @@ const unsigned char LampRunMode[][13]={
                                       "Night/Blk/Off",
                                       "Every/Blk/Off",
                                       "Cmd/Blink/Off",
-                                      "Day/Blink/On ",                                      
-                                      "Night/Blnk/On",                                      
-                                      "Every/Blnk/On",                                      
-                                      "Cmd/Blink/On ",                                                                            
+                                      "Day/Blink/On ",
+                                      "Night/Blnk/On",
+                                      "Every/Blnk/On",
+                                      "Cmd/Blink/On ",
                                       " Not Use     ",
-                                    };                                       
+                                    };
 
 
-const unsigned char Cds_Timer[][5]={
-                                    "CDS  ",                                      
-                                    "Timer",                                      
+const unsigned char Cds_Timer[][9]={
+                                    "CDS      ",
+                                    "Timer    ",
+                                    "MasterCds"
 								};
 
 
@@ -2323,7 +2324,7 @@ void  __attribute__((section(".usercode")))	PasswardCheck(void)
     	bPasswardUse=0;
 	}
     else{
-    	bPasswardOk=0;   
+    	bPasswardOk=0;
     	bPasswardUse=1;
 	}
 
@@ -2339,9 +2340,9 @@ void    __attribute__((section(".usercode"))) VirtualMoveCntReDsp(void)
 	if((LadderGroup == USER_GROUP) && (LadderGroupSub == VIRTUAL_CALL)){
 		value = sRamDArry[mVFlrCnt];
 		New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(value / 100) + '0';
-		value = (value % 100);          
-		New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(value / 10)  + '0';		          
-		New485Ladder[SECONDLINE_BASE+EditBlanck+2] =(value % 10)  + '0';          
+		value = (value % 100);
+		New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(value / 10)  + '0';
+		New485Ladder[SECONDLINE_BASE+EditBlanck+2] =(value % 10)  + '0';
 	}
 */
 }
@@ -2351,7 +2352,7 @@ void    __attribute__((section(".usercode"))) VirtualMoveCntReDsp(void)
 void    __attribute__((section(".usercode"))) ChunDsp(unsigned int i)
 {
     unsigned int chun,bek,sip,il;
-	
+
 	chun=i;
 
     il=(chun%10);
@@ -2365,10 +2366,10 @@ void    __attribute__((section(".usercode"))) ChunDsp(unsigned int i)
     chun=chun/1000;
     chun=(chun%10);
 
-	New485Ladder[SECONDLINE_BASE+0] = chun + '0';                     
-	New485Ladder[SECONDLINE_BASE+1] = bek  + '0';                       
-	New485Ladder[SECONDLINE_BASE+2] = sip  + '0';                      
-	New485Ladder[SECONDLINE_BASE+3] = '.';                             
+	New485Ladder[SECONDLINE_BASE+0] = chun + '0';
+	New485Ladder[SECONDLINE_BASE+1] = bek  + '0';
+	New485Ladder[SECONDLINE_BASE+2] = sip  + '0';
+	New485Ladder[SECONDLINE_BASE+3] = '.';
 	New485Ladder[SECONDLINE_BASE+4] = il   + '0';
 }
 
@@ -2386,7 +2387,7 @@ void    __attribute__((section(".usercode"))) ManDsp(unsigned int i)
 
     value=(value % 10000);
     chun =(value / 1000);
- 
+
     value=(value % 1000);
     bek  =(value / 100);
 
@@ -2399,8 +2400,8 @@ void    __attribute__((section(".usercode"))) ManDsp(unsigned int i)
     New485Ladder[SECONDLINE_BASE+EditBlanck+0]=(man  + '0');
     New485Ladder[SECONDLINE_BASE+EditBlanck+1]=(chun + '0');
     New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(bek  + '0');
-    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(sip  + '0');          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(il   + '0');          
+    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(sip  + '0');
+    New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(il   + '0');
 }
 
 
@@ -2410,18 +2411,18 @@ void    __attribute__((section(".usercode"))) ManDsp(unsigned int i)
 	unsigned int value;
 
     New485Ladder[SECONDLINE_BASE+EditBlanck+0]=(value/10000)    + '0';
-    value=value%10000;              
+    value=value%10000;
     New485Ladder[SECONDLINE_BASE+EditBlanck+1]=(value/1000)     + '0';
-    value=value%1000;              
+    value=value%1000;
     New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(value/100)      + '0';
-    value=value%100;                        
-    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value/10)       + '0';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(value%10)       + '0';          
+    value=value%100;
+    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value/10)       + '0';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(value%10)       + '0';
 }
 */
 
 
-	
+
 void    __attribute__((section(".usercode"))) RpmDsp485(void)
 {
     unsigned int chun;
@@ -2455,10 +2456,10 @@ void    __attribute__((section(".usercode"))) RpmDsp485(void)
     chun=chun/1000;
     chun=(chun%10);
 
-	New485Ladder[SECONDLINE_BASE+0] = chun + '0';                     
-	New485Ladder[SECONDLINE_BASE+1] = bek  + '0';                       
-	New485Ladder[SECONDLINE_BASE+2] = sip  + '0';                      
-	New485Ladder[SECONDLINE_BASE+3] = '.';                             
+	New485Ladder[SECONDLINE_BASE+0] = chun + '0';
+	New485Ladder[SECONDLINE_BASE+1] = bek  + '0';
+	New485Ladder[SECONDLINE_BASE+2] = sip  + '0';
+	New485Ladder[SECONDLINE_BASE+3] = '.';
 	New485Ladder[SECONDLINE_BASE+4] = il   + '0';
 */
 
@@ -2490,7 +2491,7 @@ void    __attribute__((section(".usercode"))) CurEncoderPulse(unsigned long vx)
 {
     unsigned long value;
 	value=vx;
-	
+
 
 //    if(cF_NormalDsp==6)	    value=CurPulse;
 //    else    				value=DecreasePulse;
@@ -2498,26 +2499,26 @@ void    __attribute__((section(".usercode"))) CurEncoderPulse(unsigned long vx)
 
 
     New485Ladder[SECONDLINE_BASE+EditBlanck+0]=(value/10000000)  + '0';
-    value=value%10000000;              
+    value=value%10000000;
     New485Ladder[SECONDLINE_BASE+EditBlanck+1]=(value/1000000)   + '0';
-    value=value%1000000;              
+    value=value%1000000;
     New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(value/100000)    + '0';
-    value=value%100000;              
+    value=value%100000;
     New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value/10000)     + '0';
-    value=value%10000;              
+    value=value%10000;
     New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(value/1000)      + '0';
-    value=value%1000;                        
+    value=value%1000;
     New485Ladder[SECONDLINE_BASE+EditBlanck+5]=(value/100)      + '0';
-    value=value%100;                        
-    New485Ladder[SECONDLINE_BASE+EditBlanck+6]=(value/10)       + '0';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+7]=(value%10)       + '0';          
+    value=value%100;
+    New485Ladder[SECONDLINE_BASE+EditBlanck+6]=(value/10)       + '0';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+7]=(value%10)       + '0';
 
-    New485Ladder[SECONDLINE_BASE+EditBlanck+8] =' ';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+9] ='p';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+10] ='u';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+11]='l';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+12]='s';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+13]='e';          
+    New485Ladder[SECONDLINE_BASE+EditBlanck+8] =' ';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+9] ='p';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+10] ='u';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+11]='l';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+12]='s';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+13]='e';
 
 }
 
@@ -2534,11 +2535,11 @@ void    __attribute__((section(".usercode"))) MoveCounterDsp(void)
 	ManDsp(value);
 
 
-    New485Ladder[SECONDLINE_BASE+EditBlanck+5] =' ';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+6] ='m';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+7] ='o';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+8] ='v';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+9] ='e';          
+    New485Ladder[SECONDLINE_BASE+EditBlanck+5] =' ';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+6] ='m';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+7] ='o';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+8] ='v';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+9] ='e';
 }
 */
 
@@ -2551,24 +2552,24 @@ void    __attribute__((section(".usercode"))) MoveCounterDsp(void)
     value=MoveCounterx;
 
     New485Ladder[SECONDLINE_BASE+EditBlanck+0]=(value/1000000)  + '0';
-    value=value%1000000;              
+    value=value%1000000;
     New485Ladder[SECONDLINE_BASE+EditBlanck+1]=(value/100000)   + '0';
-    value=value%100000;              
+    value=value%100000;
     New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(value/10000)    + '0';
-    value=value%10000;              
+    value=value%10000;
     New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value/1000)     + '0';
-    value=value%1000;              
+    value=value%1000;
     New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(value/100)      + '0';
-    value=value%100;                        
-    New485Ladder[SECONDLINE_BASE+EditBlanck+5]=(value/10)       + '0';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+6]=(value%10)       + '0';          
+    value=value%100;
+    New485Ladder[SECONDLINE_BASE+EditBlanck+5]=(value/10)       + '0';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+6]=(value%10)       + '0';
 
 
-    New485Ladder[SECONDLINE_BASE+EditBlanck+7]  =' ';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+8]  ='m';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+9]  ='o';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+10] ='v';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+11] ='e';          
+    New485Ladder[SECONDLINE_BASE+EditBlanck+7]  =' ';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+8]  ='m';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+9]  ='o';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+10] ='v';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+11] ='e';
 }
 
 
@@ -2583,21 +2584,21 @@ void    __attribute__((section(".usercode"))) ErrCounterDsp(void)
 
 /*
     New485Ladder[SECONDLINE_BASE+EditBlanck+0]=(value/10000)    + '0';
-    value=value%10000;              
+    value=value%10000;
     New485Ladder[SECONDLINE_BASE+EditBlanck+1]=(value/1000)     + '0';
-    value=value%1000;              
+    value=value%1000;
     New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(value/100)      + '0';
-    value=value%100;                        
-    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value/10)       + '0';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(value%10)       + '0';          
+    value=value%100;
+    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value/10)       + '0';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(value%10)       + '0';
 */
 
-    New485Ladder[SECONDLINE_BASE+EditBlanck+5]  =' ';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+6]  ='E';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+7]  ='r';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+8]  ='r';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+9]  ='o';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+10] ='r';          
+    New485Ladder[SECONDLINE_BASE+EditBlanck+5]  =' ';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+6]  ='E';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+7]  ='r';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+8]  ='r';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+9]  ='o';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+10] ='r';
 }
 
 
@@ -2738,18 +2739,18 @@ void    __attribute__((section(".usercode"))) CanComDsp(void)
             New485Ladder[SECONDLINE_BASE+EditBlanck+7]=BdName[4][7];
             sRamDArry[mCallMe]=0x00;
             break;
-    }   
+    }
 
 
-    
+
 	value=Percent;
 
     New485Ladder[SECONDLINE_BASE+EditBlanck+8]=(value/100)      + '0';
-    value=value%100;                        
-    New485Ladder[SECONDLINE_BASE+EditBlanck+9]=(value/10)       + '0';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+10]=(value%10)      + '0';          
+    value=value%100;
+    New485Ladder[SECONDLINE_BASE+EditBlanck+9]=(value/10)       + '0';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+10]=(value%10)      + '0';
 
-    New485Ladder[SECONDLINE_BASE+EditBlanck+11]  ='%'; 
+    New485Ladder[SECONDLINE_BASE+EditBlanck+11]  ='%';
 
 
     if(LadderBuf[C_SAVE_DATA+0] == 'u'){
@@ -2762,12 +2763,12 @@ void    __attribute__((section(".usercode"))) CanComDsp(void)
             sRamDArry[mCallMe]=0x0;
         }
         else if((sRamDArry[mCallMe] >= 0x41) && (sRamDArry[mCallMe] <= 0x60)){
-            if((sRamDArry[mCallMe]- 0x40) > (cF_TOPFLR+1) ){            
+            if((sRamDArry[mCallMe]- 0x40) > (cF_TOPFLR+1) ){
                 sRamDArry[mCallMe]=0x80;
             }
         }
         else if((sRamDArry[mCallMe] > 0x0) && (sRamDArry[mCallMe] <= 0x20)){
-            if(sRamDArry[mCallMe] > (cF_TOPFLR+1) ){            
+            if(sRamDArry[mCallMe] > (cF_TOPFLR+1) ){
                 sRamDArry[mCallMe]=0x41;
             }
         }
@@ -2794,7 +2795,7 @@ void    __attribute__((section(".usercode"))) CanComDsp(void)
         else if(sRamDArry[mCallMe] == 0x20){
             sRamDArry[mCallMe]=(cF_TOPFLR+1);
         }
-    }         
+    }
 
 }
 */
@@ -2838,15 +2839,15 @@ void    __attribute__((section(".usercode"))) CanComDsp(void)
 	if(sRamDArry[mVoltAmpCall] <= 3){
 	    New485Ladder[SECONDLINE_BASE+EditBlanck+8]=(value/100)      + '0';
 	    New485Ladder[SECONDLINE_BASE+EditBlanck+9]=(value/10)       + '0';
-	    New485Ladder[SECONDLINE_BASE+EditBlanck+10]=(value%10)      + '0';          
-	    New485Ladder[SECONDLINE_BASE+EditBlanck+11]=' ';          
+	    New485Ladder[SECONDLINE_BASE+EditBlanck+10]=(value%10)      + '0';
+	    New485Ladder[SECONDLINE_BASE+EditBlanck+11]=' ';
 	}
 	else{
 	    New485Ladder[SECONDLINE_BASE+EditBlanck+8]=(value/100)      + '0';
-	    value=value%100;                        
+	    value=value%100;
 	    New485Ladder[SECONDLINE_BASE+EditBlanck+9]=(value/10)       + '0';
-	    New485Ladder[SECONDLINE_BASE+EditBlanck+10]='.';                    
-	    New485Ladder[SECONDLINE_BASE+EditBlanck+11]=(value%10)      + '0';          
+	    New485Ladder[SECONDLINE_BASE+EditBlanck+10]='.';
+	    New485Ladder[SECONDLINE_BASE+EditBlanck+11]=(value%10)      + '0';
 	}
 
 
@@ -2864,7 +2865,7 @@ void    __attribute__((section(".usercode"))) CanComDsp(void)
 		else{
 	        sRamDArry[mVoltAmpCall]=14;
 		}
-    }         
+    }
 }
 
 
@@ -2919,7 +2920,7 @@ void    __attribute__((section(".usercode"))) CurOutput(void)
 {
     LocalType  i;
 
-	for(i=0;i<4;i++)	New485Ladder[SECONDLINE_BASE+EditBlanck+i]=LampName[0][i]; 
+	for(i=0;i<4;i++)	New485Ladder[SECONDLINE_BASE+EditBlanck+i]=LampName[0][i];
 
 
     New485Ladder[SECONDLINE_BASE+EditBlanck+4]= ' ';
@@ -2937,7 +2938,7 @@ void    __attribute__((section(".usercode"))) Input(LocalType  pt)
 
     pt=pt-7;
 
-	for(i=0;i<3;i++)	New485Ladder[SECONDLINE_BASE+EditBlanck+i]=InputName[pt][i]; 
+	for(i=0;i<3;i++)	New485Ladder[SECONDLINE_BASE+EditBlanck+i]=InputName[pt][i];
 
     New485Ladder[SECONDLINE_BASE+EditBlanck+3]= ' ';
     New485Ladder[SECONDLINE_BASE+EditBlanck+4]= ' ';
@@ -2960,9 +2961,9 @@ void    __attribute__((section(".usercode"))) VirtualCall(void)
     value=MemPointer;
 
     New485Ladder[SECONDLINE_BASE+EditBlanck+1]=(value/100)      + '0';
-    value=value%100;                        
-    New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(value/10)       + '0';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value%10)       + '0';          
+    value=value%100;
+    New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(value/10)       + '0';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value%10)       + '0';
 
 
     if(sRamDArry[MemPointer] & 0x01)  New485Ladder[SECONDLINE_BASE+EditBlanck+5] = '1';
@@ -2997,9 +2998,9 @@ void    __attribute__((section(".usercode"))) MemDsp(void)
     value=MemPointer;
 
     New485Ladder[SECONDLINE_BASE+EditBlanck+1]=(value/100)      + '0';
-    value=value%100;                        
-    New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(value/10)       + '0';          
-    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value%10)       + '0';          
+    value=value%100;
+    New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(value/10)       + '0';
+    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value%10)       + '0';
 
 
 	SetBitData((LocalType)sRamDArry[MemPointer]);
@@ -3032,7 +3033,7 @@ void    __attribute__((section(".usercode"))) DefaultDisplay(void)
     k=cF_NormalDsp;
 
     if(bCarErr || bCarStopNoRun)    k=0;
-    
+
     switch(k){
         case    0:
 			CurOutput();
@@ -3049,39 +3050,39 @@ void    __attribute__((section(".usercode"))) DefaultDisplay(void)
             RpmDsp485();
             break;
         case    3:
-            New485Ladder[SECONDLINE_BASE+0] =(sRamDArry[mHour]    >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+1] =(sRamDArry[mHour]    &  0x0f)   + '0';          
-            New485Ladder[SECONDLINE_BASE+2] ='/';          
-            New485Ladder[SECONDLINE_BASE+3] =(sRamDArry[mMinuate] >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+4] =(sRamDArry[mMinuate] & 0x0f)    + '0';          
-            New485Ladder[SECONDLINE_BASE+5] ='/';          
-            New485Ladder[SECONDLINE_BASE+6] =(sRamDArry[msec]     >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+7] =(sRamDArry[msec]     & 0x0f)    + '0';          
+            New485Ladder[SECONDLINE_BASE+0] =(sRamDArry[mHour]    >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+1] =(sRamDArry[mHour]    &  0x0f)   + '0';
+            New485Ladder[SECONDLINE_BASE+2] ='/';
+            New485Ladder[SECONDLINE_BASE+3] =(sRamDArry[mMinuate] >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+4] =(sRamDArry[mMinuate] & 0x0f)    + '0';
+            New485Ladder[SECONDLINE_BASE+5] ='/';
+            New485Ladder[SECONDLINE_BASE+6] =(sRamDArry[msec]     >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+7] =(sRamDArry[msec]     & 0x0f)    + '0';
             break;
         case    4:
-            New485Ladder[SECONDLINE_BASE+0] =(sRamDArry[mYear]    >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+1] =(sRamDArry[mYear]    & 0x0f)    + '0';          
-            New485Ladder[SECONDLINE_BASE+2] ='/';          
-            New485Ladder[SECONDLINE_BASE+3] =(sRamDArry[mMonth]   >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+4] =(sRamDArry[mMonth]   & 0x0f)    + '0';          
-            New485Ladder[SECONDLINE_BASE+5] ='/';          
-            New485Ladder[SECONDLINE_BASE+6] =(sRamDArry[mDay]     >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+7] =(sRamDArry[mDay]     & 0x0f)    + '0';          
+            New485Ladder[SECONDLINE_BASE+0] =(sRamDArry[mYear]    >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+1] =(sRamDArry[mYear]    & 0x0f)    + '0';
+            New485Ladder[SECONDLINE_BASE+2] ='/';
+            New485Ladder[SECONDLINE_BASE+3] =(sRamDArry[mMonth]   >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+4] =(sRamDArry[mMonth]   & 0x0f)    + '0';
+            New485Ladder[SECONDLINE_BASE+5] ='/';
+            New485Ladder[SECONDLINE_BASE+6] =(sRamDArry[mDay]     >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+7] =(sRamDArry[mDay]     & 0x0f)    + '0';
             break;
         case    5:
-            New485Ladder[SECONDLINE_BASE+0] =(sRamDArry[mYear]    >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+1] =(sRamDArry[mYear]    & 0x0f)    + '0';          
-            New485Ladder[SECONDLINE_BASE+2] =(sRamDArry[mMonth]   >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+3] =(sRamDArry[mMonth]   & 0x0f)    + '0';          
-            New485Ladder[SECONDLINE_BASE+4] =(sRamDArry[mDay]     >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+5] =(sRamDArry[mDay]     & 0x0f)    + '0';          
-            New485Ladder[SECONDLINE_BASE+6] ='/';          
-            New485Ladder[SECONDLINE_BASE+7] =(sRamDArry[mHour]    >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+8] =(sRamDArry[mHour]    &  0x0f)   + '0';          
-            New485Ladder[SECONDLINE_BASE+9] =(sRamDArry[mMinuate] >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+10]=(sRamDArry[mMinuate] & 0x0f)    + '0';          
-            New485Ladder[SECONDLINE_BASE+11]=(sRamDArry[msec]     >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+12]=(sRamDArry[msec]     & 0x0f)    + '0';          
+            New485Ladder[SECONDLINE_BASE+0] =(sRamDArry[mYear]    >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+1] =(sRamDArry[mYear]    & 0x0f)    + '0';
+            New485Ladder[SECONDLINE_BASE+2] =(sRamDArry[mMonth]   >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+3] =(sRamDArry[mMonth]   & 0x0f)    + '0';
+            New485Ladder[SECONDLINE_BASE+4] =(sRamDArry[mDay]     >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+5] =(sRamDArry[mDay]     & 0x0f)    + '0';
+            New485Ladder[SECONDLINE_BASE+6] ='/';
+            New485Ladder[SECONDLINE_BASE+7] =(sRamDArry[mHour]    >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+8] =(sRamDArry[mHour]    &  0x0f)   + '0';
+            New485Ladder[SECONDLINE_BASE+9] =(sRamDArry[mMinuate] >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+10]=(sRamDArry[mMinuate] & 0x0f)    + '0';
+            New485Ladder[SECONDLINE_BASE+11]=(sRamDArry[msec]     >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+12]=(sRamDArry[msec]     & 0x0f)    + '0';
             break;
         case    6:
             CurEncoderPulse(CurPulse);
@@ -3103,7 +3104,7 @@ void    __attribute__((section(".usercode"))) DefaultDisplay(void)
                     if(MemPointer>0)    MemPointer--;
                     else                MemPointer=999;
                     break;
-            }            
+            }
             LadderKey='0';
             MemDsp();
             break;
@@ -3139,56 +3140,56 @@ void  __attribute__((section(".usercode"))) CalendarChk(void)
         switch(Cursor){
             case    0:
                 if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor] > '2'){
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';          
+                    New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';
                 }
                 else if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor] == '2'){
                     if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor+1] > '4'){
-                        New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor+1]='0';          
+                        New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor+1]='0';
                     }
                 }
                 break;
             case    1:
                 if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor-1] == '2'){
                     if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor] > '4'){
-                        New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';          
+                        New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';
                     }
                 }
                 break;
             case    3:
             case    6:
-                if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor] > '5')    New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';          
+                if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor] > '5')    New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';
                 break;
         }
     }
     else if(LadderGroupSub==31){
         switch(Cursor){
             case    3:
-                if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor] > '1')    New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';          
+                if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor] > '1')    New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';
                 else if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor] == '1'){
                     if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor+1] > '2'){
-                        New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor+1]='0';          
+                        New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor+1]='0';
                     }
                 }
                 break;
             case    4:
                 if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor-1] == '1'){
                     if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor] > '2'){
-                        New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';          
+                        New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';
                     }
                 }
                 break;
             case    6:
-                if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor] > '3')    New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';          
+                if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor] > '3')    New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';
                 else if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor] == '3'){
                     if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor+1] > '1'){
-                        New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor+1]='0';          
+                        New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor+1]='0';
                     }
                 }
                 break;
             case    7:
                 if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor-1] == '3'){
                     if(New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor] > '1'){
-                        New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';          
+                        New485Ladder[SECONDLINE_BASE+EditBlanck+Cursor]='0';
                     }
                 }
                 break;
@@ -3228,27 +3229,27 @@ void  __attribute__((section(".usercode"))) DspCharSave(unsigned int pt,unsigned
     for(i=0;i<DtNm;i++){
         b_LdTmpBufRam((unsigned long)(pt+i))     = New485Ladder[SECONDLINE_BASE+EditBlanck+i];
     }
-    
+
     k = New485Ladder[SECONDLINE_BASE+EditBlanck+1];
 
-    
-    if(pt==0){ 
-        if(b_LdTmpBufRam(0) == 'B'){             
-            if(k == '7')        i=0;  
-            else if(k == '6')   i=2;  
-            else if(k == '5')   i=4;  
-            else if(k == '4')   i=6;  
-            else if(k == '3')   i=8;  
-            else if(k == '2')   i=10;  
+
+    if(pt==0){
+        if(b_LdTmpBufRam(0) == 'B'){
+            if(k == '7')        i=0;
+            else if(k == '6')   i=2;
+            else if(k == '5')   i=4;
+            else if(k == '4')   i=6;
+            else if(k == '3')   i=8;
+            else if(k == '2')   i=10;
             else if(k == '1')   i=12;
-            else                pt=1;  
+            else                pt=1;
         }
-        else if(b_LdTmpBufRam(0) == '0'){ 
+        else if(b_LdTmpBufRam(0) == '0'){
             if(k == '1')        i=14;
-            else                pt=1;  
+            else                pt=1;
         }
         else                    pt=1;
-        
+
         if(pt==0){
             for(k=0;k<64;k++,i++){
                 b_LdTmpBufRam(k)  = DftFlrName[i];
@@ -3266,7 +3267,7 @@ void  __attribute__((section(".usercode"))) NewMenuStart(void)
     ShiftCnt=0;
     EditStatus=0;
     EditBlanck=0;
-    
+
     switch(LadderGroup){
         case    USER_GROUP:    //save
             MaxSubMenu=USER_GROUP_MAX;
@@ -3274,12 +3275,12 @@ void  __attribute__((section(".usercode"))) NewMenuStart(void)
         case    SYSTEM_GROUP:    //save
             MaxSubMenu=SYSTEM_GROUP_MAX;
             break;
-        case    LAMP1_GROUP:    
-        case    LAMP2_GROUP:    
-        case    LAMP3_GROUP:    
-        case    LAMP4_GROUP:   
-        case    LAMP5_GROUP:    
-        case    LAMP6_GROUP:  
+        case    LAMP1_GROUP:
+        case    LAMP2_GROUP:
+        case    LAMP3_GROUP:
+        case    LAMP4_GROUP:
+        case    LAMP5_GROUP:
+        case    LAMP6_GROUP:
         case    LAMP7_GROUP:
         case    LAMP8_GROUP:
         case    LAMP9_GROUP:
@@ -3292,7 +3293,7 @@ void  __attribute__((section(".usercode"))) NewMenuStart(void)
 
 
 
-        case    FLR_DSP_GROUP:    
+        case    FLR_DSP_GROUP:
             MaxSubMenu=FLR_DSP_GROUP_MAX;
             break;
         case    FLR_GROUP:
@@ -3307,7 +3308,7 @@ void  __attribute__((section(".usercode"))) NewMenuStart(void)
         case    ONOFF1_GROUP:
             MaxSubMenu=ONOFF1_GROUP_MAX;
             break;
-        case    ONOFF2_GROUP: 
+        case    ONOFF2_GROUP:
             MaxSubMenu=ONOFF2_GROUP_MAX;
             break;
         case    NCNO1_GROUP:
@@ -3319,7 +3320,7 @@ void  __attribute__((section(".usercode"))) NewMenuStart(void)
         case    NCNO3_GROUP:
             MaxSubMenu=NCNO3_GROUP_MAX;
             break;
-        case    IO_GROUP: 
+        case    IO_GROUP:
             MaxSubMenu=IO_GROUP_MAX;
             break;
         case    OPEN_WAIT_GROUP:
@@ -3336,7 +3337,7 @@ void  __attribute__((section(".usercode"))) NewMenuStart(void)
             break;
         case    OUTPORT_GROUP:
             MaxSubMenu=OUTPORT_GROUP_MAX;
-            break;            
+            break;
         case    ERROR_GROUP:
             MaxSubMenu=ERROR_GROUP_MAX;
             break;
@@ -3355,77 +3356,77 @@ void  __attribute__((section(".usercode"))) DigitStringMessage(void)
         case    FLR_GROUP:
             if((LadderGroupSub == 2) || (LadderGroupSub == 4) || (LadderGroupSub == 5) || (LadderGroupSub == 6)){
                 if(DigitData > 32){
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+0]='N';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+1]='o';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+2]='t';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=' ';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+4]='U';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+5]='s';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+6]='e';          
+                    New485Ladder[SECONDLINE_BASE+EditBlanck+0]='N';
+                    New485Ladder[SECONDLINE_BASE+EditBlanck+1]='o';
+                    New485Ladder[SECONDLINE_BASE+EditBlanck+2]='t';
+                    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=' ';
+                    New485Ladder[SECONDLINE_BASE+EditBlanck+4]='U';
+                    New485Ladder[SECONDLINE_BASE+EditBlanck+5]='s';
+                    New485Ladder[SECONDLINE_BASE+EditBlanck+6]='e';
                 }
                 else{
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+2]=' ';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=' ';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+4]=' ';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+5]=' ';          
-                    New485Ladder[SECONDLINE_BASE+EditBlanck+6]=' ';          
+                    New485Ladder[SECONDLINE_BASE+EditBlanck+2]=' ';
+                    New485Ladder[SECONDLINE_BASE+EditBlanck+3]=' ';
+                    New485Ladder[SECONDLINE_BASE+EditBlanck+4]=' ';
+                    New485Ladder[SECONDLINE_BASE+EditBlanck+5]=' ';
+                    New485Ladder[SECONDLINE_BASE+EditBlanck+6]=' ';
                 }
             }
             else{
-                New485Ladder[SECONDLINE_BASE+EditBlanck+2]=' ';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+3]=' ';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+4]=' ';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+5]=' ';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+6]=' ';          
+                New485Ladder[SECONDLINE_BASE+EditBlanck+2]=' ';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+3]=' ';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+4]=' ';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+5]=' ';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+6]=' ';
             }
             break;
 */
         case    TIMER_GROUP:
 //            if((LadderGroupSub == 2) || (LadderGroupSub == 6)){
             if(LadderGroupSub == 6){
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='M';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='i';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='n';          
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='M';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='i';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='n';
             }
             else if((LadderGroupSub >= 13) && (LadderGroupSub <= 24)){
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='H';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='s';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='e';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+3]='c';          
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='H';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='s';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='e';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+3]='c';
             }
 
 /*
             else if((LadderGroupSub >= 13) && (LadderGroupSub <= 17)){
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='H';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='s';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='e';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+3]='c';          
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='H';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='s';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='e';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+3]='c';
             }
             else if((LadderGroupSub > 12) && (LadderGroupSub <= 21)){
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='m';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='s';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='e';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+3]='c';          
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='m';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='s';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='e';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+3]='c';
             }
 */
 
 //            else if((LadderGroupSub == 7) || (LadderGroupSub == 9) || (LadderGroupSub == 10) || (LadderGroupSub == 12)){
             else if((LadderGroupSub == 9) || (LadderGroupSub == 10)){
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='H';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='s';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='e';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+3]='c';          
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='H';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='s';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='e';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+3]='c';
             }
             else{
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='S';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='e';          
-                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='c';          
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+0]='S';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+1]='e';
+                New485Ladder[SECONDLINE_BASE+EditBlanck+ShiftCnt+2]='c';
             }
             break;
         case    SUB_DOOR_GROUP:
 			for(i=0;i<11;i++){
             	New485Ladder[SECONDLINE_BASE+EditBlanck+i]=DoorOnOffMessage[DigitData][i];
-			}					
+			}
             break;
         case    ONOFF1_GROUP:
             if(DigitData){
@@ -3459,7 +3460,7 @@ void  __attribute__((section(".usercode"))) DigitStringMessage(void)
                     New485Ladder[SECONDLINE_BASE+EditBlanck+i]=ElevOnOffSetMessage[LadderGroupSub][i];
                 }
             }
-            else{               
+            else{
                 for(i=0;i<11;i++){
                     New485Ladder[SECONDLINE_BASE+EditBlanck+i]=ElevOnOffResetMessage[LadderGroupSub][i];
                 }
@@ -3467,7 +3468,7 @@ void  __attribute__((section(".usercode"))) DigitStringMessage(void)
             break;
         case    NCNO1_GROUP:
         case    NCNO2_GROUP:
-        case    NCNO3_GROUP:			
+        case    NCNO3_GROUP:
             if(DigitData){
                 New485Ladder[SECONDLINE_BASE+EditBlanck+0]='N';
                 New485Ladder[SECONDLINE_BASE+EditBlanck+1]='-';
@@ -3477,7 +3478,7 @@ void  __attribute__((section(".usercode"))) DigitStringMessage(void)
                 New485Ladder[SECONDLINE_BASE+EditBlanck+5]='n';
                 New485Ladder[SECONDLINE_BASE+EditBlanck+6]=' ';
             }
-            else{               
+            else{
                 New485Ladder[SECONDLINE_BASE+EditBlanck+0]='N';
                 New485Ladder[SECONDLINE_BASE+EditBlanck+1]='-';
                 New485Ladder[SECONDLINE_BASE+EditBlanck+2]='C';
@@ -3494,7 +3495,7 @@ void  __attribute__((section(".usercode"))) DigitStringMessage(void)
                     New485Ladder[SECONDLINE_BASE+EditBlanck+i]=IOPortMessage[DigitData][i];
                 }
             }
-            else if(LadderGroupSub <= 16){               
+            else if(LadderGroupSub <= 16){
                 for(i=0;i<8;i++){
                     New485Ladder[SECONDLINE_BASE+EditBlanck+i]=ElevSpeedMessage[DigitData][i];
                 }
@@ -3584,10 +3585,7 @@ void  __attribute__((section(".usercode"))) DigitStringMessage(void)
         case    SYSTEM_GROUP:
 			switch(LadderGroupSub){
 				case	4:
-					if(DigitData & 0x01)	DigitData=0x01;
-					else					DigitData=0;
-	
-		            for(i=0;i<5;i++){
+		            for(i=0;i<9;i++){
 		                New485Ladder[SECONDLINE_BASE+EditBlanck+i]=Cds_Timer[DigitData][i];
 		            }
 				break;
@@ -3614,7 +3612,7 @@ void  __attribute__((section(".usercode"))) DigitStringMessage(void)
         default:
             break;
 
-    }    
+    }
 }
 
 
@@ -3639,35 +3637,35 @@ void  __attribute__((section(".usercode"))) Integer_Digit(void)
 
 
     if(ShiftCnt == 1){
-        New485Ladder[SECONDLINE_BASE+EditBlanck+0]=value            + '0';          
+        New485Ladder[SECONDLINE_BASE+EditBlanck+0]=value            + '0';
     }
     else if(ShiftCnt == 2){
-        New485Ladder[SECONDLINE_BASE+EditBlanck+0]=(value/10)       + '0';          
-        New485Ladder[SECONDLINE_BASE+EditBlanck+1]=(value%10)       + '0';          
+        New485Ladder[SECONDLINE_BASE+EditBlanck+0]=(value/10)       + '0';
+        New485Ladder[SECONDLINE_BASE+EditBlanck+1]=(value%10)       + '0';
     }
     else if(ShiftCnt == 3){
         New485Ladder[SECONDLINE_BASE+EditBlanck+0]=(value/100)      + '0';
-        value=value%100;              
-        New485Ladder[SECONDLINE_BASE+EditBlanck+1]=(value/10)       + '0';          
-        New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(value%10)       + '0';          
+        value=value%100;
+        New485Ladder[SECONDLINE_BASE+EditBlanck+1]=(value/10)       + '0';
+        New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(value%10)       + '0';
     }
     else if(ShiftCnt == 4){
         New485Ladder[SECONDLINE_BASE+EditBlanck+0]=(value/1000)     + '0';
-        value=value%1000;              
+        value=value%1000;
         New485Ladder[SECONDLINE_BASE+EditBlanck+1]=(value/100)      + '0';
-        value=value%100;                        
-        New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(value/10)       + '0';          
-        New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value%10)       + '0';          
+        value=value%100;
+        New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(value/10)       + '0';
+        New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value%10)       + '0';
     }
     else if(ShiftCnt == 5){
         New485Ladder[SECONDLINE_BASE+EditBlanck+0]=(value/10000)    + '0';
-        value=value%10000;              
+        value=value%10000;
         New485Ladder[SECONDLINE_BASE+EditBlanck+1]=(value/1000)     + '0';
-        value=value%1000;              
+        value=value%1000;
         New485Ladder[SECONDLINE_BASE+EditBlanck+2]=(value/100)      + '0';
-        value=value%100;                        
-        New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value/10)       + '0';          
-        New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(value%10)       + '0';          
+        value=value%100;
+        New485Ladder[SECONDLINE_BASE+EditBlanck+3]=(value/10)       + '0';
+        New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(value%10)       + '0';
     }
 
     DigitStringMessage();
@@ -3684,16 +3682,16 @@ unsigned int   __attribute__((section(".usercode"))) DigitBufConversionToDigit(v
 {
 	unsigned int tmp,ret,i,deg;
 
-	deg=1;		// il degree	
+	deg=1;		// il degree
 	ret=0;
 	i=ShiftCnt;
 	do{
-		tmp=New485Ladder[SECONDLINE_BASE+EditBlanck+ (i-1)] - '0';          
+		tmp=New485Ladder[SECONDLINE_BASE+EditBlanck+ (i-1)] - '0';
 		if ((tmp <= 9) && (tmp >= 0)){
 			ret=(tmp * deg)+ ret;
-			deg=(deg * 10); 
+			deg=(deg * 10);
 		}
-		i--; 
+		i--;
 
 	}while(i>0);
 
@@ -3709,7 +3707,7 @@ unsigned int   __attribute__((section(".usercode"))) DigitBufConversionToDigit(v
 void  __attribute__((section(".usercode"))) SystemGroup(void)
 {
 
-    switch(LadderGroupSub){        
+    switch(LadderGroupSub){
 		case	0:
             Cursor=0;
             ShiftCnt=3;
@@ -3755,7 +3753,7 @@ void  __attribute__((section(".usercode"))) SystemGroup(void)
             ShiftCnt=0;
             EditBlanck=5;
             EditStatus=DIGIT_STRING_EDIT;
-            DigitMaxValue=2;
+            DigitMaxValue=3;
             DigitMinValue=0;
             DigitData=cF_FLRDSPCH((unsigned long)F_SystemMode);
             Integer_Digit();
@@ -3767,13 +3765,13 @@ void  __attribute__((section(".usercode"))) SystemGroup(void)
             EditStatus=CLOCK_EDIT;
 
             DigitData=cF_FLRDSPCH((unsigned long)(F_Day_S_H));
-            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(DigitData    >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(DigitData    &  0x0f)   + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';          
+            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(DigitData    >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(DigitData    &  0x0f)   + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';
 
             DigitData=cF_FLRDSPCH((unsigned long)(F_Day_S_M));
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(DigitData >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(DigitData & 0x0f)     + '0';             
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(DigitData >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(DigitData & 0x0f)     + '0';
             break;
 		case	6:
             Cursor=0;
@@ -3783,14 +3781,14 @@ void  __attribute__((section(".usercode"))) SystemGroup(void)
 
             DigitData=cF_FLRDSPCH((unsigned long)(F_Day_E_H));
 
-            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(DigitData    >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(DigitData    &  0x0f)   + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';          
+            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(DigitData    >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(DigitData    &  0x0f)   + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';
 
             DigitData=cF_FLRDSPCH((unsigned long)(F_Day_E_M));
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(DigitData >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(DigitData & 0x0f)     + '0';    
-      
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(DigitData >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(DigitData & 0x0f)     + '0';
+
             break;
 		case	7:
             Cursor=0;
@@ -3814,7 +3812,7 @@ void  __attribute__((section(".usercode"))) SystemGroup(void)
             break;
         default:
             break;
-    }    
+    }
 }
 
 
@@ -3824,7 +3822,7 @@ void  __attribute__((section(".usercode"))) SystemGroupSave(void)
 
 	GetFlashDataToBufRam(F_BLOCK1);
 
-    switch(LadderGroupSub){        
+    switch(LadderGroupSub){
 		case	0:
 	    	b_LdTmpBufRam(F_MainVolt)=(LocalType)(DigitData);
             break;
@@ -3843,24 +3841,24 @@ void  __attribute__((section(".usercode"))) SystemGroupSave(void)
 		case	5:
 			DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+0]-'0') << 4;
 			DigitData= (DigitData  | (New485Ladder[SECONDLINE_BASE+EditBlanck+1]-'0'));
-			if(DigitData >= 0x24)	DigitData=0;	
+			if(DigitData >= 0x24)	DigitData=0;
 			b_LdTmpBufRam(F_Day_S_H)=(LocalType)(DigitData);
-					
+
 			DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+3]-'0') << 4;
 			DigitData=(DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+4]-'0'));
-			if(DigitData >= 0x60)	DigitData=0;	
-			b_LdTmpBufRam(F_Day_S_M)=(LocalType)(DigitData);    
+			if(DigitData >= 0x60)	DigitData=0;
+			b_LdTmpBufRam(F_Day_S_M)=(LocalType)(DigitData);
             break;
 		case	6:
 			DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+0]-'0') << 4;
 			DigitData= (DigitData  | (New485Ladder[SECONDLINE_BASE+EditBlanck+1]-'0'));
-			if(DigitData >= 0x24)	DigitData=0;	
+			if(DigitData >= 0x24)	DigitData=0;
 			b_LdTmpBufRam(F_Day_E_H)=(LocalType)(DigitData);
-			
-			
+
+
 			DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+3]-'0') << 4;
 			DigitData=(DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+4]-'0'));
-			if(DigitData >= 0x60)	DigitData=0;	
+			if(DigitData >= 0x60)	DigitData=0;
 			b_LdTmpBufRam(F_Day_E_M)=(LocalType)(DigitData);
             break;
 		case	7:
@@ -3871,7 +3869,7 @@ void  __attribute__((section(".usercode"))) SystemGroupSave(void)
             break;
         default:
             break;
-    }    
+    }
 
 
 
@@ -3885,11 +3883,11 @@ void  __attribute__((section(".usercode"))) SystemGroupSave(void)
 		DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+0]-'0') << 4;
 		DigitData= (DigitData  | (New485Ladder[SECONDLINE_BASE+EditBlanck+1]-'0'));
 		b_LdTmpBufRam(i)=(LocalType)(DigitData);
-				
+
 		i=(GroupBaseAddr + 6);
 		DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+3]-'0') << 4;
 		DigitData=(DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+4]-'0'));
-		b_LdTmpBufRam(i)=(LocalType)(DigitData);    
+		b_LdTmpBufRam(i)=(LocalType)(DigitData);
 	}
 	else if(LadderGroupSub == 6){
 //	else if( (LadderGroupSub == 7) || (LadderGroupSub == 8)){
@@ -3897,14 +3895,14 @@ void  __attribute__((section(".usercode"))) SystemGroupSave(void)
 		DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+0]-'0') << 4;
 		DigitData= (DigitData  | (New485Ladder[SECONDLINE_BASE+EditBlanck+1]-'0'));
 		b_LdTmpBufRam(i)=(LocalType)(DigitData);
-		
-		
+
+
 		i=(GroupBaseAddr + 8);
 		DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+3]-'0') << 4;
 		DigitData=(DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+4]-'0'));
 		b_LdTmpBufRam(i)=(LocalType)(DigitData);
 	}
-		
+
 	else{
 	    b_LdTmpBufRam(i)=(LocalType)(DigitData);
 	}
@@ -3920,7 +3918,7 @@ void  __attribute__((section(".usercode"))) LampGroup(void)
 {
     LocalType i;
 
-    switch(LadderGroupSub){        
+    switch(LadderGroupSub){
 		case	0:
             Cursor=0;
             ShiftCnt=2;
@@ -3942,10 +3940,10 @@ void  __attribute__((section(".usercode"))) LampGroup(void)
             i=(LadderGroupSub + GroupBaseAddr);
 			DigitData=cF_FLRDSPCH((unsigned long)i);
 
-            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(DigitData/100)          + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =((DigitData % 100)/10)   + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+2] ='.';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(DigitData%10)           + '0';          
+            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(DigitData/100)          + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =((DigitData % 100)/10)   + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+2] ='.';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(DigitData%10)           + '0';
             break;
 		case	2:
             Cursor=0;
@@ -3957,21 +3955,21 @@ void  __attribute__((section(".usercode"))) LampGroup(void)
             i=(LadderGroupSub + GroupBaseAddr);
             DigitData=cF_FLRDSPCH((unsigned long)i);
 
-			if(DigitData ==	0x0)			DigitData=0;	
-			else if(DigitData ==	0x1)	DigitData=1;	
-			else if(DigitData ==	0x2)	DigitData=2;	
-			else if(DigitData ==	0x4)	DigitData=3;	
-			else if(DigitData ==	0x8)	DigitData=4;	
-			else if(DigitData ==	0x81)	DigitData=5;	
-			else if(DigitData ==	0x82)	DigitData=6;	
-			else if(DigitData ==	0x84)	DigitData=7;	
-			else if(DigitData ==	0x88)	DigitData=8;	
-			else							DigitData=0;	
+			if(DigitData ==	0x0)			DigitData=0;
+			else if(DigitData ==	0x1)	DigitData=1;
+			else if(DigitData ==	0x2)	DigitData=2;
+			else if(DigitData ==	0x4)	DigitData=3;
+			else if(DigitData ==	0x8)	DigitData=4;
+			else if(DigitData ==	0x81)	DigitData=5;
+			else if(DigitData ==	0x82)	DigitData=6;
+			else if(DigitData ==	0x84)	DigitData=7;
+			else if(DigitData ==	0x88)	DigitData=8;
+			else							DigitData=0;
             Integer_Digit();
 			break;
         default:
             break;
-    }    
+    }
 }
 
 
@@ -3985,20 +3983,20 @@ void  __attribute__((section(".usercode"))) LampGroupSave(void)
 			DigitData=DigitBufConversionToDigit();
         	break;
 		case	2:
-			if(DigitData ==	0x0)			DigitData=0;	
-			else if(DigitData ==	0x1)	DigitData=1;	
-			else if(DigitData ==	0x2)	DigitData=2;	
-			else if(DigitData ==	0x3)	DigitData=4;	
-			else if(DigitData ==	0x4)	DigitData=8;	
-			else if(DigitData ==	0x5)	DigitData=0x81;	
-			else if(DigitData ==	0x6)	DigitData=0x82;	
-			else if(DigitData ==	0x7)	DigitData=0x84;	
-			else if(DigitData ==	0x8)	DigitData=0x88;	
-			else							DigitData=0;	
+			if(DigitData ==	0x0)			DigitData=0;
+			else if(DigitData ==	0x1)	DigitData=1;
+			else if(DigitData ==	0x2)	DigitData=2;
+			else if(DigitData ==	0x3)	DigitData=4;
+			else if(DigitData ==	0x4)	DigitData=8;
+			else if(DigitData ==	0x5)	DigitData=0x81;
+			else if(DigitData ==	0x6)	DigitData=0x82;
+			else if(DigitData ==	0x7)	DigitData=0x84;
+			else if(DigitData ==	0x8)	DigitData=0x88;
+			else							DigitData=0;
 			break;
         default:
             break;
-    }    
+    }
 
 
     i=(LadderGroupSub + GroupBaseAddr);
@@ -4018,7 +4016,7 @@ void  __attribute__((section(".usercode"))) FlrDspGroup(void)
 {
     LocalType i;
 
-    
+
     i=(LadderGroupSub + GroupBaseAddr);
 
     Cursor=0;
@@ -4030,8 +4028,8 @@ void  __attribute__((section(".usercode"))) FlrDspGroup(void)
     DigitMinValue=0;
 
 /*
-    switch(LadderGroupSub){  
-        case    TOP_FLR:      
+    switch(LadderGroupSub){
+        case    TOP_FLR:
         case    NO_USE_GO_FLR:
 		case	KIDS_KEY_CNT:
 		case	X7_SAFE_FLR:
@@ -4047,7 +4045,7 @@ void  __attribute__((section(".usercode"))) FlrDspGroup(void)
 */
     DigitData=cF_FLRDSPCH((unsigned long)i);
 //    DigitData=DigitData+1;
-    Integer_Digit();    
+    Integer_Digit();
 }
 
 
@@ -4077,15 +4075,15 @@ void  __attribute__((section(".usercode"))) FlrDspGroup(LocalType offset)
     EditBlanck=7;
     EditStatus=DIGIT_ALPHAR_EDIT;
 
-    New485Ladder[SECONDLINE_BASE+EditBlanck+0]=cF_FLRDSPCH((unsigned long)(i+0));  
-    New485Ladder[SECONDLINE_BASE+EditBlanck+1]=cF_FLRDSPCH((unsigned long)(i+1));          
+    New485Ladder[SECONDLINE_BASE+EditBlanck+0]=cF_FLRDSPCH((unsigned long)(i+0));
+    New485Ladder[SECONDLINE_BASE+EditBlanck+1]=cF_FLRDSPCH((unsigned long)(i+1));
 }
 
 
 void  __attribute__((section(".usercode"))) FlrDspGroupSave(LocalType offset)
 {
 	offset=(offset *2);
-	offset=(offset + F_FlrDspCh);		
+	offset=(offset + F_FlrDspCh);
     DspCharSave(offset,ShiftCnt);
 }
 */
@@ -4097,7 +4095,7 @@ void  __attribute__((section(".usercode"))) FlrGroup(void)
 {
     LocalType i;
 
-    
+
     i=(LadderGroupSub + GroupBaseAddr);
 
     Cursor=0;
@@ -4108,8 +4106,8 @@ void  __attribute__((section(".usercode"))) FlrGroup(void)
     DigitMaxValue=cF_TOPFLR+1;
     DigitMinValue=1;
 
-    switch(LadderGroupSub){  
-        case    TOP_FLR:      
+    switch(LadderGroupSub){
+        case    TOP_FLR:
         case    NO_USE_GO_FLR:
 		case	KIDS_KEY_CNT:
 		case	X7_SAFE_FLR:
@@ -4124,7 +4122,7 @@ void  __attribute__((section(".usercode"))) FlrGroup(void)
     }
     DigitData=cF_FLRDSPCH((unsigned long)i);
     DigitData=DigitData+1;
-    Integer_Digit();    
+    Integer_Digit();
 }
 
 
@@ -4145,15 +4143,15 @@ void  __attribute__((section(".usercode"))) FlrGroupSave(void)
 
 void  __attribute__((section(".usercode"))) WaitFlrConvStr(LocalType	i)
 {
-	New485Ladder[SECONDLINE_BASE+EditBlanck+ (i+0)] =(DigitData / 10)  	+ '0';          
-	New485Ladder[SECONDLINE_BASE+EditBlanck+ (i+1)] =(DigitData % 10)  	+ '0';          
+	New485Ladder[SECONDLINE_BASE+EditBlanck+ (i+0)] =(DigitData / 10)  	+ '0';
+	New485Ladder[SECONDLINE_BASE+EditBlanck+ (i+1)] =(DigitData % 10)  	+ '0';
 }
 
 
 void  __attribute__((section(".usercode"))) WaitFlrGroup(void)
 {
     LocalType i;
-    
+
     i=((LadderGroupSub * 5) + GroupBaseAddr);
 
 	Cursor=0;
@@ -4165,30 +4163,30 @@ void  __attribute__((section(".usercode"))) WaitFlrGroup(void)
 		DigitData=cF_FLRDSPCH((unsigned long)i);
 		WaitFlrConvStr(0);
 
-//		New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(DigitData / 10)  	+ '0';          
-//		New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(DigitData % 10)  	+ '0';          
-	
+//		New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(DigitData / 10)  	+ '0';
+//		New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(DigitData % 10)  	+ '0';
+
 		DigitData=cF_FLRDSPCH((unsigned long)(i+1));
 		WaitFlrConvStr(2);
-//		New485Ladder[SECONDLINE_BASE+EditBlanck+2] =(DigitData / 10)    + '0';          
-//		New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(DigitData % 10)    + '0';          
-		New485Ladder[SECONDLINE_BASE+EditBlanck+4] ='-';          
-	
+//		New485Ladder[SECONDLINE_BASE+EditBlanck+2] =(DigitData / 10)    + '0';
+//		New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(DigitData % 10)    + '0';
+		New485Ladder[SECONDLINE_BASE+EditBlanck+4] ='-';
+
 		DigitData=cF_FLRDSPCH((unsigned long)(i+2));
 		WaitFlrConvStr(5);
-//		New485Ladder[SECONDLINE_BASE+EditBlanck+5] =(DigitData / 10)	+ '0';          
-//		New485Ladder[SECONDLINE_BASE+EditBlanck+6] =(DigitData % 10)    + '0';          
-	
+//		New485Ladder[SECONDLINE_BASE+EditBlanck+5] =(DigitData / 10)	+ '0';
+//		New485Ladder[SECONDLINE_BASE+EditBlanck+6] =(DigitData % 10)    + '0';
+
 		DigitData=cF_FLRDSPCH((unsigned long)(i+3));
 		WaitFlrConvStr(7);
-//		New485Ladder[SECONDLINE_BASE+EditBlanck+7]=(DigitData / 10)		+ '0';          
-//		New485Ladder[SECONDLINE_BASE+EditBlanck+8]=(DigitData % 10)    	+ '0';          
-		New485Ladder[SECONDLINE_BASE+EditBlanck+9]='-';          
-	
+//		New485Ladder[SECONDLINE_BASE+EditBlanck+7]=(DigitData / 10)		+ '0';
+//		New485Ladder[SECONDLINE_BASE+EditBlanck+8]=(DigitData % 10)    	+ '0';
+		New485Ladder[SECONDLINE_BASE+EditBlanck+9]='-';
+
 		DigitData=cF_FLRDSPCH((unsigned long)(i+4));
 		DigitData=(DigitData + 1);
-		New485Ladder[SECONDLINE_BASE+EditBlanck+10]=(DigitData / 10)	+ '0';          
-		New485Ladder[SECONDLINE_BASE+EditBlanck+11]=(DigitData % 10)    + '0';          
+		New485Ladder[SECONDLINE_BASE+EditBlanck+10]=(DigitData / 10)	+ '0';
+		New485Ladder[SECONDLINE_BASE+EditBlanck+11]=(DigitData % 10)    + '0';
 	}
 }
 
@@ -4197,8 +4195,8 @@ void  __attribute__((section(".usercode"))) WaitFlrGroup(void)
 void  __attribute__((section(".usercode"))) WaitFlrConv(LocalType	i)
 {
 	DigitData=New485Ladder[SECONDLINE_BASE+EditBlanck + i ]-'0';
-    DigitData=(DigitData * 10);      
-	DigitData=((New485Ladder[SECONDLINE_BASE+EditBlanck + (i+1)] -'0') + DigitData);          
+    DigitData=(DigitData * 10);
+	DigitData=((New485Ladder[SECONDLINE_BASE+EditBlanck + (i+1)] -'0') + DigitData);
 }
 
 
@@ -4212,41 +4210,41 @@ void  __attribute__((section(".usercode"))) WaitFlrGroupSave(void)
 	    GetFlashDataToBufRam(F_BLOCK3);
 
 		WaitFlrConv(0);
-	
+
 //		DigitData=New485Ladder[SECONDLINE_BASE+EditBlanck+0]-'0';
-//	    DigitData=(DigitData * 10);      
-//		DigitData=((New485Ladder[SECONDLINE_BASE+EditBlanck+1] -'0') + DigitData);          
+//	    DigitData=(DigitData * 10);
+//		DigitData=((New485Ladder[SECONDLINE_BASE+EditBlanck+1] -'0') + DigitData);
 
 	    b_LdTmpBufRam((unsigned long)(i))=(LocalType)(DigitData);
 
-	
+
 		i++;
 		WaitFlrConv(2);
 
 //		DigitData=New485Ladder[SECONDLINE_BASE+EditBlanck+2]-'0';
-//	    DigitData=(DigitData * 10);      
-//		DigitData=((New485Ladder[SECONDLINE_BASE+EditBlanck+3] -'0') + DigitData);          
+//	    DigitData=(DigitData * 10);
+//		DigitData=((New485Ladder[SECONDLINE_BASE+EditBlanck+3] -'0') + DigitData);
 	    b_LdTmpBufRam((unsigned long)(i))=(LocalType)(DigitData);
-	
+
 		i++;
 		WaitFlrConv(5);
 //		DigitData=New485Ladder[SECONDLINE_BASE+EditBlanck+5]-'0';
-//	    DigitData=(DigitData * 10);      
-//		DigitData=((New485Ladder[SECONDLINE_BASE+EditBlanck+6] -'0') + DigitData);          
+//	    DigitData=(DigitData * 10);
+//		DigitData=((New485Ladder[SECONDLINE_BASE+EditBlanck+6] -'0') + DigitData);
 	    b_LdTmpBufRam((unsigned long)(i))=(LocalType)(DigitData);
-	
+
 		i++;
 		WaitFlrConv(7);
 //		DigitData=New485Ladder[SECONDLINE_BASE+EditBlanck+7]-'0';
-//	    DigitData=(DigitData * 10);      
-//		DigitData=((New485Ladder[SECONDLINE_BASE+EditBlanck+8] -'0') + DigitData);          
+//	    DigitData=(DigitData * 10);
+//		DigitData=((New485Ladder[SECONDLINE_BASE+EditBlanck+8] -'0') + DigitData);
 	    b_LdTmpBufRam((unsigned long)(i))=(LocalType)(DigitData);
-	
+
 		i++;
 		WaitFlrConv(10);
 //		DigitData=New485Ladder[SECONDLINE_BASE+EditBlanck+10]-'0';
-//	    DigitData=(DigitData * 10);      
-//		DigitData=((New485Ladder[SECONDLINE_BASE+EditBlanck+11] -'0') + DigitData);          
+//	    DigitData=(DigitData * 10);
+//		DigitData=((New485Ladder[SECONDLINE_BASE+EditBlanck+11] -'0') + DigitData);
 	    b_LdTmpBufRam((unsigned long)(i))=(LocalType)(DigitData-1);
 
 		flash_write_DspChar(F_BLOCK3);
@@ -4258,7 +4256,7 @@ void  __attribute__((section(".usercode"))) WaitFlrGroupSave(void)
 void  __attribute__((section(".usercode"))) WaitFlrGroup(void)
 {
     LocalType i;
-    
+
     i=(LadderGroupSub + GroupBaseAddr);
 
     Cursor=0;
@@ -4266,18 +4264,18 @@ void  __attribute__((section(".usercode"))) WaitFlrGroup(void)
     EditBlanck=7;
     EditStatus=DIGIT_EDIT;
 
-    if(LadderGroupSub >= 30){            
+    if(LadderGroupSub >= 30){
         DigitMaxValue=23;
         DigitMinValue=0;
         DigitData=cF_FLRDSPCH((unsigned long)i);
-        Integer_Digit();    
+        Integer_Digit();
     }
     else{
         DigitMaxValue=33;
         DigitMinValue=1;
         DigitData=cF_FLRDSPCH((unsigned long)i);
         DigitData=DigitData+1;
-        Integer_Digit();    
+        Integer_Digit();
     }
 }
 
@@ -4305,7 +4303,7 @@ void  __attribute__((section(".usercode"))) TimerGroup(void)
     LocalType i;
 
 
-    switch(LadderGroupSub){        
+    switch(LadderGroupSub){
         case    23:
         case    24:
             Cursor=0;
@@ -4401,7 +4399,7 @@ void  __attribute__((section(".usercode"))) TimerGroup(void)
             DigitMaxValue=254;
             DigitMinValue=0;
             DigitData=cF_FLRDSPCH((unsigned long)i);
-            Integer_Digit();    
+            Integer_Digit();
 			break;
         case    3:
             i=(LadderGroupSub + F_OpWtTm);
@@ -4414,7 +4412,7 @@ void  __attribute__((section(".usercode"))) TimerGroup(void)
             DigitMaxValue=200;
             DigitMinValue=0;
             DigitData=cF_FLRDSPCH((unsigned long)i);
-            Integer_Digit();    
+            Integer_Digit();
             break;
 //        case    2:
         case    5:
@@ -4432,7 +4430,7 @@ void  __attribute__((section(".usercode"))) TimerGroup(void)
             DigitMaxValue=99;
             DigitMinValue=0;
             DigitData=cF_FLRDSPCH((unsigned long)i);
-            Integer_Digit();    
+            Integer_Digit();
             break;
 //        case    4:
         case    7:
@@ -4446,7 +4444,7 @@ void  __attribute__((section(".usercode"))) TimerGroup(void)
             DigitMaxValue=20;
             DigitMinValue=0;
             DigitData=cF_FLRDSPCH((unsigned long)i);
-            Integer_Digit();    
+            Integer_Digit();
             break;
         default:
             i=(LadderGroupSub + F_OpWtTm);
@@ -4457,9 +4455,9 @@ void  __attribute__((section(".usercode"))) TimerGroup(void)
             DigitMaxValue=250;
             DigitMinValue=0;
             DigitData=cF_FLRDSPCH((unsigned long)i);
-            Integer_Digit();    
+            Integer_Digit();
             break;
-    }    
+    }
 }
 
 
@@ -4479,7 +4477,7 @@ void  __attribute__((section(".usercode"))) TimerGroupSave(void)
 
     j=0;
 
-    switch(LadderGroupSub){        
+    switch(LadderGroupSub){
         case    18:
             i=F_BrkStTm10;
             j=1;
@@ -4504,7 +4502,7 @@ void  __attribute__((section(".usercode"))) TimerGroupSave(void)
             i=(LadderGroupSub + F_OpWtTm);
             j=2;
             break;
-    }    
+    }
 
     if(j>0){
         GetFlashDataToBufRam(F_BLOCK1);
@@ -4531,16 +4529,16 @@ void  __attribute__((section(".usercode"))) OnOffGroup(void)
     Cursor=0;
     ShiftCnt=0;
     EditBlanck=4;
-    EditStatus=DIGIT_STRING_EDIT;                   
+    EditStatus=DIGIT_STRING_EDIT;
     DigitMaxValue=2;
     DigitMinValue=0;
 
     DigitData=cF_FLRDSPCH((unsigned long)i);
 
-    if(DigitData &  BitValue)   DigitData=1;     
-    else                        DigitData=0;     
+    if(DigitData &  BitValue)   DigitData=1;
+    else                        DigitData=0;
 
-    if((LadderGroup == ONOFF2_GROUP)  && (LadderGroupSub == FHM_CHK)) EditStatus=NO_EDIT;                   
+    if((LadderGroup == ONOFF2_GROUP)  && (LadderGroupSub == FHM_CHK)) EditStatus=NO_EDIT;
 
     Integer_Digit();
 }
@@ -4582,14 +4580,14 @@ void  __attribute__((section(".usercode"))) NcNoGroup(void)
     Cursor=0;
     ShiftCnt=0;
     EditBlanck=4;
-    EditStatus=DIGIT_STRING_EDIT;                   
+    EditStatus=DIGIT_STRING_EDIT;
     DigitMaxValue=2;
     DigitMinValue=0;
 
     DigitData=cF_FLRDSPCH((unsigned long)i);
 
-    if(DigitData &  0x80)       DigitData=1;     
-    else                        DigitData=0;     
+    if(DigitData &  0x80)       DigitData=1;
+    else                        DigitData=0;
 
     Integer_Digit();
 }
@@ -4637,7 +4635,7 @@ void  __attribute__((section(".usercode"))) OutNcNoGroupSave(void)
 void  __attribute__((section(".usercode"))) IoGroup(void)
 {
     LocalType i;
-    
+
     i=(LadderGroupSub + GroupBaseAddr);
 
     Cursor=0;
@@ -4649,7 +4647,7 @@ void  __attribute__((section(".usercode"))) IoGroup(void)
 
     if(LadderGroupSub <= 14){
         ShiftCnt=0;
-        EditStatus=DIGIT_STRING_EDIT;    
+        EditStatus=DIGIT_STRING_EDIT;
 
         if(INVERTER_CHECK == IO)      DigitMaxValue=IO_PORT_MESSAGE_CNT-1;
         else                          DigitMaxValue=IO_PORT_MESSAGE_CNT;
@@ -4657,9 +4655,9 @@ void  __attribute__((section(".usercode"))) IoGroup(void)
         DigitData=cF_FLRDSPCH((unsigned long)i);
         Integer_Digit();
     }
-    else if(LadderGroupSub <= 16){               
+    else if(LadderGroupSub <= 16){
         ShiftCnt=0;
-        EditStatus=DIGIT_STRING_EDIT;                   
+        EditStatus=DIGIT_STRING_EDIT;
 
         if(INVERTER_CHECK == IO)        DigitMaxValue=ELEV_SPEED_MESSAGE_CNT;
         else                            DigitMaxValue=ELEV_SPEED_MESSAGE_CNT;
@@ -4667,7 +4665,7 @@ void  __attribute__((section(".usercode"))) IoGroup(void)
         DigitData=cF_FLRDSPCH((unsigned long)i);
         Integer_Digit();
     }
-    else{               
+    else{
         ShiftCnt=3;
         EditBlanck=7;
         DigitMaxValue=220;
@@ -4689,38 +4687,38 @@ void  __attribute__((section(".usercode"))) IoGroupSave(void)
     if(i==16){
         switch(DigitData){
             case    SPEED_30:
-                if(cF_SPEED30 == 0)    DigitData=SPEED_210;     
+                if(cF_SPEED30 == 0)    DigitData=SPEED_210;
                 break;
             case    SPEED_45:
-                if(cF_SPEED45 == 0)    DigitData=SPEED_210;     
+                if(cF_SPEED45 == 0)    DigitData=SPEED_210;
                 break;
             case    SPEED_60:
-                if(cF_SPEED60 == 0)    DigitData=SPEED_210;     
+                if(cF_SPEED60 == 0)    DigitData=SPEED_210;
                 break;
             case    SPEED_90:
-                if(cF_SPEED90 == 0)    DigitData=SPEED_210;     
+                if(cF_SPEED90 == 0)    DigitData=SPEED_210;
                 break;
             case    SPEED_105:
-                if(cF_SPEED105 == 0)    DigitData=SPEED_210;     
+                if(cF_SPEED105 == 0)    DigitData=SPEED_210;
                 break;
             case    SPEED_120:
-                if(cF_SPEED120 == 0)    DigitData=SPEED_210;     
+                if(cF_SPEED120 == 0)    DigitData=SPEED_210;
                 break;
             case    SPEED_150:
-                if(cF_SPEED150 == 0)    DigitData=SPEED_210;     
+                if(cF_SPEED150 == 0)    DigitData=SPEED_210;
                 break;
             case    SPEED_180:
-                if(cF_SPEED180 == 0)    DigitData=SPEED_210;     
+                if(cF_SPEED180 == 0)    DigitData=SPEED_210;
                 break;
             case    SPEED_210:
-                if(cF_SPEED210 == 0)    DigitData=SPEED_210;     
+                if(cF_SPEED210 == 0)    DigitData=SPEED_210;
                 break;
             default:
-                DigitData=SPEED_210;     
+                DigitData=SPEED_210;
                 break;
         }
     }
-    
+
     GetFlashDataToBufRam(F_BLOCK2);
     b_LdTmpBufRam(i)=(LocalType)(DigitData);
     flash_write_DspChar(F_BLOCK2);
@@ -4733,7 +4731,7 @@ void  __attribute__((section(".usercode"))) IoGroupSave(void)
 void  __attribute__((section(".usercode"))) DoorGroup(void)
 {
     LocalType i;
-    
+
     i=(LadderGroupSub + GroupBaseAddr);
 
     Cursor=0;
@@ -4779,7 +4777,7 @@ LocalType   __attribute__((section(".usercode"))) DoorGroupSave(void)
         case    2:
             j=cF_SUBDOORFLR3;
             break;
-        case    3:        
+        case    3:
             j=cF_SUBDOORFLR4;
             break;
         case    4:
@@ -4791,7 +4789,7 @@ LocalType   __attribute__((section(".usercode"))) DoorGroupSave(void)
         case    6:
             j=cF_SUBDOORFLR7;
             break;
-        case    7:        
+        case    7:
             j=cF_SUBDOORFLR8;
             break;
 		default:
@@ -4804,19 +4802,19 @@ LocalType   __attribute__((section(".usercode"))) DoorGroupSave(void)
             break;
         case    1:
             j=(j & 0xf3);
-			DigitData=(DigitData << 2); 
+			DigitData=(DigitData << 2);
             break;
         case    2:
             j=(j & 0xcf);
-			DigitData=(DigitData << 4); 
+			DigitData=(DigitData << 4);
             break;
-        case    3:        
+        case    3:
             j=(j & 0x3f);
-			DigitData=(DigitData << 6); 
+			DigitData=(DigitData << 6);
             break;
     }
 	DigitData=(DigitData | j);
-	    
+
 	k=(LadderGroupSub/4);
     i=(k + GroupBaseAddr);
 
@@ -4845,10 +4843,10 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             DigitMinValue=0;
 
             i=F_Ver0;
-            New485Ladder[SECONDLINE_BASE+EditBlanck+0]=cF_FLRDSPCH((unsigned long)(i+0));  
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1]='.';      
-            New485Ladder[SECONDLINE_BASE+EditBlanck+2]=cF_FLRDSPCH((unsigned long)(i+1));  
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3]=cF_FLRDSPCH((unsigned long)(i+2));   
+            New485Ladder[SECONDLINE_BASE+EditBlanck+0]=cF_FLRDSPCH((unsigned long)(i+0));
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1]='.';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+2]=cF_FLRDSPCH((unsigned long)(i+1));
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3]=cF_FLRDSPCH((unsigned long)(i+2));
             break;
 
         case    GROUP_NUMBER:
@@ -4895,14 +4893,14 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             EditBlanck=5;
             EditStatus=CLOCK_EDIT;
 
-            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(sRamDArry[mHour]    >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(sRamDArry[mHour]    &  0x0f)   + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(sRamDArry[mMinuate] >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(sRamDArry[mMinuate] & 0x0f)     + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+5]='-';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+6]=(sRamDArry[msec]     >> 4)       + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+7]=(sRamDArry[msec]     & 0x0f)     + '0';          
+            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(sRamDArry[mHour]    >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(sRamDArry[mHour]    &  0x0f)   + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(sRamDArry[mMinuate] >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(sRamDArry[mMinuate] & 0x0f)     + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+5]='-';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+6]=(sRamDArry[msec]     >> 4)       + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+7]=(sRamDArry[msec]     & 0x0f)     + '0';
             break;
         case    YY_MM_DD:
             Cursor=0;
@@ -4910,14 +4908,14 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             EditBlanck=5;
             EditStatus=CLOCK_EDIT;
 
-            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(sRamDArry[mYear]    >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(sRamDArry[mYear]    & 0x0f)    + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(sRamDArry[mMonth]   >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+4] =(sRamDArry[mMonth]   & 0x0f)    + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+5]='-';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+6] =(sRamDArry[mDay]     >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+7] =(sRamDArry[mDay]     & 0x0f)    + '0';          
+            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(sRamDArry[mYear]    >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(sRamDArry[mYear]    & 0x0f)    + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(sRamDArry[mMonth]   >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+4] =(sRamDArry[mMonth]   & 0x0f)    + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+5]='-';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+6] =(sRamDArry[mDay]     >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+7] =(sRamDArry[mDay]     & 0x0f)    + '0';
             break;
 
         case    INIT_DATA:
@@ -4943,10 +4941,10 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             DigitMinValue=0;
 
             i=F_Ver0;
-            New485Ladder[SECONDLINE_BASE+EditBlanck+0]=cF_FLRDSPCH((unsigned long)(i+0));  
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1]='.';      
-            New485Ladder[SECONDLINE_BASE+EditBlanck+2]=cF_FLRDSPCH((unsigned long)(i+1));  
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3]=cF_FLRDSPCH((unsigned long)(i+2));   
+            New485Ladder[SECONDLINE_BASE+EditBlanck+0]=cF_FLRDSPCH((unsigned long)(i+0));
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1]='.';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+2]=cF_FLRDSPCH((unsigned long)(i+1));
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3]=cF_FLRDSPCH((unsigned long)(i+2));
             break;
 
         case    BOARD_ID:
@@ -4965,22 +4963,22 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
                 case    0x2:
                     break;
                 case    0x4:
-                    DigitData=3;    
+                    DigitData=3;
                     break;
                 case    0x5:
-                    DigitData=4;    
+                    DigitData=4;
                     break;
                 case    0x6:
-                    DigitData=5;    
+                    DigitData=5;
                     break;
                 case    0x8:
-                    DigitData=6;    
+                    DigitData=6;
                     break;
                 case    0x9:
-                    DigitData=7;    
+                    DigitData=7;
                     break;
                 case    0xa:
-                    DigitData=8;    
+                    DigitData=8;
                     break;
             }
 
@@ -4993,10 +4991,10 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             EditStatus=DIGIT_ALPHAR_EDIT;
             DigitMaxValue=0;
             DigitMinValue=0;
-            New485Ladder[SECONDLINE_BASE+EditBlanck+0]='*';  
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1]='*';  
-            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='*';      
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3]='*';      
+            New485Ladder[SECONDLINE_BASE+EditBlanck+0]='*';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1]='*';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='*';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3]='*';
             break;
         case    SERIAL_NM:
             Cursor=0;
@@ -5088,7 +5086,7 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             DigitData=cF_FLRDSPCH((unsigned long)i);
             Integer_Digit();
             break;
-        case    COMPANY_NAME:                           
+        case    COMPANY_NAME:
             Cursor=0;
             ShiftCnt=1;
             EditBlanck=7;
@@ -5096,7 +5094,7 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             DigitMaxValue=0;
             DigitMinValue=0;
             i=F_Company;
-            New485Ladder[SECONDLINE_BASE+EditBlanck+0]=cF_FLRDSPCH((unsigned long)(i));  
+            New485Ladder[SECONDLINE_BASE+EditBlanck+0]=cF_FLRDSPCH((unsigned long)(i));
             break;
         case    HH_MM_SS:
             Cursor=0;
@@ -5104,14 +5102,14 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             EditBlanck=5;
             EditStatus=CLOCK_EDIT;
 
-            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(sRamDArry[mHour]    >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(sRamDArry[mHour]    &  0x0f)   + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(sRamDArry[mMinuate] >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(sRamDArry[mMinuate] & 0x0f)     + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+5]='-';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+6]=(sRamDArry[msec]     >> 4)       + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+7]=(sRamDArry[msec]     & 0x0f)     + '0';          
+            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(sRamDArry[mHour]    >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(sRamDArry[mHour]    &  0x0f)   + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(sRamDArry[mMinuate] >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+4]=(sRamDArry[mMinuate] & 0x0f)     + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+5]='-';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+6]=(sRamDArry[msec]     >> 4)       + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+7]=(sRamDArry[msec]     & 0x0f)     + '0';
             break;
         case    YY_MM_DD:
             Cursor=0;
@@ -5119,14 +5117,14 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             EditBlanck=5;
             EditStatus=CLOCK_EDIT;
 
-            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(sRamDArry[mYear]    >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(sRamDArry[mYear]    & 0x0f)    + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(sRamDArry[mMonth]   >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+4] =(sRamDArry[mMonth]   & 0x0f)    + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+5]='-';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+6] =(sRamDArry[mDay]     >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+7] =(sRamDArry[mDay]     & 0x0f)    + '0';          
+            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(sRamDArry[mYear]    >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(sRamDArry[mYear]    & 0x0f)    + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(sRamDArry[mMonth]   >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+4] =(sRamDArry[mMonth]   & 0x0f)    + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+5]='-';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+6] =(sRamDArry[mDay]     >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+7] =(sRamDArry[mDay]     & 0x0f)    + '0';
             break;
         case    OUT_DATE:
             Cursor=0;
@@ -5134,14 +5132,14 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             EditBlanck=5;
             EditStatus=CLOCK_EDIT;
 
-            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(cF_year    >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(cF_year    & 0x0f)    + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(cF_month   >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+4] =(cF_month   & 0x0f)    + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+5]='-';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+6] =(cF_day     >> 4)      + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+7] =(cF_day     & 0x0f)    + '0';          
+            New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(cF_year    >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(cF_year    & 0x0f)    + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='-';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3] =(cF_month   >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+4] =(cF_month   & 0x0f)    + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+5]='-';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+6] =(cF_day     >> 4)      + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+7] =(cF_day     & 0x0f)    + '0';
             break;
         case    DRIVE_METHOD:
             Cursor=0;
@@ -5193,10 +5191,10 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             DigitMaxValue=0;
             DigitMinValue=0;
 
-            New485Ladder[SECONDLINE_BASE+EditBlanck+0]='0';  
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1]='0';  
-            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='0';      
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3]='0';      
+            New485Ladder[SECONDLINE_BASE+EditBlanck+0]='0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1]='0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+2]='0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3]='0';
             break;
         case    TOTAL_USE_TIME:
             Cursor=0;
@@ -5229,18 +5227,18 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             if(sRamDArry[mVFlrCnt] > 254)			sRamDArry[mVFlrCnt]=0;
             if(sRamDArry[mVFlr1]   > (cF_TOPFLR+1))	sRamDArry[mVFlr1]=0;
             if(sRamDArry[mVFlr2]   > (cF_TOPFLR+1))	sRamDArry[mVFlr2]=0;
-	
+
 			i=sRamDArry[mVFlrCnt];
             New485Ladder[SECONDLINE_BASE+EditBlanck+0] =(i / 100)	+ '0';
-			i=(i % 100);           
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(i / 10)  + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+2] =(i % 10)  + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3] ='-';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+4] =(sRamDArry[mVFlr1] / 10)    + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+5] =(sRamDArry[mVFlr1] % 10)    + '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+6] ='-';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+7] =(sRamDArry[mVFlr2] / 10)	+ '0';          
-            New485Ladder[SECONDLINE_BASE+EditBlanck+8] =(sRamDArry[mVFlr2] % 10)    + '0';          
+			i=(i % 100);
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1] =(i / 10)  + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+2] =(i % 10)  + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3] ='-';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+4] =(sRamDArry[mVFlr1] / 10)    + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+5] =(sRamDArry[mVFlr1] % 10)    + '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+6] ='-';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+7] =(sRamDArry[mVFlr2] / 10)	+ '0';
+            New485Ladder[SECONDLINE_BASE+EditBlanck+8] =(sRamDArry[mVFlr2] % 10)    + '0';
             break;
 
         case    HALL_IND_SET:
@@ -5250,15 +5248,15 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             EditStatus=CLOCK_EDIT;
 
             New485Ladder[SECONDLINE_BASE+EditBlanck+0]  =HibSet[0] + '0';
-            New485Ladder[SECONDLINE_BASE+EditBlanck+1]  ='-';          
+            New485Ladder[SECONDLINE_BASE+EditBlanck+1]  ='-';
             New485Ladder[SECONDLINE_BASE+EditBlanck+2]  =HibSet[1] + '0';
-            New485Ladder[SECONDLINE_BASE+EditBlanck+3]  ='-';          
+            New485Ladder[SECONDLINE_BASE+EditBlanck+3]  ='-';
             New485Ladder[SECONDLINE_BASE+EditBlanck+4]  =HibSet[2] + '0';
-            New485Ladder[SECONDLINE_BASE+EditBlanck+5]  ='-';          
+            New485Ladder[SECONDLINE_BASE+EditBlanck+5]  ='-';
             New485Ladder[SECONDLINE_BASE+EditBlanck+6]  =HibSet[3] + '0';
-            New485Ladder[SECONDLINE_BASE+EditBlanck+7]  ='-';          
+            New485Ladder[SECONDLINE_BASE+EditBlanck+7]  ='-';
             New485Ladder[SECONDLINE_BASE+EditBlanck+8]  =HibSet[4] + '0';
-            New485Ladder[SECONDLINE_BASE+EditBlanck+9]  ='-';          
+            New485Ladder[SECONDLINE_BASE+EditBlanck+9]  ='-';
             New485Ladder[SECONDLINE_BASE+EditBlanck+10] =HibSet[5] + '0';
             break;
 		case    SLIP_INIT:
@@ -5267,7 +5265,7 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
 		case    User_G7:
 		case    User_G8:
 			break;
-		case    ENCODER_RATE: 
+		case    ENCODER_RATE:
             Cursor=0;
             ShiftCnt=5;
             EditBlanck=5;
@@ -5302,29 +5300,29 @@ void  __attribute__((section(".usercode"))) UserGroupSave(void)
             b_LdTmpBufRam((unsigned long)i)=(LocalType)(DigitData);
             flash_write_DspChar(F_BLOCK0);
             break;
-	
+
         case    HH_MM_SS:
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+0]-'0') << 4;
                 sRamDArry[mHour]=DigitData  | (New485Ladder[SECONDLINE_BASE+EditBlanck+1]-'0');
-    
+
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+3]-'0') << 4;
                 sRamDArry[mMinuate]=DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+4]-'0');
-    
+
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+6]-'0') << 4;
                 sRamDArry[msec]=DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+7]-'0');
-    
+
                 Initialize_DS1302();
             break;
         case    YY_MM_DD:
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+0]-'0') << 4;
                 sRamDArry[mYear]=DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+1]-'0');
-    
+
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+3]-'0') << 4;
                 sRamDArry[mMonth]=DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+4]-'0');
-    
+
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+6]-'0') << 4;
                 sRamDArry[mDay]=DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+7]-'0');
-    
+
                 Initialize_DS1302();
             break;
 
@@ -5364,11 +5362,11 @@ void  __attribute__((section(".usercode"))) UserGroupSave(void)
             break;
         case    BOARD_ID:
                 if((DigitData==0) || (DigitData==3)|| (DigitData==6) ){
-                    b_LdTmpBufRam(F_ManualSpeed)    = 1;      
-                    b_LdTmpBufRam(F_DecreaseSpeed)  = 3;     
-                    b_LdTmpBufRam(F_FhmSpeed)       = 8;                     
-                    b_LdTmpBufRam(F_Speed60)        = 4;     
-                    b_LdTmpBufRam(F_ElevSpeed)      = SPEED_60;                                    
+                    b_LdTmpBufRam(F_ManualSpeed)    = 1;
+                    b_LdTmpBufRam(F_DecreaseSpeed)  = 3;
+                    b_LdTmpBufRam(F_FhmSpeed)       = 8;
+                    b_LdTmpBufRam(F_Speed60)        = 4;
+                    b_LdTmpBufRam(F_ElevSpeed)      = SPEED_60;
                 }
 
 
@@ -5403,16 +5401,16 @@ void  __attribute__((section(".usercode"))) UserGroupSave(void)
                 i=F_Bd_Id;
                 b_LdTmpBufRam(i)=(LocalType)(DigitData);
 
-                flash_write_DspChar(F_BLOCK0);                        
+                flash_write_DspChar(F_BLOCK0);
             break;
         case    ALL_MENU_CHK:
             if(bCompanyCtl==0){
-				if( ((sRamDArry[mMonth] >> 4) & 0x000f) > 1)	bCompanyCtl=1;	
+				if( ((sRamDArry[mMonth] >> 4) & 0x000f) > 1)	bCompanyCtl=1;
                 if( (sRamDArry[mMonth] & 0x000f)        > 9) bCompanyCtl=1;
-                if( ((sRamDArry[mDay] >> 4) & 0x000f)   > 3) bCompanyCtl=1;			
+                if( ((sRamDArry[mDay] >> 4) & 0x000f)   > 3) bCompanyCtl=1;
                 if( (sRamDArry[mDay] & 0x000f)		   > 9)	bCompanyCtl=1;
 
-	
+
                 i=((sRamDArry[mMonth] >> 4) & 0x000f) * 1000;
                 j=(sRamDArry[mMonth] & 0x000f) * 100;
                 i=(i+j);
@@ -5424,7 +5422,7 @@ void  __attribute__((section(".usercode"))) UserGroupSave(void)
                 i=i+j;
                 if(i>=10000)    i=i-10000;
 
-                
+
                 k=((New485Ladder[SECONDLINE_BASE+EditBlanck+0] - '0') * 1000);
                 j=((New485Ladder[SECONDLINE_BASE+EditBlanck+1] - '0') * 100);
                 k=(j+k);
@@ -5437,40 +5435,40 @@ void  __attribute__((section(".usercode"))) UserGroupSave(void)
 					bCompanyCtl=1;
                     LadderGroup=0;
                     LadderGroupSub=0;
-               } 
+               }
             }
             break;
         case    ENGINEER_NM:
-             if(   ('1'== New485Ladder[SECONDLINE_BASE+EditBlanck+0]) 
-                && ('2'== New485Ladder[SECONDLINE_BASE+EditBlanck+1]) 
-                && ('3'== New485Ladder[SECONDLINE_BASE+EditBlanck+2]) 
+             if(   ('1'== New485Ladder[SECONDLINE_BASE+EditBlanck+0])
+                && ('2'== New485Ladder[SECONDLINE_BASE+EditBlanck+1])
+                && ('3'== New485Ladder[SECONDLINE_BASE+EditBlanck+2])
                 && ('4'== New485Ladder[SECONDLINE_BASE+EditBlanck+3])){
 
                  bUserOn=1;
                  LadderGroup=0;
                  LadderGroupSub=0;
-            } 
+            }
             break;
         case    PASSWARD:
             if(bPasswardOk==0){
-                if(   (pw[0]== New485Ladder[SECONDLINE_BASE+EditBlanck+0]) 
-                   && (pw[1]== New485Ladder[SECONDLINE_BASE+EditBlanck+1]) 
-                   && (pw[2]== New485Ladder[SECONDLINE_BASE+EditBlanck+2]) 
+                if(   (pw[0]== New485Ladder[SECONDLINE_BASE+EditBlanck+0])
+                   && (pw[1]== New485Ladder[SECONDLINE_BASE+EditBlanck+1])
+                   && (pw[2]== New485Ladder[SECONDLINE_BASE+EditBlanck+2])
                    && (pw[3]== New485Ladder[SECONDLINE_BASE+EditBlanck+3])){
 
                     bPasswardOk=1;
                     LadderGroup=0;
                     LadderGroupSub=0;
-               } 
+               }
             }
             else{
                 i=F_Passward0;
-    
+
                 b_LdTmpBufRam((unsigned long)(i+0))=(LocalType)(New485Ladder[SECONDLINE_BASE+EditBlanck+0]);
                 b_LdTmpBufRam((unsigned long)(i+1))=(LocalType)(New485Ladder[SECONDLINE_BASE+EditBlanck+1]);
                 b_LdTmpBufRam((unsigned long)(i+2))=(LocalType)(New485Ladder[SECONDLINE_BASE+EditBlanck+2]);
                 b_LdTmpBufRam((unsigned long)(i+3))=(LocalType)(New485Ladder[SECONDLINE_BASE+EditBlanck+3]);
-    
+
                 flash_write_DspChar(F_BLOCK0);
 
 				PasswardCheck();
@@ -5529,34 +5527,34 @@ void  __attribute__((section(".usercode"))) UserGroupSave(void)
         case    HH_MM_SS:
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+0]-'0') << 4;
                 sRamDArry[mHour]=DigitData  | (New485Ladder[SECONDLINE_BASE+EditBlanck+1]-'0');
-    
+
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+3]-'0') << 4;
                 sRamDArry[mMinuate]=DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+4]-'0');
-    
+
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+6]-'0') << 4;
                 sRamDArry[msec]=DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+7]-'0');
-    
+
                 Initialize_DS1302();
             break;
         case    YY_MM_DD:
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+0]-'0') << 4;
                 sRamDArry[mYear]=DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+1]-'0');
-    
+
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+3]-'0') << 4;
                 sRamDArry[mMonth]=DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+4]-'0');
-    
+
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+6]-'0') << 4;
                 sRamDArry[mDay]=DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+7]-'0');
-    
+
                 Initialize_DS1302();
             break;
         case    OUT_DATE:
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+0]-'0') << 4;
                 b_LdTmpBufRam(F_year)=DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+1]-'0');
-    
+
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+3]-'0') << 4;
                 b_LdTmpBufRam(F_month)=DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+4]-'0');
-    
+
                 DigitData=(New485Ladder[SECONDLINE_BASE+EditBlanck+6]-'0') << 4;
                 b_LdTmpBufRam(F_day)=DigitData | (New485Ladder[SECONDLINE_BASE+EditBlanck+7]-'0');
 
@@ -5606,7 +5604,7 @@ void  __attribute__((section(".usercode"))) ParameterGroup(void)
 	unsigned long tmpPlulsex;
 
     LocalType i;
-    
+
     i=(LadderGroupSub + GroupBaseAddr);
 
     Cursor=0;
@@ -5617,19 +5615,19 @@ void  __attribute__((section(".usercode"))) ParameterGroup(void)
     DigitMaxValue=0xffff;
     DigitMinValue=0;
 
-    DigitData=(unsigned int)(GET_LONG((unsigned long)i));    
-    tmpPlulsex=(GET_LONG((unsigned long)i));    
+    DigitData=(unsigned int)(GET_LONG((unsigned long)i));
+    tmpPlulsex=(GET_LONG((unsigned long)i));
 
     if(LadderGroupSub==P_TM_MPM){
         DigitMaxValue=211;
         ShiftCnt=3;
     }
-    
+
     Integer_Digit();
 
 	if(LadderGroupSub >= P_MINDEC30){
 		EditStatus=NO_EDIT;
-		if(LadderGroupSub < P_PAR1){ 
+		if(LadderGroupSub < P_PAR1){
 	    	EditBlanck=3;
 			CurEncoderPulse(tmpPlulsex);
 		}
@@ -5642,7 +5640,7 @@ void  __attribute__((section(".usercode"))) ParameterGroupSave(void)
     LocalType  i;
 
     for(i=0;i<16;i++){
-        parameter_mirror[i]=FlashDspCharBuf[ENCODER_PULSE+i].long_data;  
+        parameter_mirror[i]=FlashDspCharBuf[ENCODER_PULSE+i].long_data;
     }
 
     l_LdTmpBufRam(LadderGroupSub)=(unsigned long)DigitData;
@@ -5656,7 +5654,7 @@ void  __attribute__((section(".usercode"))) ParameterGroupSave(void)
 
 void  __attribute__((section(".usercode"))) InportGroup(void)
 {
-    
+
     LocalType i;
 
     i=(LadderGroupSub + GroupBaseAddr);
@@ -5676,7 +5674,7 @@ void  __attribute__((section(".usercode"))) InportGroup(void)
 
     DigitData=(DigitData & 0x7f);
 
-    Integer_Digit();    
+    Integer_Digit();
 }
 
 
@@ -5696,8 +5694,8 @@ void  __attribute__((section(".usercode"))) InportSave(void)
         j=(j & 0x7f);       //
         if(j == DigitData)  ChangeDisable=1;
     }
-    
-    if((ChangeDisable==0) || (DigitData == NO_USE_IN) ){    
+
+    if((ChangeDisable==0) || (DigitData == NO_USE_IN) ){
         if(DigitData == NO_USE_IN) DigitData=(DigitData | 0x80);       //
         else                        DigitData=(DigitData | OrgNcNo);    //
 
@@ -5712,7 +5710,7 @@ void  __attribute__((section(".usercode"))) InportSave(void)
 void  __attribute__((section(".usercode"))) OutportGroup(void)
 {
     LocalType i;
-    
+
     i=(LadderGroupSub + GroupBaseAddr);
 
     Cursor=0;
@@ -5729,7 +5727,7 @@ void  __attribute__((section(".usercode"))) OutportGroup(void)
     else                    OrgNcNo=0x00;  //
     DigitData=(DigitData & 0x7f);
 
-    Integer_Digit();    
+    Integer_Digit();
 }
 
 
@@ -5740,14 +5738,14 @@ void  __attribute__((section(".usercode"))) OutportSave(void)
 
     i=(LadderGroupSub + GroupBaseAddr);
     GetFlashDataToBufRam(F_BLOCK5);
-    
+
     ChangeDisable=0;
     for(k=0;k < (DigitMaxValue-1);k++){
         j=b_LdTmpBufRam(k); //
         j=(j & 0x7f);       //
         if(j == DigitData)  ChangeDisable=1;
     }
-    
+
     if((ChangeDisable==0) || (DigitData == NO_USE_OUT) ){
         if(DigitData == NO_USE_OUT) DigitData=(DigitData | 0x80);       //
         else                        DigitData=(DigitData | OrgNcNo);    //
@@ -5767,26 +5765,26 @@ void  __attribute__((section(".usercode"))) ErrorGroup(LocalType offset)
 
     offset=offset * ERR_SAVE_WIDE;
 
-    New485Ladder[2]  ='E';          
+    New485Ladder[2]  ='E';
     New485Ladder[3]  ='R';
     New485Ladder[4]  =':';
 
 
     if(eDArry[eSysErCnt + offset + 0] > 0){
-        New485Ladder[5]  =(eDArry[eSysErCnt + offset + 0] >> 4  ) + '0';  //month          
+        New485Ladder[5]  =(eDArry[eSysErCnt + offset + 0] >> 4  ) + '0';  //month
         New485Ladder[6]  =(eDArry[eSysErCnt + offset + 0] & 0x0f) + '0';
-        New485Ladder[7]  =(eDArry[eSysErCnt + offset + 1] >> 4  ) + '0';  //date          
+        New485Ladder[7]  =(eDArry[eSysErCnt + offset + 1] >> 4  ) + '0';  //date
         New485Ladder[8]  =(eDArry[eSysErCnt + offset + 1] & 0x0f) + '0';
-        New485Ladder[9] ='/';          
-        New485Ladder[10] =(eDArry[eSysErCnt + offset + 4] >> 4  ) + '0';  //hour         
+        New485Ladder[9] ='/';
+        New485Ladder[10] =(eDArry[eSysErCnt + offset + 4] >> 4  ) + '0';  //hour
         New485Ladder[11] =(eDArry[eSysErCnt + offset + 4] & 0x0f) + '0';
-        New485Ladder[12] =(eDArry[eSysErCnt + offset + 5] >> 4  ) + '0';  //min         
+        New485Ladder[12] =(eDArry[eSysErCnt + offset + 5] >> 4  ) + '0';  //min
         New485Ladder[13] =(eDArry[eSysErCnt + offset + 5] & 0x0f) + '0';
-        New485Ladder[14] ='/';          
-        New485Ladder[15] =(eDArry[eSysErCnt + offset + 2] /10  )  + '0';  //floor       
+        New485Ladder[14] ='/';
+        New485Ladder[15] =(eDArry[eSysErCnt + offset + 2] /10  )  + '0';  //floor
         New485Ladder[16] =(eDArry[eSysErCnt + offset + 2] %10  )  + '0';
         New485Ladder[17] ='F';
-    
+
         j=eDArry[eSysErCnt + 3 + offset];
         for(i=0;i<16;i++){
             New485Ladder[SECONDLINE_BASE+i] =StatusMessage[j][i];          //error status
@@ -5860,7 +5858,7 @@ unsigned int  __attribute__((section(".usercode"))) SaveData(void)
             OutNcNoGroupSave();
             break;
         case    IO_GROUP:
-//            if(bAllMenu || bPasswardOk) 
+//            if(bAllMenu || bPasswardOk)
 			IoGroupSave();
             break;
         case    OPEN_WAIT_GROUP:
@@ -5900,7 +5898,7 @@ unsigned int  __attribute__((section(".usercode"))) SaveData(void)
         case    LAMP8_GROUP:    //save
         case    LAMP9_GROUP:    //save
         case    LAMP10_GROUP:    //save
-			LampGroupSave();	
+			LampGroupSave();
             break;
         case    NCNO2_GROUP:
             InNcNoGroupSave();
@@ -5918,17 +5916,17 @@ unsigned int  __attribute__((section(".usercode"))) SaveData(void)
 
 void  __attribute__((section(".usercode"))) CursorOff(void)
 {
-    New485Ladder[SECONDLINE_CURSOR]=' ';  
+    New485Ladder[SECONDLINE_CURSOR]=' ';
 }
 
 void  __attribute__((section(".usercode"))) CursorOn(void)
 {
     LocalType i;
 
-    i=Cursor + EditBlanck;                    
+    i=Cursor + EditBlanck;
     if(i>0x09)  i=i + '7';
     else        i=i + '0';
-    New485Ladder[SECONDLINE_CURSOR]=i;  
+    New485Ladder[SECONDLINE_CURSOR]=i;
 }
 
 
@@ -5942,9 +5940,9 @@ unsigned int  __attribute__((section(".usercode"))) CusorDigitSet(void)
         case    DIGIT_ALPHAR_EDIT:
             New485Ladder[i]=LadderKey;
             break;
-    }         
+    }
 }
-                        
+
 
 unsigned int  __attribute__((section(".usercode"))) CusorDataUp(void)
 {
@@ -5959,46 +5957,46 @@ unsigned int  __attribute__((section(".usercode"))) CusorDataUp(void)
                     break;
                 case    2:
                     DigitData=DigitData+10;
-                    break;                    
+                    break;
                 case    3:
                     DigitData=DigitData+100;
-                    break;                    
+                    break;
                 case    4:
                     DigitData=DigitData+1000;
-                    break;                    
+                    break;
                 case    5:
                     DigitData=DigitData+10000;
-                    break;                    
+                    break;
             }
-            Integer_Digit();    
+            Integer_Digit();
             break;
         case    DIGIT_STRING_EDIT:
             if(DigitMaxValue>0){
                 DigitData=(DigitData+1)%DigitMaxValue;
             }
-            Integer_Digit();    
+            Integer_Digit();
             break;
         case    DIGIT_ALPHAR_EDIT:
             New485Ladder[i]++;
-            if((New485Ladder[i]>'9') && (New485Ladder[i]<'A'))  New485Ladder[i]='A'; 
-            else if((New485Ladder[i]>'Z'))                      New485Ladder[i]='0'; 
+            if((New485Ladder[i]>'9') && (New485Ladder[i]<'A'))  New485Ladder[i]='A';
+            else if((New485Ladder[i]>'Z'))                      New485Ladder[i]='0';
             break;
         case    CLOCK_EDIT:
             New485Ladder[i]++;
-            if((New485Ladder[i]<'0'))       New485Ladder[i]='9'; 
-            else if(New485Ladder[i]>'9')    New485Ladder[i]='0'; 
-            CalendarChk(); 
+            if((New485Ladder[i]<'0'))       New485Ladder[i]='9';
+            else if(New485Ladder[i]>'9')    New485Ladder[i]='0';
+            CalendarChk();
             break;
         case    DIGIT_BUF_EDIT:
             New485Ladder[i]++;
-            if((New485Ladder[i]<'0'))       New485Ladder[i]='9'; 
-            else if(New485Ladder[i]>'9')    New485Ladder[i]='0'; 
+            if((New485Ladder[i]<'0'))       New485Ladder[i]='9';
+            else if(New485Ladder[i]>'9')    New485Ladder[i]='0';
             break;
         case    TABLE_EDIT:
-                break;    
+                break;
         case    TOGGLE_EDIT:
-                break;    
-    }         
+                break;
+    }
 }
 
 
@@ -6016,45 +6014,45 @@ unsigned int  __attribute__((section(".usercode"))) CusorDataDn(void)
                     break;
                 case    2:
                     if(DigitData >= 10)         DigitData=DigitData-10;
-                    break;                    
+                    break;
                 case    3:
                     if(DigitData >= 100)        DigitData=DigitData-100;
-                    break;                    
+                    break;
                 case    4:
                     if(DigitData >= 1000)       DigitData=DigitData-1000;
-                    break;                    
+                    break;
                 case    5:
                     if(DigitData >= 10000)      DigitData=DigitData-10000;
-                    break;                    
+                    break;
             }
-            Integer_Digit();    
+            Integer_Digit();
             break;
         case    DIGIT_STRING_EDIT:
-            if(DigitData > DigitMinValue)   DigitData--; 
+            if(DigitData > DigitMinValue)   DigitData--;
             else                            DigitData=(DigitMaxValue-1);
-            Integer_Digit();    
+            Integer_Digit();
             break;
         case    DIGIT_ALPHAR_EDIT:
             New485Ladder[i]--;
-            if((New485Ladder[i]<'0'))                      New485Ladder[i]='Z'; 
-            else if((New485Ladder[i]>'9') && (New485Ladder[i]<'A'))  New485Ladder[i]='9'; 
+            if((New485Ladder[i]<'0'))                      New485Ladder[i]='Z';
+            else if((New485Ladder[i]>'9') && (New485Ladder[i]<'A'))  New485Ladder[i]='9';
             break;
         case    CLOCK_EDIT:
             New485Ladder[i]--;
-            if((New485Ladder[i]<'0'))       New485Ladder[i]='9'; 
+            if((New485Ladder[i]<'0'))       New485Ladder[i]='9';
             else if(New485Ladder[i]>'9')    New485Ladder[i]='0';
-            CalendarChk(); 
+            CalendarChk();
             break;
         case    DIGIT_BUF_EDIT:
             New485Ladder[i]--;
-            if((New485Ladder[i]<'0'))       New485Ladder[i]='9'; 
+            if((New485Ladder[i]<'0'))       New485Ladder[i]='9';
             else if(New485Ladder[i]>'9')    New485Ladder[i]='0';
             break;
         case    TABLE_EDIT:
-                break;    
+                break;
         case    TOGGLE_EDIT:
-                break;    
-    }         
+                break;
+    }
 }
 
 
@@ -6063,7 +6061,7 @@ unsigned int  __attribute__((section(".usercode"))) ShiftRightCur(void)
     LocalType i;
 
     if(ShiftCnt==0) Cursor=0;
-    else            Cursor=(Cursor+1)%ShiftCnt; 
+    else            Cursor=(Cursor+1)%ShiftCnt;
 
     i=SECONDLINE_BASE + EditBlanck + Cursor;
 
@@ -6071,25 +6069,25 @@ unsigned int  __attribute__((section(".usercode"))) ShiftRightCur(void)
     if(EditStatus == DIGIT_EDIT){
         if((New485Ladder[i] == '.') || (New485Ladder[i] == ('.' + 0x80))){
             if(ShiftCnt==0) Cursor=0;
-            else            Cursor=(Cursor+1)%ShiftCnt; 
+            else            Cursor=(Cursor+1)%ShiftCnt;
         }
-    }           
+    }
     else
-*/ 
+*/
 	if(EditStatus == CLOCK_EDIT){
         if((New485Ladder[i] == '-') || (New485Ladder[i] == ('-' + 0x80))){
             if(ShiftCnt==0) Cursor=0;
-            else            Cursor=(Cursor+1)%ShiftCnt; 
+            else            Cursor=(Cursor+1)%ShiftCnt;
         }
-    }    
+    }
     else if(EditStatus == DIGIT_BUF_EDIT){
         if((New485Ladder[i] > '9') || (New485Ladder[i] < '0') ){
             if(ShiftCnt==0) Cursor=0;
-            else            Cursor=(Cursor+1)%ShiftCnt; 
+            else            Cursor=(Cursor+1)%ShiftCnt;
         }
-    }    
+    }
 
-       
+
 }
 
 
@@ -6110,23 +6108,23 @@ unsigned int  __attribute__((section(".usercode"))) ShiftLeftCur(void)
             else if(Cursor>0)   Cursor--;
             else                Cursor=ShiftCnt-1;
         }
-    }           
+    }
     else
 */
- 
+
 	if(EditStatus == CLOCK_EDIT){
         if((New485Ladder[i] == '-') || (New485Ladder[i] == ('-' + 0x80))){
             if(ShiftCnt==0) Cursor=0;
             else if(Cursor>0)   Cursor--;
             else                Cursor=ShiftCnt-1;
         }
-    }           
+    }
     else if(EditStatus == DIGIT_BUF_EDIT){
         if((New485Ladder[i] > '9') || (New485Ladder[i] < '0') ){
             if(ShiftCnt==0) Cursor=0;
-            else            Cursor=(Cursor+1)%ShiftCnt; 
+            else            Cursor=(Cursor+1)%ShiftCnt;
         }
-    }    
+    }
 }
 
 
@@ -6137,7 +6135,7 @@ unsigned int  __attribute__((section(".usercode"))) MenuOnChk(void)
 	i=0;
 
 /*
-	if(LadderGroup != USER_GROUP)	return(i); 
+	if(LadderGroup != USER_GROUP)	return(i);
 
 	switch(LadderGroupSub){
 		case	COMPANY_NAME:
@@ -6164,7 +6162,7 @@ unsigned int  __attribute__((section(".usercode"))) GroupOnChk(void)
 {
     if(bAllMenu)  		return(0);
 	if(!bPasswardUse)	return(0);
-	
+
     switch(LadderGroup){
         case    USER_GROUP:  //save
         case    ERROR_GROUP:
@@ -6184,7 +6182,7 @@ unsigned int  __attribute__((section(".usercode"))) GroupOnChk(void)
 unsigned int  __attribute__((section(".usercode"))) EditOnCheck(void)
 {
     LocalType i;
-    
+
     i=0;
     if(EditStatus==NO_EDIT) return(i);
 
@@ -6198,7 +6196,7 @@ unsigned int  __attribute__((section(".usercode"))) EditOnCheck(void)
 
     if(bAllMenu)			i=1;	//ver3.5
 	else{
-       	if(LadderGroup == USER_GROUP){     
+       	if(LadderGroup == USER_GROUP){
            	switch(LadderGroupSub){
                	case    PASSWARD:
                	case    ALL_MENU_CHK:
@@ -6228,12 +6226,12 @@ unsigned int  __attribute__((section(".usercode"))) KeyCheck(void)
 
     LadderKey = LadderBuf[C_SAVE_DATA+0];
 
-	if( !bLoaderActive)	LadderKey = 'N';	
+	if( !bLoaderActive)	LadderKey = 'N';
 
 
     switch(LadderKey){
         case    MENUKEY:
-				bHibSet=0;	
+				bHibSet=0;
                 LadderKeyTime=0;
                 do{
 					j++;
@@ -6242,27 +6240,27 @@ unsigned int  __attribute__((section(".usercode"))) KeyCheck(void)
                     LadderGroupSub=0;
                     NewMenuStart();
                     CursorOff();
-                    i=GroupOnChk(); 
+                    i=GroupOnChk();
                 }while(i && (j <30));
                 break;
         case    ESCKEY:
-				bHibSet=0;	
+				bHibSet=0;
                 LadderKeyTime=0;
                 LadderGroup=0;
                 LadderGroupSub=0;
                 NewMenuStart();
-                CursorOff(); 
+                CursorOff();
                 break;
         case    UPKEY:
-				bHibSet=0;	
+				bHibSet=0;
                 LadderKeyTime=0;
                 if(EnterKey==1){
 	                do{
                         LadderGroupSub=(LadderGroupSub+1)% MaxSubMenu;
-	                    i=MenuOnChk(); 
+	                    i=MenuOnChk();
 	                }while(i);
                     NewMenuStart();
-                    CursorOff(); 
+                    CursorOff();
                 }
                 else if(EnterKey==2){
                     CusorDataUp();
@@ -6270,16 +6268,16 @@ unsigned int  __attribute__((section(".usercode"))) KeyCheck(void)
                 }
                 break;
         case    DOWNKEY:
-				bHibSet=0;	
+				bHibSet=0;
                 LadderKeyTime=0;
                 if(EnterKey==1){
 	                do{
 	                    if(LadderGroupSub>0)    LadderGroupSub--;
-	                    else                    LadderGroupSub=MaxSubMenu-1;                    
-	                    i=MenuOnChk(); 
+	                    else                    LadderGroupSub=MaxSubMenu-1;
+	                    i=MenuOnChk();
 	                }while(i);
                     NewMenuStart();
-                    CursorOff(); 
+                    CursorOff();
                 }
                 else if(EnterKey==2){
                     CusorDataDn();
@@ -6287,7 +6285,7 @@ unsigned int  __attribute__((section(".usercode"))) KeyCheck(void)
                 }
                 break;
         case    LEFTKEY:
-				bHibSet=0;	
+				bHibSet=0;
                 LadderKeyTime=0;
                 if(EnterKey==1){
                     do{
@@ -6296,8 +6294,8 @@ unsigned int  __attribute__((section(".usercode"))) KeyCheck(void)
                         else                LadderGroup=MAX_GROUP-1;
                         LadderGroupSub=0;
                         NewMenuStart();
-                        CursorOff(); 
-                        i=GroupOnChk(); 
+                        CursorOff();
+                        i=GroupOnChk();
                     }while(i);
                 }
                 else if(EnterKey==2){
@@ -6307,7 +6305,7 @@ unsigned int  __attribute__((section(".usercode"))) KeyCheck(void)
                 }
                 break;
         case    RIGHTKEY:
-				bHibSet=0;	
+				bHibSet=0;
                 LadderKeyTime=0;
                 if(EnterKey==1){
                     do{
@@ -6315,8 +6313,8 @@ unsigned int  __attribute__((section(".usercode"))) KeyCheck(void)
                         if(LadderGroup>0)   LadderGroup--;
                         else                LadderGroup=MAX_GROUP-1;
                         NewMenuStart();
-                        CursorOff(); 
-                        i=GroupOnChk(); 
+                        CursorOff();
+                        i=GroupOnChk();
                     }while(i);
                 }
                 else if(EnterKey==2){
@@ -6332,10 +6330,10 @@ unsigned int  __attribute__((section(".usercode"))) KeyCheck(void)
                 if(EnterKey==2){
                     if(!EditOnCheck()){
                         EnterKey=1;
-                        CursorOff(); 
+                        CursorOff();
                     }
                     else    CursorOn();
-					bHibSet=0;	
+					bHibSet=0;
                 }
                 else if(EnterKey==3){
                     if(!bMoveCar){
@@ -6346,7 +6344,7 @@ unsigned int  __attribute__((section(".usercode"))) KeyCheck(void)
                     EnterKey=0;
                 }
 				else{
-					bHibSet=0;	
+					bHibSet=0;
 				}
                 break;
         case    ONEKEY:
@@ -6358,7 +6356,7 @@ unsigned int  __attribute__((section(".usercode"))) KeyCheck(void)
         case    SEVENKEY:
         case    EIGHTKEY:
         case    NINEKEY:
-        case    ZEROKEY:   
+        case    ZEROKEY:
                 LadderKeyTime=0;
                 CusorDigitSet();
 				newmenu=0;
@@ -6369,8 +6367,8 @@ unsigned int  __attribute__((section(".usercode"))) KeyCheck(void)
                 LadderKey = 0xff;
 				newmenu=0;
                 break;
-    }   
-	
+    }
+
 	if(newmenu){
         for(i=0;i<16;i++){
             New485Ladder[i+2]=blinkx[i];
@@ -6415,7 +6413,7 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
 		}
 		else{
 			for(i=0;i<16;i++)	New485Ladder[2+i]=CurrentMode[2][i];
-		}		
+		}
 
 
 		if(bSystemErr){
@@ -6431,18 +6429,18 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
 
 
 /*
-		if(sRamDArry[DSP1] == 0)	sRamDArry[DSP1] = '?';	
-		if(sRamDArry[DSP2] == 0)	sRamDArry[DSP2] = '?';	
+		if(sRamDArry[DSP1] == 0)	sRamDArry[DSP1] = '?';
+		if(sRamDArry[DSP2] == 0)	sRamDArry[DSP2] = '?';
         New485Ladder[2+3]=sRamDArry[DSP1];
         New485Ladder[2+4]=sRamDArry[DSP2];
 
 
-        if(bCarUpMove || bCarDnMove){ 
-        
+        if(bCarUpMove || bCarDnMove){
+
             chun=(unsigned int)CurMeterPerMin;
 
             if(chun)    il=(chun%10);
-            
+
             if(chun)    sip=(chun/10);
             if(sip)     sip=(sip%10);
 
@@ -6451,9 +6449,9 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
 
             if(chun)    chun=chun/1000;
             if(chun)    chun=(chun%10);
-        
-    
-    
+
+
+
             New485Ladder[2+8] =chun + '0';
             New485Ladder[2+9] =bek  + '0';
             New485Ladder[2+10]=sip  + '0';
@@ -6462,7 +6460,7 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
             New485Ladder[2+13]='m';
             New485Ladder[2+14]='p';
             New485Ladder[2+15]='m';
-        }    
+        }
         else{
             New485Ladder[2+8]='E';
             New485Ladder[2+9]='/';
@@ -6478,7 +6476,7 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
 
 
 
-    if((LadderKeyTime > 36000) && (LadderKeyTime < 36002)){        
+    if((LadderKeyTime > 36000) && (LadderKeyTime < 36002)){
 		LadderKeyTime=36012;
 
         LadderGroup=0;
@@ -6494,29 +6492,29 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
 
 	if(bPasswardOk )			bAllMenu=1;			//ver3.5
 	else						bAllMenu=0;			//ver3.5
-	 
+
 
     KeyCheck();
 
     if(EnterKey==0){
 
         EnterKey=1;
-            
+
         for(i=0;i<MAX_LADDER_BUF-2;i++)   New485Ladder[i]=' ';
-        New485Ladder[MAX_LADDER_BUF-1]=0x0;   
+        New485Ladder[MAX_LADDER_BUF-1]=0x0;
 
         j=LadderGroup;
 
 
-	        if(j>0){    
+	        if(j>0){
 	            j=(LadderGroupSub + ((j-1) * 32))+1;
 	        }
-	
+
 	        for(i=0;i<16;i++){
 	            New485Ladder[i+2]=GroupLineMessage[j][i];
 	        }
 
-/*	
+/*
 	        if(j==0){
 	            New485Ladder[2+3]=sRamDArry[DSP1];
 	            New485Ladder[2+4]=sRamDArry[DSP2];
@@ -6524,12 +6522,12 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
 
 */
 
-        New485Ladder[0]=LadderKey;    
+        New485Ladder[0]=LadderKey;
         New485Ladder[1]=' ';
 
-        New485Ladder[SECONDLINE_BASE+0] =(LadderGroupSub/10) + '0';          
-        New485Ladder[SECONDLINE_BASE+1] =(LadderGroupSub%10) + '0';          
-        
+        New485Ladder[SECONDLINE_BASE+0] =(LadderGroupSub/10) + '0';
+        New485Ladder[SECONDLINE_BASE+1] =(LadderGroupSub%10) + '0';
+
         switch(LadderGroup){
             case    USER_GROUP:       //save
                 GroupBaseAddr=F_Ver0;
@@ -6646,14 +6644,14 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
                 ErrorGroup(LadderGroupSub);
                 break;
 
-            default:                
+            default:
                 break;
-    
+
         }
     }
 
-   	LadderBuf[C_BASE_MEMORY]=LadderGroup;              
-   	LadderBuf[C_OFFSET_MEMORY]=LadderGroupSub;          
+   	LadderBuf[C_BASE_MEMORY]=LadderGroup;
+   	LadderBuf[C_OFFSET_MEMORY]=LadderGroupSub;
 
     if(LadderGroup==0){
         DefaultDisplay();
@@ -6664,7 +6662,7 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
 /*
     if(sRamDArry[FHM_RUN] == FHM_RUN_CMD)                   FhmLoaderTime=0;
     else                                                    FhmLoaderTime=10;
-                                    
+
     if((sRamDArry[FHM_RUN] == FHM_RUN_CMD) && (LadderKey != 0xff)){
         FhmLoaderTime=10;
         sRamDArry[FHM_RUN] =0;
@@ -6678,10 +6676,10 @@ unsigned int  __attribute__((section(".usercode"))) NewFlashData(void)
 		HibSet[3]=0;
 		HibSet[4]=0;
 		HibSet[5]=0;
-		bHibSet=0;	
+		bHibSet=0;
 	}
 */
-        
+
     return(0);
 }
 
@@ -6722,12 +6720,12 @@ void  __attribute__((section(".usercode"))) Pc_Command(void)
 		sRamDArry[ExtCmdFlrONOFF0] = CAN2_Buf[4];
 		sRamDArry[ExtCmdFlrONOFF1] = CAN2_Buf[5];
 		sRamDArry[ExtCmdFlrONOFF2] = CAN2_Buf[6];
-		sRamDArry[ExtCmdFlrONOFF3] = CAN2_Buf[7];		
-    }    
+		sRamDArry[ExtCmdFlrONOFF3] = CAN2_Buf[7];
+    }
     else if((CAN2_Buf[2] == (CMD_MORNING)) && (CAN2_Buf[3] == 0x00)){
 		CmdFixFlrTime= CAN2_Buf[4];
     }
-*/    
+*/
 }
 
 

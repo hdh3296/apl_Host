@@ -3,9 +3,9 @@
 /*
 //수정사항
 1)timer : 2004.12.19  23.15.19
-2).current status:  auto/manual/remote  ,cds/timer, cds input 
+2).current status:  auto/manual/remote  ,cds/timer, cds input
 3).volt/current   decima digit
-4).display  return value 
+4).display  return value
 5)등갰수
 
 */
@@ -14,19 +14,20 @@
 
 
 #include  "apl_memory_map.h"
-#include  "30f6010_io.h"            
-#include  "host_io.h"            
+#include  "30f6010_io.h"
+#include  "host_io.h"
 #include  "iodef.h"
 #include  "door.h"
 #include  "com.h"
 #include  "counter.h"
-#include  "you_can1.h" 
-#include  "you_can2.h" 
-#include "you_can_lib.h" 
-#include  "lader.h" 
-#include  "default_setup.h" 
+#include  "you_can1.h"
+#include  "you_can2.h"
+#include "you_can_lib.h"
+#include  "lader.h"
+#include  "default_setup.h"
 
 
+typedef unsigned int	bool;
 
 
 extern	UserDataType    X0Time;
@@ -44,7 +45,7 @@ extern	UserDataType    X7Time;
 
 
 
-//unsigned int	VirtualOut1,VirtualOut2;   
+//unsigned int	VirtualOut1,VirtualOut2;
 
 
 
@@ -62,7 +63,7 @@ unsigned int	__attribute__((section(".usercode"))) OtherWork(void)
 	j=(unsigned int)((Can2RxEid>>8) & 0x0f);
 	j=(j * 8);
 
-	
+
 	for(i=0;i<Can2RxDlc;i++){
 		TmpCan2RcvBuf[j+i]=CAN2_Buf[i];
 	}
@@ -72,26 +73,26 @@ unsigned int	__attribute__((section(".usercode"))) OtherWork(void)
 		if(TmpCan2RcvBuf[0] != 0x20)	return(0);
 		if(TmpCan2RcvBuf[1] <  0x0a)	return(0);
 		if(TmpCan2RcvBuf[2] != 0x00)	return(0);
-	
-		if(TmpCan2RcvBuf[mCurrentState1+4] & 0x10)		bMasterHostCDS=1;		
-		else											bMasterHostCDS=0;		
 
-		i=(unsigned int)(TmpCan2RcvBuf[mMasterSync+4]);	
+		if(TmpCan2RcvBuf[mCurrentState1+4] & 0x10)		bMasterHostCDS=1;
+		else											bMasterHostCDS=0;
+
+		i=(unsigned int)(TmpCan2RcvBuf[mMasterSync+4]);
 		j=PcAckTime;
 		if( i < 0xff){
 			if(i >= j){
 				i=(i-j);
 				if( (i > (LuLdTime+5)) || ( (i+5) < LuLdTime)){
-					LuLdTime=i;	
-				} 
-			} 
+					LuLdTime=i;
+				}
+			}
 		}
 	}
 
 
 	if( (TmpCan2RcvBuf[0] == 0x00) && (TmpCan2RcvBuf[1] == 0x02) && (j==0)){
 		PcAckTime=0;
-		return(0);	
+		return(0);
 	}
 
 	return(0);
@@ -175,22 +176,22 @@ unsigned int __attribute__((section(".usercode"))) TimeCmpare(unsigned int i_bas
 		if( (i_basetime >= Tmp_Etime) && (i_basetime < Tmp_Stime)){
 				return(0);  // night
 		}
-		else	return(1);	// day 
+		else	return(1);	// day
 	}
 	else{
 		if( (i_basetime >= Tmp_Stime) && (i_basetime < Tmp_Etime)){
 				return(1);  // day
 		}
-		else	return(0);	// night 
+		else	return(0);	// night
 	}
 
 	return(0);
 
-/*	
+/*
 	if( (i_basetime >= Tmp_Stime) && (i_basetime < Tmp_Etime)){
 			return(1);  // day
-	} 
-	else	return(0);  
+	}
+	else	return(0);
 
 	//return(0) is night
 */
@@ -209,10 +210,10 @@ unsigned int	__attribute__((section(".usercode"))) CurrentTimeRead(void)
     cTime=(((sRamDArry[mHour] & 0xf0) >> 4) * 10);
     cTime=((sRamDArry[mHour] & 0x0f) + cTime);
     cMin=(((sRamDArry[mMinuate] & 0xf0) >> 4) * 10);
-    cMin=((sRamDArry[mMinuate] & 0x0f) + cMin);		
-	if((cTime < 24) && (cMin < 60)){	
+    cMin=((sRamDArry[mMinuate] & 0x0f) + cMin);
+	if((cTime < 24) && (cMin < 60)){
 		cTime=((cTime << 8) | cMin);
-	}	
+	}
 	else	cTime=0;
 
 */
@@ -224,8 +225,8 @@ unsigned int	__attribute__((section(".usercode"))) CurrentTimeRead(void)
 	if(cMin  >= 0x60)	return(0);
 
 	cTime=(cTime | cMin);
-	
-	return(cTime);	
+
+	return(cTime);
 }
 
 
@@ -306,19 +307,25 @@ unsigned int  __attribute__((section(".usercode"))) OutSet(void)
 
 
 
-unsigned int  __attribute__((section(".usercode")))  DayNightChk(unsigned int day_night)
-{
-	if(b_S1_CDS_TIMER){    				//timer mode
+unsigned int  __attribute__((section(".usercode")))
+DayNightChk(unsigned int day_night) {
+
+	bool night = b_S1_CDS_ONOFF;
+	bool timeMode =  b_S1_CDS_TIMER;
+
+
+	if(timeMode){
 		if(!TimerRunCheck(day_night))	return(0);
 	}
-	else{									// cds mode
-		if(!b_S1_CDS_ONOFF){				// day
-			if(day_night==1)			return(0);	
+	else{
+		if(night){
+			if(day_night==2)			return(0);
 		}
-		else{							// night
-			if(day_night==2)			return(0);	
+		else{
+			if(day_night==1)			return(0);
 		}
 	}
+
 	return(1);
 }
 
@@ -338,7 +345,7 @@ unsigned int  __attribute__((section(".usercode"))) OneModeChk(unsigned int valu
 		if(bitvalue & virtual_bufH){
 			if( (tmp_mode & BLINCK_BIT) && bBlinck)		return(1);  // off
 			else										return(0);  // on
-		} 
+		}
 		else{
 //			return(1);  // off
 			return(2);  // off
@@ -364,7 +371,7 @@ unsigned int  __attribute__((section(".usercode"))) OneModeChk(unsigned int valu
 		}
 */
 
-	}	
+	}
 	else if(tmp_mode & NIGHT_ONLY){
 		if(!DayNightChk(2)){
 			if( (tmp_mode & BLINCK_BIT) && bBlinck)		return(1);
@@ -573,7 +580,7 @@ unsigned int  __attribute__((section(".usercode"))) OffCountChk(unsigned char Se
 
 	i= (CurValue/SetValue);
 
-	if(Cnt > i){	
+	if(Cnt > i){
 		i=(Cnt-i);
 	}
 	else	i=0;
@@ -599,7 +606,7 @@ unsigned int  __attribute__((section(".usercode"))) ErrWarningChk(unsigned char 
 unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 {
 
-	
+
 	unsigned int val;
 
 	if(bBlinck)				return(0);
@@ -611,21 +618,21 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 	if(cF_MainVolt > 0){
 		val=ErrWarningChk(cF_MainVolt,sRamDArry[mMainVoltage],(unsigned char)((cF_MainVolt * 95)/100),(unsigned char)((cF_MainVolt * 90)/100));
 		if(val==2){
-			b_MainVoltErr=1;	
-			b_MainVoltWarnning=0;	
+			b_MainVoltErr=1;
+			b_MainVoltWarnning=0;
 		}
 		else if(val==1){
-			b_MainVoltErr=0;	
-			b_MainVoltWarnning=1;	
+			b_MainVoltErr=0;
+			b_MainVoltWarnning=1;
 		}
 		else{
-			b_MainVoltErr=0;	
-			b_MainVoltWarnning=0;	
+			b_MainVoltErr=0;
+			b_MainVoltWarnning=0;
 		}
 	}
 	else{
-		b_MainVoltErr=0;	
-		b_MainVoltWarnning=0;	
+		b_MainVoltErr=0;
+		b_MainVoltWarnning=0;
 	}
 /////////////////////////////////////////////////////////////////
 
@@ -633,21 +640,21 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 	if(cF_MainCurrent > 0){
 		val=ErrWarningChk(cF_MainCurrent,sRamDArry[mMainCurrent],(unsigned char)((cF_MainCurrent * 90)/100),(unsigned char)((cF_MainCurrent * 80)/100));
 		if(val==2){
-			b_MainCurrentErr=1;	
-			b_MainCurrentWarnning=0;	
+			b_MainCurrentErr=1;
+			b_MainCurrentWarnning=0;
 		}
 		else if(val==1){
-			b_MainCurrentErr=0;	
-			b_MainCurrentWarnning=1;	
+			b_MainCurrentErr=0;
+			b_MainCurrentWarnning=1;
 		}
 		else{
-			b_MainCurrentErr=0;	
-			b_MainCurrentWarnning=0;	
+			b_MainCurrentErr=0;
+			b_MainCurrentWarnning=0;
 		}
 	}
 	else{
-		b_MainCurrentErr=0;	
-		b_MainCurrentWarnning=0;	
+		b_MainCurrentErr=0;
+		b_MainCurrentWarnning=0;
 	}
 
 /////////////////////////////////////////////////////////////////
@@ -655,42 +662,42 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 	if(cF_TrVolt > 0){
 		val=ErrWarningChk(cF_TrVolt,sRamDArry[mTrVoltage],(unsigned char)((cF_TrVolt * 90)/100),(unsigned char)((cF_TrVolt * 80)/100));
 		if(val==2){
-			b_TrVoltErr=1;	
-			b_TrVoltWarnning=0;	
+			b_TrVoltErr=1;
+			b_TrVoltWarnning=0;
 		}
 		else if(val==1){
-			b_TrVoltErr=0;	
-			b_TrVoltWarnning=1;	
+			b_TrVoltErr=0;
+			b_TrVoltWarnning=1;
 		}
 		else{
-			b_TrVoltErr=0;	
-			b_TrVoltWarnning=0;	
+			b_TrVoltErr=0;
+			b_TrVoltWarnning=0;
 		}
 	}
 	else{
-		b_TrVoltErr=0;	
-		b_TrVoltWarnning=0;	
+		b_TrVoltErr=0;
+		b_TrVoltWarnning=0;
 	}
 /////////////////////////////////////////////////////////////////
 
 	if(cF_TrCurrent > 0){
 		val=ErrWarningChk(cF_TrCurrent,sRamDArry[mTrCurrent],(unsigned char)((cF_TrCurrent * 90)/100),(unsigned char)((cF_TrCurrent * 80)/100));
 		if(val==2){
-			b_TrCurrentErr=1;	
-			b_TrCurrentWarnning=0;	
+			b_TrCurrentErr=1;
+			b_TrCurrentWarnning=0;
 		}
 		else if(val==1){
-			b_TrCurrentErr=0;	
-			b_TrCurrentWarnning=1;	
+			b_TrCurrentErr=0;
+			b_TrCurrentWarnning=1;
 		}
 		else{
-			b_TrCurrentErr=0;	
-			b_TrCurrentWarnning=0;	
+			b_TrCurrentErr=0;
+			b_TrCurrentWarnning=0;
 		}
 	}
 	else{
-		b_TrCurrentErr=0;	
-		b_TrCurrentWarnning=0;	
+		b_TrCurrentErr=0;
+		b_TrCurrentWarnning=0;
 	}
 /////////////////////////////////////////////////////////////////
 
@@ -699,24 +706,24 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 		if(val==0){
 			sRamDArry[mOut0OffCnt]=OffCountChk( (unsigned char)(cF_0Amp),(unsigned char)sRamDArry[mOut0Current],(unsigned char)(cF_0Count));
 			if(sRamDArry[mOut0OffCnt] >=  cF_0Count){
-				b_Out0Err=1;	
-				b_Out0Warning=0;	
+				b_Out0Err=1;
+				b_Out0Warning=0;
 			}
 			else if(sRamDArry[mOut0OffCnt] >=  1){
-				b_Out0Err=0;	
-				b_Out0Warning=1;	
+				b_Out0Err=0;
+				b_Out0Warning=1;
 			}
 			else{
-				b_Out0Err=0;	
-				b_Out0Warning=0;	
+				b_Out0Err=0;
+				b_Out0Warning=0;
 			}
 		}
 	}
 	else{
 		sRamDArry[mOut0Current]=0;
 		sRamDArry[mOut0OffCnt]=0;
-		b_Out0Err=0;	
-		b_Out0Warning=0;	
+		b_Out0Err=0;
+		b_Out0Warning=0;
 	}
 
 
@@ -726,24 +733,24 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 		if(val==0){
 			sRamDArry[mOut1OffCnt]=OffCountChk( (unsigned char)(cF_1Amp),(unsigned char)sRamDArry[mOut1Current],(unsigned char)(cF_1Count));
 			if(sRamDArry[mOut1OffCnt] >=  cF_1Count){
-				b_Out1Err=1;	
-				b_Out1Warning=0;	
+				b_Out1Err=1;
+				b_Out1Warning=0;
 			}
 			else if(sRamDArry[mOut1OffCnt] >=  1){
-				b_Out1Err=0;	
-				b_Out1Warning=1;	
+				b_Out1Err=0;
+				b_Out1Warning=1;
 			}
 			else{
-				b_Out1Err=0;	
-				b_Out1Warning=0;	
+				b_Out1Err=0;
+				b_Out1Warning=0;
 			}
 		}
 	}
 	else{
 		sRamDArry[mOut1Current]=0;
 		sRamDArry[mOut1OffCnt]=0;
-		b_Out1Err=0;	
-		b_Out1Warning=0;	
+		b_Out1Err=0;
+		b_Out1Warning=0;
 	}
 /////////////////////////////////////////////////////////////////
 
@@ -753,24 +760,24 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 		if(val==0){
 			sRamDArry[mOut2OffCnt]=OffCountChk( (unsigned char)(cF_2Amp),(unsigned char)sRamDArry[mOut2Current],(unsigned char)(cF_2Count));
 			if(sRamDArry[mOut2OffCnt] >=  cF_2Count){
-				b_Out2Err=1;	
-				b_Out2Warning=0;	
+				b_Out2Err=1;
+				b_Out2Warning=0;
 			}
 			else if(sRamDArry[mOut2OffCnt] >=  1){
-				b_Out2Err=0;	
-				b_Out2Warning=1;	
+				b_Out2Err=0;
+				b_Out2Warning=1;
 			}
 			else{
-				b_Out2Err=0;	
-				b_Out2Warning=0;	
+				b_Out2Err=0;
+				b_Out2Warning=0;
 			}
 		}
 	}
 	else{
 		sRamDArry[mOut2Current]=0;
 		sRamDArry[mOut2OffCnt]=0;
-		b_Out2Err=0;	
-		b_Out2Warning=0;	
+		b_Out2Err=0;
+		b_Out2Warning=0;
 	}
 /////////////////////////////////////////////////////////////////
 
@@ -780,24 +787,24 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 		if(val==0){
 			sRamDArry[mOut3OffCnt]=OffCountChk( (unsigned char)(cF_3Amp),(unsigned char)sRamDArry[mOut3Current],(unsigned char)(cF_3Count));
 			if(sRamDArry[mOut3OffCnt] >=  cF_3Count){
-				b_Out3Err=1;	
-				b_Out3Warning=0;	
+				b_Out3Err=1;
+				b_Out3Warning=0;
 			}
 			else if(sRamDArry[mOut3OffCnt] >=  1){
-				b_Out3Err=0;	
-				b_Out3Warning=1;	
+				b_Out3Err=0;
+				b_Out3Warning=1;
 			}
 			else{
-				b_Out3Err=0;	
-				b_Out3Warning=0;	
+				b_Out3Err=0;
+				b_Out3Warning=0;
 			}
 		}
 	}
 	else{
 		sRamDArry[mOut3Current]=0;
 		sRamDArry[mOut3OffCnt]=0;
-		b_Out3Err=0;	
-		b_Out3Warning=0;	
+		b_Out3Err=0;
+		b_Out3Warning=0;
 	}
 /////////////////////////////////////////////////////////////////
 
@@ -807,24 +814,24 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 		if(val==0){
 			sRamDArry[mOut4OffCnt]=OffCountChk( (unsigned char)(cF_4Amp),(unsigned char)sRamDArry[mOut4Current],(unsigned char)(cF_4Count));
 			if(sRamDArry[mOut4OffCnt] >=  cF_4Count){
-				b_Out4Err=1;	
-				b_Out4Warning=0;	
+				b_Out4Err=1;
+				b_Out4Warning=0;
 			}
 			else if(sRamDArry[mOut4OffCnt] >=  1){
-				b_Out4Err=0;	
-				b_Out4Warning=1;	
+				b_Out4Err=0;
+				b_Out4Warning=1;
 			}
 			else{
-				b_Out4Err=0;	
-				b_Out4Warning=0;	
+				b_Out4Err=0;
+				b_Out4Warning=0;
 			}
 		}
 	}
 	else{
 		sRamDArry[mOut4Current]=0;
 		sRamDArry[mOut4OffCnt]=0;
-		b_Out4Err=0;	
-		b_Out4Warning=0;	
+		b_Out4Err=0;
+		b_Out4Warning=0;
 	}
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -833,24 +840,24 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 		if(val==0){
 			sRamDArry[mOut5OffCnt]=OffCountChk( (unsigned char)(cF_5Amp),(unsigned char)sRamDArry[mOut5Current],(unsigned char)(cF_5Count));
 			if(sRamDArry[mOut5OffCnt] >=  cF_5Count){
-				b_Out5Err=1;	
-				b_Out5Warning=0;	
+				b_Out5Err=1;
+				b_Out5Warning=0;
 			}
 			else if(sRamDArry[mOut5OffCnt] >=  1){
-				b_Out5Err=0;	
-				b_Out5Warning=1;	
+				b_Out5Err=0;
+				b_Out5Warning=1;
 			}
 			else{
-				b_Out5Err=0;	
-				b_Out5Warning=0;	
+				b_Out5Err=0;
+				b_Out5Warning=0;
 			}
 		}
 	}
 	else{
 		sRamDArry[mOut5Current]=0;
 		sRamDArry[mOut5OffCnt]=0;
-		b_Out5Err=0;	
-		b_Out5Warning=0;	
+		b_Out5Err=0;
+		b_Out5Warning=0;
 	}
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -859,24 +866,24 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 		if(val==0){
 			sRamDArry[mOut6OffCnt]=OffCountChk( (unsigned char)(cF_6Amp),(unsigned char)sRamDArry[mOut6Current],(unsigned char)(cF_6Count));
 			if(sRamDArry[mOut6OffCnt] >=  cF_6Count){
-				b_Out6Err=1;	
-				b_Out6Warning=0;	
+				b_Out6Err=1;
+				b_Out6Warning=0;
 			}
 			else if(sRamDArry[mOut6OffCnt] >=  1){
-				b_Out6Err=0;	
-				b_Out6Warning=1;	
+				b_Out6Err=0;
+				b_Out6Warning=1;
 			}
 			else{
-				b_Out6Err=0;	
-				b_Out6Warning=0;	
+				b_Out6Err=0;
+				b_Out6Warning=0;
 			}
 		}
 	}
 	else{
 		sRamDArry[mOut6Current]=0;
 		sRamDArry[mOut6OffCnt]=0;
-		b_Out6Err=0;	
-		b_Out6Warning=0;	
+		b_Out6Err=0;
+		b_Out6Warning=0;
 	}
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -885,24 +892,24 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 		if(val==0){
 			sRamDArry[mOut7OffCnt]=OffCountChk( (unsigned char)(cF_7Amp),(unsigned char)sRamDArry[mOut7Current],(unsigned char)(cF_7Count));
 			if(sRamDArry[mOut7OffCnt] >=  cF_7Count){
-				b_Out7Err=1;	
-				b_Out7Warning=0;	
+				b_Out7Err=1;
+				b_Out7Warning=0;
 			}
 			else if(sRamDArry[mOut7OffCnt] >=  1){
-				b_Out7Err=0;	
-				b_Out7Warning=1;	
+				b_Out7Err=0;
+				b_Out7Warning=1;
 			}
 			else{
-				b_Out7Err=0;	
-				b_Out7Warning=0;	
+				b_Out7Err=0;
+				b_Out7Warning=0;
 			}
 		}
 	}
 	else{
 		sRamDArry[mOut7Current]=0;
 		sRamDArry[mOut7OffCnt]=0;
-		b_Out7Err=0;	
-		b_Out7Warning=0;	
+		b_Out7Err=0;
+		b_Out7Warning=0;
 	}
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -911,24 +918,24 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 		if(val==0){
 			sRamDArry[mOut8OffCnt]=OffCountChk( (unsigned char)(cF_8Amp),(unsigned char)sRamDArry[mOut8Current],(unsigned char)(cF_8Count));
 			if(sRamDArry[mOut8OffCnt] >=  cF_8Count){
-				b_Out8Err=1;	
-				b_Out8Warning=0;	
+				b_Out8Err=1;
+				b_Out8Warning=0;
 			}
 			else if(sRamDArry[mOut8OffCnt] >=  1){
-				b_Out8Err=0;	
-				b_Out8Warning=1;	
+				b_Out8Err=0;
+				b_Out8Warning=1;
 			}
 			else{
-				b_Out8Err=0;	
-				b_Out8Warning=0;	
+				b_Out8Err=0;
+				b_Out8Warning=0;
 			}
 		}
 	}
 	else{
 		sRamDArry[mOut8Current]=0;
 		sRamDArry[mOut8OffCnt]=0;
-		b_Out8Err=0;	
-		b_Out8Warning=0;	
+		b_Out8Err=0;
+		b_Out8Warning=0;
 	}
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
@@ -937,24 +944,24 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 		if(val==0){
 			sRamDArry[mOut9OffCnt]=OffCountChk( (unsigned char)(cF_9Amp),(unsigned char)sRamDArry[mOut9Current],(unsigned char)(cF_9Count));
 			if(sRamDArry[mOut9OffCnt] >=  cF_9Count){
-				b_Out9Err=1;	
-				b_Out9Warning=0;	
+				b_Out9Err=1;
+				b_Out9Warning=0;
 			}
 			else if(sRamDArry[mOut9OffCnt] >=  1){
-				b_Out9Err=0;	
-				b_Out9Warning=1;	
+				b_Out9Err=0;
+				b_Out9Warning=1;
 			}
 			else{
-				b_Out9Err=0;	
-				b_Out9Warning=0;	
+				b_Out9Err=0;
+				b_Out9Warning=0;
 			}
 		}
 	}
 	else{
 		sRamDArry[mOut9Current]=0;
 		sRamDArry[mOut9OffCnt]=0;
-		b_Out9Err=0;	
-		b_Out9Warning=0;	
+		b_Out9Err=0;
+		b_Out9Warning=0;
 	}
 /////////////////////////////////////////////////////////////////
 
@@ -971,25 +978,39 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 		bSystemWarning=0;
 	}
 
-	return(0);	
+	return(0);
 }
 
 
+#define CDS_SET			0
+#define TIME_SET		1
+#define MASTER_CDS_SET	2
 
-void  __attribute__((section(".usercode"))) SystemRun(void)
-{
-	if(IN_X6 || bMasterHostCDS)		b_S1_CDS_ONOFF=1;
-	else							b_S1_CDS_ONOFF=0;
+bool isMasterCdsUse() {
 
+	return cF_SystemMode == MASTER_CDS_SET;
+}
 
-	if(cF_SystemMode & 0x01)	b_S1_CDS_TIMER=1;    //timer mode
-	else						b_S1_CDS_TIMER=0;    // cds mode
+void  __attribute__((section(".usercode"))) SystemRun(void) {
+
+	bool masterCds = isMasterCdsUse();
+
+	if (masterCds) {
+		if(bMasterHostCDS)		b_S1_CDS_ONOFF=1;
+		else					b_S1_CDS_ONOFF=0;
+	} else {
+		if(IN_X6)				b_S1_CDS_ONOFF=1;
+		else					b_S1_CDS_ONOFF=0;
+	}
+
+	if(cF_SystemMode == TIME_SET)		b_S1_CDS_TIMER=1;    //timer mode
+	else								b_S1_CDS_TIMER=0;    // cds mode
 
 
 	if(b_S1_Remote){
 		b_S1_Auto=0;
 		b_S1_Manual=0;
-		RomoteModeRun();			
+		RomoteModeRun();
 	}
 	else{
 		if( IN_X0){
@@ -999,7 +1020,7 @@ void  __attribute__((section(".usercode"))) SystemRun(void)
 //				sRamDArry[mOut1Status]=VirtualOut1;
 //				sRamDArry[mOut1Status]=VirtualOut2;
 			}
-			AutoModeRun();	
+			AutoModeRun();
 		}
 		else{
 			if(b_S1_Manual==0){
@@ -1010,8 +1031,8 @@ void  __attribute__((section(".usercode"))) SystemRun(void)
 			}
 			ManualModeRun();
 
-//			sRamDArry[mOut1Status] =0xff; 
-//			sRamDArry[mOut2Status] =0x03; 
+//			sRamDArry[mOut1Status] =0xff;
+//			sRamDArry[mOut2Status] =0x03;
 		}
 	}
 
@@ -1031,14 +1052,14 @@ void  __attribute__((section(".usercode"))) OutData(void)
     unsigned int tmpiobuf;
 
     tmpio=(LATD & 0xff00);
-    tmpiobuf=(O_Y_0_bit);          
+    tmpiobuf=(O_Y_0_bit);
     tmpio=(tmpiobuf | tmpio);
     LATD=tmpio;
 
 	sRamDArry[mOut1Status]=	O_Y_0_bit;
 
-    tmpio=(LATC & 0x9fff);         
-    tmpiobuf=(O_OP_bit << 8);          
+    tmpio=(LATC & 0x9fff);
+    tmpiobuf=(O_OP_bit << 8);
     tmpio=(tmpiobuf | tmpio);
     LATC=tmpio;
 
@@ -1056,16 +1077,16 @@ void __attribute__((section(".usercode")))  InPutRead(void)
 
 	X0Byte=0;
 
-	if(!_RD8)	X0Byte=(X0Byte | 0x01);	
-	if(!_RD9)	X0Byte=(X0Byte | 0x02);	
-	if(!_RD10)	X0Byte=(X0Byte | 0x04);	
-	if(!_RD11)	X0Byte=(X0Byte | 0x08);	
-	if(!_RD12)	X0Byte=(X0Byte | 0x10);	
-	if(!_RD13)	X0Byte=(X0Byte | 0x20);	
-	if(!_RD14)	X0Byte=(X0Byte | 0x40);	
-	if(!_RD15)	X0Byte=(X0Byte | 0x80);	
+	if(!_RD8)	X0Byte=(X0Byte | 0x01);
+	if(!_RD9)	X0Byte=(X0Byte | 0x02);
+	if(!_RD10)	X0Byte=(X0Byte | 0x04);
+	if(!_RD11)	X0Byte=(X0Byte | 0x08);
+	if(!_RD12)	X0Byte=(X0Byte | 0x10);
+	if(!_RD13)	X0Byte=(X0Byte | 0x20);
+	if(!_RD14)	X0Byte=(X0Byte | 0x40);
+	if(!_RD15)	X0Byte=(X0Byte | 0x80);
 
-	X0Byte= ~X0Byte;	
+	X0Byte= ~X0Byte;
 
     if(BEF_IN_X0_IN == IN_X0_IN){
         if(X0Time>10){
@@ -1076,7 +1097,7 @@ void __attribute__((section(".usercode")))  InPutRead(void)
     else{
         BEF_IN_X0_IN=IN_X0_IN;
         X0Time=0;
-    }    
+    }
 
     if(BEF_IN_X1_IN == IN_X1_IN){
         if(X1Time>10){
@@ -1087,7 +1108,7 @@ void __attribute__((section(".usercode")))  InPutRead(void)
     else{
         BEF_IN_X1_IN=IN_X1_IN;
         X1Time=0;
-    }    
+    }
 
 
     if(BEF_IN_X2_IN == IN_X2_IN){
@@ -1099,7 +1120,7 @@ void __attribute__((section(".usercode")))  InPutRead(void)
     else{
         BEF_IN_X2_IN=IN_X2_IN;
         X2Time=0;
-    }    
+    }
     if(BEF_IN_X3_IN == IN_X3_IN){
         if(X3Time>10){
             IN_X3_PORT=BEF_IN_X3_IN;
@@ -1109,7 +1130,7 @@ void __attribute__((section(".usercode")))  InPutRead(void)
     else{
         BEF_IN_X3_IN=IN_X3_IN;
         X3Time=0;
-    }    
+    }
 
 
     if(BEF_IN_X4_IN == IN_X4_IN){
@@ -1121,7 +1142,7 @@ void __attribute__((section(".usercode")))  InPutRead(void)
     else{
         BEF_IN_X4_IN=IN_X4_IN;
         X4Time=0;
-    }    
+    }
 
     if(BEF_IN_X5_IN == IN_X5_IN){
         if(X5Time>10){
@@ -1132,7 +1153,7 @@ void __attribute__((section(".usercode")))  InPutRead(void)
     else{
         BEF_IN_X5_IN=IN_X5_IN;
         X5Time=0;
-    }    
+    }
 
     if(BEF_IN_X6_IN == IN_X6_IN){
         if(X6Time>10){
@@ -1143,7 +1164,7 @@ void __attribute__((section(".usercode")))  InPutRead(void)
     else{
         BEF_IN_X6_IN=IN_X6_IN;
         X6Time=0;
-    }    
+    }
 
     if(BEF_IN_X7_IN == IN_X7_IN){
         if(X7Time>10){
@@ -1154,7 +1175,7 @@ void __attribute__((section(".usercode")))  InPutRead(void)
     else{
         BEF_IN_X7_IN=IN_X7_IN;
         X7Time=0;
-    }    
+    }
 
     sRamDArry[mInStatus]  = I_X0_bit;
 }
@@ -1178,7 +1199,7 @@ void  __attribute__((section(".usercode")))   new_IO_Check(void)
 
 ////////////   	sRamDArry[mSysStatus]=sREADY;
 
-   	InPutRead();        
+   	InPutRead();
 	SystemRun();
     OutData();
 
@@ -1186,4 +1207,4 @@ void  __attribute__((section(".usercode")))   new_IO_Check(void)
 		bMasterHostCDS=0;
 		MasterHostLiveTime =0;
 	}
-}      
+}
