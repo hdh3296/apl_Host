@@ -984,8 +984,9 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 
 #define CDS_SET			0
 #define TIME_SET		1
-#define MASTER_CDS_SET	2
 
+
+// @@ 이부분 수정해야 한다.
 bool isMasterCdsUse(void) {
 /*
 	로더 셋팅 값 반환 : MasterCds 여부
@@ -993,7 +994,7 @@ bool isMasterCdsUse(void) {
 	* Timer
 	* MasterCds
 */
-	return cF_SystemMode == MASTER_CDS_SET;
+	return IN_X5;
 }
 
 void  __attribute__((section(".usercode"))) SystemRun(void) {
