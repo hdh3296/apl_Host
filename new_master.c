@@ -994,7 +994,7 @@ bool isMasterCdsUse(void) {
 	* Timer
 	* MasterCds
 */
-	return IN_X5;
+	return cF_MasterCDS;
 }
 
 void  __attribute__((section(".usercode"))) SystemRun(void) {

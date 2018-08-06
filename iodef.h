@@ -141,7 +141,7 @@ extern void __attribute__((section(".usercode"))) HextoASCIIByte(void);
 
 
 
-                                            
+
 #define     L_CMD               	0
 #define	    L_GROUP_ID        		1
 #define	    L_LOG_ADR         		2
@@ -150,7 +150,7 @@ extern void __attribute__((section(".usercode"))) HextoASCIIByte(void);
 #define	    L_OFFSET_MEMORY   		5
 #define	    L_DATA_CNT        		6
 #define	    L_SAVE_DATA       		7
-              
+
 
 #define	    C_CMD       			0
 #define	    C_CMDTYPE      		    1
@@ -158,11 +158,11 @@ extern void __attribute__((section(".usercode"))) HextoASCIIByte(void);
 #define	    C_OFFSET_MEMORY   		3
 #define	    C_DATA_CNT        		4
 #define	    C_SAVE_DATA       		5
-			
-                
+
+
 #define	    ERR_DSP_TIME      		10
 
-                                             
+
 
 //#define	    OPEN_AND_WAIT_TIME_YOU  	40
 //#define     OPEN_TOTAL_TIME_you     70
@@ -170,8 +170,8 @@ extern void __attribute__((section(".usercode"))) HextoASCIIByte(void);
 //#define	    REOPEN_CHK_TIME   		3
 
 #define	    BASE_NEXT_FLR_TIME 		200
-#define	    RELEVEL_TIME            160  //80 
-				
+#define	    RELEVEL_TIME            160  //80
+
 //#define	    Manual_Door 			1
 
 
@@ -198,7 +198,7 @@ typedef  union  _long_union
 {
     unsigned char byte[4];
     unsigned int  intger[2];
-    unsigned long long_data; 
+    unsigned long long_data;
 }long_field;
 
 
@@ -213,7 +213,7 @@ typedef  union  _long_union
 #define GET_LONGFIELD_BYTE2(addr)       (*((volatile long_field*) (addr))).byte[2]
 #define GET_LONGFIELD_BYTE3(addr)       (*((volatile long_field*) (addr))).byte[3]
 
-        
+
 
 
 #define NO_FIRE             0
@@ -225,21 +225,21 @@ typedef  union  _long_union
 
 #define  DOOR_OPEN_START      0
 #define  DOOR_OPEN_CHECK      1
-#define  DOOR_OPEN_WAIT       2          
-#define  DOOR_REOPEN_CHECK    3          
-#define  DOOR_CLOSE_START     4                  
-#define  DOOR_CLOSE_CHECK     5                  
-#define  DOOR_CLOSE_END       6  
-#define  READY_ELEVATOR       7  
-#define  MOVE_ELEVATOR        8  
+#define  DOOR_OPEN_WAIT       2
+#define  DOOR_REOPEN_CHECK    3
+#define  DOOR_CLOSE_START     4
+#define  DOOR_CLOSE_CHECK     5
+#define  DOOR_CLOSE_END       6
+#define  READY_ELEVATOR       7
+#define  MOVE_ELEVATOR        8
 #define  WAIT_NEXT_LULD       9
 #define  WAIT_LULD            10
 #define  STOP_ELEVATOR        11
 
 
 
-#define  sINSPECT 			  0 
-#define  sInvertErr			  1                             
+#define  sINSPECT 			  0
+#define  sInvertErr			  1
 #define  sI_C_N_FLR           2
 #define  sEMERGENCY           3
 #define  sLOPE_BRK            4
@@ -255,24 +255,24 @@ typedef  union  _long_union
 #define  sRelevelError        14
 /////////////////////////////////////
 #define  sEncoderErr          15
-#define  sEncoderABErr        16 
-#define  sSpeedSetError       17 
-#define  sSpeedPortError      18 
-#define  sNoUseSpeed          19 
-#define  sMinLengthErr        20 
-#define  sEqualFloorError     21 
+#define  sEncoderABErr        16
+#define  sSpeedSetError       17
+#define  sSpeedPortError      18
+#define  sNoUseSpeed          19
+#define  sMinLengthErr        20
+#define  sEqualFloorError     21
 #define  sSystemErr           22
-#define  sBreakMgtOpen        23  
-#define  sBreakOpen           24  
-#define  sSusErr              25  
-#define  sSdsErr              26  
+#define  sBreakMgtOpen        23
+#define  sBreakOpen           24
+#define  sSusErr              25
+#define  sSdsErr              26
 //////////////////////////////////
-#define  sLuOrLdErr0          27  
-#define  sLuOrLdErr1          28  
-#define  sLuOrLdErr2          29  
-#define  sLuOrLdErr3          30  
-#define  sLuOrLdErr4          31  
-#define  sLuOrLdErr5          32  
+#define  sLuOrLdErr0          27
+#define  sLuOrLdErr1          28
+#define  sLuOrLdErr2          29
+#define  sLuOrLdErr3          30
+#define  sLuOrLdErr4          31
+#define  sLuOrLdErr5          32
 #define  sCarDoor_Jumper      33
 #define  sHoleDoor_Jumper     34
 #define  sCarHoleDoor_Jumper  35
@@ -282,27 +282,27 @@ typedef  union  _long_union
 //////////////////////////////////////
 #define  sHDS_NO_ON           44
 #define  sCLE_NO_ON           45
-#define  sOVL                 46 
-#define  sPARKING             47   
-#define  sFireOn              48         
-#define  sWaterSense          49         
-#define  sOPE_NO_ON           50                                                                            
+#define  sOVL                 46
+#define  sPARKING             47
+#define  sFireOn              48
+#define  sWaterSense          49
+#define  sOPE_NO_ON           50
 #define  sVIP                 51
 #define  sFHM_MODE			  52
-#define  sMANUAL_UP           53         
-#define  sMANUAL_DN           54         
-#define  sMANUAL              55         
+#define  sMANUAL_UP           53
+#define  sMANUAL_DN           54
+#define  sMANUAL              55
 #define  sSFT                 56
 #define  sOPEN                57
-#define  sCLOSE               58         
-#define  sUP                  59         
-#define  sDN                  60         
-#define  sSLOW_SPEED          61         
-#define  sWAIT_LULD           62         
-#define  sSTOP                63        
-#define  sHOME                64         
+#define  sCLOSE               58
+#define  sUP                  59
+#define  sDN                  60
+#define  sSLOW_SPEED          61
+#define  sWAIT_LULD           62
+#define  sSTOP                63
+#define  sHOME                64
 #define  sREADY               65
-         
+
 
 
 /////////////////////////block0////////////////////////////////////
@@ -321,8 +321,8 @@ typedef  union  _long_union
 #define  F_Passward2            (F_BLOCK0+6)                     //1
 #define  F_Passward3            (F_BLOCK0+7)                     //1
 
-#define  F_UserLamp1            (F_BLOCK0+8)                     //1    
-#define  F_UserLamp2            (F_BLOCK0+9)                     //1     
+#define  F_UserLamp1            (F_BLOCK0+8)                     //1
+#define  F_UserLamp2            (F_BLOCK0+9)                     //1
 #define  F_SerialNm11           (F_BLOCK0+10)                    //1(2) 40
 #define  F_SerialNm10           (F_BLOCK0+11)                    	//1(2)
 
@@ -339,9 +339,9 @@ typedef  union  _long_union
 #define  F_year                 (F_BLOCK0+20)                     //1    41
 #define  F_month                (F_BLOCK0+21)                     //1    41
 #define  F_day                  (F_BLOCK0+22)                     //1    41
-#define  F_ErrStopCnt           (F_BLOCK0+23)                     //1 
+#define  F_ErrStopCnt           (F_BLOCK0+23)                     //1
 
-#define  F_Company              (F_BLOCK0+24)                     //1     
+#define  F_Company              (F_BLOCK0+24)                     //1
 #define  F_Airconadr            (F_BLOCK0+25)						//
 #define  F_UserLamp3            (F_BLOCK0+26)						//
 #define  F_UserLamp4            (F_BLOCK0+27)						//
@@ -362,7 +362,7 @@ typedef  union  _long_union
 #define  F_Day_E_M              (F_BLOCK1+8)               		//1     16
 #define  F_On_Percent           (F_BLOCK1+9)               		//1     16
 #define  F_On_Time              (F_BLOCK1+10)         				//1     16
-#define  F_System1              (F_BLOCK1+11)            			//1     16
+#define  F_MasterCDS            (F_BLOCK1+11)            			//1     16
 
 #define  F_System2              (F_BLOCK1+12)            			//1     16
 #define  F_System3              (F_BLOCK1+13)               		//1     16
@@ -419,6 +419,7 @@ typedef  union  _long_union
 #define  F_9Extra               (F_BLOCK1+54)              //1     16
 
 
+
 /////////////////////////block1////////////////////////////////////
 //floor group
 #define  F_BLOCK1               64
@@ -427,21 +428,21 @@ typedef  union  _long_union
 #define  F_FixFloor             66                     //1
 #define  F_FireSafeFlr          67                     //1
 
-#define  F_X7SafeFlr            68                     //1     17                           
-#define  F_WaterSafeFlr         69                     //1     
-#define  F_StartFloor           70                     //1     
+#define  F_X7SafeFlr            68                     //1     17
+#define  F_WaterSafeFlr         69                     //1
+#define  F_StartFloor           70                     //1
 #define  F_OneStopFlr           71                     //1
 
 #define  F_KidsKeyCnt           72                     //1
-#define  F_X6SafeFlr            73                     //1     17                           
-#define  F_X5SafeFlr         	74                     //1     
+#define  F_X6SafeFlr            73                     //1     17
+#define  F_X5SafeFlr         	74                     //1
 
 
 /*
-#define  F_SubDoorFlr4          75                     //1  
+#define  F_SubDoorFlr4          75                     //1
 
-#define  F_SubDoorFlr5          76                     //1  
-#define  F_SubDoorFlr6          77                     //1                                    
+#define  F_SubDoorFlr5          76                     //1
+#define  F_SubDoorFlr6          77                     //1
 #define  F_SubDoorFlr7          78                     //1      19
 #define  F_SubDoorFlr8          79                     //1
 */
@@ -451,7 +452,7 @@ typedef  union  _long_union
 #define  F_OpWtTm               80                     //1      20
 #define  F_OpTtTm               81                     //1
 #define  F_FixFloorTime         82                     //1
-#define  F_NextFlrTime          83                     //1     
+#define  F_NextFlrTime          83                     //1
 
 #define  F_LuLdOffTime          84                     //1      21
 #define  F_FanTime              85                     //1
@@ -463,13 +464,13 @@ typedef  union  _long_union
 #define  F_DirTime              89                     //1      22
 #define  F_VoiceTime            90                     //1
 #define  F_BrkMgtTime           91                     //1
-  
-#define  F_ReOpTime             92                     //1  
+
+#define  F_ReOpTime             92                     //1
 #define  F_StTm1                93                     //1
 #define  F_StTm2                94                     //1      23
 #define  F_StTm3                95                     //1
 
-#define  F_StTm4                96                     //1  
+#define  F_StTm4                96                     //1
 #define  F_StTm5                97                     //1
 
 #define  F_RunOffTime           98                     //1
@@ -490,10 +491,10 @@ typedef  union  _long_union
 
 //OnOff group
 
-#define  F_NonService0          108                     //1     27    
-#define  F_NonService1          109                     //1     
-#define  F_NonService2          110                     //1     
-#define  F_NonService3          111                     //1   
+#define  F_NonService0          108                     //1     27
+#define  F_NonService1          109                     //1
+#define  F_NonService2          110                     //1
+#define  F_NonService3          111                     //1
 
 #define  F_OnOff0               112                     //1     28
 #define  F_OnOff1               113                     //1
@@ -502,7 +503,7 @@ typedef  union  _long_union
 
 #define  F_NcNoBit0             116                     //1     29
 #define  F_NcNoBit1             117                     //1
-#define  F_NcNoBit2             118                     //1    
+#define  F_NcNoBit2             118                     //1
 #define  F_NcNoBit3             119                     //1
 
 #define  F_NcNoBit4             120                     //1     30
@@ -515,44 +516,44 @@ typedef  union  _long_union
 #define  F_Not_Use2             126                     //1
 #define  F_Not_Use1             127                     //1
 
-                    
+
 //encoder
 //light
 //odd add
 /////////////////////////block2////////////////////////////////////
-//i/o group                                             
+//i/o group
 #define  F_BLOCK2               128
 
 	#define  F_ManualSpeed          F_BLOCK2                //1    32
-	#define  F_BatterySpeed         129                     //1    
-	#define  F_DecreaseSpeed        130                     //1    
-	#define  F_FhmSpeed             131                     //1    
-	
-	#define  F_Speed30              132                     //1    
-	#define  F_Speed45              133                     //1    
+	#define  F_BatterySpeed         129                     //1
+	#define  F_DecreaseSpeed        130                     //1
+	#define  F_FhmSpeed             131                     //1
+
+	#define  F_Speed30              132                     //1
+	#define  F_Speed45              133                     //1
 	#define  F_Speed60              134                     //1    34
-	#define  F_Speed90              135                     //1    
-	
-	#define  F_Speed105             136                     //1    
-	#define  F_Speed120             137                     //1    
+	#define  F_Speed90              135                     //1
+
+	#define  F_Speed105             136                     //1
+	#define  F_Speed120             137                     //1
 	#define  F_Speed150             138                     //1    35
-	#define  F_Speed180             139                     //1    
-	
-	#define  F_Speed210             140                     //1    
+	#define  F_Speed180             139                     //1
+
+	#define  F_Speed210             140                     //1
 	#define  F_Etc1Speed            141                     //1    33
-	#define  F_Etc2Speed            142                     //1    
-	#define  F_ElevSpeed            143                     //1     
-	
-	
+	#define  F_Etc2Speed            142                     //1
+	#define  F_ElevSpeed            143                     //1
+
+
 	#define  F_LimitSpeed           144                     //1    36
 	#define  F_Su1Sd1_Velocity      145                     //1    36
-	#define  F_Su2Sd2_Velocity      146                     //1     
-	#define  F_X0X1_Velocity        147                     //1     
-	
+	#define  F_Su2Sd2_Velocity      146                     //1
+	#define  F_X0X1_Velocity        147                     //1
+
 	#define  NC_IO2                 148                     //1    37
-	#define  NC_IO3                 149                     //1     
-	#define  NC_IO4                 150                     //1     
-	#define  NC_IO5                 151                     //1     
+	#define  NC_IO3                 149                     //1
+	#define  NC_IO4                 150                     //1
+	#define  NC_IO5                 151                     //1
 
 /*
 //user group
@@ -566,8 +567,8 @@ typedef  union  _long_union
 #define  F_Passward2            158                     //1
 #define  F_Passward3            159                     //1
 
-#define  F_UserLamp1            160                     //1    
-#define  F_UserLamp2            161                     //1     
+#define  F_UserLamp1            160                     //1
+#define  F_UserLamp2            161                     //1
 #define  F_SerialNm11           162                     //1(2) 40
 #define  F_SerialNm10           163                     //1(2)
 
@@ -584,8 +585,8 @@ typedef  union  _long_union
 #define  F_month                173                     //1    41
 #define  F_day                  174                     //1    41
 
-#define  F_ErrStopCnt           175                     //1 
-#define  F_Company              176                     //1     
+#define  F_ErrStopCnt           175                     //1
+#define  F_Company              176                     //1
 #define  F_Airconadr            177						//
 
 #define  F_UserLamp3            178						//
@@ -601,46 +602,46 @@ typedef  union  _long_union
 //wait   group
 #define  F_BLOCK3               192
 #define  F_0506                 F_BLOCK3                //1     48
-#define  F_0607                 193                     //1     
-#define  F_0708                 194                     //1     
-#define  F_0809                 195                     //1     
+#define  F_0607                 193                     //1
+#define  F_0708                 194                     //1
+#define  F_0809                 195                     //1
 
 #define  F_0910                 196                     //1     49
-#define  F_1011                 197                     //1     
-#define  F_1112                 198                     //1     
-#define  F_1213                 199                     //1     
+#define  F_1011                 197                     //1
+#define  F_1112                 198                     //1
+#define  F_1213                 199                     //1
 
 #define  F_1314                 200                     //1     50
-#define  F_1415                 201                     //1     
-#define  F_1516                 202                     //1     
-#define  F_1617                 203                     //1     
+#define  F_1415                 201                     //1
+#define  F_1516                 202                     //1
+#define  F_1617                 203                     //1
 
 #define  F_1718                 204                     //1     51
-#define  F_1819                 205                     //1     
-#define  F_1920                 206                     //1     
-#define  F_2021                 207                     //1     
+#define  F_1819                 205                     //1
+#define  F_1920                 206                     //1
+#define  F_2021                 207                     //1
 
 #define  F_2105                 208                     //1     52
-#define  F_0002                 209                     //1     
-#define  F_0003                 210                     //1     
-#define  F_0004                 211                     //1     
+#define  F_0002                 209                     //1
+#define  F_0003                 210                     //1
+#define  F_0004                 211                     //1
 
 #define  F_0005                 212                     //1     53
-#define  F_0006                 213                     //1     
-#define  F_0007                 214                     //1     
-#define  F_0008                 215                     //1     
+#define  F_0006                 213                     //1
+#define  F_0007                 214                     //1
+#define  F_0008                 215                     //1
 
 
 #define  F_0009                 216                     //1     54
-#define  F_0010                 217                     //1     
-#define  F_0011                 218                     //1     
-#define  F_0012                 219                     //1     
+#define  F_0010                 217                     //1
+#define  F_0011                 218                     //1
+#define  F_0012                 219                     //1
 
 
 #define  F_0013                 220                     //1     55
-#define  F_0014                 221                     //1     
-#define  F_ParkingStart         222                     //1     
-#define  F_ParkingEnd           223                     //1     
+#define  F_0014                 221                     //1
+#define  F_ParkingStart         222                     //1
+#define  F_ParkingEnd           223                     //1
 
 
 ////////////////////////////////////////////////////////////////////
@@ -649,104 +650,104 @@ typedef  union  _long_union
 
 
 
-/////////////////////////block4///////////////////////////////////                                                                                                            
+/////////////////////////block4///////////////////////////////////
 /////////////////////////4 * 64///////////////////////////////////
 #define  F_BLOCK4               256
 #define  EMG_PORT               F_BLOCK4    //1     1       64
-#define  PRK_PORT               257         //1     
-#define  AUTO_PORT              258         //1    
+#define  PRK_PORT               257         //1
+#define  AUTO_PORT              258         //1
 #define  U_B_PORT               259         //1
-     
+
 #define  D_B_PORT               260         //1     2
-#define  OLS_PORT               261         //1     
-#define  GS_PORT                262         //1     
-#define  DS_PORT                263         //1     
+#define  OLS_PORT               261         //1
+#define  GS_PORT                262         //1
+#define  DS_PORT                263         //1
 
 #define  SU1_PORT               264         //1     3
-#define  SD1_PORT               265         //1     
-#define  SFT_PORT               266         //1     
-#define  OVL_PORT               267         //1     
+#define  SD1_PORT               265         //1
+#define  SFT_PORT               266         //1
+#define  OVL_PORT               267         //1
 
 #define  ULS_PORT               268         //1     4
-#define  DLS_PORT               269         //1     
-#define  LU_PORT                270         //1     
-#define  LD_PORT                271         //1     
+#define  DLS_PORT               269         //1
+#define  LU_PORT                270         //1
+#define  LD_PORT                271         //1
 
 #define  RG_PORT                272         //1     5
-#define  BAT_PORT               273         //1     
-#define  PASS_PORT              274         //1     
-#define  FIRE_PORT              275         //1     
+#define  BAT_PORT               273         //1
+#define  PASS_PORT              274         //1
+#define  FIRE_PORT              275         //1
 
 #define  WATER_PORT             276         //1     6
-#define  FULL_PORT              277         //1     
-//#define  EX1_PORT               278         //1     
-#define  MM_PORT               278         //1     
-#define  FHM_PORT               279         //1     
+#define  FULL_PORT              277         //1
+//#define  EX1_PORT               278         //1
+#define  MM_PORT               278         //1
+#define  FHM_PORT               279         //1
 
 #define  FR1_PORT               280         //1     7
-#define  FR2_PORT               281         //1     
-#define  GS2_PORT               282         //1     
-#define  DS2_PORT               283         //1     
+#define  FR2_PORT               281         //1
+#define  GS2_PORT               282         //1
+#define  DS2_PORT               283         //1
 
 #define  SU2_PORT               284         //1     8
-#define  SD2_PORT               285         //1     
-#define  BM_PORT               286         //1     
-#define  INV_PORT               287         //1     
+#define  SD2_PORT               285         //1
+#define  BM_PORT               286         //1
+#define  INV_PORT               287         //1
 
 #define  X0_PORT                288         //1     9
-#define  X1_PORT                289         //1     
-#define  X2_PORT                290         //1     
-#define  X3_PORT                291         //1     
+#define  X1_PORT                289         //1
+#define  X2_PORT                290         //1
+#define  X3_PORT                291         //1
 
 #define  X4_PORT                292         //1     10
-#define  X5_PORT                293         //1     
-#define  X6_PORT                294         //1     
-#define  X7_PORT                295         //1     
+#define  X5_PORT                293         //1
+#define  X6_PORT                294         //1
+#define  X7_PORT                295         //1
 
 #define  FS0_PORT               296         //1     11
-#define  FS1_PORT               297         //1     
-#define  FS2_PORT               298         //1     
-#define  FS3_PORT               299         //1     
+#define  FS1_PORT               297         //1
+#define  FS2_PORT               298         //1
+#define  FS3_PORT               299         //1
 
 #define  FS4_PORT               300         //1     12
-#define  DER_PORT               301         //1     
-#define  FID_PORT               302         //1     
-#define  UND_PORT               303         //1     
+#define  DER_PORT               301         //1
+#define  FID_PORT               302         //1
+#define  UND_PORT               303         //1
 
-#define  F_SubDoorFlr1          304         //1     
+#define  F_SubDoorFlr1          304         //1
 #define  F_SubDoorFlr2          305         //1
 #define  F_SubDoorFlr3          306         //1      13
-#define  F_SubDoorFlr4          307         //1  
+#define  F_SubDoorFlr4          307         //1
 
-#define  F_SubDoorFlr5          308         //1  
-#define  F_SubDoorFlr6          309         //1                                    
+#define  F_SubDoorFlr5          308         //1
+#define  F_SubDoorFlr6          309         //1
 #define  F_SubDoorFlr7          310         //1      14
 #define  F_SubDoorFlr8          311         //1
 
 
-/////////////////out port///////////////////////////    
-/////////////////////////block5///////////////////////////////////                                                                                                            
+/////////////////out port///////////////////////////
+/////////////////////////block5///////////////////////////////////
 /////////////////////////5 * 64///////////////////////////////////
 #define  F_BLOCK5               320
-#define  FAN_PORT               F_BLOCK5    //1     
-#define  LIT_PORT               321         //1     
-#define  BUZ_PORT               322         //1     
+#define  FAN_PORT               F_BLOCK5    //1
+#define  LIT_PORT               321         //1
+#define  BUZ_PORT               322         //1
 #define  BELL_PORT              323         //1
-     
-#define  RST_PORT               324         //1     
-#define  ERR_PORT               325         //1     
-#define  HOP_PORT               326         //1     
+
+#define  RST_PORT               324         //1
+#define  ERR_PORT               325         //1
+#define  HOP_PORT               326         //1
 #define  HCL_PORT               327         //1     3
 
-#define  OP_PORT                328         //1     
-#define  CL_PORT                329         //1     
-#define  S_OP_PORT              330         //1     
-#define  S_CL_PORT              331         //1     
+#define  OP_PORT                328         //1
+#define  CL_PORT                329         //1
+#define  S_OP_PORT              330         //1
+#define  S_CL_PORT              331         //1
 
 #define  BK2_PORT               332         //1
-#define  D_S_PORT               333         //1     
-#define  GBR_PORT               334         //1     
-#define  BK1_PORT               335         //1     
+#define  D_S_PORT               333         //1
+#define  GBR_PORT               334         //1
+#define  BK1_PORT               335         //1
 
 #define  UP_PORT	            336
 #define	 DN_PORT	            337
@@ -765,21 +766,21 @@ typedef  union  _long_union
 
 
 
-//#define  BASE_1                 (256/64) * 16    
-#define  BASE_1                 96    
+//#define  BASE_1                 (256/64) * 16
+#define  BASE_1                 96
 
 /////////////////////////block6,7///////////////////////////////////
-	#define  ENCODER_PULSE          BASE_1+ 0 
-	#define  MPM                    BASE_1+ 1 
+	#define  ENCODER_PULSE          BASE_1+ 0
+	#define  MPM                    BASE_1+ 1
 	#define  RPM                    BASE_1+ 2
-	#define  DEC_LENGTH_30          BASE_1+ 3 
-	#define  DEC_LENGTH_45          BASE_1+ 4 
-	#define  DEC_LENGTH_60          BASE_1+ 5 
-	#define  DEC_LENGTH_90          BASE_1+ 6  
-	#define  DEC_LENGTH_105         BASE_1+ 7  
+	#define  DEC_LENGTH_30          BASE_1+ 3
+	#define  DEC_LENGTH_45          BASE_1+ 4
+	#define  DEC_LENGTH_60          BASE_1+ 5
+	#define  DEC_LENGTH_90          BASE_1+ 6
+	#define  DEC_LENGTH_105         BASE_1+ 7
 	#define  DEC_LENGTH_120         BASE_1+ 8
-	#define  DEC_LENGTH_150         BASE_1+ 9 
-	#define  DEC_LENGTH_180         BASE_1+ 10 
+	#define  DEC_LENGTH_150         BASE_1+ 9
+	#define  DEC_LENGTH_180         BASE_1+ 10
 	#define  DEC_LENGTH_210         BASE_1+ 11
 	#define  DEC_PULSE_30           BASE_1+ 12
 	#define  DEC_PULSE_45           BASE_1+ 13
@@ -796,11 +797,11 @@ typedef  union  _long_union
 //	#define  MIN_DEC_PULSE_90       BASE_1+ 24
 //	#define  MIN_DEC_PULSE_105      BASE_1+ 25
 //	#define  MIN_DEC_PULSE_120      BASE_1+ 26
-//	#define  MIN_DEC_PULSE_150      BASE_1+ 27 
-//	#define  MIN_DEC_PULSE_180		BASE_1+ 28 
-//	#define  MIN_DEC_PULSE_210      BASE_1+ 29 
-	#define  MPM_VARIABLE           BASE_1+ 30 
-	#define  MM_PULSE               BASE_1+ 31 
+//	#define  MIN_DEC_PULSE_150      BASE_1+ 27
+//	#define  MIN_DEC_PULSE_180		BASE_1+ 28
+//	#define  MIN_DEC_PULSE_210      BASE_1+ 29
+	#define  MPM_VARIABLE           BASE_1+ 30
+	#define  MM_PULSE               BASE_1+ 31
 
 
 
@@ -809,71 +810,71 @@ typedef  union  _long_union
 /////////////////////////block8,9,10,11///////////////////////////////////
 
 #define  FLR_01_PULSE           BASE_1+ 32
-#define  FLR_02_PULSE           BASE_1+ 33 
-#define  FLR_03_PULSE           BASE_1+ 34 
-#define  FLR_04_PULSE           BASE_1+ 35 
-#define  FLR_05_PULSE           BASE_1+ 36 
-#define  FLR_06_PULSE           BASE_1+ 37 
-#define  FLR_07_PULSE           BASE_1+ 38 
-#define  FLR_08_PULSE           BASE_1+ 39 
-#define  FLR_09_PULSE           BASE_1+ 40 
-#define  FLR_10_PULSE           BASE_1+ 41 
-#define  FLR_11_PULSE           BASE_1+ 42 
-#define  FLR_12_PULSE           BASE_1+ 43 
-#define  FLR_13_PULSE           BASE_1+ 44 
-#define  FLR_14_PULSE           BASE_1+ 45 
-#define  FLR_15_PULSE           BASE_1+ 46 
-#define  FLR_16_PULSE           BASE_1+ 47 
-#define  FLR_17_PULSE           BASE_1+ 48 
-#define  FLR_18_PULSE           BASE_1+ 49 
-#define  FLR_19_PULSE           BASE_1+ 50 
-#define  FLR_20_PULSE           BASE_1+ 51 
-#define  FLR_21_PULSE           BASE_1+ 52 
-#define  FLR_22_PULSE           BASE_1+ 53 
-#define  FLR_23_PULSE           BASE_1+ 54 
-#define  FLR_24_PULSE           BASE_1+ 55 
-#define  FLR_25_PULSE           BASE_1+ 56 
-#define  FLR_26_PULSE           BASE_1+ 57 
-#define  FLR_27_PULSE           BASE_1+ 58 
-#define  FLR_28_PULSE           BASE_1+ 59 
-#define  FLR_29_PULSE           BASE_1+ 60 
-#define  FLR_30_PULSE           BASE_1+ 61 
-#define  FLR_31_PULSE           BASE_1+ 62 
-#define  FLR_32_PULSE           BASE_1+ 63 
+#define  FLR_02_PULSE           BASE_1+ 33
+#define  FLR_03_PULSE           BASE_1+ 34
+#define  FLR_04_PULSE           BASE_1+ 35
+#define  FLR_05_PULSE           BASE_1+ 36
+#define  FLR_06_PULSE           BASE_1+ 37
+#define  FLR_07_PULSE           BASE_1+ 38
+#define  FLR_08_PULSE           BASE_1+ 39
+#define  FLR_09_PULSE           BASE_1+ 40
+#define  FLR_10_PULSE           BASE_1+ 41
+#define  FLR_11_PULSE           BASE_1+ 42
+#define  FLR_12_PULSE           BASE_1+ 43
+#define  FLR_13_PULSE           BASE_1+ 44
+#define  FLR_14_PULSE           BASE_1+ 45
+#define  FLR_15_PULSE           BASE_1+ 46
+#define  FLR_16_PULSE           BASE_1+ 47
+#define  FLR_17_PULSE           BASE_1+ 48
+#define  FLR_18_PULSE           BASE_1+ 49
+#define  FLR_19_PULSE           BASE_1+ 50
+#define  FLR_20_PULSE           BASE_1+ 51
+#define  FLR_21_PULSE           BASE_1+ 52
+#define  FLR_22_PULSE           BASE_1+ 53
+#define  FLR_23_PULSE           BASE_1+ 54
+#define  FLR_24_PULSE           BASE_1+ 55
+#define  FLR_25_PULSE           BASE_1+ 56
+#define  FLR_26_PULSE           BASE_1+ 57
+#define  FLR_27_PULSE           BASE_1+ 58
+#define  FLR_28_PULSE           BASE_1+ 59
+#define  FLR_29_PULSE           BASE_1+ 60
+#define  FLR_30_PULSE           BASE_1+ 61
+#define  FLR_31_PULSE           BASE_1+ 62
+#define  FLR_32_PULSE           BASE_1+ 63
 
 
 #define  FLR_33_PULSE           BASE_1+ 64
-#define  FLR_34_PULSE           BASE_1+ 65 
-#define  FLR_35_PULSE           BASE_1+ 66 
-#define  FLR_36_PULSE           BASE_1+ 67 
-#define  FLR_37_PULSE           BASE_1+ 68 
-#define  FLR_38_PULSE           BASE_1+ 69 
-#define  FLR_39_PULSE           BASE_1+ 70 
-#define  FLR_40_PULSE           BASE_1+ 71 
-#define  FLR_41_PULSE           BASE_1+ 72 
-#define  FLR_42_PULSE           BASE_1+ 73 
-#define  FLR_43_PULSE           BASE_1+ 74 
-#define  FLR_44_PULSE           BASE_1+ 75 
-#define  FLR_45_PULSE           BASE_1+ 76 
-#define  FLR_46_PULSE           BASE_1+ 77 
-#define  FLR_47_PULSE           BASE_1+ 78 
-#define  FLR_48_PULSE           BASE_1+ 79 
-#define  FLR_49_PULSE           BASE_1+ 80 
-#define  FLR_50_PULSE           BASE_1+ 81 
-#define  FLR_51_PULSE           BASE_1+ 82 
-#define  FLR_52_PULSE           BASE_1+ 83 
-#define  FLR_53_PULSE           BASE_1+ 84 
-#define  FLR_54_PULSE           BASE_1+ 85 
-#define  FLR_55_PULSE           BASE_1+ 86 
-#define  FLR_56_PULSE           BASE_1+ 87 
-#define  FLR_57_PULSE           BASE_1+ 88 
-#define  FLR_58_PULSE           BASE_1+ 89 
-#define  FLR_59_PULSE           BASE_1+ 90 
-#define  FLR_60_PULSE           BASE_1+ 91 
-#define  FLR_61_PULSE           BASE_1+ 92 
-#define  FLR_62_PULSE           BASE_1+ 93 
-#define  FLR_63_PULSE           BASE_1+ 94 
-#define  FLR_64_PULSE           BASE_1+ 95 
+#define  FLR_34_PULSE           BASE_1+ 65
+#define  FLR_35_PULSE           BASE_1+ 66
+#define  FLR_36_PULSE           BASE_1+ 67
+#define  FLR_37_PULSE           BASE_1+ 68
+#define  FLR_38_PULSE           BASE_1+ 69
+#define  FLR_39_PULSE           BASE_1+ 70
+#define  FLR_40_PULSE           BASE_1+ 71
+#define  FLR_41_PULSE           BASE_1+ 72
+#define  FLR_42_PULSE           BASE_1+ 73
+#define  FLR_43_PULSE           BASE_1+ 74
+#define  FLR_44_PULSE           BASE_1+ 75
+#define  FLR_45_PULSE           BASE_1+ 76
+#define  FLR_46_PULSE           BASE_1+ 77
+#define  FLR_47_PULSE           BASE_1+ 78
+#define  FLR_48_PULSE           BASE_1+ 79
+#define  FLR_49_PULSE           BASE_1+ 80
+#define  FLR_50_PULSE           BASE_1+ 81
+#define  FLR_51_PULSE           BASE_1+ 82
+#define  FLR_52_PULSE           BASE_1+ 83
+#define  FLR_53_PULSE           BASE_1+ 84
+#define  FLR_54_PULSE           BASE_1+ 85
+#define  FLR_55_PULSE           BASE_1+ 86
+#define  FLR_56_PULSE           BASE_1+ 87
+#define  FLR_57_PULSE           BASE_1+ 88
+#define  FLR_58_PULSE           BASE_1+ 89
+#define  FLR_59_PULSE           BASE_1+ 90
+#define  FLR_60_PULSE           BASE_1+ 91
+#define  FLR_61_PULSE           BASE_1+ 92
+#define  FLR_62_PULSE           BASE_1+ 93
+#define  FLR_63_PULSE           BASE_1+ 94
+#define  FLR_64_PULSE           BASE_1+ 95
 
 
 
@@ -886,7 +887,7 @@ typedef  union  _long_union
 #define  F_BLOCK_X0           	F_BLOCK_14
 #define  F_BLOCK_X1           	F_BLOCK_X0+64
 
-#define  F_CurPulse0			F_BLOCK_X0+0   
+#define  F_CurPulse0			F_BLOCK_X0+0
 #define  F_CurPulse1			F_BLOCK_X0+1
 #define  F_CurPulse2			F_BLOCK_X0+2
 #define  F_CurPulse3			F_BLOCK_X0+3
@@ -1239,8 +1240,8 @@ typedef  union  _long_union
 //#define  F_BLOCK14              896
 
 
-//#define  F_CurPulsePt			224			             
-//#define  F_MoveCountPt			225			             
+//#define  F_CurPulsePt			224
+//#define  F_MoveCountPt			225
 
 
 //F_BLOCK14   end
@@ -1250,33 +1251,33 @@ typedef  union  _long_union
 
 /*
 #define  BASE_ADDR              0
-#define  O_eVer                 BASE_ADDR                       
-#define  O_eTopFlr              3           //O_eVer+3                    
-#define  O_ePrkFlr              4           //O_eTopFlr+1                 
-#define  O_eOpWtTm              5           //O_ePrkFlr+1                 
-#define  O_eOpTtTm              6           //O_eOpWtTm+1                 
-#define  O_eUserLamp            7           //O_eOpTtTm+1                 
-#define  O_eFixFloor            8           //O_eUserLamp+1               
-#define  O_eFixFloorTime        9           //O_eFixFloor+1                
-#define  O_eNonService0         10          //O_eFixFloorTime+1                
-#define  O_eNonService1         11          //O_eFixFloorTime+1                
-#define  O_eNonService2         12          //O_eFixFloorTime+1                
-#define  O_eNonService3         13          //O_eFixFloorTime+1                
-#define  O_eFlrDspCh            14          //O_eNonService+4            
-#define  O_eSysErCnt            78          //O_eFlrDspCh+64             
-#define  O_ePassward            162         //O_eSysErCnt+ERR_SAVE_SIZE 
-#define  O_eMvCounter           166         //O_ePassward+4            
-#define  O_eSerialNm            168         //O_eMvCounter+2            
-#define  O_eFireSafeFlr         170         //O_eSerialNm+2             
-#define  O_eSubDoorFlr1         171         //O_eFireSafeFlr+1          
-#define  O_eSubDoorFlr2         172         //O_eSubDoorFlr1+1          
-#define  O_eSubDoorFlr3         173         //O_eSubDoorFlr2+1          
-#define  O_eErrStopCnt          174         //O_eSubDoorFlr3+1          
-#define  O_eErrCntPt            175         //O_eErrStopCnt+1           
-#define  O_eNextFlrTime         176         //O_eErrCntPt+1             
-#define  O_eLuLdOffTime         177         //O_eNextFlrTime+1            
-#define  O_eNcNoBit             178         //O_eLuLdOffTime+1          
-#define  O_eEnd                 179         //O_eNcNoBit+4              
+#define  O_eVer                 BASE_ADDR
+#define  O_eTopFlr              3           //O_eVer+3
+#define  O_ePrkFlr              4           //O_eTopFlr+1
+#define  O_eOpWtTm              5           //O_ePrkFlr+1
+#define  O_eOpTtTm              6           //O_eOpWtTm+1
+#define  O_eUserLamp            7           //O_eOpTtTm+1
+#define  O_eFixFloor            8           //O_eUserLamp+1
+#define  O_eFixFloorTime        9           //O_eFixFloor+1
+#define  O_eNonService0         10          //O_eFixFloorTime+1
+#define  O_eNonService1         11          //O_eFixFloorTime+1
+#define  O_eNonService2         12          //O_eFixFloorTime+1
+#define  O_eNonService3         13          //O_eFixFloorTime+1
+#define  O_eFlrDspCh            14          //O_eNonService+4
+#define  O_eSysErCnt            78          //O_eFlrDspCh+64
+#define  O_ePassward            162         //O_eSysErCnt+ERR_SAVE_SIZE
+#define  O_eMvCounter           166         //O_ePassward+4
+#define  O_eSerialNm            168         //O_eMvCounter+2
+#define  O_eFireSafeFlr         170         //O_eSerialNm+2
+#define  O_eSubDoorFlr1         171         //O_eFireSafeFlr+1
+#define  O_eSubDoorFlr2         172         //O_eSubDoorFlr1+1
+#define  O_eSubDoorFlr3         173         //O_eSubDoorFlr2+1
+#define  O_eErrStopCnt          174         //O_eSubDoorFlr3+1
+#define  O_eErrCntPt            175         //O_eErrStopCnt+1
+#define  O_eNextFlrTime         176         //O_eErrCntPt+1
+#define  O_eLuLdOffTime         177         //O_eNextFlrTime+1
+#define  O_eNcNoBit             178         //O_eLuLdOffTime+1
+#define  O_eEnd                 179         //O_eNcNoBit+4
 */
 
 
@@ -1322,13 +1323,13 @@ extern  UserDataType    Chksum2;
 
 extern  UserDataType    errbd[12];
 extern  UserDataType    Olderrbd[12];
-extern  UserDataType    LadderBuf[16];                         
-extern  UserDataType    LadderData[16];                           
-extern  UserDataType    sRamDArry[END_SRAM];     
+extern  UserDataType    LadderBuf[16];
+extern  UserDataType    LadderData[16];
+extern  UserDataType    sRamDArry[END_SRAM];
 extern  UserDataType    BdErrCntSeq[ABS_ADDRESS];
 extern  UserDataType    BDid[ABS_ADDRESS];
-extern  UserDataType    eDArry[E_END];      
-extern  UserDataType    New485Ladder[40];      
+extern  UserDataType    eDArry[E_END];
+extern  UserDataType    New485Ladder[40];
 
 
 
@@ -1359,13 +1360,13 @@ extern  UserDataType    errpt;
 extern  UserDataType    ErrBdNamePt;
 extern  UserDataType    BefErrBdNamePt;
 extern  UserDataType    eMvCounterCnt;
-extern  UserDataType    OpenOutOffTime;        
-extern  UserDataType    CloseOutOffTime;        
-extern  UserDataType    VoiceTime;        
-extern  UserDataType    FhmLoaderTime;        
-extern	UserDataType    AccTimer;        
+extern  UserDataType    OpenOutOffTime;
+extern  UserDataType    CloseOutOffTime;
+extern  UserDataType    VoiceTime;
+extern  UserDataType    FhmLoaderTime;
+extern	UserDataType    AccTimer;
 
-extern  UserDataType    RstTime;        
+extern  UserDataType    RstTime;
 extern  UserDataType    UpBttonTime;
 extern  UserDataType    DnBttonTime;
 extern  UserDataType    DoorCloseTime;
@@ -1375,10 +1376,10 @@ extern  UserDataType    msec10;
 extern  UserDataType    sec1;
 
 extern  UserDataType    EepTime;
-extern  UserDataType    FanTime; 
-extern  UserDataType    ManualStopTime;  
-extern  UserDataType    WarmingUpTime; 
-extern  UserDataType    FixFlrTimeCnt; 
+extern  UserDataType    FanTime;
+extern  UserDataType    ManualStopTime;
+extern  UserDataType    WarmingUpTime;
+extern  UserDataType    FixFlrTimeCnt;
 extern  UserDataType    errtime;
 extern  UserDataType    FhmTime;
 extern  UserDataType    CurFTime;
@@ -1403,7 +1404,7 @@ extern  UserDataType    CurDoorSelect;
 //extern  UserDataType    SaveMoveCounter;
 extern  UserDataType    LoopTime;
 extern	UserDataType    SaveVerify;
-extern	UserDataType    EncoderReloadTime;     
+extern	UserDataType    EncoderReloadTime;
 
 
 /////////////
@@ -1429,7 +1430,7 @@ extern  unsigned int   CAN2_Buf[8];
 
 
 
-extern  UserDataType    OldFireBuf;  
+extern  UserDataType    OldFireBuf;
 extern  UserDataType    AutoBit;
 extern  UserDataType    EmerBit;
 extern  UserDataType    SlipBit;
@@ -1443,14 +1444,14 @@ extern  UserDataType    Etc2Bit;
 extern  UserDataType    Etc3Bit;
 extern  UserDataType    PC1Bit;
 extern  UserDataType    StateBit0;
-extern  UserDataType    StateBit1;   
-extern  UserDataType    StateBit2;   
-extern	UserDataType    StateBit3;   
-extern	UserDataType    StateBit4;   
-extern	UserDataType    StateBit5;   
-extern	UserDataType    StateBit6;   
+extern  UserDataType    StateBit1;
+extern  UserDataType    StateBit2;
+extern	UserDataType    StateBit3;
+extern	UserDataType    StateBit4;
+extern	UserDataType    StateBit5;
+extern	UserDataType    StateBit6;
 
-extern  UserDataType    Vip_Floor;   
+extern  UserDataType    Vip_Floor;
 
 
 extern  UserDataType    S0_STATE_bit;
@@ -1511,9 +1512,9 @@ extern	unsigned long 	TestPulse1,UpDnEncoder;
 extern	UserDataType    SerialLoopMaxTime;
 extern	UserDataType    ClrCnt;
 
-extern	UserDataType    TmpBuzor;   
+extern	UserDataType    TmpBuzor;
 extern	UserDataType    ExtKeyCnt;
-extern	UserDataType    NotRecoveryData;     
+extern	UserDataType    NotRecoveryData;
 extern	UserDataType    CmdFixFlrTime;
 
 
@@ -1526,7 +1527,7 @@ extern unsigned long  parameter_mirror[MAX_LONG_BUF]; // __attribute__((aligned(
 
 extern	long_field  FlashDspCharBuf[512]    __attribute__((aligned(512) , space(psv)));
 
-extern const unsigned char DftFlrName[]; 
+extern const unsigned char DftFlrName[];
 extern const unsigned char StatusMessage[][16];
 extern const unsigned int EncRate[];
 
@@ -1574,64 +1575,64 @@ extern const unsigned int EncRate[];
 
 
 
-#define  bAuto         		    GET_BITFIELD(&AutoBit).bit0 
+#define  bAuto         		    GET_BITFIELD(&AutoBit).bit0
 #define  bMoveOk           	    GET_BITFIELD(&AutoBit).bit1
-#define  bMoveUpOk         	    GET_BITFIELD(&AutoBit).bit2 
-#define  bMoveDnOk         	    GET_BITFIELD(&AutoBit).bit3 
+#define  bMoveUpOk         	    GET_BITFIELD(&AutoBit).bit2
+#define  bMoveDnOk         	    GET_BITFIELD(&AutoBit).bit3
 #define  bMoveCar       	    GET_BITFIELD(&AutoBit).bit4
-#define  bManualAuto    	    GET_BITFIELD(&AutoBit).bit5 
-#define  bManualUpKey      	    GET_BITFIELD(&AutoBit).bit6 
+#define  bManualAuto    	    GET_BITFIELD(&AutoBit).bit5
+#define  bManualUpKey      	    GET_BITFIELD(&AutoBit).bit6
 #define  bManualDnKey      	    GET_BITFIELD(&AutoBit).bit7
 
-#define  bsEmergency       	    GET_BITFIELD(&EmerBit).bit0 
+#define  bsEmergency       	    GET_BITFIELD(&EmerBit).bit0
 #define  bOnLuLd        	    GET_BITFIELD(&EmerBit).bit1
-#define  bsUls       		    GET_BITFIELD(&EmerBit).bit2 
-#define  bsDls       		    GET_BITFIELD(&EmerBit).bit3 
+#define  bsUls       		    GET_BITFIELD(&EmerBit).bit2
+#define  bsDls       		    GET_BITFIELD(&EmerBit).bit3
 #define  bHomeUpDn         	    GET_BITFIELD(&EmerBit).bit4
 #define  bInspect         	    GET_BITFIELD(&EmerBit).bit5
-#define  bExtButClr     	    GET_BITFIELD(&EmerBit).bit6 
+#define  bExtButClr     	    GET_BITFIELD(&EmerBit).bit6
 #define  bCarButClr     	    GET_BITFIELD(&EmerBit).bit7
 
-#define  bsSlip         	    GET_BITFIELD(&SlipBit).bit0 
+#define  bsSlip         	    GET_BITFIELD(&SlipBit).bit0
 #define  bVoiceReady      	    GET_BITFIELD(&SlipBit).bit1
 #define  bCarUpDnChButClr       GET_BITFIELD(&SlipBit).bit2
-#define  bsOpeNoOn         	    GET_BITFIELD(&SlipBit).bit3 
+#define  bsOpeNoOn         	    GET_BITFIELD(&SlipBit).bit3
 #define  bsLuLdNoOff       	    GET_BITFIELD(&SlipBit).bit4
-#define  bsNextFloor    	    GET_BITFIELD(&SlipBit).bit5 
-#define  bsHdsNoOn      	    GET_BITFIELD(&SlipBit).bit6 
+#define  bsNextFloor    	    GET_BITFIELD(&SlipBit).bit5
+#define  bsHdsNoOn      	    GET_BITFIELD(&SlipBit).bit6
 #define  bsCleNoOn      	    GET_BITFIELD(&SlipBit).bit7
 
-#define  bBefbRelevelErr        GET_BITFIELD(&LuLdBit).bit0 
+#define  bBefbRelevelErr        GET_BITFIELD(&LuLdBit).bit0
 #define  bsDestFloor       	    GET_BITFIELD(&LuLdBit).bit1
-#define  bFindBoard     	    GET_BITFIELD(&LuLdBit).bit2 
-#define  bReOpen        	    GET_BITFIELD(&LuLdBit).bit3 
+#define  bFindBoard     	    GET_BITFIELD(&LuLdBit).bit2
+#define  bReOpen        	    GET_BITFIELD(&LuLdBit).bit3
 #define  bUpWard           	    GET_BITFIELD(&LuLdBit).bit4
-#define  bDnWard        	    GET_BITFIELD(&LuLdBit).bit5 
-#define  bCarStop          	    GET_BITFIELD(&LuLdBit).bit6 
+#define  bDnWard        	    GET_BITFIELD(&LuLdBit).bit5
+#define  bCarStop          	    GET_BITFIELD(&LuLdBit).bit6
 #define  bCarErr        	    GET_BITFIELD(&LuLdBit).bit7
 
 
 #define  bCarStopNoRun     	    GET_BITFIELD(&OpenEndBit).bit0
-#define  bTestKey       	    GET_BITFIELD(&OpenEndBit).bit1 
-#define  bSlipCheckStart	    GET_BITFIELD(&OpenEndBit).bit2 
+#define  bTestKey       	    GET_BITFIELD(&OpenEndBit).bit1
+#define  bSlipCheckStart	    GET_BITFIELD(&OpenEndBit).bit2
 #define  bsLope         	    GET_BITFIELD(&OpenEndBit).bit3
-#define  bBefbsEmergency   	    GET_BITFIELD(&OpenEndBit).bit4 
+#define  bBefbsEmergency   	    GET_BITFIELD(&OpenEndBit).bit4
 #define  bBefbsSlip     	    GET_BITFIELD(&OpenEndBit).bit5
-#define  bCarDoorCloseEnd2   	GET_BITFIELD(&OpenEndBit).bit6 
+#define  bCarDoorCloseEnd2   	GET_BITFIELD(&OpenEndBit).bit6
 #define  bHoleDoorCloseEnd2   	GET_BITFIELD(&OpenEndBit).bit7
 
- 
 
-#define  bBefbsDls      	    GET_BITFIELD(&BefDlsBit).bit0 
+
+#define  bBefbsDls      	    GET_BITFIELD(&BefDlsBit).bit0
 #define  bBefbsHdsRunOff   	    GET_BITFIELD(&BefDlsBit).bit1
-#define  bBefbsCleRunOff   	    GET_BITFIELD(&BefDlsBit).bit2 
-#define  bBefbsOpeNoOn     	    GET_BITFIELD(&BefDlsBit).bit3 
+#define  bBefbsCleRunOff   	    GET_BITFIELD(&BefDlsBit).bit2
+#define  bBefbsOpeNoOn     	    GET_BITFIELD(&BefDlsBit).bit3
 #define  bBefbsLuLdNoOff   	    GET_BITFIELD(&BefDlsBit).bit4
-#define  bBefbsNextFloor   	    GET_BITFIELD(&BefDlsBit).bit5 
-#define  bBefbsHdsNoOn     	    GET_BITFIELD(&BefDlsBit).bit6 
+#define  bBefbsNextFloor   	    GET_BITFIELD(&BefDlsBit).bit5
+#define  bBefbsHdsNoOn     	    GET_BITFIELD(&BefDlsBit).bit6
 #define  bBefbsCleNoOn     	    GET_BITFIELD(&BefDlsBit).bit7
 
-#define  bBefbsDestFloor   	    GET_BITFIELD(&BefDestFBit).bit0 
+#define  bBefbsDestFloor   	    GET_BITFIELD(&BefDestFBit).bit0
 #define  bBefbsLuLdHome    	    GET_BITFIELD(&BefDestFBit).bit1
 #define  bBefbsUls      	    GET_BITFIELD(&BefDestFBit).bit2
 #define  bBefbsLope     	    GET_BITFIELD(&BefDestFBit).bit3
@@ -1652,19 +1653,19 @@ extern const unsigned int EncRate[];
 #define  bFhmRun         	    GET_BITFIELD(&EepRWBit).bit7
 
 #define  bSearchHome       	    GET_BITFIELD(&Etc1Bit).bit0
-#define  bCarUpMove             GET_BITFIELD(&Etc1Bit).bit1 
-#define  bCarDnMove             GET_BITFIELD(&Etc1Bit).bit2 
-#define  bFhmCount              GET_BITFIELD(&Etc1Bit).bit3 
-#define  bSaveFlash             GET_BITFIELD(&Etc1Bit).bit4 
-#define  bWaterSen              GET_BITFIELD(&Etc1Bit).bit5 
-#define  bSubWayLight           GET_BITFIELD(&Etc1Bit).bit6 
-#define  bCarOnceStop           GET_BITFIELD(&Etc1Bit).bit7 
+#define  bCarUpMove             GET_BITFIELD(&Etc1Bit).bit1
+#define  bCarDnMove             GET_BITFIELD(&Etc1Bit).bit2
+#define  bFhmCount              GET_BITFIELD(&Etc1Bit).bit3
+#define  bSaveFlash             GET_BITFIELD(&Etc1Bit).bit4
+#define  bWaterSen              GET_BITFIELD(&Etc1Bit).bit5
+#define  bSubWayLight           GET_BITFIELD(&Etc1Bit).bit6
+#define  bCarOnceStop           GET_BITFIELD(&Etc1Bit).bit7
 
 
-#define  bEncoderErr            GET_BITFIELD(&Etc3Bit).bit0 
-#define  bBefbEncoderErr        GET_BITFIELD(&Etc3Bit).bit1 
-#define  bEncoderABErr          GET_BITFIELD(&Etc3Bit).bit2 
-#define  bBefbEncoderABErr      GET_BITFIELD(&Etc3Bit).bit3 
+#define  bEncoderErr            GET_BITFIELD(&Etc3Bit).bit0
+#define  bBefbEncoderErr        GET_BITFIELD(&Etc3Bit).bit1
+#define  bEncoderABErr          GET_BITFIELD(&Etc3Bit).bit2
+#define  bBefbEncoderABErr      GET_BITFIELD(&Etc3Bit).bit3
 #define  bUpDnSet               GET_BITFIELD(&Etc3Bit).bit4
 #define  bSetSpeedOn            GET_BITFIELD(&Etc3Bit).bit5
 #define  bAllMenu               GET_BITFIELD(&Etc3Bit).bit6
@@ -1673,8 +1674,8 @@ extern const unsigned int EncRate[];
 
 
 
-#define  bSaveErrCnt            GET_BITFIELD(&Etc2Bit).bit0 
-#define  bInvOutAllClr          GET_BITFIELD(&Etc2Bit).bit1 
+#define  bSaveErrCnt            GET_BITFIELD(&Etc2Bit).bit0
+#define  bInvOutAllClr          GET_BITFIELD(&Etc2Bit).bit1
 #define  bDoorOpenEnd           GET_BITFIELD(&Etc2Bit).bit2
 #define  bFR2Start1             GET_BITFIELD(&Etc2Bit).bit3
 #define  bPasswardOk            GET_BITFIELD(&Etc2Bit).bit4
@@ -1685,177 +1686,177 @@ extern const unsigned int EncRate[];
 
 
 
-#define  bOpenEnd               GET_BITFIELD(&DoorStatus_bit).bit0 
-#define  bCarDoorCloseEnd       GET_BITFIELD(&DoorStatus_bit).bit1   
-#define  bHoleDoorCloseEnd      GET_BITFIELD(&DoorStatus_bit).bit2   
-#define  bDoorCloseOk           GET_BITFIELD(&DoorStatus_bit).bit3 
+#define  bOpenEnd               GET_BITFIELD(&DoorStatus_bit).bit0
+#define  bCarDoorCloseEnd       GET_BITFIELD(&DoorStatus_bit).bit1
+#define  bHoleDoorCloseEnd      GET_BITFIELD(&DoorStatus_bit).bit2
+#define  bDoorCloseOk           GET_BITFIELD(&DoorStatus_bit).bit3
 #define  bsHdsRunOff            GET_BITFIELD(&DoorStatus_bit).bit4
 #define  bsCleRunOff            GET_BITFIELD(&DoorStatus_bit).bit5
 #define  bBefbsBreakMgtOpen     GET_BITFIELD(&DoorStatus_bit).bit6
 #define  bBefbsSusErr           GET_BITFIELD(&DoorStatus_bit).bit7
 
-#define  bPC_PRK                GET_BITFIELD(&PC1Bit).bit0 
-#define  bPC_FIRE               GET_BITFIELD(&PC1Bit).bit1 
-#define  bDoorOpenCmd           GET_BITFIELD(&PC1Bit).bit2 
-#define  bDoorCloseCmd          GET_BITFIELD(&PC1Bit).bit3 
-#define  bHoleDoorOpenEnd       GET_BITFIELD(&PC1Bit).bit4 
-#define  bOpenDoorOk            GET_BITFIELD(&PC1Bit).bit5 
-#define  bEqualFloorError       GET_BITFIELD(&PC1Bit).bit6 
-#define  bHibCallClear          GET_BITFIELD(&PC1Bit).bit7 
+#define  bPC_PRK                GET_BITFIELD(&PC1Bit).bit0
+#define  bPC_FIRE               GET_BITFIELD(&PC1Bit).bit1
+#define  bDoorOpenCmd           GET_BITFIELD(&PC1Bit).bit2
+#define  bDoorCloseCmd          GET_BITFIELD(&PC1Bit).bit3
+#define  bHoleDoorOpenEnd       GET_BITFIELD(&PC1Bit).bit4
+#define  bOpenDoorOk            GET_BITFIELD(&PC1Bit).bit5
+#define  bEqualFloorError       GET_BITFIELD(&PC1Bit).bit6
+#define  bHibCallClear          GET_BITFIELD(&PC1Bit).bit7
 
 
-#define  bOneStep               GET_BITFIELD(&StateBit0).bit0 
-#define  bTwoStep               GET_BITFIELD(&StateBit0).bit1 
-#define  bThreeStep             GET_BITFIELD(&StateBit0).bit2 
-#define  bFourStep              GET_BITFIELD(&StateBit0).bit3 
-#define  bBefbsSdsErr           GET_BITFIELD(&StateBit0).bit4 
-#define  bInvErrCnt             GET_BITFIELD(&StateBit0).bit5 
-#define  bDspSeq                GET_BITFIELD(&StateBit0).bit6 
-#define  bLevelFind             GET_BITFIELD(&StateBit0).bit7 
+#define  bOneStep               GET_BITFIELD(&StateBit0).bit0
+#define  bTwoStep               GET_BITFIELD(&StateBit0).bit1
+#define  bThreeStep             GET_BITFIELD(&StateBit0).bit2
+#define  bFourStep              GET_BITFIELD(&StateBit0).bit3
+#define  bBefbsSdsErr           GET_BITFIELD(&StateBit0).bit4
+#define  bInvErrCnt             GET_BITFIELD(&StateBit0).bit5
+#define  bDspSeq                GET_BITFIELD(&StateBit0).bit6
+#define  bLevelFind             GET_BITFIELD(&StateBit0).bit7
 
 
-#define  bsInvertErr            GET_BITFIELD(&StateBit1).bit0 
-#define  bBefbsInvertErr        GET_BITFIELD(&StateBit1).bit1 
-#define  bOnceOpen              GET_BITFIELD(&StateBit1).bit2 
-#define  bDoorCloseOkSensor     GET_BITFIELD(&StateBit1).bit3 
-#define  bsBreakOpen            GET_BITFIELD(&StateBit1).bit4 
-#define  bBefbsBreakOpen        GET_BITFIELD(&StateBit1).bit5 
-#define  bsSusErr               GET_BITFIELD(&StateBit1).bit6 
-#define  bsSdsErr               GET_BITFIELD(&StateBit1).bit7 
+#define  bsInvertErr            GET_BITFIELD(&StateBit1).bit0
+#define  bBefbsInvertErr        GET_BITFIELD(&StateBit1).bit1
+#define  bOnceOpen              GET_BITFIELD(&StateBit1).bit2
+#define  bDoorCloseOkSensor     GET_BITFIELD(&StateBit1).bit3
+#define  bsBreakOpen            GET_BITFIELD(&StateBit1).bit4
+#define  bBefbsBreakOpen        GET_BITFIELD(&StateBit1).bit5
+#define  bsSusErr               GET_BITFIELD(&StateBit1).bit6
+#define  bsSdsErr               GET_BITFIELD(&StateBit1).bit7
 
 
-#define  bOnceVip               GET_BITFIELD(&StateBit2).bit0 
-#define  bNextFlrChk            GET_BITFIELD(&StateBit2).bit1 
-#define  bExportData            GET_BITFIELD(&StateBit2).bit2 
-#define  bImportData            GET_BITFIELD(&StateBit2).bit3 
-#define  bPC_FAMILY             GET_BITFIELD(&StateBit2).bit4 
-#define  bPowerChkStart         GET_BITFIELD(&StateBit2).bit5 
-#define  bWritechk              GET_BITFIELD(&StateBit2).bit6 
-#define  bOutDate               GET_BITFIELD(&StateBit2).bit7 
+#define  bOnceVip               GET_BITFIELD(&StateBit2).bit0
+#define  bNextFlrChk            GET_BITFIELD(&StateBit2).bit1
+#define  bExportData            GET_BITFIELD(&StateBit2).bit2
+#define  bImportData            GET_BITFIELD(&StateBit2).bit3
+#define  bPC_FAMILY             GET_BITFIELD(&StateBit2).bit4
+#define  bPowerChkStart         GET_BITFIELD(&StateBit2).bit5
+#define  bWritechk              GET_BITFIELD(&StateBit2).bit6
+#define  bOutDate               GET_BITFIELD(&StateBit2).bit7
 
 
-#define  bFirstOnLuLd           GET_BITFIELD(&StateBit3).bit0 
-#define  bNotStopRelevel        GET_BITFIELD(&StateBit3).bit1 
-#define  bPasswardUse           GET_BITFIELD(&StateBit3).bit2 
-#define  bCompanyCtl        	GET_BITFIELD(&StateBit3).bit3 
-#define  bLoaderActive          GET_BITFIELD(&StateBit3).bit4 
-#define  bDoorOpenEndFind       GET_BITFIELD(&StateBit3).bit5 
-#define  bSolControl            GET_BITFIELD(&StateBit3).bit6 
-#define  bReLoadEncoder        	GET_BITFIELD(&StateBit3).bit7 
+#define  bFirstOnLuLd           GET_BITFIELD(&StateBit3).bit0
+#define  bNotStopRelevel        GET_BITFIELD(&StateBit3).bit1
+#define  bPasswardUse           GET_BITFIELD(&StateBit3).bit2
+#define  bCompanyCtl        	GET_BITFIELD(&StateBit3).bit3
+#define  bLoaderActive          GET_BITFIELD(&StateBit3).bit4
+#define  bDoorOpenEndFind       GET_BITFIELD(&StateBit3).bit5
+#define  bSolControl            GET_BITFIELD(&StateBit3).bit6
+#define  bReLoadEncoder        	GET_BITFIELD(&StateBit3).bit7
 
 
 
-#define  bOneLuOrLd           	GET_BITFIELD(&StateBit4).bit0 
-#define  bBK1        			GET_BITFIELD(&StateBit4).bit1 
-#define  bsLuOrLdErr           	GET_BITFIELD(&StateBit4).bit2 
-#define  bBefsLuOrLdErr        	GET_BITFIELD(&StateBit4).bit3 
-#define  bBefDoorJumper         GET_BITFIELD(&StateBit4).bit4 
-#define  bHibSet       			GET_BITFIELD(&StateBit4).bit5 
-#define  bRunningOpenOn		    GET_BITFIELD(&StateBit4).bit6 
-#define  bFhmEncoder        	GET_BITFIELD(&StateBit4).bit7 
+#define  bOneLuOrLd           	GET_BITFIELD(&StateBit4).bit0
+#define  bBK1        			GET_BITFIELD(&StateBit4).bit1
+#define  bsLuOrLdErr           	GET_BITFIELD(&StateBit4).bit2
+#define  bBefsLuOrLdErr        	GET_BITFIELD(&StateBit4).bit3
+#define  bBefDoorJumper         GET_BITFIELD(&StateBit4).bit4
+#define  bHibSet       			GET_BITFIELD(&StateBit4).bit5
+#define  bRunningOpenOn		    GET_BITFIELD(&StateBit4).bit6
+#define  bFhmEncoder        	GET_BITFIELD(&StateBit4).bit7
 
 
-#define  bSlavePrk      		GET_BITFIELD(&StateBit5).bit0 
-#define  bMotor_Overheat      	GET_BITFIELD(&StateBit5).bit1 
-#define  bBefbMotor_Overheat    GET_BITFIELD(&StateBit5).bit2 
-#define  bFire2Start        	GET_BITFIELD(&StateBit5).bit3 
-#define  bNewRelevel         	GET_BITFIELD(&StateBit5).bit4 
-#define  bSafety_scrSft       	GET_BITFIELD(&StateBit5).bit5 
-#define  bRelevelErr		    GET_BITFIELD(&StateBit5).bit6 
-#define  bErrClearOnce        	GET_BITFIELD(&StateBit5).bit7 
+#define  bSlavePrk      		GET_BITFIELD(&StateBit5).bit0
+#define  bMotor_Overheat      	GET_BITFIELD(&StateBit5).bit1
+#define  bBefbMotor_Overheat    GET_BITFIELD(&StateBit5).bit2
+#define  bFire2Start        	GET_BITFIELD(&StateBit5).bit3
+#define  bNewRelevel         	GET_BITFIELD(&StateBit5).bit4
+#define  bSafety_scrSft       	GET_BITFIELD(&StateBit5).bit5
+#define  bRelevelErr		    GET_BITFIELD(&StateBit5).bit6
+#define  bErrClearOnce        	GET_BITFIELD(&StateBit5).bit7
 
 
-#define  xbAuto      		GET_BITFIELD(&StateBit6).bit0 
-#define  xbManual      		GET_BITFIELD(&StateBit6).bit1 
-#define  xbRomote      		GET_BITFIELD(&StateBit6).bit2 
-//#define  bFire2Start        	GET_BITFIELD(&StateBit6).bit3 
-//#define  bNewRelevel         	GET_BITFIELD(&StateBit6).bit4 
-//#define  bSafety_scrSft       	GET_BITFIELD(&StateBit6).bit5 
-//#define  bRelevelErr		    GET_BITFIELD(&StateBit6).bit6 
-#define  bBlinck        	GET_BITFIELD(&StateBit6).bit7 
+#define  xbAuto      		GET_BITFIELD(&StateBit6).bit0
+#define  xbManual      		GET_BITFIELD(&StateBit6).bit1
+#define  xbRomote      		GET_BITFIELD(&StateBit6).bit2
+//#define  bFire2Start        	GET_BITFIELD(&StateBit6).bit3
+//#define  bNewRelevel         	GET_BITFIELD(&StateBit6).bit4
+//#define  bSafety_scrSft       	GET_BITFIELD(&StateBit6).bit5
+//#define  bRelevelErr		    GET_BITFIELD(&StateBit6).bit6
+#define  bBlinck        	GET_BITFIELD(&StateBit6).bit7
 
 
 //////////////////////////////////////////////////////////////
-#define  IN_SU1_PORT            GET_BITFIELD(&I_SU1_bit).bit0 
-#define  IN_SD1_PORT            GET_BITFIELD(&I_SU1_bit).bit1  
-#define  IN_SFT_PORT            GET_BITFIELD(&I_SU1_bit).bit2  
-#define  IN_OVL_PORT            GET_BITFIELD(&I_SU1_bit).bit3  
-#define  IN_ULS_PORT            GET_BITFIELD(&I_SU1_bit).bit4   
-#define  IN_DLS_PORT            GET_BITFIELD(&I_SU1_bit).bit5   
-#define  IN_LU_PORT             GET_BITFIELD(&I_SU1_bit).bit6   
-#define  IN_LD_PORT             GET_BITFIELD(&I_SU1_bit).bit7   
+#define  IN_SU1_PORT            GET_BITFIELD(&I_SU1_bit).bit0
+#define  IN_SD1_PORT            GET_BITFIELD(&I_SU1_bit).bit1
+#define  IN_SFT_PORT            GET_BITFIELD(&I_SU1_bit).bit2
+#define  IN_OVL_PORT            GET_BITFIELD(&I_SU1_bit).bit3
+#define  IN_ULS_PORT            GET_BITFIELD(&I_SU1_bit).bit4
+#define  IN_DLS_PORT            GET_BITFIELD(&I_SU1_bit).bit5
+#define  IN_LU_PORT             GET_BITFIELD(&I_SU1_bit).bit6
+#define  IN_LD_PORT             GET_BITFIELD(&I_SU1_bit).bit7
 
-#define  IN_EMG_PORT            GET_BITFIELD(&I_EMG_bit).bit0 
-#define  IN_PRK_PORT            GET_BITFIELD(&I_EMG_bit).bit1  
-#define  IN_AUTO_PORT           GET_BITFIELD(&I_EMG_bit).bit2  
-#define  IN_U_B_PORT            GET_BITFIELD(&I_EMG_bit).bit3  
-#define  IN_D_B_PORT            GET_BITFIELD(&I_EMG_bit).bit4   
-#define  IN_OP_E_PORT           GET_BITFIELD(&I_EMG_bit).bit5   
-#define  IN_CL_E_PORT           GET_BITFIELD(&I_EMG_bit).bit6   
-#define  IN_HL_D_PORT           GET_BITFIELD(&I_EMG_bit).bit7   
+#define  IN_EMG_PORT            GET_BITFIELD(&I_EMG_bit).bit0
+#define  IN_PRK_PORT            GET_BITFIELD(&I_EMG_bit).bit1
+#define  IN_AUTO_PORT           GET_BITFIELD(&I_EMG_bit).bit2
+#define  IN_U_B_PORT            GET_BITFIELD(&I_EMG_bit).bit3
+#define  IN_D_B_PORT            GET_BITFIELD(&I_EMG_bit).bit4
+#define  IN_OP_E_PORT           GET_BITFIELD(&I_EMG_bit).bit5
+#define  IN_CL_E_PORT           GET_BITFIELD(&I_EMG_bit).bit6
+#define  IN_HL_D_PORT           GET_BITFIELD(&I_EMG_bit).bit7
 
-#define  IN_GR_PORT             GET_BITFIELD(&I_GR_bit).bit0 
-#define  IN_BAT_PORT            GET_BITFIELD(&I_GR_bit).bit1  
-#define  IN_PASS_PORT           GET_BITFIELD(&I_GR_bit).bit2  
-#define  IN_FIRE_PORT           GET_BITFIELD(&I_GR_bit).bit3  
-#define  IN_WATER_PORT          GET_BITFIELD(&I_GR_bit).bit4   
-#define  IN_FULL_PORT           GET_BITFIELD(&I_GR_bit).bit5   
-//#define  IN_EX1_PORT            GET_BITFIELD(&I_GR_bit).bit6   
-#define  IN_MM_PORT            GET_BITFIELD(&I_GR_bit).bit6   
-#define  IN_FHM_PORT            GET_BITFIELD(&I_GR_bit).bit7   
+#define  IN_GR_PORT             GET_BITFIELD(&I_GR_bit).bit0
+#define  IN_BAT_PORT            GET_BITFIELD(&I_GR_bit).bit1
+#define  IN_PASS_PORT           GET_BITFIELD(&I_GR_bit).bit2
+#define  IN_FIRE_PORT           GET_BITFIELD(&I_GR_bit).bit3
+#define  IN_WATER_PORT          GET_BITFIELD(&I_GR_bit).bit4
+#define  IN_FULL_PORT           GET_BITFIELD(&I_GR_bit).bit5
+//#define  IN_EX1_PORT            GET_BITFIELD(&I_GR_bit).bit6
+#define  IN_MM_PORT            GET_BITFIELD(&I_GR_bit).bit6
+#define  IN_FHM_PORT            GET_BITFIELD(&I_GR_bit).bit7
 
-#define  IN_FR1_PORT            GET_BITFIELD(&I_FIRE_bit).bit0 
-#define  IN_FR2_PORT            GET_BITFIELD(&I_FIRE_bit).bit1  
-#define  IN_GS2_PORT            GET_BITFIELD(&I_FIRE_bit).bit2  
-#define  IN_DS2_PORT            GET_BITFIELD(&I_FIRE_bit).bit3  
-#define  IN_SU2_PORT            GET_BITFIELD(&I_FIRE_bit).bit4   
-#define  IN_SD2_PORT            GET_BITFIELD(&I_FIRE_bit).bit5   
-//#define  IN_SU3_PORT            GET_BITFIELD(&I_FIRE_bit).bit6   
-#define  IN_BM_PORT            GET_BITFIELD(&I_FIRE_bit).bit6   
-//#define  IN_SD3_PORT            GET_BITFIELD(&I_FIRE_bit).bit7   
-#define  IN_INV_PORT            GET_BITFIELD(&I_FIRE_bit).bit7   
+#define  IN_FR1_PORT            GET_BITFIELD(&I_FIRE_bit).bit0
+#define  IN_FR2_PORT            GET_BITFIELD(&I_FIRE_bit).bit1
+#define  IN_GS2_PORT            GET_BITFIELD(&I_FIRE_bit).bit2
+#define  IN_DS2_PORT            GET_BITFIELD(&I_FIRE_bit).bit3
+#define  IN_SU2_PORT            GET_BITFIELD(&I_FIRE_bit).bit4
+#define  IN_SD2_PORT            GET_BITFIELD(&I_FIRE_bit).bit5
+//#define  IN_SU3_PORT            GET_BITFIELD(&I_FIRE_bit).bit6
+#define  IN_BM_PORT            GET_BITFIELD(&I_FIRE_bit).bit6
+//#define  IN_SD3_PORT            GET_BITFIELD(&I_FIRE_bit).bit7
+#define  IN_INV_PORT            GET_BITFIELD(&I_FIRE_bit).bit7
 
-#define  IN_FS0_PORT            GET_BITFIELD(&I_FS0_bit).bit0 
-#define  IN_FS1_PORT            GET_BITFIELD(&I_FS0_bit).bit1  
-#define  IN_FS2_PORT            GET_BITFIELD(&I_FS0_bit).bit2  
-#define  IN_FS3_PORT            GET_BITFIELD(&I_FS0_bit).bit3  
-#define  IN_FS4_PORT            GET_BITFIELD(&I_FS0_bit).bit4   
-#define  IN_DER_PORT            GET_BITFIELD(&I_FS0_bit).bit5   
-#define  IN_FID_PORT            GET_BITFIELD(&I_FS0_bit).bit6   
-#define  IN_UND_PORT            GET_BITFIELD(&I_FS0_bit).bit7   
+#define  IN_FS0_PORT            GET_BITFIELD(&I_FS0_bit).bit0
+#define  IN_FS1_PORT            GET_BITFIELD(&I_FS0_bit).bit1
+#define  IN_FS2_PORT            GET_BITFIELD(&I_FS0_bit).bit2
+#define  IN_FS3_PORT            GET_BITFIELD(&I_FS0_bit).bit3
+#define  IN_FS4_PORT            GET_BITFIELD(&I_FS0_bit).bit4
+#define  IN_DER_PORT            GET_BITFIELD(&I_FS0_bit).bit5
+#define  IN_FID_PORT            GET_BITFIELD(&I_FS0_bit).bit6
+#define  IN_UND_PORT            GET_BITFIELD(&I_FS0_bit).bit7
 
-#define  IN_X0_PORT             GET_BITFIELD(&I_X0_bit).bit0  
-#define  IN_X1_PORT             GET_BITFIELD(&I_X0_bit).bit1 
-#define  IN_X2_PORT             GET_BITFIELD(&I_X0_bit).bit2  
-#define  IN_X3_PORT             GET_BITFIELD(&I_X0_bit).bit3  
-#define  IN_X4_PORT             GET_BITFIELD(&I_X0_bit).bit4   
-#define  IN_X5_PORT             GET_BITFIELD(&I_X0_bit).bit5   
-#define  IN_X6_PORT             GET_BITFIELD(&I_X0_bit).bit6   
-#define  IN_X7_PORT             GET_BITFIELD(&I_X0_bit).bit7   
+#define  IN_X0_PORT             GET_BITFIELD(&I_X0_bit).bit0
+#define  IN_X1_PORT             GET_BITFIELD(&I_X0_bit).bit1
+#define  IN_X2_PORT             GET_BITFIELD(&I_X0_bit).bit2
+#define  IN_X3_PORT             GET_BITFIELD(&I_X0_bit).bit3
+#define  IN_X4_PORT             GET_BITFIELD(&I_X0_bit).bit4
+#define  IN_X5_PORT             GET_BITFIELD(&I_X0_bit).bit5
+#define  IN_X6_PORT             GET_BITFIELD(&I_X0_bit).bit6
+#define  IN_X7_PORT             GET_BITFIELD(&I_X0_bit).bit7
 
 
 
-#define  OUT_OP_PORT            GET_BITFIELD(&O_OP_bit).bit0 
-#define  OUT_CL_PORT            GET_BITFIELD(&O_OP_bit).bit1  
-#define  OUT_OP_S_PORT          GET_BITFIELD(&O_OP_bit).bit2   
+#define  OUT_OP_PORT            GET_BITFIELD(&O_OP_bit).bit0
+#define  OUT_CL_PORT            GET_BITFIELD(&O_OP_bit).bit1
+#define  OUT_OP_S_PORT          GET_BITFIELD(&O_OP_bit).bit2
 #define  OUT_CL_S_PORT          GET_BITFIELD(&O_OP_bit).bit3
-#define  OUT_BK2_PORT           GET_BITFIELD(&O_OP_bit).bit4  
-#define  OUT_D_S_PORT           GET_BITFIELD(&O_OP_bit).bit5  
-#define  OUT_GBR_PORT           GET_BITFIELD(&O_OP_bit).bit6   
-#define  OUT_BRK_PORT           GET_BITFIELD(&O_OP_bit).bit7   
+#define  OUT_BK2_PORT           GET_BITFIELD(&O_OP_bit).bit4
+#define  OUT_D_S_PORT           GET_BITFIELD(&O_OP_bit).bit5
+#define  OUT_GBR_PORT           GET_BITFIELD(&O_OP_bit).bit6
+#define  OUT_BRK_PORT           GET_BITFIELD(&O_OP_bit).bit7
 
 
-#define  OUT_U_W_PORT            GET_BITFIELD(&O_U_W_bit).bit0 
-#define  OUT_D_W_PORT            GET_BITFIELD(&O_U_W_bit).bit1  
-#define  OUT_P1_PORT             GET_BITFIELD(&O_U_W_bit).bit2  
-#define  OUT_P2_PORT             GET_BITFIELD(&O_U_W_bit).bit3  
-#define  OUT_P3_PORT             GET_BITFIELD(&O_U_W_bit).bit4   
-#define  OUT_P4_PORT             GET_BITFIELD(&O_U_W_bit).bit5   
-#define  OUT_DAC_PORT            GET_BITFIELD(&O_U_W_bit).bit7   
+#define  OUT_U_W_PORT            GET_BITFIELD(&O_U_W_bit).bit0
+#define  OUT_D_W_PORT            GET_BITFIELD(&O_U_W_bit).bit1
+#define  OUT_P1_PORT             GET_BITFIELD(&O_U_W_bit).bit2
+#define  OUT_P2_PORT             GET_BITFIELD(&O_U_W_bit).bit3
+#define  OUT_P3_PORT             GET_BITFIELD(&O_U_W_bit).bit4
+#define  OUT_P4_PORT             GET_BITFIELD(&O_U_W_bit).bit5
+#define  OUT_DAC_PORT            GET_BITFIELD(&O_U_W_bit).bit7
 
-#define  OUT_FAN_PORT            GET_BITFIELD(&O_Y_0_bit).bit0  
-#define  OUT_LIT_PORT            GET_BITFIELD(&O_Y_0_bit).bit1  
-#define  OUT_BUZ_PORT            GET_BITFIELD(&O_Y_0_bit).bit2   
+#define  OUT_FAN_PORT            GET_BITFIELD(&O_Y_0_bit).bit0
+#define  OUT_LIT_PORT            GET_BITFIELD(&O_Y_0_bit).bit1
+#define  OUT_BUZ_PORT            GET_BITFIELD(&O_Y_0_bit).bit2
 #define  OUT_BELL_PORT           GET_BITFIELD(&O_Y_0_bit).bit3
 #define  OUT_RST_PORT            GET_BITFIELD(&O_Y_0_bit).bit4
 #define  OUT_ERR_PORT            GET_BITFIELD(&O_Y_0_bit).bit5
@@ -1930,7 +1931,7 @@ extern const unsigned int EncRate[];
 #define  cF_FANTIME             GET_LONGFIELD(&FlashDspCharBuf[F_FanTime/4])        .byte[F_FanTime%4]
 #define  cF_LIGHTTIME           GET_LONGFIELD(&FlashDspCharBuf[F_LightTime/4])      .byte[F_LightTime%4]
 
-#define  cF_REOPTMmsec          GET_LONGFIELD(&FlashDspCharBuf[F_ReOpTime/4])       .byte[F_ReOpTime%4]      
+#define  cF_REOPTMmsec          GET_LONGFIELD(&FlashDspCharBuf[F_ReOpTime/4])       .byte[F_ReOpTime%4]
 #define  cF_OPCLWTMmsec         GET_LONGFIELD(&FlashDspCharBuf[F_OpClWaitTime/4])   .byte[F_OpClWaitTime%4]
 
 #define  cF_DRJMPCHKTMmsec      GET_LONGFIELD(&FlashDspCharBuf[F_DrJmpChkTime/4])   .byte[F_DrJmpChkTime%4]
@@ -1988,12 +1989,12 @@ extern const unsigned int EncRate[];
 #define  cF_OPTTTM              (cF_OPTTTMmsec * 10)
 #define  cF_LULDOFFTIME         (cF_LULDOFFTIMEmsec * 10)
 
-#define  cF_REOPTM              (cF_REOPTMmsec * 10)     
-#define  cF_OPCLWTM             (cF_OPCLWTMmsec * 10)     
+#define  cF_REOPTM              (cF_REOPTMmsec * 10)
+#define  cF_OPCLWTM             (cF_OPCLWTMmsec * 10)
 
-#define  cF_DRJMPCHKTTM         (cF_DRJMPCHKTMmsec * 10)     
+#define  cF_DRJMPCHKTTM         (cF_DRJMPCHKTMmsec * 10)
 
-#define  cF_BRK_MGT_TIME        (cF_BrkMgtmsec * 10)     
+#define  cF_BRK_MGT_TIME        (cF_BrkMgtmsec * 10)
 
 
 #define  cF_STTM1               (cF_STTM1msec * 1)
@@ -2098,61 +2099,61 @@ extern const unsigned int EncRate[];
 
 //////TEST
 #define  cF_SU1                 GET_LONGFIELD(&FlashDspCharBuf[SU1_PORT/4])         .byte[SU1_PORT%4]
-#define  cF_SD1                 GET_LONGFIELD(&FlashDspCharBuf[SD1_PORT/4])         .byte[SD1_PORT%4]  
-#define  cF_SFT                 GET_LONGFIELD(&FlashDspCharBuf[SFT_PORT/4])         .byte[SFT_PORT%4]  
-#define  cF_OVL                 GET_LONGFIELD(&FlashDspCharBuf[OVL_PORT/4])         .byte[OVL_PORT%4]  
-#define  cF_ULS                 GET_LONGFIELD(&FlashDspCharBuf[ULS_PORT/4])         .byte[ULS_PORT%4]   
-#define  cF_DLS                 GET_LONGFIELD(&FlashDspCharBuf[DLS_PORT/4])         .byte[DLS_PORT%4]   
-#define  cF_LU                  GET_LONGFIELD(&FlashDspCharBuf[LU_PORT/4])          .byte[LU_PORT%4]   
-#define  cF_LD                  GET_LONGFIELD(&FlashDspCharBuf[LD_PORT/4])          .byte[LD_PORT%4]   
+#define  cF_SD1                 GET_LONGFIELD(&FlashDspCharBuf[SD1_PORT/4])         .byte[SD1_PORT%4]
+#define  cF_SFT                 GET_LONGFIELD(&FlashDspCharBuf[SFT_PORT/4])         .byte[SFT_PORT%4]
+#define  cF_OVL                 GET_LONGFIELD(&FlashDspCharBuf[OVL_PORT/4])         .byte[OVL_PORT%4]
+#define  cF_ULS                 GET_LONGFIELD(&FlashDspCharBuf[ULS_PORT/4])         .byte[ULS_PORT%4]
+#define  cF_DLS                 GET_LONGFIELD(&FlashDspCharBuf[DLS_PORT/4])         .byte[DLS_PORT%4]
+#define  cF_LU                  GET_LONGFIELD(&FlashDspCharBuf[LU_PORT/4])          .byte[LU_PORT%4]
+#define  cF_LD                  GET_LONGFIELD(&FlashDspCharBuf[LD_PORT/4])          .byte[LD_PORT%4]
 
-#define  cF_EMG                 GET_LONGFIELD(&FlashDspCharBuf[EMG_PORT/4])         .byte[EMG_PORT%4] 
-#define  cF_PRK                 GET_LONGFIELD(&FlashDspCharBuf[PRK_PORT/4])         .byte[PRK_PORT%4]  
-#define  cF_AUTO                GET_LONGFIELD(&FlashDspCharBuf[AUTO_PORT/4])        .byte[AUTO_PORT%4]  
-#define  cF_U_B                 GET_LONGFIELD(&FlashDspCharBuf[U_B_PORT/4])         .byte[U_B_PORT%4]  
-#define  cF_D_B                 GET_LONGFIELD(&FlashDspCharBuf[D_B_PORT/4])         .byte[D_B_PORT%4]   
-#define  cF_OP_E                GET_LONGFIELD(&FlashDspCharBuf[OLS_PORT/4])         .byte[OLS_PORT%4]   
-#define  cF_CL_E                GET_LONGFIELD(&FlashDspCharBuf[GS_PORT/4])          .byte[GS_PORT%4]   
-#define  cF_HL_D                GET_LONGFIELD(&FlashDspCharBuf[DS_PORT/4])          .byte[DS_PORT%4]   
+#define  cF_EMG                 GET_LONGFIELD(&FlashDspCharBuf[EMG_PORT/4])         .byte[EMG_PORT%4]
+#define  cF_PRK                 GET_LONGFIELD(&FlashDspCharBuf[PRK_PORT/4])         .byte[PRK_PORT%4]
+#define  cF_AUTO                GET_LONGFIELD(&FlashDspCharBuf[AUTO_PORT/4])        .byte[AUTO_PORT%4]
+#define  cF_U_B                 GET_LONGFIELD(&FlashDspCharBuf[U_B_PORT/4])         .byte[U_B_PORT%4]
+#define  cF_D_B                 GET_LONGFIELD(&FlashDspCharBuf[D_B_PORT/4])         .byte[D_B_PORT%4]
+#define  cF_OP_E                GET_LONGFIELD(&FlashDspCharBuf[OLS_PORT/4])         .byte[OLS_PORT%4]
+#define  cF_CL_E                GET_LONGFIELD(&FlashDspCharBuf[GS_PORT/4])          .byte[GS_PORT%4]
+#define  cF_HL_D                GET_LONGFIELD(&FlashDspCharBuf[DS_PORT/4])          .byte[DS_PORT%4]
 
-#define  cF_GR                  GET_LONGFIELD(&FlashDspCharBuf[RG_PORT/4])          .byte[RG_PORT%4] 
-#define  cF_BAT                 GET_LONGFIELD(&FlashDspCharBuf[BAT_PORT/4])         .byte[BAT_PORT%4]  
-#define  cF_PASS                GET_LONGFIELD(&FlashDspCharBuf[PASS_PORT/4])        .byte[PASS_PORT%4]  
-#define  cF_FIRE                GET_LONGFIELD(&FlashDspCharBuf[FIRE_PORT/4])        .byte[FIRE_PORT%4]  
-#define  cF_WATER               GET_LONGFIELD(&FlashDspCharBuf[WATER_PORT/4])       .byte[WATER_PORT%4]   
-#define  cF_FULL                GET_LONGFIELD(&FlashDspCharBuf[FULL_PORT/4])        .byte[FULL_PORT%4]   
-//#define  cF_EX1                 GET_LONGFIELD(&FlashDspCharBuf[EX1_PORT/4])         .byte[EX1_PORT%4]   
-#define  cF_MM                 GET_LONGFIELD(&FlashDspCharBuf[MM_PORT/4])         .byte[MM_PORT%4]   
-#define  cF_FHM                 GET_LONGFIELD(&FlashDspCharBuf[FHM_PORT/4])         .byte[FHM_PORT%4]   
+#define  cF_GR                  GET_LONGFIELD(&FlashDspCharBuf[RG_PORT/4])          .byte[RG_PORT%4]
+#define  cF_BAT                 GET_LONGFIELD(&FlashDspCharBuf[BAT_PORT/4])         .byte[BAT_PORT%4]
+#define  cF_PASS                GET_LONGFIELD(&FlashDspCharBuf[PASS_PORT/4])        .byte[PASS_PORT%4]
+#define  cF_FIRE                GET_LONGFIELD(&FlashDspCharBuf[FIRE_PORT/4])        .byte[FIRE_PORT%4]
+#define  cF_WATER               GET_LONGFIELD(&FlashDspCharBuf[WATER_PORT/4])       .byte[WATER_PORT%4]
+#define  cF_FULL                GET_LONGFIELD(&FlashDspCharBuf[FULL_PORT/4])        .byte[FULL_PORT%4]
+//#define  cF_EX1                 GET_LONGFIELD(&FlashDspCharBuf[EX1_PORT/4])         .byte[EX1_PORT%4]
+#define  cF_MM                 GET_LONGFIELD(&FlashDspCharBuf[MM_PORT/4])         .byte[MM_PORT%4]
+#define  cF_FHM                 GET_LONGFIELD(&FlashDspCharBuf[FHM_PORT/4])         .byte[FHM_PORT%4]
 
-#define  cF_FR1                 GET_LONGFIELD(&FlashDspCharBuf[FR1_PORT/4])         .byte[FR1_PORT%4] 
-#define  cF_FR2                 GET_LONGFIELD(&FlashDspCharBuf[FR2_PORT/4])         .byte[FR2_PORT%4]  
-#define  cF_GS2                 GET_LONGFIELD(&FlashDspCharBuf[GS2_PORT/4])         .byte[GS2_PORT%4]  
-#define  cF_DS2                 GET_LONGFIELD(&FlashDspCharBuf[DS2_PORT/4])         .byte[DS2_PORT%4]  
-#define  cF_SU2                 GET_LONGFIELD(&FlashDspCharBuf[SU2_PORT/4])         .byte[SU2_PORT%4]   
-#define  cF_SD2                 GET_LONGFIELD(&FlashDspCharBuf[SD2_PORT/4])         .byte[SD2_PORT%4]   
-//#define  cF_SU3                 GET_LONGFIELD(&FlashDspCharBuf[SU3_PORT/4])         .byte[SU3_PORT%4]   
-#define  cF_BM                 GET_LONGFIELD(&FlashDspCharBuf[BM_PORT/4])         .byte[BM_PORT%4]   
-//#define  cF_SD3                 GET_LONGFIELD(&FlashDspCharBuf[SD3_PORT/4])         .byte[SD3_PORT%4]   
-#define  cF_INV                 GET_LONGFIELD(&FlashDspCharBuf[INV_PORT/4])         .byte[INV_PORT%4]   
+#define  cF_FR1                 GET_LONGFIELD(&FlashDspCharBuf[FR1_PORT/4])         .byte[FR1_PORT%4]
+#define  cF_FR2                 GET_LONGFIELD(&FlashDspCharBuf[FR2_PORT/4])         .byte[FR2_PORT%4]
+#define  cF_GS2                 GET_LONGFIELD(&FlashDspCharBuf[GS2_PORT/4])         .byte[GS2_PORT%4]
+#define  cF_DS2                 GET_LONGFIELD(&FlashDspCharBuf[DS2_PORT/4])         .byte[DS2_PORT%4]
+#define  cF_SU2                 GET_LONGFIELD(&FlashDspCharBuf[SU2_PORT/4])         .byte[SU2_PORT%4]
+#define  cF_SD2                 GET_LONGFIELD(&FlashDspCharBuf[SD2_PORT/4])         .byte[SD2_PORT%4]
+//#define  cF_SU3                 GET_LONGFIELD(&FlashDspCharBuf[SU3_PORT/4])         .byte[SU3_PORT%4]
+#define  cF_BM                 GET_LONGFIELD(&FlashDspCharBuf[BM_PORT/4])         .byte[BM_PORT%4]
+//#define  cF_SD3                 GET_LONGFIELD(&FlashDspCharBuf[SD3_PORT/4])         .byte[SD3_PORT%4]
+#define  cF_INV                 GET_LONGFIELD(&FlashDspCharBuf[INV_PORT/4])         .byte[INV_PORT%4]
 
-#define  cF_FS0                 GET_LONGFIELD(&FlashDspCharBuf[FS0_PORT/4])         .byte[FS0_PORT%4] 
-#define  cF_FS1                 GET_LONGFIELD(&FlashDspCharBuf[FS1_PORT/4])         .byte[FS1_PORT%4]  
-#define  cF_FS2                 GET_LONGFIELD(&FlashDspCharBuf[FS2_PORT/4])         .byte[FS2_PORT%4]  
-#define  cF_FS3                 GET_LONGFIELD(&FlashDspCharBuf[FS3_PORT/4])         .byte[FS3_PORT%4]  
-#define  cF_FS4                 GET_LONGFIELD(&FlashDspCharBuf[FS4_PORT/4])         .byte[FS4_PORT%4]   
-#define  cF_DER                 GET_LONGFIELD(&FlashDspCharBuf[DER_PORT/4])         .byte[DER_PORT%4]   
-#define  cF_FID                 GET_LONGFIELD(&FlashDspCharBuf[FID_PORT/4])         .byte[FID_PORT%4]   
-#define  cF_UND                 GET_LONGFIELD(&FlashDspCharBuf[UND_PORT/4])         .byte[UND_PORT%4]   
+#define  cF_FS0                 GET_LONGFIELD(&FlashDspCharBuf[FS0_PORT/4])         .byte[FS0_PORT%4]
+#define  cF_FS1                 GET_LONGFIELD(&FlashDspCharBuf[FS1_PORT/4])         .byte[FS1_PORT%4]
+#define  cF_FS2                 GET_LONGFIELD(&FlashDspCharBuf[FS2_PORT/4])         .byte[FS2_PORT%4]
+#define  cF_FS3                 GET_LONGFIELD(&FlashDspCharBuf[FS3_PORT/4])         .byte[FS3_PORT%4]
+#define  cF_FS4                 GET_LONGFIELD(&FlashDspCharBuf[FS4_PORT/4])         .byte[FS4_PORT%4]
+#define  cF_DER                 GET_LONGFIELD(&FlashDspCharBuf[DER_PORT/4])         .byte[DER_PORT%4]
+#define  cF_FID                 GET_LONGFIELD(&FlashDspCharBuf[FID_PORT/4])         .byte[FID_PORT%4]
+#define  cF_UND                 GET_LONGFIELD(&FlashDspCharBuf[UND_PORT/4])         .byte[UND_PORT%4]
 
-#define  cF_X0                  GET_LONGFIELD(&FlashDspCharBuf[X0_PORT/4])          .byte[X0_PORT%4]  
-#define  cF_X1                  GET_LONGFIELD(&FlashDspCharBuf[X1_PORT/4])          .byte[X1_PORT%4] 
-#define  cF_X2                  GET_LONGFIELD(&FlashDspCharBuf[X2_PORT/4])          .byte[X2_PORT%4]  
-#define  cF_X3                  GET_LONGFIELD(&FlashDspCharBuf[X3_PORT/4])          .byte[X3_PORT%4]  
-#define  cF_X4                  GET_LONGFIELD(&FlashDspCharBuf[X4_PORT/4])          .byte[X4_PORT%4]   
-#define  cF_X5                  GET_LONGFIELD(&FlashDspCharBuf[X5_PORT/4])          .byte[X5_PORT%4]   
-#define  cF_X6                  GET_LONGFIELD(&FlashDspCharBuf[X6_PORT/4])          .byte[X6_PORT%4]   
-#define  cF_X7                  GET_LONGFIELD(&FlashDspCharBuf[X7_PORT/4])          .byte[X7_PORT%4]   
+#define  cF_X0                  GET_LONGFIELD(&FlashDspCharBuf[X0_PORT/4])          .byte[X0_PORT%4]
+#define  cF_X1                  GET_LONGFIELD(&FlashDspCharBuf[X1_PORT/4])          .byte[X1_PORT%4]
+#define  cF_X2                  GET_LONGFIELD(&FlashDspCharBuf[X2_PORT/4])          .byte[X2_PORT%4]
+#define  cF_X3                  GET_LONGFIELD(&FlashDspCharBuf[X3_PORT/4])          .byte[X3_PORT%4]
+#define  cF_X4                  GET_LONGFIELD(&FlashDspCharBuf[X4_PORT/4])          .byte[X4_PORT%4]
+#define  cF_X5                  GET_LONGFIELD(&FlashDspCharBuf[X5_PORT/4])          .byte[X5_PORT%4]
+#define  cF_X6                  GET_LONGFIELD(&FlashDspCharBuf[X6_PORT/4])          .byte[X6_PORT%4]
+#define  cF_X7                  GET_LONGFIELD(&FlashDspCharBuf[X7_PORT/4])          .byte[X7_PORT%4]
 //////TEST
 
 ////out test
@@ -2164,8 +2165,8 @@ extern const unsigned int EncRate[];
 #define  cF_D_S                 GET_LONGFIELD(&FlashDspCharBuf[D_S_PORT/4])         .byte[D_S_PORT%4]
 #define  cF_GBR                 GET_LONGFIELD(&FlashDspCharBuf[GBR_PORT/4])         .byte[GBR_PORT%4]
 #define  cF_BRK                 GET_LONGFIELD(&FlashDspCharBuf[BK1_PORT/4])         .byte[BK1_PORT%4]
- 
-                                
+
+
 #define  cF_FAN                 GET_LONGFIELD(&FlashDspCharBuf[FAN_PORT/4])         .byte[FAN_PORT%4]
 #define  cF_LIT                 GET_LONGFIELD(&FlashDspCharBuf[LIT_PORT/4])         .byte[LIT_PORT%4]
 #define  cF_BUZ                 GET_LONGFIELD(&FlashDspCharBuf[BUZ_PORT/4])         .byte[BUZ_PORT%4]
@@ -2230,86 +2231,86 @@ extern const unsigned int EncRate[];
 
 
 #define  IN_SU1                 CurSelPortIn(cF_SU1)
-#define  IN_SD1                 CurSelPortIn(cF_SD1)  
-#define  IN_SFT                 CurSelPortIn(cF_SFT)  
-#define  IN_OVL                 CurSelPortIn(cF_OVL)  
-#define  IN_ULS                 CurSelPortIn(cF_ULS)   
-#define  IN_DLS                 CurSelPortIn(cF_DLS)   
-#define  IN_LU                  CurSelPortIn(cF_LU)   
-#define  IN_LD                  CurSelPortIn(cF_LD)   
+#define  IN_SD1                 CurSelPortIn(cF_SD1)
+#define  IN_SFT                 CurSelPortIn(cF_SFT)
+#define  IN_OVL                 CurSelPortIn(cF_OVL)
+#define  IN_ULS                 CurSelPortIn(cF_ULS)
+#define  IN_DLS                 CurSelPortIn(cF_DLS)
+#define  IN_LU                  CurSelPortIn(cF_LU)
+#define  IN_LD                  CurSelPortIn(cF_LD)
 
-#define  IN_EMG                 CurSelPortIn(cF_EMG) 
-#define  IN_PRK                 CurSelPortIn(cF_PRK)  
-#define  IN_AUTO                CurSelPortIn(cF_AUTO)  
-#define  IN_U_B                 CurSelPortIn(cF_U_B)  
-#define  IN_D_B                 CurSelPortIn(cF_D_B)   
-#define  IN_OP_E                CurSelPortIn(cF_OP_E)   
-#define  IN_CL_E                CurSelPortIn(cF_CL_E)   //GS   
+#define  IN_EMG                 CurSelPortIn(cF_EMG)
+#define  IN_PRK                 CurSelPortIn(cF_PRK)
+#define  IN_AUTO                CurSelPortIn(cF_AUTO)
+#define  IN_U_B                 CurSelPortIn(cF_U_B)
+#define  IN_D_B                 CurSelPortIn(cF_D_B)
+#define  IN_OP_E                CurSelPortIn(cF_OP_E)
+#define  IN_CL_E                CurSelPortIn(cF_CL_E)   //GS
 #define  IN_HL_D                CurSelPortIn(cF_HL_D)   //DS
 
 
-#define  IN_GR                  CurSelPortIn(cF_GR) 
-#define  IN_BAT                 CurSelPortIn(cF_BAT)  
-#define  IN_PASS                CurSelPortIn(cF_PASS)  
-#define  IN_FIRE                CurSelPortIn(cF_FIRE)  
-#define  IN_WATER               CurSelPortIn(cF_WATER)   
-#define  IN_FULL                CurSelPortIn(cF_FULL)   
-#define  IN_MM                  CurSelPortIn(cF_MM)   
-#define  IN_FHM                 CurSelPortIn(cF_FHM)   
-	
-
-#define  IN_FR1                 CurSelPortIn(cF_FR1) 
-#define  IN_FR2                 CurSelPortIn(cF_FR2)  
-#define  IN_GS2                 CurSelPortIn(cF_GS2)  
-#define  IN_DS2                 CurSelPortIn(cF_DS2)  
-#define  IN_SU2                 CurSelPortIn(cF_SU2)   
-#define  IN_SD2                 CurSelPortIn(cF_SD2)   
-#define  IN_BM                  CurSelPortIn(cF_BM)   
-#define  IN_INV                 CurSelPortIn(cF_INV)   
-
-#define  IN_FS0                 CurSelPortIn(cF_FS0) 
-#define  IN_FS1                 CurSelPortIn(cF_FS1)  
-#define  IN_FS2                 CurSelPortIn(cF_FS2)  
-#define  IN_FS3                 CurSelPortIn(cF_FS3)  
-#define  IN_FS4                 CurSelPortIn(cF_FS4)   
-#define  IN_DER                 CurSelPortIn(cF_DER)   
-#define  IN_FID                 CurSelPortIn(cF_FID)   
-#define  IN_UND1                CurSelPortIn(cF_UND)   
-
-#define  IN_X0                  CurSelPortIn(cF_X0)  
-#define  IN_X1                  CurSelPortIn(cF_X1) 
-#define  IN_X2                  CurSelPortIn(cF_X2)  
-#define  IN_X3                  CurSelPortIn(cF_X3)  
-#define  IN_X4                  CurSelPortIn(cF_X4)   
-#define  IN_X5                  CurSelPortIn(cF_X5)   
-#define  IN_X6                  CurSelPortIn(cF_X6)   
-#define  IN_X7                  CurSelPortIn(cF_X7)   
+#define  IN_GR                  CurSelPortIn(cF_GR)
+#define  IN_BAT                 CurSelPortIn(cF_BAT)
+#define  IN_PASS                CurSelPortIn(cF_PASS)
+#define  IN_FIRE                CurSelPortIn(cF_FIRE)
+#define  IN_WATER               CurSelPortIn(cF_WATER)
+#define  IN_FULL                CurSelPortIn(cF_FULL)
+#define  IN_MM                  CurSelPortIn(cF_MM)
+#define  IN_FHM                 CurSelPortIn(cF_FHM)
 
 
+#define  IN_FR1                 CurSelPortIn(cF_FR1)
+#define  IN_FR2                 CurSelPortIn(cF_FR2)
+#define  IN_GS2                 CurSelPortIn(cF_GS2)
+#define  IN_DS2                 CurSelPortIn(cF_DS2)
+#define  IN_SU2                 CurSelPortIn(cF_SU2)
+#define  IN_SD2                 CurSelPortIn(cF_SD2)
+#define  IN_BM                  CurSelPortIn(cF_BM)
+#define  IN_INV                 CurSelPortIn(cF_INV)
+
+#define  IN_FS0                 CurSelPortIn(cF_FS0)
+#define  IN_FS1                 CurSelPortIn(cF_FS1)
+#define  IN_FS2                 CurSelPortIn(cF_FS2)
+#define  IN_FS3                 CurSelPortIn(cF_FS3)
+#define  IN_FS4                 CurSelPortIn(cF_FS4)
+#define  IN_DER                 CurSelPortIn(cF_DER)
+#define  IN_FID                 CurSelPortIn(cF_FID)
+#define  IN_UND1                CurSelPortIn(cF_UND)
+
+#define  IN_X0                  CurSelPortIn(cF_X0)
+#define  IN_X1                  CurSelPortIn(cF_X1)
+#define  IN_X2                  CurSelPortIn(cF_X2)
+#define  IN_X3                  CurSelPortIn(cF_X3)
+#define  IN_X4                  CurSelPortIn(cF_X4)
+#define  IN_X5                  CurSelPortIn(cF_X5)
+#define  IN_X6                  CurSelPortIn(cF_X6)
+#define  IN_X7                  CurSelPortIn(cF_X7)
 
 
 
 
-#define  OUT_U_W(x)            CurSelOutPort(cF_UP,x) 
-#define  OUT_D_W(x)            CurSelOutPort(cF_DN,x)  
-#define  OUT_P1(x)             CurSelOutPort(cF_P1,x)  
-#define  OUT_P2(x)             CurSelOutPort(cF_P2,x)  
-#define  OUT_P3(x)             CurSelOutPort(cF_P3,x)   
-#define  OUT_P4(x)             CurSelOutPort(cF_P4,x)   
-#define  OUT_DAC(x)            CurSelOutPort(cF_DAC,x)   
 
-#define  OUT_OP(x)              CurSelOutPort(cF_OP,x) 
-#define  OUT_CL(x)              CurSelOutPort(cF_CL,x)  
-#define  OUT_OP_S(x)            CurSelOutPort(cF_OP_S,x)   
+
+#define  OUT_U_W(x)            CurSelOutPort(cF_UP,x)
+#define  OUT_D_W(x)            CurSelOutPort(cF_DN,x)
+#define  OUT_P1(x)             CurSelOutPort(cF_P1,x)
+#define  OUT_P2(x)             CurSelOutPort(cF_P2,x)
+#define  OUT_P3(x)             CurSelOutPort(cF_P3,x)
+#define  OUT_P4(x)             CurSelOutPort(cF_P4,x)
+#define  OUT_DAC(x)            CurSelOutPort(cF_DAC,x)
+
+#define  OUT_OP(x)              CurSelOutPort(cF_OP,x)
+#define  OUT_CL(x)              CurSelOutPort(cF_CL,x)
+#define  OUT_OP_S(x)            CurSelOutPort(cF_OP_S,x)
 #define  OUT_CL_S(x)            CurSelOutPort(cF_CL_S,x)
-#define  OUT_BK2(x)             CurSelOutPort(cF_BK2,x)  
-#define  OUT_D_S(x)             CurSelOutPort(cF_D_S,x)  
-#define  OUT_GBR(x)             CurSelOutPort(cF_GBR,x)   
-#define  OUT_BRK(x)             CurSelOutPort(cF_BRK,x)   
+#define  OUT_BK2(x)             CurSelOutPort(cF_BK2,x)
+#define  OUT_D_S(x)             CurSelOutPort(cF_D_S,x)
+#define  OUT_GBR(x)             CurSelOutPort(cF_GBR,x)
+#define  OUT_BRK(x)             CurSelOutPort(cF_BRK,x)
 
-#define  OUT_FAN(x)             CurSelOutPort(cF_FAN,x)  
-#define  OUT_LIT(x)             CurSelOutPort(cF_LIT,x)  
-#define  OUT_BUZ(x)             CurSelOutPort(cF_BUZ,x)   
+#define  OUT_FAN(x)             CurSelOutPort(cF_FAN,x)
+#define  OUT_LIT(x)             CurSelOutPort(cF_LIT,x)
+#define  OUT_BUZ(x)             CurSelOutPort(cF_BUZ,x)
 #define  OUT_BELL(x)            CurSelOutPort(cF_BELL,x)
 #define  OUT_RST(x)             CurSelOutPort(cF_RST,x)
 #define  OUT_ERR(x)             CurSelOutPort(cF_ERR,x)
@@ -2337,118 +2338,118 @@ extern	UserDataType    BefFs_Byte;
 extern  UserDataType    BefX0Byte;
 
 
-#define  IN_EMG_IN            GET_BITFIELD(&EmgByte).bit0 
-#define  IN_PRK_IN            GET_BITFIELD(&EmgByte).bit1  
-#define  IN_AUTO_IN           GET_BITFIELD(&EmgByte).bit2  
-#define  IN_U_B_IN            GET_BITFIELD(&EmgByte).bit3  
-#define  IN_D_B_IN            GET_BITFIELD(&EmgByte).bit4   
-#define  IN_OP_E_IN           GET_BITFIELD(&EmgByte).bit5   
-#define  IN_CL_E_IN           GET_BITFIELD(&EmgByte).bit6   
-#define  IN_HL_D_IN           GET_BITFIELD(&EmgByte).bit7   
+#define  IN_EMG_IN            GET_BITFIELD(&EmgByte).bit0
+#define  IN_PRK_IN            GET_BITFIELD(&EmgByte).bit1
+#define  IN_AUTO_IN           GET_BITFIELD(&EmgByte).bit2
+#define  IN_U_B_IN            GET_BITFIELD(&EmgByte).bit3
+#define  IN_D_B_IN            GET_BITFIELD(&EmgByte).bit4
+#define  IN_OP_E_IN           GET_BITFIELD(&EmgByte).bit5
+#define  IN_CL_E_IN           GET_BITFIELD(&EmgByte).bit6
+#define  IN_HL_D_IN           GET_BITFIELD(&EmgByte).bit7
 
-#define  IN_SU1_IN            GET_BITFIELD(&Su1Byte).bit0 
-#define  IN_SD1_IN            GET_BITFIELD(&Su1Byte).bit1  
-#define  IN_SFT_IN            GET_BITFIELD(&Su1Byte).bit2  
-#define  IN_OVL_IN            GET_BITFIELD(&Su1Byte).bit3  
-#define  IN_ULS_IN            GET_BITFIELD(&Su1Byte).bit4   
-#define  IN_DLS_IN            GET_BITFIELD(&Su1Byte).bit5   
-#define  IN_LU_IN             GET_BITFIELD(&Su1Byte).bit6   
-#define  IN_LD_IN             GET_BITFIELD(&Su1Byte).bit7   
-
-
-#define  IN_GR_IN             GET_BITFIELD(&GrByte).bit0 
-#define  IN_BAT_IN            GET_BITFIELD(&GrByte).bit1  
-#define  IN_PASS_IN           GET_BITFIELD(&GrByte).bit2  
-#define  IN_FIRE_IN           GET_BITFIELD(&GrByte).bit3  
-#define  IN_WATER_IN          GET_BITFIELD(&GrByte).bit4   
-#define  IN_FULL_IN           GET_BITFIELD(&GrByte).bit5   
-#define  IN_MM_IN             GET_BITFIELD(&GrByte).bit6   
-#define  IN_FHM_IN            GET_BITFIELD(&GrByte).bit7   
-
-#define  IN_FR1_IN            GET_BITFIELD(&FireByte).bit0 
-#define  IN_FR2_IN            GET_BITFIELD(&FireByte).bit1  
-#define  IN_GS2_IN            GET_BITFIELD(&FireByte).bit2  
-#define  IN_DS2_IN            GET_BITFIELD(&FireByte).bit3  
-#define  IN_SU2_IN            GET_BITFIELD(&FireByte).bit4   
-#define  IN_SD2_IN            GET_BITFIELD(&FireByte).bit5   
-#define  IN_BM_IN             GET_BITFIELD(&FireByte).bit6   
-#define  IN_INV_IN            GET_BITFIELD(&FireByte).bit7   
-
-#define  IN_FS0_IN            GET_BITFIELD(&Fs_Byte).bit0 
-#define  IN_FS1_IN            GET_BITFIELD(&Fs_Byte).bit1  
-#define  IN_FS2_IN            GET_BITFIELD(&Fs_Byte).bit2  
-#define  IN_FS3_IN            GET_BITFIELD(&Fs_Byte).bit3  
-#define  IN_FS4_IN            GET_BITFIELD(&Fs_Byte).bit4   
-#define  IN_DER_IN            GET_BITFIELD(&Fs_Byte).bit5   
-#define  IN_FID_IN            GET_BITFIELD(&Fs_Byte).bit6   
-#define  IN_UND1_IN           GET_BITFIELD(&Fs_Byte).bit7   
+#define  IN_SU1_IN            GET_BITFIELD(&Su1Byte).bit0
+#define  IN_SD1_IN            GET_BITFIELD(&Su1Byte).bit1
+#define  IN_SFT_IN            GET_BITFIELD(&Su1Byte).bit2
+#define  IN_OVL_IN            GET_BITFIELD(&Su1Byte).bit3
+#define  IN_ULS_IN            GET_BITFIELD(&Su1Byte).bit4
+#define  IN_DLS_IN            GET_BITFIELD(&Su1Byte).bit5
+#define  IN_LU_IN             GET_BITFIELD(&Su1Byte).bit6
+#define  IN_LD_IN             GET_BITFIELD(&Su1Byte).bit7
 
 
-#define  IN_X0_IN             GET_BITFIELD(&X0Byte).bit0  
-#define  IN_X1_IN             GET_BITFIELD(&X0Byte).bit1 
-#define  IN_X2_IN             GET_BITFIELD(&X0Byte).bit2  
-#define  IN_X3_IN             GET_BITFIELD(&X0Byte).bit3  
-#define  IN_X4_IN             GET_BITFIELD(&X0Byte).bit4   
-#define  IN_X5_IN             GET_BITFIELD(&X0Byte).bit5   
-#define  IN_X6_IN             GET_BITFIELD(&X0Byte).bit6   
-#define  IN_X7_IN             GET_BITFIELD(&X0Byte).bit7   
+#define  IN_GR_IN             GET_BITFIELD(&GrByte).bit0
+#define  IN_BAT_IN            GET_BITFIELD(&GrByte).bit1
+#define  IN_PASS_IN           GET_BITFIELD(&GrByte).bit2
+#define  IN_FIRE_IN           GET_BITFIELD(&GrByte).bit3
+#define  IN_WATER_IN          GET_BITFIELD(&GrByte).bit4
+#define  IN_FULL_IN           GET_BITFIELD(&GrByte).bit5
+#define  IN_MM_IN             GET_BITFIELD(&GrByte).bit6
+#define  IN_FHM_IN            GET_BITFIELD(&GrByte).bit7
+
+#define  IN_FR1_IN            GET_BITFIELD(&FireByte).bit0
+#define  IN_FR2_IN            GET_BITFIELD(&FireByte).bit1
+#define  IN_GS2_IN            GET_BITFIELD(&FireByte).bit2
+#define  IN_DS2_IN            GET_BITFIELD(&FireByte).bit3
+#define  IN_SU2_IN            GET_BITFIELD(&FireByte).bit4
+#define  IN_SD2_IN            GET_BITFIELD(&FireByte).bit5
+#define  IN_BM_IN             GET_BITFIELD(&FireByte).bit6
+#define  IN_INV_IN            GET_BITFIELD(&FireByte).bit7
+
+#define  IN_FS0_IN            GET_BITFIELD(&Fs_Byte).bit0
+#define  IN_FS1_IN            GET_BITFIELD(&Fs_Byte).bit1
+#define  IN_FS2_IN            GET_BITFIELD(&Fs_Byte).bit2
+#define  IN_FS3_IN            GET_BITFIELD(&Fs_Byte).bit3
+#define  IN_FS4_IN            GET_BITFIELD(&Fs_Byte).bit4
+#define  IN_DER_IN            GET_BITFIELD(&Fs_Byte).bit5
+#define  IN_FID_IN            GET_BITFIELD(&Fs_Byte).bit6
+#define  IN_UND1_IN           GET_BITFIELD(&Fs_Byte).bit7
 
 
-#define  BEF_IN_EMG_IN            GET_BITFIELD(&BefEmgByte).bit0 
-#define  BEF_IN_PRK_IN            GET_BITFIELD(&BefEmgByte).bit1  
-#define  BEF_IN_AUTO_IN           GET_BITFIELD(&BefEmgByte).bit2  
-#define  BEF_IN_U_B_IN            GET_BITFIELD(&BefEmgByte).bit3  
-#define  BEF_IN_D_B_IN            GET_BITFIELD(&BefEmgByte).bit4   
-#define  BEF_IN_OP_E_IN           GET_BITFIELD(&BefEmgByte).bit5   
-#define  BEF_IN_CL_E_IN           GET_BITFIELD(&BefEmgByte).bit6   
-#define  BEF_IN_HL_D_IN           GET_BITFIELD(&BefEmgByte).bit7   
-
-#define  BEF_IN_SU1_IN            GET_BITFIELD(&BefSu1Byte).bit0 
-#define  BEF_IN_SD1_IN            GET_BITFIELD(&BefSu1Byte).bit1  
-#define  BEF_IN_SFT_IN            GET_BITFIELD(&BefSu1Byte).bit2  
-#define  BEF_IN_OVL_IN            GET_BITFIELD(&BefSu1Byte).bit3  
-#define  BEF_IN_ULS_IN            GET_BITFIELD(&BefSu1Byte).bit4   
-#define  BEF_IN_DLS_IN            GET_BITFIELD(&BefSu1Byte).bit5   
-#define  BEF_IN_LU_IN             GET_BITFIELD(&BefSu1Byte).bit6   
-#define  BEF_IN_LD_IN             GET_BITFIELD(&BefSu1Byte).bit7   
+#define  IN_X0_IN             GET_BITFIELD(&X0Byte).bit0
+#define  IN_X1_IN             GET_BITFIELD(&X0Byte).bit1
+#define  IN_X2_IN             GET_BITFIELD(&X0Byte).bit2
+#define  IN_X3_IN             GET_BITFIELD(&X0Byte).bit3
+#define  IN_X4_IN             GET_BITFIELD(&X0Byte).bit4
+#define  IN_X5_IN             GET_BITFIELD(&X0Byte).bit5
+#define  IN_X6_IN             GET_BITFIELD(&X0Byte).bit6
+#define  IN_X7_IN             GET_BITFIELD(&X0Byte).bit7
 
 
-#define  BEF_IN_GR_IN             GET_BITFIELD(&BefGrByte).bit0 
-#define  BEF_IN_BAT_IN            GET_BITFIELD(&BefGrByte).bit1  
-#define  BEF_IN_PASS_IN           GET_BITFIELD(&BefGrByte).bit2  
-#define  BEF_IN_FIRE_IN           GET_BITFIELD(&BefGrByte).bit3  
-#define  BEF_IN_WATER_IN          GET_BITFIELD(&BefGrByte).bit4   
-#define  BEF_IN_FULL_IN           GET_BITFIELD(&BefGrByte).bit5   
-#define  BEF_IN_MM_IN             GET_BITFIELD(&BefGrByte).bit6   
-#define  BEF_IN_FHM_IN            GET_BITFIELD(&BefGrByte).bit7   
+#define  BEF_IN_EMG_IN            GET_BITFIELD(&BefEmgByte).bit0
+#define  BEF_IN_PRK_IN            GET_BITFIELD(&BefEmgByte).bit1
+#define  BEF_IN_AUTO_IN           GET_BITFIELD(&BefEmgByte).bit2
+#define  BEF_IN_U_B_IN            GET_BITFIELD(&BefEmgByte).bit3
+#define  BEF_IN_D_B_IN            GET_BITFIELD(&BefEmgByte).bit4
+#define  BEF_IN_OP_E_IN           GET_BITFIELD(&BefEmgByte).bit5
+#define  BEF_IN_CL_E_IN           GET_BITFIELD(&BefEmgByte).bit6
+#define  BEF_IN_HL_D_IN           GET_BITFIELD(&BefEmgByte).bit7
 
-#define  BEF_IN_FR1_IN            GET_BITFIELD(&BefFireByte).bit0 
-#define  BEF_IN_FR2_IN            GET_BITFIELD(&BefFireByte).bit1  
-#define  BEF_IN_GS2_IN            GET_BITFIELD(&BefFireByte).bit2  
-#define  BEF_IN_DS2_IN            GET_BITFIELD(&BefFireByte).bit3  
-#define  BEF_IN_SU2_IN            GET_BITFIELD(&BefFireByte).bit4   
-#define  BEF_IN_SD2_IN            GET_BITFIELD(&BefFireByte).bit5   
-#define  BEF_IN_BM_IN             GET_BITFIELD(&BefFireByte).bit6   
-#define  BEF_IN_INV_IN            GET_BITFIELD(&BefFireByte).bit7   
-
-#define  BEF_IN_FS0_IN            GET_BITFIELD(&BefFs_Byte).bit0 
-#define  BEF_IN_FS1_IN            GET_BITFIELD(&BefFs_Byte).bit1  
-#define  BEF_IN_FS2_IN            GET_BITFIELD(&BefFs_Byte).bit2  
-#define  BEF_IN_FS3_IN            GET_BITFIELD(&BefFs_Byte).bit3  
-#define  BEF_IN_FS4_IN            GET_BITFIELD(&BefFs_Byte).bit4   
-#define  BEF_IN_DER_IN            GET_BITFIELD(&BefFs_Byte).bit5   
-#define  BEF_IN_FID_IN            GET_BITFIELD(&BefFs_Byte).bit6   
-#define  BEF_IN_UND1_IN           GET_BITFIELD(&BefFs_Byte).bit7   
+#define  BEF_IN_SU1_IN            GET_BITFIELD(&BefSu1Byte).bit0
+#define  BEF_IN_SD1_IN            GET_BITFIELD(&BefSu1Byte).bit1
+#define  BEF_IN_SFT_IN            GET_BITFIELD(&BefSu1Byte).bit2
+#define  BEF_IN_OVL_IN            GET_BITFIELD(&BefSu1Byte).bit3
+#define  BEF_IN_ULS_IN            GET_BITFIELD(&BefSu1Byte).bit4
+#define  BEF_IN_DLS_IN            GET_BITFIELD(&BefSu1Byte).bit5
+#define  BEF_IN_LU_IN             GET_BITFIELD(&BefSu1Byte).bit6
+#define  BEF_IN_LD_IN             GET_BITFIELD(&BefSu1Byte).bit7
 
 
-#define  BEF_IN_X0_IN             GET_BITFIELD(&BefX0Byte).bit0  
-#define  BEF_IN_X1_IN             GET_BITFIELD(&BefX0Byte).bit1 
-#define  BEF_IN_X2_IN             GET_BITFIELD(&BefX0Byte).bit2  
-#define  BEF_IN_X3_IN             GET_BITFIELD(&BefX0Byte).bit3  
-#define  BEF_IN_X4_IN             GET_BITFIELD(&BefX0Byte).bit4   
-#define  BEF_IN_X5_IN             GET_BITFIELD(&BefX0Byte).bit5   
-#define  BEF_IN_X6_IN             GET_BITFIELD(&BefX0Byte).bit6   
-#define  BEF_IN_X7_IN             GET_BITFIELD(&BefX0Byte).bit7   
+#define  BEF_IN_GR_IN             GET_BITFIELD(&BefGrByte).bit0
+#define  BEF_IN_BAT_IN            GET_BITFIELD(&BefGrByte).bit1
+#define  BEF_IN_PASS_IN           GET_BITFIELD(&BefGrByte).bit2
+#define  BEF_IN_FIRE_IN           GET_BITFIELD(&BefGrByte).bit3
+#define  BEF_IN_WATER_IN          GET_BITFIELD(&BefGrByte).bit4
+#define  BEF_IN_FULL_IN           GET_BITFIELD(&BefGrByte).bit5
+#define  BEF_IN_MM_IN             GET_BITFIELD(&BefGrByte).bit6
+#define  BEF_IN_FHM_IN            GET_BITFIELD(&BefGrByte).bit7
+
+#define  BEF_IN_FR1_IN            GET_BITFIELD(&BefFireByte).bit0
+#define  BEF_IN_FR2_IN            GET_BITFIELD(&BefFireByte).bit1
+#define  BEF_IN_GS2_IN            GET_BITFIELD(&BefFireByte).bit2
+#define  BEF_IN_DS2_IN            GET_BITFIELD(&BefFireByte).bit3
+#define  BEF_IN_SU2_IN            GET_BITFIELD(&BefFireByte).bit4
+#define  BEF_IN_SD2_IN            GET_BITFIELD(&BefFireByte).bit5
+#define  BEF_IN_BM_IN             GET_BITFIELD(&BefFireByte).bit6
+#define  BEF_IN_INV_IN            GET_BITFIELD(&BefFireByte).bit7
+
+#define  BEF_IN_FS0_IN            GET_BITFIELD(&BefFs_Byte).bit0
+#define  BEF_IN_FS1_IN            GET_BITFIELD(&BefFs_Byte).bit1
+#define  BEF_IN_FS2_IN            GET_BITFIELD(&BefFs_Byte).bit2
+#define  BEF_IN_FS3_IN            GET_BITFIELD(&BefFs_Byte).bit3
+#define  BEF_IN_FS4_IN            GET_BITFIELD(&BefFs_Byte).bit4
+#define  BEF_IN_DER_IN            GET_BITFIELD(&BefFs_Byte).bit5
+#define  BEF_IN_FID_IN            GET_BITFIELD(&BefFs_Byte).bit6
+#define  BEF_IN_UND1_IN           GET_BITFIELD(&BefFs_Byte).bit7
+
+
+#define  BEF_IN_X0_IN             GET_BITFIELD(&BefX0Byte).bit0
+#define  BEF_IN_X1_IN             GET_BITFIELD(&BefX0Byte).bit1
+#define  BEF_IN_X2_IN             GET_BITFIELD(&BefX0Byte).bit2
+#define  BEF_IN_X3_IN             GET_BITFIELD(&BefX0Byte).bit3
+#define  BEF_IN_X4_IN             GET_BITFIELD(&BefX0Byte).bit4
+#define  BEF_IN_X5_IN             GET_BITFIELD(&BefX0Byte).bit5
+#define  BEF_IN_X6_IN             GET_BITFIELD(&BefX0Byte).bit6
+#define  BEF_IN_X7_IN             GET_BITFIELD(&BefX0Byte).bit7
 
 
 
@@ -2493,7 +2494,7 @@ extern  UserDataType    BefX0Byte;
 
 
 
-#define     ASCTOHEX(x) ((x <= '9') ? (x - '0') : (x - '7')) 
+#define     ASCTOHEX(x) ((x <= '9') ? (x - '0') : (x - '7'))
 #define     L_SHIFT(x)  (x << 4)
 
 
@@ -2534,14 +2535,14 @@ extern	unsigned int 	Voltage[16];
 
 
 
-#define  bMasterHostCDS         GET_BITFIELD(&CommonExtraRam[0]).bit0 
-//#define  bTwoStep               GET_BITFIELD(&CommonExtraRam[0]).bit1 
-//#define  bThreeStep             GET_BITFIELD(&CommonExtraRam[0]).bit2 
-//#define  bFourStep              GET_BITFIELD(&CommonExtraRam[0]).bit3 
-//#define  bBefbsSdsErr           GET_BITFIELD(&CommonExtraRam[0]).bit4 
-//#define  bInvErrCnt             GET_BITFIELD(&CommonExtraRam[0]).bit5 
-//#define  bDspSeq                GET_BITFIELD(&CommonExtraRam[0]).bit6 
-//#define  bLevelFind             GET_BITFIELD(&CommonExtraRam[0]).bit7 
+#define  bMasterHostCDS         GET_BITFIELD(&CommonExtraRam[0]).bit0
+//#define  bTwoStep               GET_BITFIELD(&CommonExtraRam[0]).bit1
+//#define  bThreeStep             GET_BITFIELD(&CommonExtraRam[0]).bit2
+//#define  bFourStep              GET_BITFIELD(&CommonExtraRam[0]).bit3
+//#define  bBefbsSdsErr           GET_BITFIELD(&CommonExtraRam[0]).bit4
+//#define  bInvErrCnt             GET_BITFIELD(&CommonExtraRam[0]).bit5
+//#define  bDspSeq                GET_BITFIELD(&CommonExtraRam[0]).bit6
+//#define  bLevelFind             GET_BITFIELD(&CommonExtraRam[0]).bit7
 
 
 
@@ -2617,7 +2618,7 @@ extern	unsigned int 	Voltage[16];
 #define  cF_Day_E_M          	GET_LONGFIELD(&FlashDspCharBuf[F_Day_E_M/4])  		.byte[F_Day_E_M%4]
 #define  cF_On_Percent          GET_LONGFIELD(&FlashDspCharBuf[F_On_Percent/4])  	.byte[F_On_Percent%4]
 #define  cF_On_Time          	GET_LONGFIELD(&FlashDspCharBuf[F_On_Time/4])  		.byte[F_On_Time%4]
-
+#define  cF_MasterCDS			GET_LONGFIELD(&FlashDspCharBuf[F_MasterCDS/4])  	.byte[F_MasterCDS%4]
 
 
 #define  cF_0Count            	GET_LONGFIELD(&FlashDspCharBuf[F_0Count/4])      	.byte[F_0Count%4]
@@ -2674,9 +2675,9 @@ extern	unsigned int 	Voltage[16];
 #define  OneRead             	GET_LONGFIELD(&FlashDspCharBuf[F_10Extra/4])        .byte[F_10Extra%4]
 
 
-#define  OUT_Y0(x)        		CurSelOutPort(cF_FAN,x)  
-#define  OUT_Y1(x)             	CurSelOutPort(cF_LIT,x)  
-#define  OUT_Y2(x)             	CurSelOutPort(cF_BUZ,x)   
+#define  OUT_Y0(x)        		CurSelOutPort(cF_FAN,x)
+#define  OUT_Y1(x)             	CurSelOutPort(cF_LIT,x)
+#define  OUT_Y2(x)             	CurSelOutPort(cF_BUZ,x)
 #define  OUT_Y3(x)            	CurSelOutPort(cF_BELL,x)
 #define  OUT_Y4(x)             	CurSelOutPort(cF_RST,x)
 #define  OUT_Y5(x)             	CurSelOutPort(cF_ERR,x)
@@ -2708,17 +2709,17 @@ extern	UserDataType	TmpCan2RcvBuf[100];
 
 
 
-#define	SRAM_BYTE_READ			(SRAM_AREA  | BYTE_DEG | READ_CMD)  
-#define	SRAM_BYTE_RWITE			(SRAM_AREA  | BYTE_DEG | WRITE_CMD)  
+#define	SRAM_BYTE_READ			(SRAM_AREA  | BYTE_DEG | READ_CMD)
+#define	SRAM_BYTE_RWITE			(SRAM_AREA  | BYTE_DEG | WRITE_CMD)
 
-#define	FLASH_BYTE_READ			(FLASH_AREA | BYTE_DEG | READ_CMD)  
-#define	FLASH_BYTE_WRITE		(FLASH_AREA | BYTE_DEG | WRITE_CMD)  
+#define	FLASH_BYTE_READ			(FLASH_AREA | BYTE_DEG | READ_CMD)
+#define	FLASH_BYTE_WRITE		(FLASH_AREA | BYTE_DEG | WRITE_CMD)
 
 
-#define	SRAM_BIT_READ			(SRAM_AREA  | BIT_DEG | READ_CMD)  
-#define	SRAM_BIT_WRITE			(SRAM_AREA  | BIT_DEG | WRITE_CMD)  
+#define	SRAM_BIT_READ			(SRAM_AREA  | BIT_DEG | READ_CMD)
+#define	SRAM_BIT_WRITE			(SRAM_AREA  | BIT_DEG | WRITE_CMD)
 
-#define	FLASH_BIT_READ			(FLASH_AREA | BIT_DEG | READ_CMD)  
-#define	FLASH_BIT_WRITE			(FLASH_AREA | BIT_DEG | WRITE_CMD)  
+#define	FLASH_BIT_READ			(FLASH_AREA | BIT_DEG | READ_CMD)
+#define	FLASH_BIT_WRITE			(FLASH_AREA | BIT_DEG | WRITE_CMD)
 
 

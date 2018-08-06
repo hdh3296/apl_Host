@@ -51,9 +51,9 @@ void  __attribute__((section(".usercode"))) Pc_Command(void);
 
 
 
-
+// 각 그룹 메뉴 갯수 지정 (설정)
 #define USER_GROUP_MAX              7
-#define SYSTEM_GROUP_MAX            9
+#define SYSTEM_GROUP_MAX            10
 #define LAMP_GROUP_MAX              3
 
 
@@ -1356,7 +1356,7 @@ const unsigned char GroupLineMessage[][17]={
                                     "SYS:Night Time  ",//7
                                     "SYS:Lamp Duty   ",//8
                                     "SYS:Lamp Frq    ",//9
-                                    "SYS:Nc          ",//10
+                                    "SYS:Master/Slave",//10
                                     "SYS:Nc          ",//11
                                     "eRROR MODIFT    ",//12
                                     "eRROR MODIFT    ",//13
@@ -2308,6 +2308,11 @@ const unsigned char LampRunMode[][13]={
 const unsigned char Cds_Timer[][5]={
                                     "CDS  ",
                                     "Timer",
+								};
+
+const unsigned char MasterCds[][6]={
+                                    "Master",
+                                    "Slave ",
 								};
 
 
@@ -3593,7 +3598,14 @@ void  __attribute__((section(".usercode"))) DigitStringMessage(void)
 		                New485Ladder[SECONDLINE_BASE+EditBlanck+i]=Cds_Timer[DigitData][i];
 		            }
 
-				break;
+					break;
+				case    9:
+					if(DigitData & 0x01)	DigitData=0x01;
+					else					DigitData=0;
+
+		            for(i=0;i<6;i++){
+		                New485Ladder[SECONDLINE_BASE+EditBlanck+i]=MasterCds[DigitData][i];
+		            }
 			}
             break;
         case    LAMP1_GROUP:
@@ -3815,6 +3827,17 @@ void  __attribute__((section(".usercode"))) SystemGroup(void)
 			DigitData=cF_FLRDSPCH((unsigned long)(F_On_Time));
             Integer_Digit();
             break;
+		case	9:
+            Cursor=0;
+            ShiftCnt=0;
+            EditBlanck=5;
+            EditStatus=DIGIT_STRING_EDIT;
+            DigitMaxValue=2;
+            DigitMinValue=0;
+            DigitData=cF_FLRDSPCH((unsigned long)F_MasterCDS);
+            Integer_Digit();
+			break;
+
         default:
             break;
     }
@@ -3872,6 +3895,9 @@ void  __attribute__((section(".usercode"))) SystemGroupSave(void)
 		case	8:
 	    	b_LdTmpBufRam(F_On_Time)=(LocalType)(DigitData);
             break;
+		case	9:
+    		b_LdTmpBufRam(F_MasterCDS)=(LocalType)(DigitData);
+			break;
         default:
             break;
     }
