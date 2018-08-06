@@ -2305,11 +2305,11 @@ const unsigned char LampRunMode[][13]={
                                     };
 
 
-const unsigned char Cds_Timer[][9]={
-                                    "CDS      ",
-                                    "Timer    ",
-                                    "MasterCds"
+const unsigned char Cds_Timer[][5]={
+                                    "CDS  ",
+                                    "Timer",
 								};
+
 
 
 void  __attribute__((section(".usercode")))	PasswardCheck(void)
@@ -3585,9 +3585,14 @@ void  __attribute__((section(".usercode"))) DigitStringMessage(void)
         case    SYSTEM_GROUP:
 			switch(LadderGroupSub){
 				case	4:
-		            for(i=0;i<9;i++){
+					if(DigitData & 0x01)	DigitData=0x01;
+					else					DigitData=0;
+
+		            for(i=0;i<5;i++){ 	// 5 => Cds_Timer 의 한 문장의 문자 갯수
+		            					// ex) "CDS  " => 5
 		                New485Ladder[SECONDLINE_BASE+EditBlanck+i]=Cds_Timer[DigitData][i];
 		            }
+
 				break;
 			}
             break;
@@ -3753,7 +3758,7 @@ void  __attribute__((section(".usercode"))) SystemGroup(void)
             ShiftCnt=0;
             EditBlanck=5;
             EditStatus=DIGIT_STRING_EDIT;
-            DigitMaxValue=3;
+            DigitMaxValue=2;
             DigitMinValue=0;
             DigitData=cF_FLRDSPCH((unsigned long)F_SystemMode);
             Integer_Digit();

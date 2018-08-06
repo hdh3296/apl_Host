@@ -986,8 +986,13 @@ unsigned int  __attribute__((section(".usercode"))) SystemCheck(void)
 #define TIME_SET		1
 #define MASTER_CDS_SET	2
 
-bool isMasterCdsUse() {
-
+bool isMasterCdsUse(void) {
+/*
+	로더 셋팅 값 반환 : MasterCds 여부
+	* CDS
+	* Timer
+	* MasterCds
+*/
 	return cF_SystemMode == MASTER_CDS_SET;
 }
 
