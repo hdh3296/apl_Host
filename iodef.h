@@ -343,10 +343,9 @@ typedef  union  _long_union
 
 #define  F_Company              (F_BLOCK0+24)                     //1
 #define  F_Airconadr            (F_BLOCK0+25)						//
-#define  F_UserLamp3            (F_BLOCK0+26)						//
+#define  F_MainSlave            (F_BLOCK0+26)						//
 #define  F_UserLamp4            (F_BLOCK0+27)						//
 
-#define  F_MainSlave            (F_BLOCK0+28)
 
 
 
@@ -592,7 +591,7 @@ typedef  union  _long_union
 #define  F_Company              176                     //1
 #define  F_Airconadr            177						//
 
-#define  F_UserLamp3            178						//
+#define  F_MainSlave            178						//
 #define  F_UserLamp4            179						//
 */
 
@@ -2047,7 +2046,7 @@ extern const unsigned int EncRate[];
 
 #define  cF_USERLAMP1           GET_LONGFIELD(&FlashDspCharBuf[F_UserLamp1/4])      .byte[F_UserLamp1%4]
 #define  cF_USERLAMP2           GET_LONGFIELD(&FlashDspCharBuf[F_UserLamp2/4])      .byte[F_UserLamp2%4]
-#define  cF_USERLAMP3           GET_LONGFIELD(&FlashDspCharBuf[F_UserLamp3/4])      .byte[F_UserLamp3%4]
+#define  cF_MasterCDS           GET_LONGFIELD(&FlashDspCharBuf[F_MainSlave/4])      .byte[F_MainSlave%4]
 #define  cF_USERLAMP4           GET_LONGFIELD(&FlashDspCharBuf[F_UserLamp4/4])      .byte[F_UserLamp4%4]
 
 #define  cF_ERRSTOPCNT          GET_LONGFIELD(&FlashDspCharBuf[F_ErrStopCnt/4])     .byte[F_ErrStopCnt%4]
@@ -2065,7 +2064,6 @@ extern const unsigned int EncRate[];
 
 #define  cF_COMPANY             GET_LONGFIELD(&FlashDspCharBuf[F_Company/4])        .byte[F_Company%4]
 
-#define  cF_MasterCDS			GET_LONGFIELD(&FlashDspCharBuf[F_MainSlave/4])  	.byte[F_MainSlave%4]
 
 
 #define  cF_ELEV_SPEED          GET_LONGFIELD(&FlashDspCharBuf[F_ElevSpeed/4])      .byte[F_ElevSpeed%4]

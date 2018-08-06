@@ -2311,9 +2311,9 @@ const unsigned char Cds_Timer[][5]={
                                     "Timer",
 								};
 
-const unsigned char MasterCds[][6]={
-                                    "Main  ",
-                                    "Slave ",
+const unsigned char MasterCds[][5]={
+                                    "Main ",
+                                    "Slave",
 								};
 
 
@@ -3546,7 +3546,7 @@ void  __attribute__((section(".usercode"))) DigitStringMessage(void)
 					if(DigitData & 0x01)	DigitData=0x01;
 					else					DigitData=0;
 
-					for(i=0;i<6;i++){
+					for(i=0;i<5;i++){
 						New485Ladder[SECONDLINE_BASE+EditBlanck+i]=MasterCds[DigitData][i];
 					}
 					break;
@@ -5050,7 +5050,7 @@ void  __attribute__((section(".usercode"))) UserGroup(void)
             DigitMinValue=0;
 			if(LadderGroupSub == USER_LAMP1)		i=F_UserLamp1;
 			else if(LadderGroupSub == USER_LAMP2)	i=F_UserLamp2;
-			else if(LadderGroupSub == USER_LAMP3)	i=F_UserLamp3;
+			else if(LadderGroupSub == USER_LAMP3)	i=F_MainSlave;
 			else if(LadderGroupSub == USER_LAMP4)	i=F_UserLamp4;
 //			else								i=F_UserLamp2;
             DigitData=cF_FLRDSPCH((unsigned long)i);
@@ -5376,7 +5376,7 @@ void  __attribute__((section(".usercode"))) UserGroupSave(void)
 /*
 			if(LadderGroupSub == USER_LAMP1)		i=F_UserLamp1;
 			else if(LadderGroupSub == USER_LAMP2)	i=F_UserLamp2;
-			else if(LadderGroupSub == USER_LAMP3)	i=F_UserLamp3;
+			else if(LadderGroupSub == USER_LAMP3)	i=F_MainSlave;
 			else if(LadderGroupSub == USER_LAMP4)	i=F_UserLamp4;
 */
 			if(LadderGroupSub == LOCAL_NUMBER)		i=F_LocalNm;
@@ -5387,6 +5387,7 @@ void  __attribute__((section(".usercode"))) UserGroupSave(void)
 
 		case	MAIN_SLAVE:
 			b_LdTmpBufRam(F_MainSlave)=(LocalType)(DigitData);
+			flash_write_DspChar(F_BLOCK0);
 			break;
 
 /*
@@ -5523,7 +5524,7 @@ void  __attribute__((section(".usercode"))) UserGroupSave(void)
         case    LOCAL_NUMBER:
 			if(LadderGroupSub == USER_LAMP1)		i=F_UserLamp1;
 			else if(LadderGroupSub == USER_LAMP2)	i=F_UserLamp2;
-			else if(LadderGroupSub == USER_LAMP3)	i=F_UserLamp3;
+			else if(LadderGroupSub == USER_LAMP3)	i=F_MainSlave;
 			else if(LadderGroupSub == USER_LAMP4)	i=F_UserLamp4;
 			else if(LadderGroupSub == LOCAL_NUMBER)	i=F_LocalNm;
 			else									i=F_GroupNm;
