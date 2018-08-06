@@ -1019,6 +1019,8 @@ UserDataType  __attribute__((section(".usercode"))) ReadInitSetupData(void)
         b_LdTmpBufRam(F_Company)        = COMPANY;
         b_LdTmpBufRam(F_Airconadr)      = 0xc0;
 
+		b_LdTmpBufRam(F_MainSlave)  	= 0x00;
+
         flash_write_DspChar(F_BLOCK0);
 
 
@@ -1090,7 +1092,7 @@ UserDataType  __attribute__((section(".usercode"))) ReadInitSetupData(void)
        	b_LdTmpBufRam(F_Day_S_M)    = 0x00;	// 00  min
        	b_LdTmpBufRam(F_Day_E_H)    = 0x18;	// 18  hour
        	b_LdTmpBufRam(F_Day_E_M)    = 0x00;	// 00  min
-		b_LdTmpBufRam(F_MasterCDS)  = 0x00;
+
 
        	b_LdTmpBufRam(F_0Count)     = 0;  //0;	//  4
        	b_LdTmpBufRam(F_0Amp)     	= 0;	//  5

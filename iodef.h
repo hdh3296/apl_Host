@@ -346,6 +346,8 @@ typedef  union  _long_union
 #define  F_UserLamp3            (F_BLOCK0+26)						//
 #define  F_UserLamp4            (F_BLOCK0+27)						//
 
+#define  F_MainSlave            (F_BLOCK0+28)
+
 
 
 #define  F_BLOCK1               64              //0
@@ -362,7 +364,8 @@ typedef  union  _long_union
 #define  F_Day_E_M              (F_BLOCK1+8)               		//1     16
 #define  F_On_Percent           (F_BLOCK1+9)               		//1     16
 #define  F_On_Time              (F_BLOCK1+10)         				//1     16
-#define  F_MasterCDS            (F_BLOCK1+11)            			//1     16
+#define  F_System1              (F_BLOCK1+11)            			//1     16
+
 
 #define  F_System2              (F_BLOCK1+12)            			//1     16
 #define  F_System3              (F_BLOCK1+13)               		//1     16
@@ -2062,6 +2065,7 @@ extern const unsigned int EncRate[];
 
 #define  cF_COMPANY             GET_LONGFIELD(&FlashDspCharBuf[F_Company/4])        .byte[F_Company%4]
 
+#define  cF_MasterCDS			GET_LONGFIELD(&FlashDspCharBuf[F_MainSlave/4])  	.byte[F_MainSlave%4]
 
 
 #define  cF_ELEV_SPEED          GET_LONGFIELD(&FlashDspCharBuf[F_ElevSpeed/4])      .byte[F_ElevSpeed%4]
@@ -2618,7 +2622,6 @@ extern	unsigned int 	Voltage[16];
 #define  cF_Day_E_M          	GET_LONGFIELD(&FlashDspCharBuf[F_Day_E_M/4])  		.byte[F_Day_E_M%4]
 #define  cF_On_Percent          GET_LONGFIELD(&FlashDspCharBuf[F_On_Percent/4])  	.byte[F_On_Percent%4]
 #define  cF_On_Time          	GET_LONGFIELD(&FlashDspCharBuf[F_On_Time/4])  		.byte[F_On_Time%4]
-#define  cF_MasterCDS			GET_LONGFIELD(&FlashDspCharBuf[F_MasterCDS/4])  	.byte[F_MasterCDS%4]
 
 
 #define  cF_0Count            	GET_LONGFIELD(&FlashDspCharBuf[F_0Count/4])      	.byte[F_0Count%4]
