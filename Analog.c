@@ -129,7 +129,7 @@
 
 
 #define	VARIAVLE		5
-#define	AVR_COUNTER		20
+#define	AVR_COUNTER		15  //20
 #define	VLOTAGE25		512
 
 
@@ -139,6 +139,7 @@ unsigned int 	Analog_Data[AVR_COUNTER][16];
 unsigned int 	BefVoltage=0;
 
 unsigned long 	AvrCntSum,x_AvrCntSum;
+
 
 
 
@@ -190,13 +191,11 @@ int   __attribute__((section(".usercode"))) VlotageReturn(unsigned int ch)
 			AvrCntSum=(AvrCntSum + x_AvrCntSum);
 		}
 
-		AvrCntSum=(AvrCntSum * 100);
+
+		AvrCntSum=(AvrCntSum * 1000);
 		AvrCntSum=(AvrCntSum/AVR_COUNTER);
-		AvrCntSum=(unsigned int)(AvrCntSum / 203);
-	
-		if(AvrCntSum > 2) 	AvrCntSum=(AvrCntSum + 3);
-		else				AvrCntSum=0;
-		
+		AvrCntSum=(unsigned int)(AvrCntSum / 203);	
+		AvrCntSum=(AvrCntSum/10);
 		i=(unsigned int)(AvrCntSum);
 	}
 
